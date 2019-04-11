@@ -1,0 +1,19 @@
+package testifppi;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import checkifpairpairimpair.CheckIfPPI;
+
+class TestIfPPI {
+	
+	CheckIfPPI check = new CheckIfPPI();
+
+	@Test
+	public final void testIfPPI() {
+		
+		assert
+	}
+
+}

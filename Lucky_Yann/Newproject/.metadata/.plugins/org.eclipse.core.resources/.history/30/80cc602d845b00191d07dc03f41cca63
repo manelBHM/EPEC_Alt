@@ -1,0 +1,15 @@
+package checkifpair;
+
+public class CheckIfPair {
+
+	public boolean checkIfPair(int number) {
+
+		int n = 2;
+		
+		boolean res = false;
+		if(number % n == 0) {res = true;}
+		else {res = false;}
+		return res;
+	}
+
+}

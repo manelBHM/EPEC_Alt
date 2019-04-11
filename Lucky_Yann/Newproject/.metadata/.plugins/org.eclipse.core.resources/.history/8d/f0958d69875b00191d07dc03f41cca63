@@ -1,0 +1,35 @@
+package testifpair;
+
+import junit.framework.TestCase;
+import org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.*;
+
+import org.junit.jupiter.api.Test;
+
+import checkifpair.CheckIfPair;
+
+class TestIfPair {
+
+	CheckIfPair check = new CheckIfPair();
+	
+	@Test
+	public final void Testpair(boolean c) {
+		
+		if(c == false)
+		{
+			System.out.println("ce nombre est impair ");
+		}
+		
+		else
+		{
+			assertEquals(false, check.checkIfPair(-3));
+		}
+		
+	}
+
+	
+
+}
