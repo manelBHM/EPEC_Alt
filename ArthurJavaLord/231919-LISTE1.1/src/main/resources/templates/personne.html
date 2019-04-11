@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>PERSONNES</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="css/font/webfontkit/stylesheet.css" type="text/css"/>
+
+</head>
+<body>
+	<br>
+	<div class="row one">
+		<div class="col-md-6">
+			<div class="container spacer ">
+				<form th:action="@{index}" method="get">
+					<div class="form-group">
+						<label>Chercher par nom :</label> <input type="text" name="motCle"
+							th:value="${motCle}">
+						<button type="submit" class="btn btn-secondary">GO!</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div>
+				<a class="btn btn-secondary" th:href="@{form}">Créer
+					une nouvelle personne</a>
+			</div>
+		</div>
+		<div id="div_horloge"
+			class="col-md-3 d-inline p-2 col-md-1"></div>
+	</div>
+
+
+
+
+	<div class="table-responsive-sm">
+		<table class="table table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th>#</th>
+					<th>Prenom</th>
+					<th>Nom</th>
+					<th>Age</th>
+					<th>Version</th>
+					<th>Options</th>
+					<!-- 				<th>Modifier</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p:${liste.content}">
+					<td th:text="${p.id}"></td>
+					<td th:text="${p.prenom}"></td>
+					<td th:text="${p.nom}"></td>
+					<td th:text="${p.age}"></td>
+					<td th:text="${p.version}"></td>
+					<!-- 				<td><a -->
+					<!-- 					onclick="return confirm('Êtes vous sur de vouloir supprimer?');" -->
+					<!-- 					th:href="@{supprimer(id=${p.id})}">SUPRRIMER</a></td> -->
+					<!-- 				<td><a th:href="@{modifier(id=${p.id})}">MODIFIER</a></td> -->
+					<td>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button"
+								id="dropdownMenuButton" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">Options</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a
+									onclick="return confirm('Êtes vous sur de vouloir supprimer la personne ?')"
+									class="dropdown-item alert-link"
+									th:href="@{supprimer(id=${p.id})}">Supprimer</a> <a
+									class="dropdown-item" th:href="@{modifier(id=${p.id})}">Modifier</a>
+
+							</div>
+
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="container">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination">
+				<li aria-current="page" class="page-item"
+					th:class="${page==pageCourante}? active: ''" th:each="p:${pages}"><a
+					class="page-link" th:text="${p}"
+					th:href="@{index(page=${p},motCle=${motCle})}"></a></li>
+			</ul>
+		</nav>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
