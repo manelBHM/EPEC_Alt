@@ -1,0 +1,11 @@
+package checkifpairpairimpair;
+
+public class CheckIfPPI {
+
+	public static boolean checkIfPairPairImpair(int number1, int number2, int number3) {
+
+		if(number1 % 2 == 0 & number2 % 2 == 0 & number3 % 1)
+		
+		return false;
+	}
+}

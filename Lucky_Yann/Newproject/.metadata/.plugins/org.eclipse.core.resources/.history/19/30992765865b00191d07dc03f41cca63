@@ -1,0 +1,24 @@
+package testifpair;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Assert.*;
+import org.junit.*;
+
+import org.junit.jupiter.api.Test;
+
+import checkifpair.CheckIfPair;
+
+class TestIfPair {
+
+	CheckIfPair check = new CheckIfPair();
+	
+	@Test
+	public final void Testpair(boolean c) {
+		
+		c = assertEquals(false, check.checkIfPair(-3));
+		
+		assertEquals(true, check.checkIfPair(3));
+	}
+	
+
+}

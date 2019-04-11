@@ -1,0 +1,8 @@
+package alternance.fizzbuzz;
+
+public class FizzBuzz {
+
+	int Min,Max;
+	
+	int nombreAleatoire = Min + (int)(Math.random() * ((Max - Min) + 1));
+}

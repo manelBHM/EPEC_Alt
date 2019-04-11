@@ -1,0 +1,14 @@
+package testifsumispair;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestIfSumIsPair {
+
+	@Test
+	void testifsumispair() {
+		
+	}
+
+}

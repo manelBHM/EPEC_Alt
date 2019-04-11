@@ -1,0 +1,33 @@
+package alternance.fizzbuzz;
+
+public class FizzBuzz {
+
+	
+	public String nmbrAleatoir(int number)
+	{
+		 
+		String str = "";
+		
+		if(nombreAleatoire % 3 == 0)
+			
+		str = number + " Fizz ";
+		
+		else if (nombreAleatoire % 5 == 0) 
+			
+			str = number + " Buzz ";
+		
+		else if (nombreAleatoire % 3 == 0 && nombreAleatoire % 5 == 0)
+			
+			str = number + " Fizz Buzz ";
+		
+		return str;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+}
