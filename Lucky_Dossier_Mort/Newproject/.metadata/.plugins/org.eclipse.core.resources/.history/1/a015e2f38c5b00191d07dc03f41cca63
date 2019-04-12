@@ -1,0 +1,13 @@
+package checkifallelementispair;
+
+public class CheckIfAllEltsIsPair {
+
+	public static boolean checkIfAllElementsPair(int[] array) 
+	
+	{
+		boolean res = false;
+
+		return false;
+
+	}
+}

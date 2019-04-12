@@ -1,0 +1,22 @@
+package alternance.fizzbuzz;
+
+import java.util.Scanner;
+
+public class Run {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc = new Scanner(System.in);
+
+		FizzBuzz number = new FizzBuzz();
+		
+		int n = sc.nextInt();
+		System.out.println("Entrez un nombre");
+		number.nmbrAleatoir(n);
+		
+		
+	
+	}
+
+}

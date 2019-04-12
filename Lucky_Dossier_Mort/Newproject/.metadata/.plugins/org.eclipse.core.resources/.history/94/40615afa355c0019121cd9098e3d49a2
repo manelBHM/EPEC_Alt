@@ -1,0 +1,21 @@
+package alternance.fizzbuzz;
+
+public class FizzBuzz {
+
+	
+	
+	public int nmbrAleatoir(int Min, int Max)
+	{
+		int nombreAleatoire = Min + (int)(Math.random() * ((Max - Min) + 1));
+		
+		return nombreAleatoire;
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+}

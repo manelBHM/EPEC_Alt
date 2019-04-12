@@ -1,0 +1,10 @@
+package checkifpair;
+
+public class CheckIfPair {
+
+	public static boolean checkIfPair(int number) {
+
+		return false;
+	}
+
+}
