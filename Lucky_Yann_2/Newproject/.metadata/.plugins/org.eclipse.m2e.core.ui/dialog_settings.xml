@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="/home/simplonco/new_workspace/Newproject"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item value="All Catalogs" key="catalog"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="/home/simplonco/new_workspace/"/>
+			<item value="/home/simplonco/new_workspace"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="EPEC.FiizzBuzz"/>
+			<item value="ALTERNANCE.EPEC.FizzBuzzApp"/>
+			<item value="ALTERNANCE.EPEC.FizzBuzz"/>
+			<item value="CPRO_EPEC.Alternant"/>
+			<item value="my.TestUnitaire"/>
+			<item value="Hello.TestUnitaire"/>
+			<item value="hello.Testunitaire"/>
+			<item value="hello.maverick"/>
+			<item value="hello.aaaaa"/>
+			<item value="hello.TestUnit"/>
+			<item value="ex.TestUnitaire"/>
+			<item value="ex.Testunitaire"/>
+			<item value="test.unit"/>
+			<item value="test.Unitaire"/>
+			<item value="hello.TestUnitaire"/>
+		</list>
+		<list key="groupId">
+			<item value="EPEC"/>
+			<item value="ALTERNANCE.EPEC"/>
+			<item value="CAMPUS_EPEC"/>
+			<item value="my"/>
+			<item value="Hello"/>
+			<item value="hello"/>
+			<item value="ex"/>
+			<item value="test"/>
+		</list>
+		<list key="artifactId">
+			<item value="FiizzBuzz"/>
+			<item value="FizzBuzzApp"/>
+			<item value="FizzBuzz"/>
+			<item value="Alternant"/>
+			<item value="TestUnitaire"/>
+			<item value="Testunitaire"/>
+			<item value="maverick"/>
+			<item value="aaaaa"/>
+			<item value="TestUnit"/>
+			<item value="unit"/>
+			<item value="Unitaire"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

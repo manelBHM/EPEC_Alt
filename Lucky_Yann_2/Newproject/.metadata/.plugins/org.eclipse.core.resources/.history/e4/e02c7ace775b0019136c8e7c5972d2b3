@@ -1,0 +1,8 @@
+package my.TestUnitaire;
+
+import junit.framework.TestCase;
+import org.junit.Assert.*;
+
+public class TestClass extends TestCase {
+
+}

@@ -1,0 +1,16 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.recommenders.calls.rcp.proposalCategory.templates\u0000org.eclipse.mylyn.java.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.recommenders.chain.rcp.proposalCategory.chain\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="co.alternance.Maison"><rhs name\="co.alternance.Maison"/></lhs><lhs name\="com.exemple.OperationMath"><rhs name\="com.exemple.OperationMath"/></lhs><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.StringBuilder"/></lhs><lhs name\="java.lang.AbstractStringBuilder"><rhs name\="java.lang.StringBuilder"/></lhs><lhs name\="java.lang.Appendable"><rhs name\="java.lang.StringBuilder"/></lhs><lhs name\="com.exemple.Renverse"><rhs name\="com.exemple.Renverse"/></lhs><lhs name\="my.TestUnitaire.Calculator"><rhs name\="my.TestUnitaire.Calculator"/></lhs><lhs name\="checkifpair.CheckIfPair"><rhs name\="checkifpair.CheckIfPair"/></lhs><lhs name\="checkifpairpairimpair.CheckIfPPI"><rhs name\="checkifpairpairimpair.CheckIfPPI"/></lhs><lhs name\="checkifsumispair.CheckIfSumIsPair"><rhs name\="checkifsumispair.CheckIfSumIsPair"/></lhs><lhs name\="checkifallelementispair.CheckIfAllEltsIsPair"><rhs name\="checkifallelementispair.CheckIfAllEltsIsPair"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/><rhs name\="java.util.HashSet"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/><rhs name\="java.util.HashSet"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Set"><rhs name\="java.util.HashSet"/></lhs><lhs name\="checksitupeuxacheter.CheckSiTuPeuxAcheter"><rhs name\="checksitupeuxacheter.CheckSiTuPeuxAcheter"/></lhs><lhs name\="cpro.alternant.Alternant"><rhs name\="cpro.alternant.Alternant"/></lhs><lhs name\="cpro.alternant.Dao"><rhs name\="cpro.alternant.Dao"/></lhs><lhs name\="alternance.fizzbuzz.FizzBuzz"><rhs name\="alternance.fizzbuzz.FizzBuzz"/></lhs><lhs name\="EPEC.FiizzBuzz.FizzBuzz"><rhs name\="EPEC.FiizzBuzz.FizzBuzz"/></lhs></history>
+content_assist_number_of_computers=26
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=14
+org.eclipse.jdt.ui.text.code_templates_migrated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.templates_migrated=true
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,14 @@
+package testsitupeuxacheter;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestSiTuPeuxAcheter {
+
+	@Test
+	void test() {
+		
+	}
+
+}
