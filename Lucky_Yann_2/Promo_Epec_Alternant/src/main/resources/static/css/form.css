@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#legende {
+	text-align: center;
+	margin: 0 auto;
+	width: 80%;
+	height: 80px;
+	line-height: 55px;
+	background: black;
+	font-size: 20px;
+	color: white;
+	border-bottom: 10px inset darkblue;
+	border-top: 10px ridge darkblue;
+}
+
+#item {
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	width: 80%;
+	height: auto;
+	font-size: 40px;
+	background: black;
+	border-bottom: 10px inset darkblue;
+	border-top: 10px ridge darkblue;
+}
+
+#item .items a {
+	text-decoration: none;
+	color: white !important;
+}
+
+#presentation {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border: 10px inset crimson;
+	border-radius: 5px;
+	margin: 0 0 50px 0;
+	background-image: url("http://blog.univ-angers.fr/taffuquentin/files/2016/03/cropped-maxresdefault.jpg");
+}
+
+#presentation h1 {
+	color: whitesmoke !important;
+	line-height: 200px
+}
+
+form {
+	margin: 2% 0 0 35%;
+}
+
+form label {
+	margin-right: 200px;
+	font-size: 25px;
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+	width: 50%
+}
+
+#firstSection {
+	margin-bottom: 50px
+}
+
+
+.items a:hover {
+	background: darkgreen;
+	color: white!important;
+	padding: 5px;
+	transition: 1s ease;
+}
