@@ -1,7 +1,0 @@
-package cpro.alternant;
-
-public class Alternant {
-
-	private String nom, prenom, naissance, img;
-	
-}
