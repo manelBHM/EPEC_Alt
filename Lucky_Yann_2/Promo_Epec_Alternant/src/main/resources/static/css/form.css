@@ -7,7 +7,7 @@ body {
 #legende {
 	text-align: center;
 	margin: 0 auto;
-	width: 80%;
+	width: 60%;
 	height: 80px;
 	line-height: 55px;
 	background: black;
@@ -21,7 +21,7 @@ body {
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-around;
-	width: 80%;
+	width: 60%;
 	height: auto;
 	font-size: 40px;
 	background: black;
@@ -41,7 +41,8 @@ body {
 	border: 10px inset crimson;
 	border-radius: 5px;
 	margin: 0 0 50px 0;
-	background-image: url("http://blog.univ-angers.fr/taffuquentin/files/2016/03/cropped-maxresdefault.jpg");
+	background-image:
+		url("http://blog.univ-angers.fr/taffuquentin/files/2016/03/cropped-maxresdefault.jpg");
 }
 
 #presentation h1 {
@@ -56,6 +57,8 @@ form {
 form label {
 	margin-right: 200px;
 	font-size: 25px;
+	color: whitesmoke;
+	font-weight: bold;
 }
 
 form div {
@@ -68,10 +71,20 @@ form div {
 	margin-bottom: 50px
 }
 
-
 .items a:hover {
 	background: darkgreen;
-	color: white!important;
+	color: white !important;
 	padding: 5px;
 	transition: 1s ease;
+}
+
+#formContainer {
+	margin: 0 auto;
+	width: 60%;
+	height: 600px;
+	background-image:
+		url("https://www.sekurigi.com/wp-content/uploads/2017/08/La-s%C3%A9curit%C3%A9-informatique-en-2017-que-pourrait-il-nous-arriver-et-quelles-sont-les-mesures-en-place%E2%80%89.jpg");
+		background-repeat: no-repeat;
+	padding-top: 50px
+	
 }

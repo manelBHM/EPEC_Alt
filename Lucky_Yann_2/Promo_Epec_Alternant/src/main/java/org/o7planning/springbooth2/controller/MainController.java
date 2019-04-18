@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
+	
+	Person p = new Person();
 
 	@Autowired
 	private PersonDAO personDAO;
@@ -43,14 +45,13 @@ public class MainController {
 
 
 
-
+	
+	
 	@PostMapping("/addalternant")
 
 	public String saveAlternant(Model m, @RequestParam(name="firstname", required = false) String firstname, @RequestParam(name="lastname", required = false) String lastname, @RequestParam(name="entreprise", required = false) String entreprise, @RequestParam(name="actif", required = false) String actif)
 
 	{	
-		Person p = new Person();
-
 		p.setFirstname(firstname);
 		p.setLastname(lastname);
 		p.setEntreprise(entreprise);
