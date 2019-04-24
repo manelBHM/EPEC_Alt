@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: #FEFEE2;
+}
+
+
+#presentation {
+	width: 100%;
+	height: 300px;
+	text-align: center;
+	border: 10px inset crimson;
+	border-radius: 5px;
+	margin: 0 0 50px 0;
+	background-image:
+		url("http://blog.univ-angers.fr/taffuquentin/files/2016/03/cropped-maxresdefault.jpg");
+}
+
+
+#legende {
+	margin: 0 auto;
+	width: 95%;
+	height: 80px;
+	line-height: 55px;
+	background: black;
+	font-size: 20px;
+	color: white;
+	border-bottom: 10px inset darkblue;
+	border-top: 10px ridge darkblue;
+}
+
+#item {
+	margin: 0 auto;
+	display: flex;
+	text-align: center; padding : 10px; justify-content : space-between;
+	width : 95%;
+	height: auto;
+	font-size: 40px;
+	background: black;
+	border-bottom: 10px inset whitesmoke;
+	border-top: 10px inset darkblue;
+	width: 95%;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+#item .items a {
+	text-decoration: none;
+	color: white;
+}
+
+.items a:hover {
+	background: darkgreen;
+	color: white !important;
+	padding: 5px;
+	transition: 1s ease;
+}
+
+#imageSimplon {
+	margin: 0 auto;
+	width: 90%;
+	height: 200px; 
+	display : flex;
+	justify-content: space-between;
+}
+
+.content {
+	width: 20%;
+}
+
+
+#imageSimplon .three {
+	background-image:
+		url("https://i2.wp.com/www.tvmestparisien.tv/web2/wp-content/uploads/2015/03/bbcd5659-703e-46bc-8619-6227165869d7-1.png?fit=402%2C210");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#imageSimplon .one {
+	height : 150px!important;
+	background-image:
+		url("https://www.placegrenet.fr/wp-content/uploads/2018/11/Simplon-Grenoble-DR.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#imageSimplon .two h1 {
+	text-align: center;
+	line-height: 150px
+}
+
+
+.hit {
+	margin: 0 auto;
+	width: 85%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

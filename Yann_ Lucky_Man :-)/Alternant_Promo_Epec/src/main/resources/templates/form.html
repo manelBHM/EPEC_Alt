@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulaire promo-epec SIMPLON IDF</title>
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700"
+	rel="stylesheet">
+
+</head>
+<body>
+
+
+
+	<div id="presentation">
+		
+	</div>
+	
+	
+	<div id="imageSimplon">
+
+<div class="one content">
+
+</div>
+
+
+<div class="two">
+<h1>PROMO EPEC CAMPUS SIMPLON IDF</h1>
+</div>
+
+
+
+<div class="three content">
+
+</div>
+
+</div>
+
+
+
+	<section id="firstSection">
+
+		<article class="firstArticle">
+
+			<div id="item">
+
+				<div class="items">
+					<a th:href="@{http://localhost:8081/}"><i class="fas fa-home"></i></a>
+				</div>
+				
+				<div class="items">
+					<a th:href="@{http://localhost:8081/display}">Display</a>
+				</div>
+
+				<div class="items">
+					<a th:href="@{http://localhost:8081/formulaire}">Formulaire</a>
+				</div>
+
+			</div>
+
+
+
+			<div id="legende">Formulaire pour s'ajouter aux tableaux des
+				alternants de la promo epec-simplon-idf</div>
+
+
+
+
+			<div id="formContainer">
+				<form th:action="@{/addalternant}" method="post">
+
+					<div>
+						<label for="firstname">Nom:</label> <input type="text"
+							name="firstname" id="firstname" placeholder="ex: toto" />
+					</div>
+
+					<div>
+						<label for="lastname">Prenom:</label> <input type="text"
+							id="lastname" name="lastname" placeholder="ex: toto">
+					</div>
+
+
+					<div>
+						<label for="entreprise">Entreprise:</label> <input type="text"
+							id="entreprise" name="entreprise" placeholder="ex: Cap-Gemini">
+					</div>
+
+
+
+					<div>
+						<label for="annee">Année:</label> <input type="text"
+							id="annee" name="annee" placeholder="ex: 2019 - 2020">
+					</div>
+
+					<div>
+						<label for="actif">Actif:</label> <input type="text" id="actif"
+							name="actif" placeholder="Oui / Non">
+					</div>
+
+
+					<br>
+
+					<div>
+						<button class="btn btn-outline-primary btn-lg" id="myBtn">Submit</button>
+					</div>
+
+
+				</form>
+			</div>
+
+
+
+
+
+		</article>
+	</section>
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

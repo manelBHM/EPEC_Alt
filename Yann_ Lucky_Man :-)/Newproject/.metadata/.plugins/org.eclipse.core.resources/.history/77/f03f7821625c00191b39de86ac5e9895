@@ -1,0 +1,28 @@
+package test.fizzbuzz;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import EPEC.FiizzBuzz.FizzBuzz;
+import junit.framework.TestCase;
+
+import static org.junit.Assert.*;
+
+public class TestFizBuz extends TestCase {
+
+	FizzBuzz f = new FizzBuzz();
+
+
+	@Test
+	public void testApp() 
+	{
+		assertEquals("Fizz", f.nmbrAleatoir(9));
+		assertEquals("Buzz", f.nmbrAleatoir(5));
+		assertEquals("FizzBuzz", f.nmbrAleatoir(45));
+		;
+			 
+			}
+	}
+	 

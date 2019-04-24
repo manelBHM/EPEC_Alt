@@ -1,0 +1,44 @@
+package EPEC.FiizzBuzz;
+
+public class FizzBuzz {
+
+
+	public String nmbrAleatoir(int number) throws IllegalArgumentException
+	{
+		String str = "";
+		
+		
+		try {
+			
+			if(number<=0) {
+				
+			throw new IllegalArgumentException("NOGOOD");}
+				    
+			else if (number % 3 == 0 && number % 5 == 0)
+			{	
+						str = "FizzBuzz";
+			}
+			
+			  else if(number % 3 == 0)
+						
+			  {	str = "Fizz";
+					
+			  }
+			  else if (number % 5 == 0) 
+			  {		
+						str = "Buzz";
+			  }
+					else 
+					{
+						str = number + " ";
+					}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+
+	
+		return str;
+	}
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CAMPUS SIMPLON IDF PROMOTION EPEC</title>
+
+
+
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/display.css}" />
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700" rel="stylesheet"> 
+
+</head>
+
+<body>
+
+
+	<div id="presentation">
+	</div>
+	
+	<div id="imageSimplon">
+
+
+
+<div class="one content">
+
+</div>
+
+
+<div class="two">
+<h1>PROMO EPEC CAMPUS SIMPLON IDF</h1>
+</div>
+
+
+
+<div class="three content">
+
+</div>
+
+</div>
+	
+
+
+	<section id="firstSection">
+
+		<article>
+
+			<div id="item">
+
+
+				<div class="items">
+					<a th:href="@{http://localhost:8081/}"><i class="fas fa-home"></i></a>
+				</div>
+				
+				<div class="items">
+					<a th:href="@{http://localhost:8081/display}">Display</a>
+				</div>
+
+				<div class="items">
+					<a th:href="@{http://localhost:8081/formulaire}">Formulaire</a>
+				</div>
+
+			</div>
+
+
+			<div id="legende">Tableau des alternants de la promo
+				epec-simplon-idf
+				</div>
+
+
+			<div id="mytab">
+
+				<table>
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>Entreprise</th>
+							<th>Année</th>
+							<th>Actif</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="a : ${person}">
+							<td th:text="${a.getNom()}" />
+							<td th:text="${a.getPrenom()}" />
+							<td th:text="${a.getEntreprise()}" />
+							<td th:text="${a.getAnnee()}" />
+							<td th:text="${a.getActif()}" />
+						</tr>
+
+					</tbody>
+
+				</table>
+			</div>
+
+		</article>
+
+	</section>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
