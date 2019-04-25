@@ -1,5 +1,7 @@
 package org.o7planning.springbooth2.entity;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 @Table(name="alternant")
 public class Person {
-	
+
 	private String nom,prenom,entreprise,annee,actif;
 	private Integer id;
-	
-	
+
+
 	@Id
 	@GeneratedValue
 	public Integer getId() {
@@ -73,7 +75,4 @@ public class Person {
 	public void setActif(String actif) {
 		this.actif = actif;
 	}
-
-
-	
 }

@@ -87,22 +87,36 @@
 				<table>
 					<thead>
 						<tr>
+						   <th>ID</th>
 							<th>Nom</th>
 							<th>Prénom</th>
 							<th>Entreprise</th>
 							<th>Année</th>
 							<th>Actif</th>
+							<th>Action</th>
 
 						</tr>
 					</thead>
 
 					<tbody>
 						<tr th:each="a : ${person}">
+						    <td th:text="${a.getId()}"/>
 							<td th:text="${a.getNom()}" />
 							<td th:text="${a.getPrenom()}" />
 							<td th:text="${a.getEntreprise()}" />
 							<td th:text="${a.getAnnee()}" />
 							<td th:text="${a.getActif()}" />
+							<td>
+						
+	<button class="btn btn-danger btn-lg">
+						
+						<a th:href="@{http://localhost:8081/alternant/delete/{id}(id=${a.getId()})}" onclick="return confirm('Are you sure?')"/>
+						Delete</button>
+		
+							
+							</td>
+						
+							
 						</tr>
 
 					</tbody>
