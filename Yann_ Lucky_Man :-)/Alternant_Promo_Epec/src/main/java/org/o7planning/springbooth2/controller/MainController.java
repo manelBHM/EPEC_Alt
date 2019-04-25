@@ -68,6 +68,7 @@ public class MainController {
 		Iterable<Person> all = personDAO.findAll();
 
 		model.addAttribute("person", all);
+		
 		return "display";
 	}
 
@@ -94,11 +95,12 @@ public class MainController {
 	
 	
 	// DELETE ALTERNANT BY ID //
-	@ResponseBody
-	@RequestMapping(value = "/alternant/delete/{id}", method = RequestMethod.GET)
-	public void deleteAlternant(@PathVariable Integer id)
+	@GetMapping("/alternant/delete/{id}")
+	public String deleteAlternant(@PathVariable Integer id, Model model)
 	{
 		personDAO.deleteById(id);
+		
+		return display(model);
 	}
 
 
