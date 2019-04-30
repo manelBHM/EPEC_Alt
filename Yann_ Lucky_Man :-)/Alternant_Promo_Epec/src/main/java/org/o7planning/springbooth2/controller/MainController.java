@@ -5,6 +5,8 @@ import java.util.*;
 import org.o7planning.springbooth2.dao.PersonDAO;
 import org.o7planning.springbooth2.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@RequestMapping("/api/v1/")
 public class MainController {
 
 
@@ -22,7 +25,7 @@ public class MainController {
 
 	// HOME URL //
 	
-	@GetMapping("/")
+	@GetMapping("/acceuil")
 	public String home()
 	{
 		return "index";
@@ -60,14 +63,14 @@ public class MainController {
 		return "form";
 	}
 	
+	
+	
 	// DISPLAY ALTERNANT URL//
 	
-	@GetMapping("/display")
+	@GetMapping("/displayalternant")
 	public String display(Model model)
 	{
-		Iterable<Person> all = personDAO.findAll();
-
-		model.addAttribute("person", all);
+		model.addAttribute("person", personDAO.findAll());
 		
 		return "display";
 	}
@@ -80,6 +83,7 @@ public class MainController {
 	public List<Person> getAlternant()
 	{
 		Iterable<Person> all = personDAO.findAll();
+		
 		return (List<Person>) all;
 	}
 
@@ -95,7 +99,7 @@ public class MainController {
 	
 	
 	// DELETE ALTERNANT BY ID //
-	@GetMapping("/alternant/delete/{id}")
+	@GetMapping("delete/alternant/{id}")
 	public String deleteAlternant(@PathVariable Integer id, Model model)
 	{
 		personDAO.deleteById(id);
@@ -103,26 +107,34 @@ public class MainController {
 		return display(model);
 	}
 
+	
+	
+	// UPDATE ALTERNANT BY ID //
+	@GetMapping("/alternant/update/{id}")
+	public String updateAlternant(@PathVariable Integer id, Person details, Model model)
+	{	
+		return "form";
+	}
 
+	
 	
 	
 	// POST IN MY DATABASE MYSQL //
 	
 	@PostMapping("/addalternant")
 
-	public String saveAlternant(Model model, @RequestParam(name="firstname", required = false) String nom, @RequestParam(name="lastname", required = false) String prenom, @RequestParam(name="entreprise", required = false) String entreprise, @RequestParam(name="annee", required = false) String annee, @RequestParam(name="actif", required = false) String actif)
+	public String saveAlternant(Model model, Person person, @RequestParam(name="firstname", required = false) String nom, @RequestParam(name="lastname", required = false) String prenom, @RequestParam(name="entreprise", required = false) String entreprise, @RequestParam(name="annee", required = false) String annee, @RequestParam(name="promo", required = false) String promo)
 
 	{
 
 		try {
-
-			Person p = new Person();
-			p.setNom(nom);
-			p.setPrenom(prenom);
-			p.setAnnee(annee);
-			p.setEntreprise(entreprise);
-			p.setActif(actif);
-			personDAO.save(p);
+			person.setNom(nom);
+			person.setPrenom(prenom);
+			person.setAnnee(annee);
+			person.setEntreprise(entreprise);
+			person.setPromo(promo);
+			
+			personDAO.save(person);
 
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name="alternant")
 public class Person {
 
-	private String nom,prenom,entreprise,annee,actif;
+	private String nom,prenom,entreprise,annee,promo;
 	private Integer id;
 
 
@@ -67,12 +67,14 @@ public class Person {
 	}
 
 
-	public String getActif() {
-		return actif;
+	public String getPromo() {
+		return promo;
 	}
 
 
-	public void setActif(String actif) {
-		this.actif = actif;
+	public void setPromo(String promo) {
+		this.promo = promo;
 	}
+
+
 }
