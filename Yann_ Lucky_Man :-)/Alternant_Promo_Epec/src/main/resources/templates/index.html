@@ -30,26 +30,40 @@
 
 <body id="accueil">
 
+<nav class="navbar fixed-top navbar-expand-lg  bg-dark">
+<a title="Accedez au site du campus simplon idf" href="https://simplon.co/assistant-resp-campus-idf/" target="blank">
+ <img alt="Logo de simplon co" src="https://simplon.co/wp-content/uploads/2019/03/logo.png">
+</a>
+<div>
+  <a class="navbar-brand" href="https://simplon.co/assistant-resp-campus-idf/" target="blank">Campus simplon idf</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</div>  
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+   
+      <a th:href="@{http://localhost:8081/api/v1/acceuil}" class="nav-item nav-link active"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+      
+			
+    <a th:href="@{http://localhost:8081/api/v1/displayalternant}" class="nav-item nav-link">Display</a>
+      
+      
+      <a th:href="@{http://localhost:8081/api/v1/formulaire}" class="nav-item nav-link">Formulaire</a>
+   
+    </div>
+  </div>
+</nav>
+
+
+
 
 	<div id="presentation"></div>
 
 
-	<div id="imageSimplon">
 
-
-
-		<div class="one content"></div>
-
-
-		<div class="two">
-			<h1>PROMO EPEC CAMPUS SIMPLON IDF</h1>
-		</div>
-
-
-
-		<div class="three content"></div>
-
-	</div>
+			<h1>WELCOME TO CAMPUS SIMPLON IDF</h1>
+		
 
 
 
@@ -58,23 +72,6 @@
 		<article>
 
 
-			<div id="item">
-
-
-				<div class="items">
-					<a th:href="@{http://localhost:8081/api/v1/acceuil}"><i
-						class="fas fa-home"></i></a>
-				</div>
-
-				<div class="items">
-					<a th:href="@{http://localhost:8081/api/v1/displayalternant}">Display</a>
-				</div>
-
-				<div class="items">
-					<a th:href="@{http://localhost:8081/api/v1/formulaire}">Formulaire</a>
-				</div>
-
-			</div>
 			<div class="items hit">"Sed ut perspiciatis unde omnis iste
 				natus error sit voluptatem accusantium doloremque laudantium totam
 				rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi

@@ -28,30 +28,44 @@
 
 <body id="accueil">
 
+<nav class="navbar fixed-top navbar-expand-lg  bg-dark">
+<a title="Accedez au site du campus simplon idf" href="#accueil">
+ <img alt="Logo de simplon co" src="https://simplon.co/wp-content/uploads/2019/03/logo.png">
+</a>
+<div>
+  <a class="navbar-brand" href="https://simplon.co/assistant-resp-campus-idf/" target="blank">Campus simplon idf</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</div>  
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+    
+      <a th:href="@{http://localhost:8081/api/v1/acceuil}" class="nav-item nav-link active"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+      
+			
+    <a th:href="@{http://localhost:8081/api/v1/displayalternant}" class="nav-item nav-link">Display</a>
+      
+      
+      <a th:href="@{http://localhost:8081/api/v1/formulaire}" class="nav-item nav-link">Formulaire</a>
+   
+    </div>
+  </div>
+</nav>
 
-	<div id="presentation">
-	</div>
+
+	<div id="presentation"></div>
 	
-	<div id="imageSimplon">
+	
 
 
 
-<div class="one content">
 
-</div>
-
-
-<div class="two">
-<h1>PROMO EPEC CAMPUS SIMPLON IDF</h1>
-</div>
+<h1>WELCOME TO CAMPUS SIMPLON IDF</h1>
 
 
 
-<div class="three content">
 
-</div>
-
-</div>
 	
 
 
@@ -59,28 +73,10 @@
 
 		<article>
 
-			
-			<div id="item">
-
-
-				<div class="items">
-					<a th:href="@{http://localhost:8081/api/v1/acceuil}"><i class="fas fa-home"></i></a>
-				</div>
-				
-				<div class="items">
-					<a th:href="@{http://localhost:8081/api/v1/displayalternant}">Display</a>
-				</div>
-
-				<div class="items">
-					<a th:href="@{http://localhost:8081/api/v1/formulaire}">Formulaire</a>
-				</div>
-
-			</div>
-
 
 			<div id="legende">
 			
-			<h2>Liste des alternants du campus simplon idf</h2>
+			<h2>Tableaux des alternants du campus simplon idf</h2>
 		
 				</div>
 
@@ -113,11 +109,11 @@
 						
 	<button class="btn btn-danger btn-lg">
 						
-		<a th:href="@{http://localhost:8081/api/v1/delete/alternant/{id}(id=${a.getId()})}" onclick="return confirm(' Are you sure ? ')"/>
+		<a th:href="@{http://localhost:8081/api/v1/delete/alternant/{id}(id=${a.getId()})}" onclick="return confirm(' vous confirmez la suppression ? ')"/>
 						Delete</button>
 						
 						<button class="btn btn-success btn-lg">
-						<a th:href="@{http://localhost:8081/api/v1/update/alternant/{id}(id=${a.getId()})}" onclick="return confirm(' Are you sure ? ')"/>
+						<a th:href="@{http://localhost:8081/api/v1/update/alternant/{id}(id=${a.getId()})}"/>
 						Update</button>
 		
 							

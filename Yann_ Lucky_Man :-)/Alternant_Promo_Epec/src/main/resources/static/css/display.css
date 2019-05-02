@@ -4,64 +4,59 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	background: #FEFEE2;
 	position: relative;
-	z-index: 5;
 }
 
 
-#scroll {
-	width: 60px;
-	height: 60px;
-	border: 5px groove darkblue;
-	border-radius: 30px;
-	line-height: 60px; text-align : center;
-	background: black;
-	position: absolute;
-	right: 5px;
-	text-align: center;
+nav{
+	color: white!important;
+	font-size: 25px;
 }
 
 
+nav img{
+	max-height: 50px;
+	margin-right: 10px
+}
 
-#scroll a {
+nav a{
 	text-decoration: none;
-	color: white;
+	color : white
 }
 
-@keyframes monanim {
-	
-	
-	from { transform:translateY(0px);}
-
-50% {transform: translateY(-10px);}
-
-to {transform: translateY(0px);}
-
-
-
+nav>a:hover{
+	background: none!important;
+	color: none !important;
+	padding: none!important;
+	transition: none!important;
 }
 
-#scroll i {
-	font-size: 1.5rem;
-	z-index: 0;
-	animation : monanim 0.9s infinite;
+nav a:hover{
+	background: darkblue;
+	color: white !important;
+	transition: 0.9s ease-in;
 }
+
+
 
 #presentation {
 	width: 100%;
-	height: 418px;
-	text-align: center;
-	border: 10px ridge darkblue;
-	border-radius: 5px;
+	height: 500px;
 	margin: 0 0 50px 0;
-	background-image: url("http://blog.univ-angers.fr/taffuquentin/files/2016/03/cropped-maxresdefault.jpg");}
+	border: 30px groove darkblue;
+	border-bottom-left-radius : 10px;
+	border-bottom-right-radius : 10px;
+	background-image:
+		url("https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/51599164_2368838593172508_6312792448338755584_o.jpg?_nc_cat=111&_nc_ht=scontent-frt3-2.xx&oh=8b75d634d642f30b95fc31c2bb145193&oe=5D7370BB");
+	background-size: contain;
+}
+
 
 
 #mytab {
 	margin-bottom: 10px;
 }
 
-
-#mytab a{
+#mytab a {
 	text-decoration: none;
 	color: whitesmoke;
 }
@@ -89,13 +84,14 @@ table {
 	border-bottom: 10px inset maroon;
 }
 
+
 #legende {
 	margin: 0 auto;
 	text-align: center;
 	width: 95%;
 	height: auto;
-	background: black; 
-	color : white;
+	background: black;
+	color: white;
 	border-bottom: 10px inset darkblue;
 	border-top: 10px ridge darkblue;
 	text-transform: uppercase;
@@ -103,72 +99,15 @@ table {
 }
 
 
-#item {
-	margin: 0 auto;
-	display: flex; 
+ h1 {
 	text-align: center;
-	padding: 10px;
-	justify-content : space-between;
-	width : 95%;
-	height: auto;
-	font-size : 40px;
-	background: black;
-	border-bottom: 10px inset whitesmoke;
-	border-top: 10px inset darkblue;
-}
-
-#item .items a {
-	text-decoration: none;
-	color: white;
-}
-
-.items a:hover {
-	background: darkblue;
-	color: white!important;
-	padding: 5px;
-	transition: 1s ease;
+	margin: 0 0 50px 0;
+	text-decoration: underline;
+	color: darkblue;
 }
 
 
-
-#imageSimplon {
-	margin: 0 auto;
-	width: 90%;
-	height: 200px; 
-	display : flex;
-	justify-content: space-between;
-}
-
-.content {
-	width: 20%;
-}
-
-
-#imageSimplon .three {
-	background-image:
-		url("https://i2.wp.com/www.tvmestparisien.tv/web2/wp-content/uploads/2015/03/bbcd5659-703e-46bc-8619-6227165869d7-1.png?fit=402%2C210");
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-#imageSimplon .one {
-	height : 150px!important;
-	background-image:
-		url("https://www.placegrenet.fr/wp-content/uploads/2018/11/Simplon-Grenoble-DR.jpg");
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-#imageSimplon .two h1 {
-	text-align: center;
-	line-height: 150px
-}
-
-
-
-
-.hit
-{
+.hit {
 	margin: 0 auto;
 	width: 85%;
 	margin-top: 50px;
@@ -176,8 +115,37 @@ table {
 }
 
 
-h1
-{
+#scroll {
+	width: 60px;
+	height: 60px;
+	border: 5px groove darkblue;
+	border-radius: 30px;
+	line-height: 60px;
 	text-align: center;
-	margin: 0 0 50px 0;
+	background: black;
+	position: absolute;
+	right: 5px;
+	text-align: center;
+}
+
+
+#scroll a {
+	text-decoration: none;
+	color: white;
+}
+
+@keyframes monanim {
+	from { transform:translateY(0px);}
+
+50% {transform:translateY(-10px);}
+
+to {transform: translateY(0px);}
+
+}
+
+
+#scroll i {
+	font-size: 1.5rem;
+	z-index: 0;
+	animation: monanim 0.9s infinite;
 }
