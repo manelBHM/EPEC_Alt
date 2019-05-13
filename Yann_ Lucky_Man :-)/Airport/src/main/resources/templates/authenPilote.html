@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Lucky-Airport Login Pilote</title>
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/authenPilote.css}" />
+
+
+
+<!-- LIENS BOOTSTRAP CDN -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+
+<!-- Font Awesome Icons -->
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700"
+	rel="stylesheet">
+</head>
+<body>
+
+	<header>
+
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+			<a class="navbar-brand avatar"
+				th:href="@{http://localhost:9090/lucky/airport/}"
+				title="LOGO DE LUCKY AIRPORT">LUCKY AIRPORT</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarTogglerDemo02"
+				aria-controls="navbarTogglerDemo02" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+		
+		</nav>
+
+	</header>
+
+
+		<div id="presentation">
+	
+		<h1>welcome to pilote login</h1>
+	</div>
+
+
+<form th:action="@{/lucky/airport/home}" method="get">
+						
+							<div>
+								<label for="pilotelogin">Nom : </label> <input type="text" name="pilotelogin"
+									id="pilotelogin" placeholder="ex: stephane" />
+							</div>
+
+							<div>
+								<label for="pilotepswd">Password : </label> <input type="text" name="pilotepswd"
+									id="pilotepswd" placeholder="ex: 1234" />
+
+							</div>
+							<br>
+
+							<div>
+								<button class="btn btn-outline-primary btn-lg" id="myBtn">Submit</button>
+
+							</div>
+
+
+						</form>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Lucky-Airport Admin</title>
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/updateAvion.css}" />
+
+
+
+<!-- LIENS BOOTSTRAP CDN -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+
+<!-- Font Awesome Icons -->
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700"
+	rel="stylesheet">
+
+</head>
+
+<body>
+
+<section id="section-head">
+
+		<article class="conteneur-head">
+			<h1>
+				<a th:href="@{http://localhost:9090/lucky/airport/}"
+					title="LOGO DE LUCKY AIRPORT"> lucky airport </a>
+			</h1>
+
+		</article>
+
+	</section>
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+
+
+
+
+
+
+
+	<section id="section-navigation">
+
+
+		<article class="section-nav-item nav-anim-left">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i class="fas fa-home"></i></a>
+			</p>
+		</article>
+
+
+
+		<article class="section-nav-item nav-anim-left">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminpilote}">ADMIN-PILOTE</a>
+			</p>
+		</article>
+
+
+
+		<article class="section-nav-item nav-anim-right">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminavion}">ADMIN-AVION</a>
+			</p>
+		</article>
+
+
+		<article class="section-nav-item nav-anim-right">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminvol}">ADMIN-VOL</a>
+			</p>
+		</article>
+
+	</section>
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+
+	<div class="legende">
+
+		<p>administrator pilot update page</p>
+	</div>
+
+
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+	<section id="section-corps">
+
+
+
+		<article id="forme-update">
+					
+			<form th:action="@{/lucky/airport/saveavion/}" method="post">
+			
+			
+				<div>
+								<label for="id">ID : </label> 
+								<input type="text" name="id" th:value="${avion.getId()}"
+									id="id" placeholder="ex: 001" />
+
+							</div>
+							
+							
+
+				<div>
+					<label for="constructeur">Constructeur : </label> 
+					<input th:value="${avion.getConstructeur()}"
+						type="text" name="constructeur" id="constructeur"
+						placeholder="ex: AIRBUS" />
+				</div>
+
+				<div>
+					<label for="modele">Model : </label> 
+					<input type="text" th:value="${avion.getModele()}"
+						name="modele" id="modele" placeholder="ex: BK734" />
+
+				</div>
+
+
+				<div>
+					<label for="capacite">Capacite : </label> 
+					<input type="text" th:value="${avion.getCapacite()}"
+						name="capacite" id="capacite" placeholder="ex: 400" />
+
+				</div>
+
+
+				<div>
+					<label for="site">Site : </label>
+					 <input type="text" name="site" th:value="${avion.getSite()}"
+						id="site" placeholder="ex: PARIS" />
+
+				</div>
+				<br>
+
+				<div>
+					<button class="btn btn-outline-success btn-lg" id="myBtn">Submit</button>
+
+				</div>
+
+
+			</form>
+
+		</article>
+
+
+
+		<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+		<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+
+
+		<article id="data-table">
+
+
+			<table>
+				<thead>
+						<tr>
+						<th>CONSTRUCTEUR</th>
+						<th>MODEL</th>
+						<th>CAPACITE</th>
+						<th>SITE</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+
+				<tbody>
+						<tr th:each="a : ${avion}">
+						
+						<td th:text="${a.getConstructeur()}" />
+						<td th:text="${a.getModele()}" />
+						<td th:text="${a.getCapacite()}" />
+						<td th:text="${a.getSite()}" />
+						<td>
+							<button class="btn btn-danger btn-sm">
+
+								<a
+									th:href="@{http://localhost:9090/lucky/airport/delete/avion/(id=${a.getId()})}"
+									onclick="return confirm(' vous confirmez la suppression ? ')" />
+								Delete
+							</button>
+
+							<button class="btn btn-success btn-sm">
+
+								<a
+									th:href="@{http://localhost:9090/lucky/airport/edit/avion/(id=${a.getId()})}"
+									onclick="return confirm(' vous confirmez la modification ? ')" />
+								Update
+							</button>
+
+
+						</td>
+
+
+					</tr>
+
+				</tbody>
+
+			</table>
+
+
+		</article>
+
+
+
+	</section>
+
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
