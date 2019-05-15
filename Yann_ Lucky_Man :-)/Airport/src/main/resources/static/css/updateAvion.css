@@ -129,7 +129,15 @@ body {
 	opacity: 0.7;
 	overflow: auto;
 	width: 30%;
-	padding-top: 70px
+	padding-top: 20px
+}
+
+.content-cache label{
+	display: none!important
+}
+
+.content-cache input{
+	display: none!important
 }
 
 
@@ -183,11 +191,6 @@ table {
 table a{
 	text-decoration: none!important;
 	color: whitesmoke;
-}
-
-
-table a:hover{
-
 }
 
 

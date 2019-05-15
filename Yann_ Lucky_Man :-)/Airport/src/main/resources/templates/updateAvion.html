@@ -32,7 +32,7 @@
 
 <body>
 
-<section id="section-head">
+	<section id="section-head">
 
 		<article class="conteneur-head">
 			<h1>
@@ -60,7 +60,8 @@
 
 		<article class="section-nav-item nav-anim-left">
 			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i class="fas fa-home"></i></a>
+				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i
+					class="fas fa-home"></i></a>
 			</p>
 		</article>
 
@@ -110,46 +111,43 @@
 
 
 		<article id="forme-update">
-					
+
 			<form th:action="@{/lucky/airport/saveavion/}" method="post">
-			
-			
-				<div>
-								<label for="id">ID : </label> 
-								<input type="text" name="id" th:value="${avion.getId()}"
-									id="id" placeholder="ex: 001" />
 
-							</div>
-							
-							
 
-				<div>
-					<label for="constructeur">Constructeur : </label> 
-					<input th:value="${avion.getConstructeur()}"
-						type="text" name="constructeur" id="constructeur"
-						placeholder="ex: AIRBUS" />
-				</div>
-
-				<div>
-					<label for="modele">Model : </label> 
-					<input type="text" th:value="${avion.getModele()}"
-						name="modele" id="modele" placeholder="ex: BK734" />
+				<div class="content-cache">
+					<label for="id">ID : </label> <input type="text" name="id"
+						th:value="${avion.getId()}" id="id" placeholder="ex: 001" />
 
 				</div>
 
 
+
 				<div>
-					<label for="capacite">Capacite : </label> 
-					<input type="text" th:value="${avion.getCapacite()}"
-						name="capacite" id="capacite" placeholder="ex: 400" />
+					<label for="constructeur">Constructeur : </label> <input
+						th:value="${avion.getConstructeur()}" type="text"
+						name="constructeur" id="constructeur" placeholder="ex: AIRBUS" />
+				</div>
+
+				<div>
+					<label for="modele">Model : </label> <input type="text"
+						th:value="${avion.getModele()}" name="modele" id="modele"
+						placeholder="ex: BK734" />
 
 				</div>
 
 
 				<div>
-					<label for="site">Site : </label>
-					 <input type="text" name="site" th:value="${avion.getSite()}"
-						id="site" placeholder="ex: PARIS" />
+					<label for="capacite">Capacite : </label> <input type="text"
+						th:value="${avion.getCapacite()}" name="capacite" id="capacite"
+						placeholder="ex: 400" />
+
+				</div>
+
+
+				<div>
+					<label for="site">Site : </label> <input type="text" name="site"
+						th:value="${avion.getSite()}" id="site" placeholder="ex: PARIS" />
 
 				</div>
 				<br>
@@ -177,43 +175,22 @@
 
 			<table>
 				<thead>
-						<tr>
+					<tr>
 						<th>CONSTRUCTEUR</th>
 						<th>MODEL</th>
 						<th>CAPACITE</th>
 						<th>SITE</th>
-						<th>Action</th>
 					</tr>
 				</thead>
 
 				<tbody>
-						<tr th:each="a : ${avion}">
-						
+					<tr th:each="a : ${avion}">
+
 						<td th:text="${a.getConstructeur()}" />
 						<td th:text="${a.getModele()}" />
 						<td th:text="${a.getCapacite()}" />
 						<td th:text="${a.getSite()}" />
-						<td>
-							<button class="btn btn-danger btn-sm">
-
-								<a
-									th:href="@{http://localhost:9090/lucky/airport/delete/avion/(id=${a.getId()})}"
-									onclick="return confirm(' vous confirmez la suppression ? ')" />
-								Delete
-							</button>
-
-							<button class="btn btn-success btn-sm">
-
-								<a
-									th:href="@{http://localhost:9090/lucky/airport/edit/avion/(id=${a.getId()})}"
-									onclick="return confirm(' vous confirmez la modification ? ')" />
-								Update
-							</button>
-
-
-						</td>
-
-
+					
 					</tr>
 
 				</tbody>

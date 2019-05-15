@@ -59,7 +59,8 @@
 
 		<article class="section-nav-item nav-anim-left">
 			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i class="fas fa-home"></i></a>
+				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i
+					class="fas fa-home"></i></a>
 			</p>
 		</article>
 
@@ -122,11 +123,11 @@
 						id="site" placeholder="ex: bordeaux" />
 
 				</div>
-				
-				
+
+
 				<div>
-					<label for="matricule">Matricule : </label> <input type="text" name="matricule"
-						id="matricule" placeholder="ex: bordeaux" />
+					<label for="matricule">Matricule : </label> <input type="number"
+						name="matricule" id="matricule" placeholder="ex: bordeaux" />
 
 				</div>
 
@@ -156,16 +157,20 @@
 			<table>
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Nom</th>
 						<th>SITE</th>
+						<th>MATRICULE</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<tr th:each="a : ${pilote}">
+						<td th:text="${a.getId()}" />
 						<td th:text="${a.getNom()}" />
 						<td th:text="${a.getSite()}" />
+						<td th:text="${a.getMatricule()}" />
 						<td>
 							<button class="btn btn-danger btn-sm">
 

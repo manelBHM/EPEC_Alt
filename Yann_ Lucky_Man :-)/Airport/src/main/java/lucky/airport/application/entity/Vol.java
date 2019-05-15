@@ -1,5 +1,6 @@
 package lucky.airport.application.entity;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +14,6 @@ public class Vol {
 	
 	
 	@Id
-	@GeneratedValue
 	public long getId() {
 		return id;
 	}
@@ -61,5 +61,4 @@ public class Vol {
 	public void setAvion_id(long avion_id) {
 		this.avion_id = avion_id;
 	}
-	
 }

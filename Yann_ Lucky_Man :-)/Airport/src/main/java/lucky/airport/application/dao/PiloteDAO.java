@@ -19,6 +19,6 @@ public interface PiloteDAO extends JpaRepository<Pilote, Long>{
 
 	public Pilote deletePiloteById(long id);
 
-	public Pilote findPiloteByMatricule(String matricule);
+	public Pilote findPiloteByMatricule(long matricule);
 	
 }

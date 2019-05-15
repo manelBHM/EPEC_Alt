@@ -6,12 +6,11 @@ import javax.persistence.*;
 @Table(name="pilote")
 public class Pilote {
 
-	private String nom, site, matricule;
-	private long id;
+	private String nom, site;
+	private long id, matricule;
 	
 	
 	@Id
-	@GeneratedValue
 	public long getId() {
 		return id;
 	}
@@ -32,13 +31,11 @@ public class Pilote {
 	public void setSite(String site) {
 		this.site = site;
 	}
-	public String getMatricule() {
+	public long getMatricule() {
 		return matricule;
 	}
-	public void setMatricule(String matricule) {
+	public void setMatricule(long matricule) {
 		this.matricule = matricule;
 	}
-
-	
 	
 }

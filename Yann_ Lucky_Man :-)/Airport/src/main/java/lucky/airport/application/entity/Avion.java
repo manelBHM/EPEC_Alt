@@ -11,7 +11,6 @@ public class Avion {
 	
 	
 	@Id
-	@GeneratedValue
 	public long getId() {
 		return id;
 	}

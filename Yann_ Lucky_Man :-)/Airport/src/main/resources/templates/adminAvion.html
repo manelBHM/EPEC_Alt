@@ -60,7 +60,8 @@
 
 		<article class="section-nav-item nav-anim-left">
 			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i class="fas fa-home"></i></a>
+				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i
+					class="fas fa-home"></i></a>
 			</p>
 		</article>
 
@@ -164,6 +165,7 @@
 			<table>
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>CONSTRUCTEUR</th>
 						<th>MODEL</th>
 						<th>CAPACITE</th>
@@ -174,6 +176,7 @@
 
 				<tbody>
 					<tr th:each="a : ${avion}">
+						<td th:text="${a.getId()}" />
 						<td th:text="${a.getConstructeur()}" />
 						<td th:text="${a.getModele()}" />
 						<td th:text="${a.getCapacite()}" />

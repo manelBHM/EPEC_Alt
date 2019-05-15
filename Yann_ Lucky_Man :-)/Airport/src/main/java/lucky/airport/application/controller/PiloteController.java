@@ -36,7 +36,7 @@ public class PiloteController {
 	@GetMapping("home")
 	public String home(Model model)
 	{
-		model.addAttribute("pilote", piloteDAO.findAll());
+		model.addAttribute("vol", volDAO.findAll());
 		return "display";
 	}
 
@@ -99,6 +99,7 @@ public class PiloteController {
 	public String adminVol(Model model)
 	{
 		model.addAttribute("vol", volDAO.findAll());
+		model.addAttribute("pilote", piloteDAO.findAll());
 		return "adminVol";
 	}
 
@@ -137,7 +138,7 @@ public class PiloteController {
 
 
 	@PostMapping(value = "savepilote")
-	public String savePilote(Model model, Pilote pilote, @RequestParam(name = "nom")String nom, @RequestParam(name = "site")String site, @RequestParam(name = "matricule")String matricule)
+	public String savePilote(Model model, Pilote pilote)
 	{
 		piloteDAO.save(pilote);
 
@@ -168,12 +169,11 @@ public class PiloteController {
 
 
 	@RequestMapping(value = "details/pilote", method = {RequestMethod.POST})
-	public String piloteDetails(Model model,  String matricule)
+	public String piloteDetails(Model model,  long id)
 	{
-		Pilote pilote = piloteDAO.findPiloteByMatricule(matricule);
+		Pilote pilote = piloteDAO.findPiloteById(id);
 
 		model.addAttribute("pilote", pilote);
-
 
 		return "display";
 	}
@@ -212,7 +212,7 @@ public class PiloteController {
 
 
 	@PostMapping(value = "saveavion")
-	public String saveAvion(Model model, Avion avion, @RequestParam(name = "constructeur")String constructeur, @RequestParam(name = "modele")String modele, @RequestParam(name = "capacite")String capacite, @RequestParam(name = "site")String site)
+	public String saveAvion(Model model, Avion avion)
 	{
 		avionDAO.save(avion);
 
@@ -275,10 +275,9 @@ public class PiloteController {
 
 
 	@PostMapping(value = "savevol")
-	public String saveVol(Model model, Vol vol, @RequestParam(name = "site_depart")String site_depart, @RequestParam(name = "site_arrive")String site_arrive, @RequestParam(name = "heure_depart")String heure_depart, @RequestParam(name = "heure_arrivee")String heure_arrivee, @RequestParam(name = "avion_id")long avion_id, @RequestParam(name = "pilote_id")long pilote_id)                                       
+	public String saveVol(Model model, Vol vol)                                       
 	{
 		volDAO.save(vol);
-
 		return adminVol(model);
 	}
 
@@ -289,7 +288,6 @@ public class PiloteController {
 	public String deleteVol(long id, Model model)
 	{
 		volDAO.deleteById(id);
-
 		return adminVol(model);
 	}
 

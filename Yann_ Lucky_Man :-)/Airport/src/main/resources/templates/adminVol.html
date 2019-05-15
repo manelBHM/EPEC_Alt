@@ -153,6 +153,7 @@
 						name="avion_id" id="avion_id" placeholder="ex: 1" />
 
 				</div>
+
 				<br>
 
 				<div>
@@ -180,13 +181,14 @@
 			<table>
 				<thead>
 					<tr>
-
+						<th>ID</th>
 						<th>ID PILOTE</th>
 						<th>ID AVION</th>
 						<th>SITE DEPART</th>
 						<th>SITE ARRIVE</th>
 						<th>HEURE DEPART</th>
 						<th>HEURE ARRIVEE</th>
+						<th>NOM PILOTE</th>
 						<th>Action</th>
 
 					</tr>
@@ -195,13 +197,18 @@
 				<tbody>
 
 					<tr th:each="a : ${vol}">
-
+						<td th:text="${a.getId()}" />
 						<td th:text="${a.getPilote_id()}" />
 						<td th:text="${a.getAvion_id()}" />
 						<td th:text="${a.getSite_depart()}" />
 						<td th:text="${a.getSite_arrive()}" />
 						<td th:text="${a.getHeure_depart()}" />
 						<td th:text="${a.getHeure_arrivee()}" />
+						
+						<td>
+            <p th:each="p : ${pilote}" th:if="(${a.id} == ${p.id})" th:text="${p.nom}"></p>
+         </td>
+						  
 						<td>
 							<button class="btn btn-danger btn-sm">
 

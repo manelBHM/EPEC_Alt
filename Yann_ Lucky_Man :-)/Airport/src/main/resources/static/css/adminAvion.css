@@ -113,11 +113,10 @@ body {
 	border: 2px solid black;
 	background: black;
 	opacity: 0.9;
-	width: 50%;
 	height: 300px;
 	overflow: auto;
 	padding: 30px;
-	width: 60%;
+	width: 70%;
 }
 
 
@@ -128,7 +127,7 @@ body {
 	background: black;
 	opacity: 0.9;
 	overflow: auto;
-	width: 30%;
+	width: 25%;
 	padding-top: 20px
 }
 
@@ -187,7 +186,7 @@ table a{
 
 
 table a:hover{
-
+     color: white;
 }
 
 
