@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Lucky-Airport Admin-Update-Vol</title>
+<title>Lucky-Airport Home</title>
 
 
-<link rel="stylesheet" type="text/css" th:href="@{/css/updateVol.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/detailsvol.css}" />
 
 
 
@@ -48,46 +48,26 @@
 
 
 
-
-
-
-
-
-
 	<section id="section-navigation">
 
-
-		<article class="section-nav-item nav-anim-left">
+		<article class="nav-pilote section-nav-items">
 			<p>
 				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i
-					class="fas fa-home"></i></a>
+					class="fas fa-home"></i> pilote</a>
+
 			</p>
 		</article>
 
 
-
-		<article class="section-nav-item nav-anim-left">
+		<article class="nav-admin section-nav-item">
 			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/adminpilote}">ADMIN-PILOTE</a>
-			</p>
-		</article>
-
-
-
-		<article class="section-nav-item nav-anim-right">
-			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/adminavion}">ADMIN-AVION</a>
-			</p>
-		</article>
-
-
-		<article class="section-nav-item nav-anim-right">
-			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/adminvol}">ADMIN-VOL</a>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminlogin}"><i
+					class="fas fa-user-cog"></i> administrator</a>
 			</p>
 		</article>
 
 	</section>
+
 
 	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
 	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
@@ -96,7 +76,7 @@
 
 	<div class="legende">
 
-		<p>administrator pilot page</p>
+		<p>tableau des details sur les vols</p>
 	</div>
 
 
@@ -111,58 +91,14 @@
 
 		<article id="forme-vol">
 
-			<form th:action="@{/lucky/airport/savevol/}" method="post">
-
-				<div class="content-cache">
-					<label for="id">ID_VOL : </label> <input type="text"
-						th:value="${vol.getId()}" name="id" id="id"
-						placeholder="ex: PARIS" />
-				</div>
+			<form th:action="@{/lucky/airport/details/pilote/}" method="get">
 
 				<div>
-					<label for="site_depart">Site_départ : </label> <input type="text"
-						th:value="${vol.getSite_depart()}" name="site_depart"
-						id="site_depart" placeholder="ex: PARIS" />
-				</div>
-
-				<div>
-					<label for="site_arrivee">Site_arrivé : </label> <input type="text"
-						th:value="${vol.getSite_arrive()}" name="site_arrive"
-						id="site_arrivee" placeholder="ex: TOULOUSE" />
-
+					<label for="id">Entrez votre identifiant pilote : </label> <input
+						type="number" name="id" id="id" placeholder="ex: 27" />
 				</div>
 
 
-
-				<div>
-					<label for="heure_depart">Heure_départ : </label> <input
-						type="text" th:value="${vol.getHeure_depart()}"
-						name="heure_depart" id="heure_depart" placeholder="ex: 10:00" />
-
-				</div>
-
-
-				<div>
-					<label for="heure_arrivee">Heure_arrivée : </label> <input
-						type="text" th:value="${vol.getHeure_arrivee()}"
-						name="heure_arrivee" id="heure_arrivee" placeholder="ex: 15:00" />
-
-				</div>
-
-				<div>
-					<label for="pilote_id">Pilote_Id : </label> <input type="number"
-						name="pilote_id" th:value="${vol.getPilote_id()}" id="pilote_id"
-						placeholder="ex: 3" />
-
-				</div>
-
-
-				<div>
-					<label for="avion_id">Avion_Id : </label> <input type="number"
-						name="avion_id" th:value="${vol.getAvion_id()}" id="avion_id"
-						placeholder="ex: 1" />
-
-				</div>
 				<br>
 
 				<div>
@@ -190,26 +126,25 @@
 			<table>
 				<thead>
 					<tr>
-						<th>ID-VOL</th>
-						<th>ID PILOTE</th>
-						<th>ID AVION</th>
+						<th>ID_AVION</th>
 						<th>SITE DEPART</th>
 						<th>SITE ARRIVE</th>
 						<th>HEURE DEPART</th>
 						<th>HEURE ARRIVEE</th>
+						<th>PILOTE</th>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody th:each="p : ${pilote}">
 
-					<tr th:each="a : ${vol}">
-						<td th:text="${a.getId()}" />
-						<td th:text="${a.getPilote_id()}" />
-						<td th:text="${a.getAvion_id()}" />
-						<td th:text="${a.getSite_depart()}" />
-						<td th:text="${a.getSite_arrive()}" />
-						<td th:text="${a.getHeure_depart()}" />
-						<td th:text="${a.getHeure_arrivee()}" />
+					<tr th:each="v : ${vol}" th:if="${p.id == v.pilote_id}">
+
+						<td th:text="${v.getAvion_id()}" />
+						<td th:text="${v.getSite_depart()}" />
+						<td th:text="${v.getSite_arrive()}" />
+						<td th:text="${v.getHeure_depart()}" />
+						<td th:text="${v.getHeure_arrivee()}" />
+						<td th:text="${p.nom}" class="nomPilote"/>
 					</tr>
 
 				</tbody>
@@ -226,6 +161,7 @@
 
 	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
 	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

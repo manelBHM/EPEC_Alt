@@ -187,8 +187,7 @@
 						<th>SITE ARRIVE</th>
 						<th>HEURE DEPART</th>
 						<th>HEURE ARRIVEE</th>
-						<th>NOM PILOTE</th>
-						<th>Action</th>
+						<th>ACTION</th>
 
 					</tr>
 				</thead>
@@ -202,9 +201,6 @@
 						<td th:text="${v.getSite_arrive()}" />
 						<td th:text="${v.getHeure_depart()}" />
 						<td th:text="${v.getHeure_arrivee()}" />
-						
-						<td th:each="p : ${pilote}" th:if="(${p.id == v.pilote_id})" th:text="${p.nom}">
-          
 						  
 						<td>
 							<button class="btn btn-danger btn-sm">

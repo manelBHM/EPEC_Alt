@@ -91,7 +91,7 @@
 
 		<article id="forme-vol">
 
-			<form th:action="@{/lucky/airport/details/pilote/}" method="post">
+			<form th:action="@{/lucky/airport/details/pilote/}" method="get">
 
 				<div>
 					<label for="id">Entrez votre identifiant pilote : </label> <input
@@ -118,36 +118,36 @@
 		<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
 
 
-
-
+      
+       
 		<article id="data-table">
 
 
 			<table>
 				<thead>
 					<tr>
-
-						<th>AVION</th>
+						<th>ID_AVION</th>
 						<th>SITE DEPART</th>
 						<th>SITE ARRIVE</th>
 						<th>HEURE DEPART</th>
 						<th>HEURE ARRIVEE</th>
-						<th>PILOTE</th>
-
-
 					</tr>
 				</thead>
 
 				<tbody>
 
+					<!-- 	<tr th:each="p : ${pilote}">
+				<td th:text="${p.getId()}" />
+				<td th:text="${p.getNom()}" />
+				<td th:text="${p.getSite()}" /></tr> -->
+
+					
 					<tr th:each="v : ${vol}">
-                   
 						<td th:text="${v.getAvion_id()}" />
 						<td th:text="${v.getSite_depart()}" />
 						<td th:text="${v.getSite_arrive()}" />
 						<td th:text="${v.getHeure_depart()}" />
 						<td th:text="${v.getHeure_arrivee()}" />
-						<td th:each="p : ${pilote}" th:if="(${p.id == v.pilote_id})" th:text="${p.nom}">
 					</tr>
 
 				</tbody>

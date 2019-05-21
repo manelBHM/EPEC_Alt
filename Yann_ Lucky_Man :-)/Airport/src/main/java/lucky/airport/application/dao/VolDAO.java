@@ -12,12 +12,7 @@ import lucky.airport.application.entity.Vol;
 @Repository
 public interface VolDAO extends JpaRepository<Vol, Long>{
 
-	public List<Vol> findAll();
-
-	public Vol findAvionById(long id);
-
 	public Vol findVolById(long id);
 
-	public Object findPiloteById(long id);	
 }
 

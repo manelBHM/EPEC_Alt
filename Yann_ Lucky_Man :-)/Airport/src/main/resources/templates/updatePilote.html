@@ -6,7 +6,8 @@
 <title>Lucky-Airport Admin</title>
 
 
-<link rel="stylesheet" type="text/css" th:href="@{/css/updatePilote.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/updatePilote.css}" />
 
 
 
@@ -32,7 +33,7 @@
 
 <body>
 
-<section id="section-head">
+	<section id="section-head">
 
 		<article class="conteneur-head">
 			<h1>
@@ -60,7 +61,8 @@
 
 		<article class="section-nav-item nav-anim-left">
 			<p>
-				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i class="fas fa-home"></i></a>
+				<a th:href="@{http://localhost:9090/lucky/airport/home}"><i
+					class="fas fa-home"></i></a>
 			</p>
 		</article>
 
@@ -111,49 +113,49 @@
 
 		<article id="forme-update">
 
-		
-						<form th:action="@{/lucky/airport/savepilote/}" method="post">
-						
-						<div>
-								<label for="id">ID : </label> 
-								<input type="text" name="id" th:value="${pilote.getId()}"
-									id="id" placeholder="ex: 001" />
 
-							</div>
-							
-							
-							<div>
-								<label for="nom">Nom : </label> 
-								<input type="text" name="nom" th:value="${pilote.getNom()}"
-									id="nom" placeholder="ex: Lucky" />
+			<form th:action="@{/lucky/airport/savepilote/}" method="post">
 
-							</div>
-							
-							<div>
-								<label for="site">Site : </label> 
-								<input type="text" name="site" th:value="${pilote.getSite()}"
-									id="site" placeholder="ex: bordeaux" />
-
-							</div>
-							
-							
-							<div>
-					<label for="matricule">Matricule : </label> 
-					<input type="text" name="matricule" th:value="${pilote.getMatricule()}" id="matricule" placeholder="ex: bordeaux" />
+				<div class="content-cache">
+					<label for="id">ID : </label> <input type="text" name="id"
+						th:value="${pilote.getId()}" id="id" placeholder="ex: 001" />
 
 				</div>
-						
-
-							<br>
-
-							<div>
-							
-							<button class="btn btn-outline-primary btn-lg" onclick="return confirm(' vous confirmez la modification ? ')">Submit</button>
-							
-							</div>
 
 
-						</form>
+				<div>
+					<label for="nom">Nom : </label> <input type="text" name="nom"
+						th:value="${pilote.getNom()}" id="nom" placeholder="ex: Lucky" />
+
+				</div>
+
+				<div>
+					<label for="site">Site : </label> <input type="text" name="site"
+						th:value="${pilote.getSite()}" id="site"
+						placeholder="ex: bordeaux" />
+
+				</div>
+
+
+				<div>
+					<label for="matricule">Matricule : </label> <input type="text"
+						name="matricule" th:value="${pilote.getMatricule()}"
+						id="matricule" placeholder="ex: bordeaux" />
+
+				</div>
+
+
+				<br>
+
+				<div>
+
+					<button class="btn btn-outline-primary btn-lg"
+						onclick="return confirm(' vous confirmez la modification ? ')">Submit</button>
+
+				</div>
+
+
+			</form>
 
 		</article>
 
@@ -173,7 +175,7 @@
 					<tr>
 						<th>Nom</th>
 						<th>SITE</th>
-						<th>Action</th>
+						<th>MATRICULE</th>
 					</tr>
 				</thead>
 
@@ -181,25 +183,8 @@
 					<tr th:each="a : ${pilote}">
 						<td th:text="${a.getNom()}" />
 						<td th:text="${a.getSite()}" />
-						<td>
-							<button class="btn btn-danger btn-sm">
+						<td th:text="${a.getMatricule()}" />
 
-								<a
-									th:href="@{http://localhost:9090/lucky/airport/delete/pilote/(id=${a.getId()})}"
-									onclick="return confirm(' vous confirmez la suppression ? ')" />
-								Delete
-							</button>
-
-							<button class="btn btn-success btn-sm">
-
-								<a
-									th:href="@{http://localhost:9090/lucky/airport/edit/pilote/(id=${a.getId()})}"
-									onclick="return confirm(' vous confirmez la modification ? ')" />
-								Update
-							</button>
-
-
-						</td>
 					</tr>
 
 				</tbody>

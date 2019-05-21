@@ -167,14 +167,14 @@ public class PiloteController {
 
 
 
-	@RequestMapping(value = "details/pilote", method = {RequestMethod.POST})
+	@RequestMapping(value = "details/pilote", method = {RequestMethod.GET})
 	public String piloteDetails(Model model,  long id)
 	{
-		model.addAttribute("vol", volDAO.findPiloteById(id));
 		
 		model.addAttribute("pilote", piloteDAO.findPiloteById(id));
-		
-		return "display";
+		model.addAttribute("vol", volDAO.findAll());
+	
+		return "detailsvol";
 	}
 
 	////////////////////////////////////////////////END PILOTE CONTROLER/////////////////////////////////////
@@ -267,10 +267,8 @@ public class PiloteController {
 	@GetMapping(value = "vol/{id}")
 	public Vol getvolById(@PathVariable("id") long id)
 	{				
-		return volDAO.findAvionById(id);
+		return volDAO.findVolById(id);
 	}
-
-
 
 
 	@PostMapping(value = "savevol")

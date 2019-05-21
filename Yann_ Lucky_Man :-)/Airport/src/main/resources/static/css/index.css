@@ -56,7 +56,7 @@ transform: scale(1.2) skew(20deg, 0deg);
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	height: 600px;
+	height: 100vh;
 	align-content: center;
 }
 
@@ -79,40 +79,6 @@ transform: scale(1.2) skew(20deg, 0deg);
 		background: #0a3d62;
 		transition: 1s ease;
 }
-
-
-
-
-
-
-
-
-
-#section-footer{
-	background: black;
-	width: 100%;
-	align-content: center;
-	padding: 9px;
-	height:auto;
-}
-
-#article-footer{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
-.footer-content{
-	border: 2px solid black;
-	width: 30%;
-	height: 100px;
-	background: red;
-}
-
-
-
-
-
 
 
 @keyframes slidein {
