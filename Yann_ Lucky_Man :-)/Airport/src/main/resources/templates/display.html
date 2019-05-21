@@ -89,25 +89,26 @@
 
 
 
-		<article id="forme-pilote">
+		<article id="forme-vol">
 
-			<form th:action="@{/lucky/airport/details/pilote}" method="post">
+			<form th:action="@{/lucky/airport/details/pilote/}" method="post">
 
 				<div>
-					<label for="id">Entrez votre identifiant : </label> <input
-						type="number" name="id" id="id"
-						placeholder="ex: stephane" />
+					<label for="id">Entrez votre identifiant pilote : </label> <input
+						type="number" name="id" id="id" placeholder="ex: 27" />
 				</div>
+
 
 				<br>
 
 				<div>
-					<button class="btn btn-outline-primary btn-lg" id="myBtn">Submit</button>
+					<button class="btn btn-outline-success btn-lg" id="myBtn">Submit</button>
 
 				</div>
 
 
 			</form>
+
 
 		</article>
 
@@ -125,15 +126,28 @@
 			<table>
 				<thead>
 					<tr>
-						<th>Nom</th>
-						<th>SITE</th>
+
+						<th>AVION</th>
+						<th>SITE DEPART</th>
+						<th>SITE ARRIVE</th>
+						<th>HEURE DEPART</th>
+						<th>HEURE ARRIVEE</th>
+						<th>PILOTE</th>
+
+
 					</tr>
 				</thead>
 
 				<tbody>
-					    <tr th:each="a : ${pilote}">
-						<td th:text="${a.getNom()}" />
-						<td th:text="${a.getSite()}" />
+
+					<tr th:each="v : ${vol}">
+                   
+						<td th:text="${v.getAvion_id()}" />
+						<td th:text="${v.getSite_depart()}" />
+						<td th:text="${v.getSite_arrive()}" />
+						<td th:text="${v.getHeure_depart()}" />
+						<td th:text="${v.getHeure_arrivee()}" />
+						<td th:each="p : ${pilote}" th:if="(${p.id == v.pilote_id})" th:text="${p.nom}">
 					</tr>
 
 				</tbody>

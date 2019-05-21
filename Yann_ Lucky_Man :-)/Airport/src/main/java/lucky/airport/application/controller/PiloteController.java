@@ -36,7 +36,9 @@ public class PiloteController {
 	@GetMapping("home")
 	public String home(Model model)
 	{
+		model.addAttribute("pilote", piloteDAO.findAll());
 		model.addAttribute("vol", volDAO.findAll());
+		
 		return "display";
 	}
 
@@ -50,7 +52,6 @@ public class PiloteController {
 	@GetMapping("admin")
 	public String admin(Model model)
 	{
-		model.addAttribute("pilote", piloteDAO.findAll());
 		return "admin";
 	}
 
@@ -159,10 +160,8 @@ public class PiloteController {
 	@RequestMapping(value = "edit/pilote/", method = {RequestMethod.GET, RequestMethod.POST})
 	public String editPilote(Model model,  long id)
 	{
-		Pilote pilote = piloteDAO.findPiloteById(id);
-
-		model.addAttribute("pilote", pilote);
-
+		model.addAttribute("pilote", piloteDAO.findPiloteById(id));
+		
 		return "updatePilote";
 	}
 
@@ -171,10 +170,10 @@ public class PiloteController {
 	@RequestMapping(value = "details/pilote", method = {RequestMethod.POST})
 	public String piloteDetails(Model model,  long id)
 	{
-		Pilote pilote = piloteDAO.findPiloteById(id);
-
-		model.addAttribute("pilote", pilote);
-
+		model.addAttribute("vol", volDAO.findPiloteById(id));
+		
+		model.addAttribute("pilote", piloteDAO.findPiloteById(id));
+		
 		return "display";
 	}
 

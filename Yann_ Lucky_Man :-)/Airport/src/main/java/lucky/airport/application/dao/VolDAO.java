@@ -17,6 +17,7 @@ public interface VolDAO extends JpaRepository<Vol, Long>{
 	public Vol findAvionById(long id);
 
 	public Vol findVolById(long id);
-	
+
+	public Object findPiloteById(long id);	
 }
 

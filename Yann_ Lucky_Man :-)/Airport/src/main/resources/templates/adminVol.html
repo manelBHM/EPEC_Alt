@@ -181,7 +181,6 @@
 			<table>
 				<thead>
 					<tr>
-						<th>ID</th>
 						<th>ID PILOTE</th>
 						<th>ID AVION</th>
 						<th>SITE DEPART</th>
@@ -196,24 +195,22 @@
 
 				<tbody>
 
-					<tr th:each="a : ${vol}">
-						<td th:text="${a.getId()}" />
-						<td th:text="${a.getPilote_id()}" />
-						<td th:text="${a.getAvion_id()}" />
-						<td th:text="${a.getSite_depart()}" />
-						<td th:text="${a.getSite_arrive()}" />
-						<td th:text="${a.getHeure_depart()}" />
-						<td th:text="${a.getHeure_arrivee()}" />
+					<tr th:each="v : ${vol}">
+						<td th:text="${v.getPilote_id()}"/>
+						<td th:text="${v.getAvion_id()}" />
+						<td th:text="${v.getSite_depart()}" />
+						<td th:text="${v.getSite_arrive()}" />
+						<td th:text="${v.getHeure_depart()}" />
+						<td th:text="${v.getHeure_arrivee()}" />
 						
-						<td>
-            <p th:each="p : ${pilote}" th:if="(${a.id} == ${p.id})" th:text="${p.nom}"></p>
-         </td>
+						<td th:each="p : ${pilote}" th:if="(${p.id == v.pilote_id})" th:text="${p.nom}">
+          
 						  
 						<td>
 							<button class="btn btn-danger btn-sm">
 
 								<a
-									th:href="@{http://localhost:9090/lucky/airport/delete/vol/(id=${a.getId()})}"
+									th:href="@{http://localhost:9090/lucky/airport/delete/vol/(id=${v.getId()})}"
 									onclick="return confirm(' vous confirmez la suppression ? ')" />
 								Delete
 							</button>
@@ -221,7 +218,7 @@
 							<button class="btn btn-success btn-sm">
 
 								<a
-									th:href="@{http://localhost:9090/lucky/airport/edit/vol/(id=${a.getId()})}"
+									th:href="@{http://localhost:9090/lucky/airport/edit/vol/(id=${v.getId()})}"
 									onclick="return confirm(' vous confirmez la modification ? ')" />
 								Update
 							</button>
