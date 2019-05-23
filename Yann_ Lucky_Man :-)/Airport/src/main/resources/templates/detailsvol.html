@@ -74,9 +74,12 @@
 
 
 
-	<div class="legende">
+	<div class="legende" th:each="p : ${pilote}">
+ 
+ 
+ <p th:text="${p}"/>
+		 
 
-		<p>tableau des details sur les vols</p>
 	</div>
 
 
@@ -144,7 +147,7 @@
 						<td th:text="${v.getSite_arrive()}" />
 						<td th:text="${v.getHeure_depart()}" />
 						<td th:text="${v.getHeure_arrivee()}" />
-						<td th:text="${p.nom}" class="nomPilote"/>
+						<td th:text="${p.nom}" class="nomPilote" />
 					</tr>
 
 				</tbody>

@@ -37,5 +37,11 @@ public class Pilote {
 	public void setMatricule(long matricule) {
 		this.matricule = matricule;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "détails des vols prévus pour Monsieur : " + nom;
+	}
+	
 	
 }
