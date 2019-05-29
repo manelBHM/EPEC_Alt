@@ -1,15 +1,24 @@
 @charset "UTF-8";
 
 body {
+	width: 100%;
 	font-family: 'Montserrat', sans-serif;
 	background: #b8e994;
-	background-image:
-		url("https://image.freepik.com/vecteurs-libre/avion-aeroport_18591-17059.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	overflow-x: hidden;
-	height: 150vh;
+	overflow-x:hidden; 
 }
+
+.hello {
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	filter: blur(3px);
+}
+
+
+.hello img{
+	width: 100%;
+}
+
 
 #section-head {
 	width: 100%;
@@ -20,7 +29,8 @@ body {
 
 #section-head a {
 	text-decoration: none;
-	text-shadow: 1px -1px 0 black, -1px 2px 1px black, -2px 4px 1px black, -3px 6px 1px black, -4px 8px 1px black, -5px 10px 1px black;
+	text-shadow: 1px -1px 0 black, -1px 2px 1px black, -2px 4px 1px black,
+		-3px 6px 1px black, -4px 8px 1px black, -5px 10px 1px black;
 	color: whitesmoke;
 	text-transform: uppercase;
 	font-size: 40px;
@@ -29,21 +39,20 @@ body {
 	line-height: 100px;
 }
 
-
 #section-head a:hover {
 	background: #0a3d62;
 	transition: 1s ease;
 }
 
-
 #section-navigation {
-	width: 100%;
+	width: 95%;
 	height: auto;
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
 	margin-bottom: 100px;
 	margin-top: 5px;
+	margin-left: 4px;
 	color: whitesmoke;
 }
 
@@ -102,14 +111,14 @@ body {
 #section-corps {
 	width: 100%;
 	height: auto;
-	margin: 100px 0 0 0;
+	margin: 100px 0 150px 0;
 	display: flex;
 	justify-content: space-around;
 }
 
-#data-table {
+#data-table {/* 
 	border: 5px solid black;
-	background: black;
+	background: black; */
 	opacity: 0.9;
 	height: 300px;
 	overflow: auto;
@@ -118,13 +127,14 @@ body {
 }
 
 #forme-vol {
-	border: 2px solid black;
-	height: 300px;
+	border: 2px solid black; 
 	background: black;
-	opacity: 0.9;
+	height: 300px;
+	opacity: 0.8;
 	overflow: auto;
+	font-size: 20px;
 	width: 20%;
-	padding-top: 50px
+	padding-top: 20px
 }
 
 form div {
@@ -178,6 +188,108 @@ table a:hover {
 	color: white !important;
 }
 
+
+
+
+
+
+#section-footer {
+	width: 100%;
+	height: auto;
+	border: 2px inset black;
+	background: black;
+	display: flex;
+	justify-content: space-around;
+}
+
+#section-footer .article-footer {
+	width: 50%;
+	height: auto;
+}
+
+#section-footer .article-footer a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+#section-footer .article-footer a:hover{
+	background: darkblue;
+	margin: 5px;
+	padding: 5px;
+	transition: 0.9s ease;
+}
+
+
+
+#section-footer .article-footer-1 {
+		color: white;
+		padding: 10px
+		
+}
+
+.container-footer{
+	width: 30%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.container-footer ul li{
+margin: 15px;
+text-align: justify;
+
+}
+
+
+.container-footer h4{
+	text-decoration: underline;
+	color: darkblue;
+	text-align: center;
+}
+
+
+
+
+
+
+#section-footer .article-footer-2 {
+		color: white;
+		padding: 10px
+		
+}
+
+.container-footer{
+	width: 30%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.container-footer ul li{
+margin: 15px;
+text-align: justify;
+
+}
+
+
+.container-footer h4{
+	text-decoration: underline;
+	color: darkblue;
+	text-align: center;
+}
+
+
+
+#copyright{
+	width: 100%;
+	height: 10px;
+	padding: 10px;
+	background: white
+}
+
+
+
+
+
+
 @keyframes slidein-to-left {from { margin-left:-1000%;
 	width: 100%;
 }
@@ -187,25 +299,49 @@ table a:hover {
 font-size
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 100%;
 margin-left
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 -25%;
 width
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 150%;
 }
@@ -215,6 +351,9 @@ to {
 }
 
 }
+
+
+
 @keyframes slidein-to-right {from { margin-right:-1000%;
 	width: 100%;
 }
@@ -224,25 +363,49 @@ to {
 font-size
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 100%;
 margin-right
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 -25%;
 width
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 150%;
 }
@@ -261,25 +424,49 @@ to {
 font-size
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 100%;
 margin-top
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 -25%;
 width
 
 
+
+
+
+
 :
 
+
+
  
+
+
 
 150%;
 }
@@ -289,6 +476,22 @@ to {
 }
 
 }
+
+
+
+@keyframes copy{
+	
+	from{
+	margin-right: -1000px
+	}
+	
+	50%{margin-right: -500px}
+	
+	to{margin-right: -0px}
+}
+
+
+
 @media screen and (min-width: 200px) and (max-width: 800px) {
 	.myitems {
 		text-align: center;

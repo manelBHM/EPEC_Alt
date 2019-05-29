@@ -1,50 +1,55 @@
 @charset "UTF-8";
 
 body {
+	width: 100%;
 	font-family: 'Montserrat', sans-serif;
-	background: #b8e994;
-	background-image:
-		url("https://image.freepik.com/vecteurs-libre/avion-aeroport_18591-17059.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
 	overflow-x: hidden;
 }
 
+.hello {
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	filter: blur(3px);
+}
+
+
+.hello img{
+	width: 100%;
+	height: 1000px;
+}
+
+
 #section-head {
 	width: 100%;
-	height: 56px;
-	background: black;
+	height: 100px;
+	background: #f4f2d8;
 	text-align: center;
 }
 
 #section-head a {
 	text-decoration: none;
-	background: #182C61;
+	text-shadow: 1px -1px 0 black, -1px 2px 1px black, -2px 4px 1px black, -3px 6px 1px black, -4px 8px 1px black, -5px 10px 1px black;
 	color: whitesmoke;
 	text-transform: uppercase;
 	font-size: 40px;
-	opacity: 0.7;
-	padding: 5px
+	opacity: 0.8;
+	padding: 5px;
+	line-height: 100px;
 }
 
+
 #section-head a:hover {
-	background: #55E6C1;
+	background: #0a3d62;
 	transition: 1s ease;
 }
 
-#section-head article {
-	-moz-transform: scale(1.2) skew(10deg, 0deg);
-	-webkit-transform: scale(1.2) skew(10deg, 0deg);
-	-o-transform: scale(1.2) skew(10deg, 0deg);
-	-ms-transform: scale(1.2) skew(10deg, 0deg);
-	transform: scale(1.2) skew(20deg, 0deg);
-}
 
 #section-navigation {
 	width: 100%;
 	height: auto;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	text-align: center;
 	margin-bottom: 100px;
 	margin-top: 5px;
@@ -56,6 +61,18 @@ body {
 	font-size: 25px;
 	color: white;
 }
+
+
+
+.section-nav-item {
+	background: #182C61;
+	height: 50px;
+	border-left: 5px solid #1B9CFC;
+	line-height: 50px;
+	transform: scale(1.2) skew(15deg, 0deg);
+	width: 25%
+}
+
 
 
 
@@ -92,7 +109,6 @@ body {
 	background: #2C3A47;
 	color: whitesmoke;
 	border: 5px solid #182C61;
-	transform: scale(1.2) skew(15deg, 0deg);
 	margin: 0 auto;
 }
 
@@ -112,8 +128,6 @@ body {
 
 
 #data-table {
-	border: 2px solid black;
-	background: black;
 	opacity: 0.9;
 	width: 30%;
 	height: 300px;

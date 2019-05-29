@@ -30,69 +30,68 @@
 </head>
 <body>
 
-	<header>
+	<section id="section-head">
 
-		<nav class="navbar fixed-top navbar-expand-lg navbar-light">
-			<a class="navbar-brand avatar"
-				th:href="@{http://localhost:9090/lucky/airport/}"
-				title="LOGO DE LUCKY AIRPORT">LUCKY AIRPORT</a>
+		<article class="conteneur-head">
+			<h1>
+				<a th:href="@{http://localhost:9090/lucky/airport/}"
+					title="LOGO DE LUCKY AIRPORT"> lucky airport </a>
+			</h1>
 
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarTogglerDemo02"
-				aria-controls="navbarTogglerDemo02" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+		</article>
 
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+	</section>
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
 
 
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{http://localhost:9090/lucky/airport/home}"><i
-							class="fas fa-home"></i> Home</a></li>
+	<section id="section-corps">
 
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{http://localhost:9090/lucky/airport/adminlogin?logout}"><i
-						
-							class="fas fa-user-cog"></i> Admin</a></li>
-							
+		<article id="forme-vol">
 
+			<form th:action="@{/lucky/airport/Admin}" method="get">
 
-				</ul>
-			</div>
-		</nav>
+				<div>
+					<label for="admin">Admin : </label> <input type="text" name="admin"
+						id="admin" placeholder="ex: stephane" />
+				</div>
 
-	</header>
+				<div>
+					<label for="pswd">Password : </label> <input type="text"
+						name="pswd" id="pswd" placeholder="ex: 1234" />
 
+				</div>
+				<br>
 
-		<div id="presentation">
-	
-		<h1>welcome to administrator page</h1>
-	</div>
+				<div>
+					<button class="btn btn-outline-primary btn-lg" id="myBtn">Submit</button>
 
-
-<form th:action="@{/lucky/airport/Admin}" method="get">
-						
-							<div>
-								<label for="admin">Admin : </label> <input type="text" name="admin"
-									id="admin" placeholder="ex: stephane" />
-							</div>
-
-							<div>
-								<label for="pswd">Password : </label> <input type="text" name="pswd"
-									id="pswd" placeholder="ex: 1234" />
-
-							</div>
-							<br>
-
-							<div>
-								<button class="btn btn-outline-primary btn-lg" id="myBtn">Submit</button>
-
-							</div>
+				</div>
 
 
-						</form>
+			</form>
+
+
+		</article>
+
+	</section>
+
+<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>
