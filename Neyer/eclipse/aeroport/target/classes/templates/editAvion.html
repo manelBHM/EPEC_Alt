@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Saisie Avion</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<form th:action="@{UpdateAvion}" method="post" th:object="${unAvion}">
+			<h1>Saisie Avion</h1>
+			<div class="form-group">
+				<label for="formGroupExampleInput">ID avion</label> <input
+					type="text" class="form-control" id="formGroupExampleInput"
+					placeholder="Family name" th:field="${unAvion.id}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Nom Avion</label> <input
+					type="text" class="form-control" id="formGroupExampleInput"
+					placeholder="Family name" th:field="${unAvion.nomAvion}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput2">Model</label> <input type="text"
+					class="form-control" id="formGroupExampleInput2"
+					placeholder="Country" th:field="${unAvion.model}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput3">Capacité</label> <input
+					type="text" class="form-control" id="formGroupExampleInput3"
+					placeholder="Country" th:field="${unAvion.capacite}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput4">Site</label> <input type="text"
+					class="form-control" id="formGroupExampleInput4"
+					placeholder="Country" th:field="${unAvion.site}">
+			</div>
+			<button type="submit">Valider</button>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

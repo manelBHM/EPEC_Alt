@@ -1,0 +1,4 @@
+com\example\exoBootOnKubernetes\ExoBootOnKubernetesApplication.class
+com\example\exoBootOnKubernetes\repository\StudentRepository.class
+com\example\exoBootOnKubernetes\student\Student.class
+com\example\exoBootOnKubernetes\config\SwaggerConfig.class

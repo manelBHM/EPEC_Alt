@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des Personnes</title>
+</head>
+<body>
+	<h1>Liste des Personnes</h1>
+	<br />
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>NOM</th>
+			<th>AGE</th>
+		</tr>
+		<tr th:each = "person :${listPerson}"> <!-- boucle sur la liste"${nomlist}" -->
+			<td th:utext=${person.id}></td>
+			<td th:utext=${person.nom}></td>
+			<td th:utext=${person.age}></td>
+		</tr>
+	</table>
+</body>
+</html>
