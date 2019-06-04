@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+div {
+	margin: 0 auto;
+	width: 50%
+}
+
+span {
+	background: darkblue;
+	color: whitesmoke;
+	padding: 2px;
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<div>
+		<p>
+			Le password doit contenir obligatoirement un caractère spécial entre
+			ceux ci ==> <span>@&%^</span>
+		</p>
+	</div>
+
+	<form action="AuthentificationServlet" method="post">
+
+
+		<div>
+
+			<label for="pseudo">Pseudo :</label> <input type="text" name="pseudo"
+				id="pseudo">
+		</div>
+
+
+		<div>
+			<label for="password">Mot de passe :</label> <input type="password"
+				name="password" id="password">
+		</div>
+
+		<div>
+			<button class="btn btn-outline-primary btn-lg" id="myBtn">Submit</button>
+
+		</div>
+
+	</form>
+
+
+</body>
+</html>

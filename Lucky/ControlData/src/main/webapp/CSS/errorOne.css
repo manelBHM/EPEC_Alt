@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+
+
+p{
+	background: #FFA0A0;
+	color: whitesmoke;
+	padding: 10px;
+	margin-bottom: 50px;
+	width: 50%;
+	text-align: center;
+	font-weight: bold;
+}
+
+div {
+	margin: 0 auto;
+	width: 50%
+}
+
+
+i{
+	font-size: 2rem
+}
+
