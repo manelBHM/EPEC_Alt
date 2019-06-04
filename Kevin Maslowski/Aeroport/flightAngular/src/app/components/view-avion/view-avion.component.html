@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+    <a class="navbar-brand" href="http://localhost:4200/admin/acceuil"><img src="assets/Logo-Air-France.png" width="200"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/pilotes">Pilotes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/avions">Avions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/admin/vols">Vols</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ajouter
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="http://localhost:4200/admin/addpilote">Un Pilote</a>
+            <a class="dropdown-item" href="http://localhost:4200/admin/addavion">Un Avion</a>
+            <a class="dropdown-item" href="http://localhost:4200/admin/addvol">Un Vol</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+    <div class="row">
+      <a id="white" class="btn back btn=primary" routerLink="/admin/avions">Back to List</a>
+    </div><br>
+    <div class="container">
+     <form [formGroup]="saveformavion" (ngSubmit)="saveAvion()" novalidate>
+        <div *ngIf="validMessage != ''">
+          <h3 class="has-info">{{validMessage}}</h3><br>
+        </div>
+      <div class="form-group">
+        <label>Avion ID</label>
+        <input type="text" class="form-control" formControlName="id" [(ngModel)]="avionReg.id" required readonly>
+      </div>
+      <div class="form-group">
+        <label>Constructeur</label>
+        <input type="text" class="form-control" formControlName="constructeur" [(ngModel)]="avionReg.constructeur" required>
+      </div>
+      <div class="form-group">
+        <label>Modèle</label>
+        <input type="text" class="form-control" formControlName="model" [(ngModel)]="avionReg.model" required>
+      </div>
+      <div class="form-group">
+        <label>Capacité</label>
+        <input type="text" class="form-control" formControlName="capacite" [(ngModel)]="avionReg.capacite" required>
+      </div>
+      <div class="form-group">
+        <label>Site actuel</label>
+        <input type="text" class="form-control" formControlName="site" [(ngModel)]="avionReg.site" required>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-outline-success">Save</button>
+    </form>
+    </div>
+  </div>

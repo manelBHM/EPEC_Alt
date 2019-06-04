@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+    <a class="navbar-brand" href="http://localhost:4200/admin/acceuil"><img src="assets/Logo-Air-France.png" width="200"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/pilotes">Pilotes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/avions">Avions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/admin/vols">Vols</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ajouter
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="http://localhost:4200/admin/addpilote">Un Pilote</a>
+            <a class="dropdown-item" href="http://localhost:4200/admin/addavion">Un Avion</a>
+            <a class="dropdown-item" href="http://localhost:4200/admin/addvol">Un Vol</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<h4 id="welcome">Voici la liste de nos pilotes.</h4>
+<br>
+<div class="container">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>#ID</th>
+      <th>Nom</th>
+      <th>Site</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let pilote of pilotes">
+      <td>
+        <a [routerLink]="['/admin/pilotes/view', pilote.id]">{{pilote.id}}</a>
+      </td>
+      <td>
+        {{pilote.nom}}
+      </td>
+      <td>
+        {{pilote.site}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)='deletePilote(pilote.id)'>Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

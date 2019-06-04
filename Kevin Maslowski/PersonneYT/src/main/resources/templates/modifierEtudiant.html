@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Modifier un étudiant</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}"/>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,500" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <!-- <div class="col-md-3 col-sm-3">
+        pour le offset, à voir la responsive
+    </div> -->
+    <div class="col-md-6 col-sm-6 col-xs-12 spacer">
+    <div class="card">
+        <div class="card-header">Modifier l'étudiant :</div>
+        <div class="card-body">
+            <form th:action="@{UpdateEtudiant}" method="post" th:object="${etudiant}">
+                <div class="col-form-label">
+                    <label class="col-form-label">Id :</label>
+                    <input type="text" th:field="*{id}" class="form-control" readonly="readonly"/>
+                    <span class="text-danger" th:errors="*{id}"></span>
+                </div>
+                <div class="col-form-label">
+                    <label class="col-form-label">Nom :</label>
+                    <input type="text" th:field="*{nom}" class="form-control"/>
+                    <span class="text-danger" th:errors="*{nom}"></span>
+                </div>
+                <div class="col-form-label">
+                    <label class="col-form-label">Naissance :</label>
+                    <input type="date" th:field="*{dateNaissance}" class="form-control"/>
+                    <span class="text-danger" th:errors="*{dateNaissance}"></span>
+                </div>
+                <div class="col-form-label">
+                    <label class="col-form-label">Email :</label>
+                    <input type="text" th:field="*{email}" class="form-control"/>
+                    <span class="text-danger" th:errors="*{email}"></span>
+                </div>
+                <div class="col-form-label">
+                    <label class="col-form-label">Photo :</label>
+                    <input type="file" th:field="*{photo}" class="form-control"/>
+                    <span class="text-danger" th:errors="*{photo}"></span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

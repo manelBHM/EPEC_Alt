@@ -1,0 +1,14 @@
+<form id="formlog">
+  <div class="form-group">
+    <label>Admin ID</label>
+    <input type="text" class="form-control" placeholder="Votre ID" name="adminid" [(ngModel)]="adminid">
+    <small id="emailHelp" class="form-text text-muted">Ne partagez jamais votre identifiant d'administrateur.</small>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" placeholder="Password"name="password" [(ngModel)]="password">
+  </div>
+  <button type="submit" class="btn btn-primary" value="Login" (click)="LoginAdmin()">Submit</button>
+</form>
+<br>
+<a href="http://localhost:4200/acceuil"><p id="copilote">Se connecter en tant que pilote.</p></a>

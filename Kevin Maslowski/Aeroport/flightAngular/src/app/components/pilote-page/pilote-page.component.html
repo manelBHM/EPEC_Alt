@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+  <a class="navbar-brand" href="http://localhost:4200"><img src="assets/Logo-Air-France.png" width="200"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<br>
+<p id="welcome">Pour savoir quel(s) vol(s) vous ont été assignés, dites nous qui vous êtes.</p>
+<br>
+<form [formGroup]="findbypiloteform" (ngSubmit)="getVolByPilote(pilote)" novalidate>
+    <div>
+      <h3 id="welcome">{{showTable ? 'Voici la liste de vos vols.' : ''}}</h3><br>
+    </div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">#</span>
+  </div>
+  <input type="number" class="form-control" formControlName="pilote" [(ngModel)]="pilote" placeholder="Votre ID de pilote.">
+  <button class="btn btn-outline-secondary" type="submit" (click)="toggleTable()">
+    {{ showTable ? 'Cacher' : 'Voir' }} la liste
+  </button>
+</div><br>
+</form>
+<div class="container">
+  <table *ngIf='showTable' class="table table-bordered table-inverse">
+    <tr>
+      <th>#ID</th>
+      <th>Avion</th>
+      <th>Pilote</th>
+      <th>Site d'arrivée</th>
+      <th>Site de départ</th>
+      <th>Heure d'arrivée</th>
+      <th>Heure de départ</th>
+    </tr>
+    <tr *ngFor="let vol of volByPilote">
+      <td>
+        {{vol.id}}
+      </td>
+      <td>
+        {{vol.avion}}
+      </td>
+      <td>
+        {{vol.pilote}}
+      </td>
+      <td>
+        {{vol.siteArrivee}}
+      </td>
+      <td>
+        {{vol.siteDepart}}
+      </td>
+      <td>
+        {{vol.heureArrivee}}
+      </td>
+      <td>
+        {{vol.heureDepart}}
+      </td>
+    </tr>
+  </table>
+</div>
