@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/display.css}" />
+
+</head>
+<body>
+
+
+	<main class="main">
+
+	<section class="section">
+
+
+		<article>
+			<h1 class="titre">Tableau des Alternants</h1>
+
+
+			<div id="mytab">
+
+				<table>
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Prenom</th>
+							<th>Entreprise</th>
+							<th>Année</th>
+							<th>Actif</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:each="p : ${list}">
+							<td th:text="${p.getNom()}" />
+							<td th:text="${p.getPrenom()}" />
+							<td th:text="${p.getEntreprise()}" />
+							<td th:text="${p.getAnnee()}" />
+							<td th:text="${p.isActif()}" />
+							<td>
+							<form action="AlternantController" method="post">
+								<button>delete</button>
+							</form>
+							
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+			</div>
+
+			<a th:href="@{http://localhost:6060/add}">Ajouter un Alternant</a>
+
+
+
+		</article>
+
+
+	</section>
+	</main>
+
+
+</body>
+</html>
