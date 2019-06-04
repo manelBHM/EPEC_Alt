@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<title>pilote page</title>
+<script src="jquery-3.4.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<style>
+body{
+background-image: url("https://imgcld.yatra.com/ytimages/image/upload/t_seo_Flight_w_768_h_380_c_fill_q_60_e_blur:10/v1502263711/Airport27.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+h1{
+text-align: center;
+color: white;
+background-color: rgba(10,10,11,0.6); 
+}
+
+.ps{
+margin-left: 2em;
+}
+#b{
+margin: 10px;	
+}
+h2{
+text-align: center;
+color: white;
+background-color: rgba(10,10,10,0.8);
+
+}
+.bot{
+display: flex;
+flex-direction: row ;
+justify-content: space-between;
+align-items: center;
+ 	
+height: 60px;
+}
+
+</style>
+<script>
+$(document).ready(function() {
+
+	$(".list3").hide();
+	$(".bu").click(function() {
+		$(".list3").slideDown("slow");
+	});
+	
+});
+</script>
+</head>
+<body>
+<h1>Bonjour..! <br> search pilot by	 id </h1>
+
+<div class="bot">
+<div id="b"><a href="home"><button type="submit" class="btn btn-success">home</button></a></div>
+<br><br><br>
+
+
+<div class="ps">
+<form action="/PL" method="post">
+	
+			<div class="bu"><button type="submit" class="btn btn-success">Search</button></div>
+		 <input 	type="text" placeholder="Enter id" name="id" id="id" required>
+		</form>
+</div><br><br>
+</div>
+<div class="list3">
+
+<h2>List of vols</h2>
+
+
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">avion</th>
+				<th scope="col">pilote</th>
+				<th scope="col">siteArrivee</th>
+				<th scope="col">siteDepart</th>
+				<th scope="col">heureArrivee</th>
+				<th scope="col">heureDepart</th>
+			</tr>
+
+			<tr th:each="r : ${V}">
+				<td class="bg-primary" th:text="${r.getId()}" />
+				<td class="bg-success" th:text="${r.getAvion()}" />
+				<td class="bg-warning" th:text="${r.getPilote()}" />
+				<td class="bg-primary" th:text="${r.getSiteArrivee()}" />
+				<td class="bg-success" th:text="${r.getSiteDepart()}" />
+				<td class="bg-primary" th:text="${r.getHeureArrivee()}" />
+				<td class="bg-success" th:text="${r.getHeureDepart()}" />
+				</tr>
+				</thead>
+				</table>
+	
+
+</body>
+</html>

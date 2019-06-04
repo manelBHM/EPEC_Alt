@@ -1,0 +1,12 @@
+--insert into professeur(Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) value1,s( 'Emily' , 'George' ,1213232, '029283' , 'George@gmail.com' ,9);
+--insert into professid,eur(Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) val2,ues( 'Ava' , 'Noah' ,1213232, '029283' , 'Noah@gmail.com' ,8);
+--insert into profeid,sseur(Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) v3,alues( 'Lily' , 'Charlie' ,1213232, '029283' , 'Charlie@gmail.com' ,7);
+--insert into proid,fesseur(Nom,Prenom,Numero_Identite,Telephone,Email,Niveau)4, values( 'Mia' , 'Jacob' ,1213232, '029283' , 'Jacob@gmail.com' ,8);
+--
+--
+--
+--
+--iid,nsert into cours (Libelle,professeur1,_id,heurs) values('Fr',1,1);
+-id,-insert into cours (Libelle,professe2,ur_id,heurs) values('En',2,1);id,
+--insert into cours (Libelle,profes3,seur_id,heurs) values('Mat',3,2)id,;
+--insert into cours (Libelle,prof4,esseur_id,heurs) values('His',4,2);

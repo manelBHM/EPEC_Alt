@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+
+  
+
+<table class="table">
+  <thead class="thead-dark">
+   <tr>
+      <th scope="col">id</th>
+      <th scope="col">nom</th>
+      <th scope="col">preNom</th>
+      <th scope="col">dateNaissance</th>
+      <th scope="col">marie</th>
+      <th scope="col">nbEnfants</th>
+      <th scope="col">version</th>
+      <th scope="col">delet</th>
+     
+    </tr>
+
+ 
+
+    
+    <tr  th:each="s : ${ls}">
+  <td class="bg-primary"  th:text="${s.getId()}"/>
+  <td class="bg-success"  th:text="${s.getNom()}"/>
+  <td class="bg-warning"  th:text="${s.getPreNom()}"/>
+  <td class="bg-danger"  th:text="${s.getDateNaissance()}"/>
+  <td class="bg-info"  th:text="${s.getMarie()}"/>
+   <td class="bg-danger"  th:text="${s.getNbEnfants()}"/>
+  <td class="bg-info"  th:text="${s.getVersion()}"/>
+ <td  class="bg-warning"> <button type="button" class="btn btn-danger">delete</button></td>
+</tr>
+  
+  </thead>
+  </table>
+  
+  
+  
+  <a href="add"> <button type="button" class="btn btn-warning">Ajouter un nouveau Person</button></a>
+
+
+
+</body>
+</html>

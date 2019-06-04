@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\y.abbas\Desktop\demo"/>
+		<item value="C:\Users\y.abbas\Desktop\exrcis\ExerciceDataRest"/>
+		<item value="C:\Users\y.abbas\Desktop\batch\spring-batch-example-1"/>
+		<item value="C:\Users\y.abbas\Desktop\batch\patient-batch-loader-start"/>
+		<item value="C:\Users\y.abbas\eclipse-workspace\airrpot\airrpot"/>
+		<item value="C:\Users\y.abbas\eclipse-workspace\GroupePerso"/>
+	</list>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="875" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="711" key="DIALOG_HEIGHT"/>
+		<item value="534" key="DIALOG_X_ORIGIN"/>
+		<item value="47" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

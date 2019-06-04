@@ -1,0 +1,4 @@
+insert into professeur(id,Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) values(1, 'Emily' , 'tutu' ,1213232, '029283' , 'yaser@gmail.com' ,4);
+insert into professeur(id,Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) values(2, 'Ava' , 'tutu' ,1213232, '029283' , 'yaser@gmail.com' ,4);
+insert into professeur(id,Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) values(3, 'Lily' , 'tutu' ,1213232, '029283' , 'yaser@gmail.com' ,4);
+insert into professeur(id,Nom,Prenom,Numero_Identite,Telephone,Email,Niveau) values(4, 'Mia' , 'tutu' ,1213232, '029283' , 'yaser@gmail.com' ,4);

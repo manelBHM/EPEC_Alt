@@ -1,0 +1,11 @@
+package Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import com.example.ExerciceDataRest.Cours;
+
+@RepositoryRestResource(collectionResourceRel="toto",path="toto")
+public interface CoursRepository extends JpaRepository<Cours, Long> {
+
+}

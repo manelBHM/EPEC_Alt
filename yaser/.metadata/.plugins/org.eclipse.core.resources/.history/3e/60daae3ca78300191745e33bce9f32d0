@@ -1,0 +1,11 @@
+package com.example.ExerciceDataRest.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import com.example.ExerciceDataRest.model.Professeur;
+
+@RepositoryRestResource(collectionResourceRel="home",path="home")
+public interface ProfesseurRepository  extends JpaRepository<Professeur, Long>{
+
+}

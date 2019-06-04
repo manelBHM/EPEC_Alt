@@ -1,0 +1,35 @@
+package Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Model.Professeur;
+import Repository.CoursRepository;
+import Repository.ProfesseurRepository;
+
+@RestController
+public class TestController {
+	
+	@Autowired
+	private ProfesseurRepository professeurRepository;
+	
+	@Autowired
+	private CoursRepository coursRepository;
+	
+	@RequestMapping("/save")
+	public String process() {
+		
+		professeurRepository.save(new Professeur(1,"Doris","Wilson",1111,"074535353","Wilson@gmail.com",8,null));
+		professeurRepository.save(new Professeur(2,"Edna","Francis",2222,"024343","Francis@gmail.com",9,null));
+		professeurRepository.save(new Professeur(3,"Sarah","Norris",3333,"06434343","Norris@gmail.com",8,null));
+		professeurRepository.save(new Professeur(4,"Jennie","Crigler",4444,"0743433","Crigler@gmail.com",6,null));
+		professeurRepository.save(new Professeur(5,"Gladys","Swon",5555,"06334353","Swon@gmail.com",7,null));
+		
+		
+		
+		
+		return "Done";
+	}
+
+}
