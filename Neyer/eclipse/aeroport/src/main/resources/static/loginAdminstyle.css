@@ -1,0 +1,22 @@
+body {
+	background-image: url("/fond_acceuil.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+h1{
+	margin-left: 40%;
+	margin-top: 20%;
+	color: black;
+	
+}
+
+.formulaire{
+	margin-top: 6%;
+	color:black;
+	font-size: 21px;
+}
+
+.fondformul{
+	background-color: rgba(0,0,0,0.3);
+	border-radius: 20px 20px 20px 20px;
+}
