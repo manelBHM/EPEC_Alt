@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+/home/simplonco/new_workspace/Newproject/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2576777692.index
-1510298311.index
-4001864142.index
-769323406.index
-3739850926.index
-1932471505.index
-2392269024.index
