@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ServletAuthentification</servlet-name>
+  	<display-name>ServletAuthentification</display-name>
+  	<description></description>
+  	<servlet-class>org.monpackage.ServletAuthentification</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AuthentificationServlet</servlet-name>
+  	<display-name>AuthentificationServlet</display-name>
+  	<description></description>
+  	<servlet-class>AuthentificationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AuthentServlet</servlet-name>
+  	<display-name>AuthentServlet</display-name>
+  	<description></description>
+  	<servlet-class>AuthentServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AuthenServ</servlet-name>
+  	<display-name>AuthenServ</display-name>
+  	<description></description>
+  	<servlet-class>com.authentification.AuthenServ</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletAuthentification</servlet-name>
+  	<url-pattern>/ServletAuthentification</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AuthentificationServlet</servlet-name>
+  	<url-pattern>/authentificationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AuthentServlet</servlet-name>
+  	<url-pattern>/AuthentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AuthenServ</servlet-name>
+  	<url-pattern>/AuthenServ</url-pattern>
+  </servlet-mapping>
+</web-app>
