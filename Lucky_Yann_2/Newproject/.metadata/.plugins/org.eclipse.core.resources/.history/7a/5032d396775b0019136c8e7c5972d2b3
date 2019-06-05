@@ -1,7 +1,0 @@
-package my.TestUnitaire;
-
-import junit.framework.TestCase;
-
-public class TestClass extends TestCase {
-
-}

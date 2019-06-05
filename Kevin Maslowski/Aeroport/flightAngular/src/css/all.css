@@ -1,0 +1,92 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v12/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lqDY.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v12/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 1.3em;
+    background: linear-gradient(150deg,white 15%,white 70%,#002157 100%);
+    background-attachment: fixed;
+  }
+  
+  h1 {
+    font-size: 2.0em;
+  }
+  
+  .table-bordered, .table-bordered td, .table-bordered th {
+    border: 2px solid #002157;
+  }
+
+  .navbar a {
+    color: #002157!important;
+    }
+    
+  th {
+    color: #002157!important;
+    font-weight: bolder;
+    text-align: center;
+  }
+  td {
+    font-weight: bold;
+  }
+
+  .back {
+    background-color: #002157;
+  }
+
+  #welcome {
+    color: #002157;
+    text-align: center;
+  }
+
+  #white {
+    color: white!important;
+  }
+
+  .mb-3 {
+    max-width: 300px;
+    margin-left: 39%;
+  }
+
+  #rules {
+    color: #002157;
+    position: absolute;
+    left: 3%;
+  }
+
+  #formlog {
+    max-width: 800px;
+    position: absolute;
+    top: 20%;
+    left: 33%;
+  }
+
+  #copilote {
+    font-size: 15px;
+    margin-left: 20px;
+  }

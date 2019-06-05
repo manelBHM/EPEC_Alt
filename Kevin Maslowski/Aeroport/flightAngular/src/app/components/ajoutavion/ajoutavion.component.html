@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+    <a class="navbar-brand" href="http://localhost:4200/admin/acceuil"><img src="assets/Logo-Air-France.png" width="200"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/pilotes">Pilotes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/admin/avions">Avions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost:4200/admin/vols">Vols</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ajouter
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="http://localhost:4200/admin/addpilote">Un Pilote</a>
+            <a class="dropdown-item" href="http://localhost:4200/admin/addavion">Un Avion</a>
+            <a class="dropdown-item" href="http://localhost:4200/admin/addvol">Un Vol</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<h4 id="welcome">Remplissez les champs suivants pour ajouter un avion à notre base de données.</h4>
+<br>
+<div class="container">
+    <form [formGroup]="avionform" (ngSubmit)="submitRegistration()" novalidate>
+      <div *ngIf="validMessage != ''">
+        <h3 class="has-info">{{validMessage}}</h3>
+      </div>
+      <div class="form-group">
+        <label>Constructeur</label>
+        <select class="form-control" formControlName="constructeur" required>
+            <option value="">Selectionnez un constructeur</option>
+            <option *ngFor="let c of construct"
+                    [value]="c">
+                    {{c}}
+            </option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label>Model</label>
+        <select class="form-control" formControlName="model" required>
+            <option value="">Sélectionnez un modèle</option>
+            <option *ngFor="let m of models"
+                    [value]="m">
+                    {{m}}
+            </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Capacite</label>
+        <select class="form-control" formControlName="capacite" required>
+            <option value="">Sélectionnez un modèle</option>
+            <option *ngFor="let c of capacity"
+                    [value]="c">
+                    {{c}}
+            </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Site</label>
+        <input type="text" class="form-control" formControlName="site" required/>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+  </div>
