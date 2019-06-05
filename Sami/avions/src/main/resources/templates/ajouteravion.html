@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajouter un avion</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	
+		<style>
+body{
+background-image: url("");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+</style>
+	
+
+</head>
+<body>
+
+<h4>Ajouter avion</h4>
+    
+      <form th:action="@{saveAvion}" th:object="${avion}" method="POST">
+         
+        <br/> 
+         <input type="hidden" th:field="*{id}" />  
+         <span th:errors="*{id}"></span>  
+         <br/>  
+         CONSTRUCTEUR: <br/> 
+         <input type="text" th:field="*{constructeur}" />  
+         <span th:errors="*{constructeur}"></span>   
+         <br/>
+         MODELE: <br/> 
+         <input type="text" th:field="*{modele}" />   
+         <span th:errors="*{modele}"></span> 
+         <br/>
+         CAPACITE: <br/> 
+         <input type="text" th:field="*{capacite}" />  
+         <span th:errors="*{capacite}"></span>   
+         <br/>
+         SITE: <br/> 
+         <input type="text" th:field="*{site}" />   
+         <span th:errors="*{site}"></span> 
+         
+         
+         <input type="submit" value="Create" />
+      </form>
+   
+
+</body>
+</html>
