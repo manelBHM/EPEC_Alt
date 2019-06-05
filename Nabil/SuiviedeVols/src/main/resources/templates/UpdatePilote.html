@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scalle=1"/>
+	  <title>Ajouter un Pilote</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+	
+	</head>
+
+	<body>
+	    <h5 style="padding-top: 5%; text-align: center; font-family: 'Roboto', sans-serif;font-weight:lighter;font-size:24px
+	    "> Ajouter un Pilote</h5>
+	
+		 <form class="container" id="form1" style="width: 300px;height: auto; margin-top:3%; margin-bottom:5%; width: 300px; font-size: 14px;">
+    
+            <div class="form-group">
+                 <label for="exampleInputEmail1">ID :</label>
+                 <input type="text" class="form-control"></input>
+                 
+            </div>
+            
+            <div class="form-group">
+                    <label for="exampleInputEmail1">Nom</label>
+
+                <input type="text" class="form-control"></input>
+            </div>
+            <div class="form-group">
+                    <label for="exampleInputEmail1">Site</label>
+
+              <input type="text" class="form-control"></input>
+            </div>
+           
+           
+            <button type="submit" class="btn btn-primary" onclick="location.href='create(ID=${LISTE.ID}, nom=${LISTE.nom}, site=${LISTE.site})'">Ajouter</button>
+          </form>
+
+	  <link rel="stylesheet" th:href="@{css/js/bootstrap.min.js}"/>	
+
+	</body>
+</html>

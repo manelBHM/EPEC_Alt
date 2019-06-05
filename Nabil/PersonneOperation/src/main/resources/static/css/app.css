@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+
+
+.display-1{
+	
+	font-size: 80px;
+	color: white;
+	align-content: center;
+	padding-top: 75px;
+	
+	
+}
+.Qtsinput{
+	
+	width: 5%;
+	text-align: center;
+	
+	
+}
+.btn btn-success{
+	
+	align-self: center;
+}
+.forme{
+  text-align: center;
+  background-color: #eceff1;
+  height: 300px;
+}
+
+#form1{
+    height: auto;
+    margin-top:5%;
+    margin-bottom:5%;
+    width: 300px;
+    font-size: 14px;
+    border-color: blue;
+}
+.h5{
+	padding-top: 5%;
+	 text-align: center; 
+	 font-family: 'Roboto', sans-serif;
+	
+	
+}
+.h3{
+	text-align: center;
+	color: #42a5f5;
+	font-family: 'Roboto', sans-serif;
+	
+	font-size: 30px;
+	
+}
+.h1{
+	text-align: center;
+	color: #42a5f5;
+	font-family: 'Roboto', sans-serif;
+	font-size: 60px;
+	
+	
+}
+.divpage{
+	
+	text-align: centre;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
