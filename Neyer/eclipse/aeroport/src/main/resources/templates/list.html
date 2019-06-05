@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Liste Avion</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/listStyle.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>AVIONS</h1>
+
+		<br> <a th:href="@{FormulaireAvion}">Saisir un avion</a>
+		<div class="table">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Model</th>
+						<th>Capacite</th>
+						<th>Site</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="a:${avions}">
+						<td th:text="${a.id}"></td>
+						<td th:text="${a.nomAvion}"></td>
+						<td th:text="${a.model}"></td>
+						<td th:text="${a.capacite}"></td>
+						<td th:text="${a.site}"></td>
+						<td><a onclick="return confirm('Etes vous sur ?')"
+							th:href="@{SupprimerAvion(id=${a.id})}">Supprimer</a></td>
+						<td><a th:href="@{EditAvion(id=${a.id})}">Editer</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h1>PILOTES</h1>
+		<a th:href="@{FormulairePilote}">Saisir un pilote</a>
+		<div class="table">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nom</th>
+						<th>Site</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p:${pilots}">
+						<td th:text="${p.idPilote}"></td>
+						<td th:text="${p.nom}"></td>
+						<td th:text="${p.site}"></td>
+						<td><a onclick="return confirm('Etes vous sur ?')"
+							th:href="@{SupprimerPilote(id=${p.idPilote})}">Supprimer</a></td>
+						<td><a th:href="@{EditPilote(id=${p.idPilote})}">Editer</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h1>VOLS</h1>
+		<a th:href="@{FormulaireVol}">Saisir un vol</a>
+		<div class="table">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Pilotes</th>
+						<th>Avions</th>
+						<th>Site Depart</th>
+						<th>Site Arrive</th>
+						<th>Heure Arrive</th>
+						<th>Heure Depart</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="v:${vols}">
+						<td th:text="${v.id	}"></td>
+						<td th:text="${v.pilote}"></td>
+						<td th:text="${v.avion}"></td>
+						<td th:text="${v.siteDepart}"></td>
+						<td th:text="${v.siteArriv}"></td>
+						<td th:text="${v.heurArriv}"></td>
+						<td th:text="${v.heurDepart}"></td>
+						<td><a onclick="return confirm('Etes vous sur ?')"
+							th:href="@{SupprimerVol(id=${v.id})}">Supprimer</a></td>
+						<td><a th:href="@{EditVol(id=${v.id})}">Editer</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
