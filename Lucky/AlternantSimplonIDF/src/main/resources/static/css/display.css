@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body{
+	text-align: center;
+}
+
+
+article>a {
+	margin-bottom: 1000px;
+	
+}
+
+#mytab{
+   margin-bottom: 100px;	
+}
+
+.titre {
+	color: darkblue;
+	text-decoration: underline;
+	text-align: center;
+	margin-bottom : 100px
+	
+}
+
+.main {
+	width: 100%;
+	height: auto;
+
+}
+
+th, td {
+	width: 50px;
+	height: 100px;
+	border: 3px solid black;
+	line-height: 100px;
+}
+
+thead {
+	background: grey;
+	color: darkblue
+}
+
+table {
+	margin: 0 auto;
+	width: 50%;
+	text-align: center;
+	border-top: 10px inset whitesmoke;
+	border-left: 10px solid darkblue;
+	border-right: 10px solid red;
+	border-bottom: 10px inset maroon;
+}

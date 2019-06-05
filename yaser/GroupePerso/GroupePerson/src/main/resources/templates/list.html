@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<title>Insert title here</title>
+<style type="text/css">
+.head{
+border: 4px solid black;
+background-color: silver;
+width: 60%;
+
+}
+</style>
+</head>
+<body>
+
+
+
+
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">nom</th>
+				<th scope="col">preNom</th>
+				<th scope="col">age</th>
+				<th scope="col">delete</th>
+
+
+			</tr>
+
+
+
+
+			<tr th:each="s : ${ls}">
+				<td class="bg-primary" th:text="${s.getId()}" />
+				<td class="bg-success" th:text="${s.getNom()}" />
+				<td class="bg-warning" th:text="${s.getPrenom()}" />
+				<td class="bg-danger" th:text="${s.getAge()}" />
+
+
+
+				<form action="/add" method="post">
+					<td class="bg-warning">
+						<button type="submit" name="id" required class="btn btn-danger"
+							th:value="${s.id}">delete</button>
+					</td>
+				</form>
+			</tr>
+
+		</thead>
+	</table>
+
+
+
+
+<div class="head">
+	<form action="/list" method="post">
+		<div class="container">
+			<hr>
+			<h1>Ajouter un nouveau Person</h1>
+			<hr>
+			<br /> <br /> <label for="nom"><b>nom</b></label> <input
+				type="text" placeholder="Enter nom" name="nom" id="nom" required>
+			<label for="prenom"><b>prenom</b></label> <input type="text"
+				placeholder="Enter prenom" name="prenom" id="prenom" required>
+
+			<label for="age"><b>age</b></label> <input type="text"
+				placeholder="Enter age" name="age" id="age" required>
+
+
+			<div>
+
+				<button type="submit" class="btn btn-success">Ajouter</button>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+</body>
+</html>

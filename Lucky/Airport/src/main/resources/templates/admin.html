@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Lucky-Airport Admin</title>
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}" />
+
+
+
+<!-- LIENS BOOTSTRAP CDN -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+
+<!-- Font Awesome Icons -->
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700"
+	rel="stylesheet">
+
+</head>
+<body>
+
+<div class="hello">
+
+<img src="https://images.unsplash.com/photo-1530545124313-ce5e8eae55af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="">
+
+</div>
+
+	<section id="section-head">
+
+		<article class="conteneur-head">
+			<h1>
+				<a th:href="@{http://localhost:9090/lucky/airport/}"
+					title="LOGO DE LUCKY AIRPORT"> lucky airport </a>
+			</h1>
+
+		</article>
+
+	</section>
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+	<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+		
+	<section id="section-navigation">
+	
+
+	<article class="section-nav-item nav-anim-left">
+			<p>
+					<a th:href="@{http://localhost:9090/lucky/airport/home}"><i class="fas fa-home"></i></a>
+			</p>
+		</article>
+		
+				
+		
+		<article class="section-nav-item nav-anim-left">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminpilote}">ADMIN-PILOTE</a>
+			</p>
+		</article>
+		
+		
+		
+		<article class="section-nav-item nav-anim-right">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminavion}">ADMIN-AVION</a>
+			</p>
+		</article>
+		
+		
+		<article class="section-nav-item nav-anim-right">
+			<p>
+				<a th:href="@{http://localhost:9090/lucky/airport/adminvol}">ADMIN-VOL</a>
+			</p>
+		</article>
+
+	</section>
+	
+<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+<!--//////////////////////////////////////////////////////////////////////////////////////////////:-->
+
+
+
+	<div class="legende">
+
+		<p>welcome to administrator page</p>
+	</div>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

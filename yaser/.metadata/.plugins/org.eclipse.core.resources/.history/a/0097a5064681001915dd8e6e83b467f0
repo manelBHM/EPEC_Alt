@@ -1,0 +1,20 @@
+package Model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Cours {
+
+	@Id
+	@GeneratedValue
+	private long id;
+	private String Libelle;
+	@ManyToOne(targetEntity = Professeur.class)
+	@JoinColumn(name="professeur_id")
+	private Professeur professeur;
+	private int heurs;
+}

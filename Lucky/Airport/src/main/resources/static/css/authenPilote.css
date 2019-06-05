@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: white;
+	background-image:
+		url("https://s2.best-wallpaper.net/wallpaper/1920x1080/1210/Artistic-creation-abandoned-airport-aircraft-wreckage_1920x1080.jpg");
+	overflow-x: hidden;
+}
+
+
+header {
+	margin-bottom: 55px !important
+}
+
+.avatar {
+	background: #b2bec3;
+	padding: 5px;
+	color: white !important;
+	font-weight: bold;
+}
+
+.avatar:hover {
+	background: #6a89cc;
+	transition: 1.5s ease-in;
+}
+
+.navbar {
+	background: black !important;
+}
+
+.navbar ul li a {
+	color: whitesmoke !important;
+	font-size: 30px !important;
+}
+
+.navbar ul li a:hover {
+	background-color: #6a89cc !important;
+	color: #121212 !important;
+	transition: 1.5s ease-in;
+}
+
+.navbar-toggler {
+	background: grey !important
+}
+
+form label {
+	color: white;
+	font-size: 20px
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin: 0 auto;
+}
+
+@
+keyframes slidein {from { margin-top:-100%;
+	width: 100%;
+}
+
+75%
+{
+font-size
+:
+ 
+100%;
+margin-top
+:
+ 
+-25%;
+width
+:
+ 
+150%;
+}
+to {
+	margin-top: -0%;
+	width: 100%;
+}
+
+}
+#presentation {
+	background: #b8e994 !important;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	text-transform: uppercase;
+	color: black;
+	margin: 55px 0 50px 0;
+}
+
+#presentation h1 {
+	font-size: 25px;
+	animation: slidein 1.5s;
+}
+
+
+@media screen and (min-width: 200px) and (max-width: 800px) {
+	
+#presentation h1 {
+font-size: 18px;
+  animation:none!important;
+}
+
+
+.myitems {
+	text-align: center;
+	font-size: 20px!important;
+	background: #b8e994;
+	border: 2px solid #b8e994;
+	width: 23%!important
+}
+	
+	
+}

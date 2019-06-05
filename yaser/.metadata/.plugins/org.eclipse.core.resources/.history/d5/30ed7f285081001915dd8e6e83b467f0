@@ -1,0 +1,15 @@
+
+
+
+insert into professeur values (1,'Doris','Wilson',1111,'074535353','Wilson@gmail.com',8);
+insert into professeur values (2,'Edna','Francis',2222,'024343','Francis@gmail.com',9);
+insert into professeur values (3,'Sarah','Norris',3333,'06434343','Norris@gmail.com',8);
+insert into professeur values (4,'Jennie','Crigler',4444,'0743433','Crigler@gmail.com',6);
+insert into professeur values (5,'Gladys','Swon',5555,'06334353','Swon@gmail.com',7);
+
+
+insert into cours values (1,'Fr',1);
+insert into cours values (2,'En',1);
+insert into cours values (3,'Mat',2);
+insert into cours values (4,'Hs',2);
+insert into cours values (5,'Fl',2);

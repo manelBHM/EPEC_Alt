@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Modifier un vol</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	
+		<style>
+body{
+background-image: url("");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+</style>
+	
+
+</head>
+<body>
+
+<h4>Modifier vol</h4>
+    
+      <form th:action="@{updateFlight}" th:object="${vol}" method="POST">
+         
+        <br/> 
+         <input type="hidden" th:field="*{id}" />  
+         <span th:errors="*{id}"></span>  
+         <br/>  
+         ID_PILOTE: <br/> 
+         <input type="text" th:field="*{id_pilote}" />  
+         <span th:errors="*{id_pilote}"></span>   
+         <br/>
+         ID_AVION: <br/> 
+         <input type="text" th:field="*{id_avion}" />   
+         <span th:errors="*{id_avion}"></span>   
+         <br/>
+         HDEPART: <br/> 
+          <input type="text" th:field="*{hdepart}" /> 
+          <span th:errors="*{hdepart}"></span>     
+         <br/>
+         HARRIVEE: <br/> 
+          <input type="text" th:field="*{harrivee}" />  
+          <span th:errors="*{harrivee}"></span>    
+         <br/>
+         SITEDEPART: <br/> 
+          <input type="text" th:field="*{sitedepart}" />
+          <span th:errors="*{sitedepart}"></span>      
+         <br/>
+
+          SITEARRIVEE: <br/> 
+          <input type="text" th:field="*{sitearrivee}" />  
+          <span th:errors="*{sitearrivee}"></span>    
+         <br/>
+          
+         
+         <input type="submit" value="Create" />
+      </form>
+   
+
+</body>
+</html>

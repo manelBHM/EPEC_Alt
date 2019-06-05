@@ -1,0 +1,5 @@
+package com.example.ExerciceDataRest.Controller;
+
+public class SwaggerConfig {
+
+}

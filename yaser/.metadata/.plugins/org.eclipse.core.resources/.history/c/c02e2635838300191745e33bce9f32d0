@@ -1,0 +1,105 @@
+package com.example.ExerciceDataRest.Controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.example.ExerciceDataRest.Repository.CoursRepository;
+import com.example.ExerciceDataRest.Repository.ProfesseurRepository;
+import com.example.ExerciceDataRest.model.Cours;
+import com.example.ExerciceDataRest.model.Professeur;
+
+@RestController
+@RequestMapping("/rest/hello")
+public class testController {
+	
+	private static List<Professeur> professeur = new ArrayList<>();
+	private static List<Cours> cours = new ArrayList<>();
+	
+	
+	@Autowired
+	 ProfesseurRepository  professeurRepository;
+	@Autowired
+	CoursRepository coursRepository;
+	
+	
+	@GetMapping("/professeur")
+	public List<Professeur> helloProfesseur() {
+		
+	return  professeurRepository.findAll();
+		
+	}
+	
+	@GetMapping("/cours")
+	public List<Cours> helloCours() {
+		
+	return  coursRepository.findAll();
+		
+	}
+	
+	
+	
+	@PostMapping("/professeur")
+	public ResponseEntity<Professeur> creatNewProfesseur(@RequestBody Professeur P ) {
+		
+		Professeur pro= professeurRepository.save(P);
+		
+		
+		return new ResponseEntity<>(pro,HttpStatus.CREATED) ;
+	}
+	
+	@PostMapping("/cours")
+	public ResponseEntity<Cours> creatNewCours(@RequestBody Cours C ) {
+	
+		Cours cou= coursRepository.save(C);
+		
+		
+		return new ResponseEntity<>(cou,HttpStatus.CREATED) ;
+	}
+	
+	
+	
+	
+	@PutMapping("updateProfesseur")
+	public ResponseEntity<Professeur> updateProfesseurById(@RequestBody long id,Professeur P) {
+	P=professeurRepository.getOne(id);
+	P=professeurRepository.save(P);
+		return new ResponseEntity<>(P,HttpStatus.CREATED);
+	}
+	
+	@PutMapping("updateCours")
+	public ResponseEntity<Cours> updateCoursById(@RequestBody long id,Cours C) {
+	C=coursRepository.findById(id);
+	C=coursRepository.save(C);
+		return new ResponseEntity<>(C,HttpStatus.OK);
+	}
+
+	
+	@DeleteMapping("DeleteProfesseur/{id}")
+	public ResponseEntity<Professeur> DeleteProfesseurById(@PathVariable @RequestBody long id,Professeur P ){
+	professeurRepository.deleteById(id);
+		return new ResponseEntity<>(P,HttpStatus.OK);
+		
+	}
+	
+	@DeleteMapping("DeleteCours/{id}")
+	public ResponseEntity<Cours> DeleteCoursById(@PathVariable @RequestBody long id,Cours C ){
+		coursRepository.deleteById(id);
+		return new ResponseEntity<>(C,HttpStatus.OK);
+		
+	}
+}

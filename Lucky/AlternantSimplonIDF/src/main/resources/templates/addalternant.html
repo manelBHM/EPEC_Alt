@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form div {
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+
+	<form th:action="@{/add}" method="post">
+
+		<div>
+			<label for="nom">Nom : </label> <input type="text" name="nom"
+				id="nom" />
+		</div>
+
+
+		<div>
+			<label for="prenom">Prenom : </label> <input type="text"
+				name="prenom" id="prenom" />
+		</div>
+
+
+		<div>
+			<label for="entreprise">Entreprise : </label> <input type="text"
+				name="entreprise" id="entreprise" />
+		</div>
+
+
+		<div>
+			<label for="annee">Année : </label> <input type="text" name="annee"
+				id="annee" />
+		</div>
+
+		<div>
+			<label for="actif">Actif : </label> <input type="text" name="actif"
+				id="actif" />
+		</div>
+
+
+		<input type="submit" value="Create" />
+	</form>
+
+	<br>
+
+	<a th:href="@{http://localhost:6060/listalternant}">Liste des
+		Alternants</a>
+
+</body>
+</html>

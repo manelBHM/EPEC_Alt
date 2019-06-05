@@ -1,0 +1,44 @@
+{
+  "apiVersion" : "v1",
+  "kind" : "Service",
+  "metadata" : {
+    "annotations" : {
+      "fabric8.io/scm-tag" : "HEAD",
+      "fabric8.io/scm-url" : "https://github.com/spring-projects/spring-boot/spring-boot-starter-parent/exoBootOnKubernetes",
+      "prometheus.io/port" : "9779",
+      "prometheus.io/scrape" : "true"
+    },
+    "creationTimestamp" : "2019-05-02T14:51:46Z",
+    "labels" : {
+      "app" : "exoBootOnKubernetes",
+      "expose" : "true",
+      "group" : "com.example",
+      "provider" : "fabric8",
+      "version" : "0.0.1-SNAPSHOT"
+    },
+    "name" : "exobootonkubernetes",
+    "namespace" : "default",
+    "resourceVersion" : "29463",
+    "selfLink" : "/api/v1/namespaces/default/services/exobootonkubernetes",
+    "uid" : "cefc3621-6ce9-11e9-866d-0800276bf452"
+  },
+  "spec" : {
+    "clusterIP" : "10.110.191.130",
+    "ports" : [ {
+      "name" : "http",
+      "port" : 8080,
+      "protocol" : "TCP",
+      "targetPort" : 8080
+    } ],
+    "selector" : {
+      "app" : "exoBootOnKubernetes",
+      "group" : "com.example",
+      "provider" : "fabric8"
+    },
+    "sessionAffinity" : "None",
+    "type" : "ClusterIP"
+  },
+  "status" : {
+    "loadBalancer" : { }
+  }
+}

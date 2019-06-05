@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>AdminPage</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	
+		<style>
+body{
+background-image: url("");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+</style>
+	
+	
+	
+
+
+</head>
+<body>
+
+	
+		<div class="row">
+			<div class="col-md-12">
+			<h2>Oceanic Airlines Admin page</h2>
+			<br>
+			</div>
+			
+			
+		</div>
+		
+			<div>
+			<a th:href="@{/ajouterVol}">Ajouter un vol</a><br>
+			<a th:href="@{/ajouterPilote}">Ajouter un pilote</a><br>
+			<a th:href="@{/ajouterAvion}">Ajouter un avion</a><br>
+			<br>
+                   <h4>Liste des vols</h4>
+				<table class="table table-hover table-sm">
+					<thead class="thead-dark">
+						<tr>
+							<th>ID</th>
+							<th>PILOTE</th>
+							<th>AVION</th>
+							<th>HEURE DE DEPART</th>
+							<th>HEURE D'ARRIVEE</th>
+							<th>SITE DE DEPART</th>
+							<th>SITE D'ARRIVEE</th>
+							
+							<th>-</th>
+							<th>-</th>
+							
+
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr th:each="v:${vols}">
+							<td th:utext="${v.id}"></td>
+							<td th:utext="${v.pilote.id}"></td>
+							<td th:utext="${v.avion.id}"></td>
+							<td th:utext="${v.hdepart}"></td>
+							<td th:utext="${v.harrivee}"></td>
+							<td th:utext="${v.sitedepart}"></td>
+							<td th:utext="${v.sitearrivee}"></td>
+							
+    <td><a th:href="@{editFlight(id=${v.id})}" >Modifier</a></td>
+    <td><a onclick="confirm('etes vous sur de vouloir supprimer')" th:href="@{deleteFlight(id=${v.id})}" >Supprimer</a></td>
+    
+						</tr>
+					</tbody>
+
+				</table>
+				
+			</div>
+			<div>
+			<h4>Liste des pilotes</h4>
+			
+				<table class="table table-hover table-sm">
+					<thead class="thead-dark">
+						<tr>
+							<th>ID</th>
+							<th>NOM</th>
+							<th>SITE</th>
+							
+							<th>-</th>
+							<th>-</th>
+							
+						
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr th:each="p:${pilotes}">
+							<td th:utext="${p.id}"></td>
+							<td th:utext="${p.name}"></td>
+							<td th:utext="${p.site}"></td>
+							
+	<td><a th:href="@{editPilot(id=${p.id})}" >Modifier</a></td>
+    <td><a onclick="confirm('etes vous sur de vouloir supprimer')" th:href="@{deletePilot(id=${p.id})}" >Supprimer</a></td>
+    
+							
+						</tr>
+					</tbody>
+
+				</table>
+				
+			</div>
+			
+			<div>
+			<h4>Liste des avions</h4>
+				<table class="table table-hover table-sm">
+					<thead class="thead-dark">
+						<tr>
+							<th>ID</th>
+							<th>CONSTRUCTEUR</th>
+							<th>MODELE</th>
+							<th>CAPACITE</th>
+							<th>SITE</th>
+							
+							<th>-</th>
+							<th>-</th>
+							
+						
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr th:each="a:${avions}">
+							<td th:utext="${a.id}"></td>
+							<td th:utext="${a.constructeur}"></td>
+							<td th:utext="${a.modele}"></td>
+							<td th:utext="${a.capacite}"></td>
+							<td th:utext="${a.site}"></td>
+							
+	<td><a th:href="@{editPlane(id=${a.id})}" >Modifier</a></td>
+    <td><a onclick="confirm('etes vous sur de vouloir supprimer')" th:href="@{deletePlane(id=${a.id})}" >Supprimer</a></td>
+               
+							
+						</tr>
+					</tbody>
+
+				</table>
+				
+			</div>
+		
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

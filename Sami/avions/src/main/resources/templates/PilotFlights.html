@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pilot Flights</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+
+
+
+	<style>
+body{
+background-image: url("");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+</style>
+
+
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-center">Oceanic Airlines Pilot flights</h2>
+				<br>
+				
+				
+				<span th:text="${'Bonjour '+pilote.name}"></span><br><br>
+				
+					
+ 
+           <p>Voici la liste de vos vols</p>
+       
+
+				<div class="btn-group" role="group">
+
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th>ID</th>
+								<th>AVION</th>
+								<th>HEURE DE DEPART</th>
+								<th>HEURE D'ARRIVEE</th>
+								<th>SITE DE DEPART</th>
+								<th>SITE D'ARRIVEE</th>
+
+							</tr>
+
+						</thead>
+						<tbody>
+							<tr th:each="v:${volspilote}">
+								<td th:utext="${v.id}"></td>
+								<td th:utext="${v.avion.id}"></td>
+								<td th:utext="${v.hdepart}"></td>
+								<td th:utext="${v.harrivee}"></td>
+								<td th:utext="${v.sitedepart}"></td>
+								<td th:utext="${v.sitearrivee}"></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

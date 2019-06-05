@@ -1,0 +1,39 @@
+package com.example.ExerciceDataRest.model;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="professeur")
+public class Professeur {
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	private String Nom;
+	private String Prenom;
+	private int NumeroIdentite;
+	private String Telephone;
+	private String Email;
+	private int Niveau;
+	@OneToMany(mappedBy="professeur")
+    
+	private List<Cours> cours;
+	
+	public Professeur() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	
+	
+
+}
