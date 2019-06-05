@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scalle=1"/>
+	  <title>Personne App</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+	
+	</head>
+
+	<body>
+		
+		<div class="forme" style="
+  background-color: #eceff1;
+  height: 100px; padding-top: 25px">
+			<h1 style="padding-left: 5%; color:#455a64 ; letter-spacing:3px; font-family: 'Roboto', sans-serif;font-size: 40px;text-shadow: #eceff1"> Liste des personnes</h1>
+		</div>
+
+	<form th:action="@{/Facture}" method="Get">
+		
+		<div>
+          <table class="table" align="centre">
+  			<thead class="thead-dark" align="centre">
+            	<tr>
+            	  <th scope="col">Id</th>
+	              <th scope="col">Version</th>
+	              <th scope="col">Nom</th>
+	              <th scope="col">Prénom</th>
+	              <th scope="col">Date de Naissance</th>
+	              <th scope="col">Marié</th>
+	              <th scope="col">Nombre d'enfants</th>
+	              <th scope="col">Modifier</th>
+	              <th scope="col">Supprimer</th>
+
+            	</tr>
+             </thead>
+            <tbody>	
+            	<tr th:each="LISTE : ${listeP}" align="centre">
+            	   
+	               <td th:utext="${LISTE.Id} " th:field="*{id}" >...</td>
+	               <td th:utext="${LISTE.version}" th:field="*{version}">...</td>
+	               <td th:utext="${LISTE.nom}" th:field="*{nom}">...</td>
+	               <td th:utext="${LISTE.prenom}" th:field="*{prenom}">...</td>
+	             	<td th:utext="${LISTE.date_naissance}" th:field="*{date_naissance}">...</td>
+	               <td th:utext="${LISTE.Marie}" th:field="*{Marie}">...</td>
+ 	               <td th:utext="${LISTE.nbr_enf}" th:field="*{nbr_enf}">...</td>
+ 	               
+<!--             	   <td><a th:href="@{update(id=${LISTE.id})}" type="button">Modifier</a></td> -->
+            	   <td><button style="width: 120px; height: 38px" onclick="location.href='update(id=${LISTE.id})'" class="btn btn-outline-primary" type="button">Modifier</button></td>
+            	   
+            	   
+            	   <td><button style="width: 120px; height: 38px" onclick="location.href='delete'" class="btn btn-outline-danger" type="button">Supprimer</button></td>
+            	   
+           		 </tr>
+           	  </tbody>
+           		 
+         	</table>
+         	 	<br></br>
+      	<br></br>
+
+      	
+      	</div>
+     
+      
+      </form>
+      
+      
+      
+	  <link rel="stylesheet" th:href="@{css/js/bootstrap.min.js}"/>	
+	</body>
+</html>
