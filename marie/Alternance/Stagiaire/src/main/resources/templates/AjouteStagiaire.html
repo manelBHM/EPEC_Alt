@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajouter stagiaire</title>
+<style type="text/css">
+body{
+color: black;
+text-align: center;
+font-family: Arial;
+}
+.name{
+text-align: left;
+margin-left: 300px;
+}
+.name label {
+float: left;
+width: 200px;
+}
+.name input {
+border: 1px #999 solid;
+}
+span{
+color: red;
+}
+.bouton{
+  display: flex; 
+  margin: 30px;
+  display: inline-block;
+  width: 60px;
+  height: 36px;
+  cursor: pointer;
+  text-align: top left;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: rgb(43, 136, 179);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #999;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.bouton:hover {background-color: rgb(43, 136, 179);
+}
+.bouton:active {
+  background-color: rgb(43, 136, 179);;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+</head>
+<body>
+
+	<h2>Ajouter un nouveau stagiaire</h2>
+	<br>
+	<form class="stage" th:action="@{/AjouteStagiaire}" method="post">
+       
+		<div class="name">
+				<label for="nom">Nom: <span class="requis">*</span></label>
+	        	<input type="text" name="nom" id="nom"  />
+				<br>
+				
+	         	<label for="prenom">Prenom: <span class="requis">*</span></label>
+	            <input type="text" name="prenom" id="prenom"  />
+	            <br />
+	            
+	            <label for="matricule">Matricule: <span class="requis">*</span></label>
+	            <input type="text" name="matricule" id="matricule"  />
+	            <br />
+	    </div> 
+	    
+	    	<button class="bouton" action="submit">Valider</button>
+	</form>
+	
+	<a th:href="@{http://localhost:8080/listStagiaire}">Liste des Stagiaires</a>
+	
+	 	
+      
+</body>
+</html>
+
+
+
+
+
