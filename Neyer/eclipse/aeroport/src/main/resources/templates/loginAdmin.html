@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Login Admin</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="loginAdminstyle.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="fondformul">
+			<h1>Login Admin</h1>
+			<div class="formulaire">
+				<form th:action="@{/Login}" th:object="${loginForm}" method="post">
+					
+					<div class="row justify-content-center">
+						<div class="col-1">
+							<label for="username">Username</label>
+						</div>
+						<div class="col-3">
+							<input type="text" id="username" name="username"
+								class="form-control" />
+						</div>
+					</div>
+
+					<div class="row justify-content-center">
+
+						<div class="col-1">
+							<label for="password">Password</label>
+						</div>
+						<div class="col-3">
+							<input type="password" id="password" name="password"
+								class="form-control" placeholder="Password" />
+						</div>
+					</div>
+					<br>
+					<div class="row justify-content-end">
+						<div class="col-6">
+<!-- 							<input type="submit" value="Log In" /> -->
+<button type="submit" class="btn btn-dark"> Valider </button>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class=col>
+							<p th:if="${invalidCredentials}" class="error">User Name or
+								Password is wrong</p>
+						</div>
+					</div>
+				</form>
+				<br>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Liste vols</title>
+</head>
+<body>
+	<h1>Vol du pilote</h1>
+
+	
+	<br>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Model</th>
+				<th>Capacite</th>
+				<th>Site</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="a:${A}">
+				<td th:text="${a.id}"></td>
+				<td th:text="${a.nomAvion}"></td>
+				<td th:text="${a.model}"></td>
+				<td th:text="${a.capacite}"></td>
+				<td th:text="${a.site}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</body>
+</html>
