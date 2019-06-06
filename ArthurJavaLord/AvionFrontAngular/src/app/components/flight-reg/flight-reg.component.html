@@ -1,0 +1,42 @@
+<div class="container">
+  <p>Enregistrer un vol</p>
+    <form [formGroup]="flightForm" (ngSubmit)="submitFlightRegistration()" novalidate>
+      <div *ngIf="validMessage != ''">
+        <h3 class="has-info">{{validMessage}}</h3>
+      </div>
+      <select class="form-control" formControlName="pilote" required>
+          <option value="">Please select a pilote</option>
+          <option *ngFor="let p of pilotes"
+                  [ngValue]="p">
+                  {{p.name}}
+          </option>
+        </select>
+        <br>
+        
+      <select class="form-control" formControlName="plane" required>
+          <option value="">Please select a plane</option>
+          <option *ngFor="let s of planes"
+                  [ngValue]="s">
+                  {{s.model + " : "  + s.site}} 
+          </option>
+        </select>
+
+      <div class="form-group">
+          <label>Heure de départ</label>
+          <input type="text" class="form-control" formControlName="departureTime" required/> 
+        </div>
+        <div class="form-group">
+            <label>Heure d'arrivée</label>
+            <input type="text" class="form-control" formControlName="arrivingTime" required/> 
+          </div>
+          <div class="form-group">
+              <label>Site de départ</label>
+              <input type="text" class="form-control" formControlName="departureSite" required/> 
+            </div>
+            <div class="form-group">
+                <label>Site d'arrivé</label>
+                <input type="text" class="form-control" formControlName="arrivingSite" required/> 
+              </div>
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+  </div>

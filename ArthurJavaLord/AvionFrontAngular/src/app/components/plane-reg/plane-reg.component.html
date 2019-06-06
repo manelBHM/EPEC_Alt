@@ -1,0 +1,31 @@
+<div class="container">
+  <p>Enregistrer un avion</p>
+    <form [formGroup]="planeform" (ngSubmit)="submitPlaneRegistration()" novalidate>
+      <div *ngIf="validMessage != ''">
+        <h3 class="has-info">{{validMessage}}</h3>
+      </div>
+      <select class="form-control" formControlName="maker" required>
+          <option value="">Please select a model</option>
+          <option *ngFor="let m of makers"
+                  [value]="m">
+                  {{m}}
+          </option>
+        </select>
+      <select class="form-control" formControlName="model" required>
+          <option value="">Please select a model</option>
+          <option *ngFor="let m of models"
+                  [value]="m">
+                  {{m}}
+          </option>
+        </select>
+      <div class="form-group">
+          <label>Capacity</label>
+          <input type="text" class="form-control" formControlName="capacity" required/> 
+        </div>
+        <div class="form-group">
+            <label>Site</label>
+            <input type="text" class="form-control" formControlName="site" required/> 
+          </div>
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+  </div>

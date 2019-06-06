@@ -1,0 +1,99 @@
+<div class="container">
+  <table class="table table-borderless table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Heure de départ</th>
+      <th scope="col">Heure d'arrivée</th>
+      <th scope="col">De :</th>
+      <th scope="col">Vers :</th>
+      <th scope="col">Pilote id :</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights">
+        <td>
+            <a [routerLink]="['/admin/flight', flight.id]">{{flight.id}}</a>         </td>
+      <td>
+         {{flight.departureTime}}
+      </td>
+      <td>
+        {{flight.arrivingTime}}
+      </td>
+      <td>
+          {{flight.departureSite}}
+        </td>
+        <td>
+            {{flight.arrivingSite}}
+
+          </td>
+          <td>
+            {{flight.pilote.name}}
+          </td>
+          <td>
+            <button type="button" class="btn btn-outline-light" (click)="deleteFlight(flight.id)">Delete</button>
+            </td>
+
+    </tr>
+  </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<div class="container">
+  <table class="table table-borderless table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pilote of pilotes">
+      <td>
+         <a [routerLink]="['/admin/view', pilote.id]">{{pilote.name}}</a>
+      </td>
+      <td>
+        {{pilote.site}}
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+    <table class="table table-borderless table-hover">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Maker</th>
+        <th scope="col">Model</th>
+        <th scope="col">Capacity</th>
+        <th scope="col">Site</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plane of planes">
+        <td>
+           {{plane.maker}}
+        </td>
+        <td>
+          {{plane.model}}
+        </td>
+        <td>
+            {{plane.capacity}}
+          </td>
+          <td>
+              {{plane.site}}
+            </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
