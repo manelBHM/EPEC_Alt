@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+
+.display-1{
+	
+	font-size: 80px;
+	color: white;
+	align-content: center;
+	padding-top: 75px;
+	
+	
+}
+.Qtsinput{
+	
+	width: 5%;
+	text-align: center;
+	
+	
+}
+.btn btn-success{
+	
+	align-self: center;
+}
+.forme{
+  text-align: center;
+  background-color: green;
+  height: 300px;
+}

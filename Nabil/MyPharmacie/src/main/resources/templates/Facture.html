@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scalle=1"/>
+		
+		<style>
+			body {
+	  			background-color: green;
+			      }
+		</style>
+		
+	  <title>PHARMACIE</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/css/bootstrap.css}"/>
+	
+	</head>
+
+	<body>
+		
+	
+		<div class="forme">
+		 	<h3>F A C T U R E</h3>
+		 	<h4> Simplon Pharmacie</h4>
+		 	<h4> 55 Rue de Vincenne 93100</h4>
+		 	<h4> Tél: +33 123456789</h4>
+		 	
+		 	<h4> --------------------------</h4>
+		 	<h4> Liste des Achats:</h4>
+		 			 	
+		    <h4> --------------------------</h4>
+		 	<h4> Total:</h4>
+		 	
+		 	
+		 	
+		 	 <form action="hello" method="get">
+	 		
+      			<a class="mag" th:href="@{/Liste}">Retour</a>  
+     		 </form>
+		</div>
+
+	 
+     
+	  <link rel="stylesheet" th:href="@{css/js/bootstrap.min.js}"/>	
+	</body>
+</html>
