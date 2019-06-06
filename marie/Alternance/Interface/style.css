@@ -1,0 +1,109 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #757575;
+    background: #eae9e5;
+    margin: 0px;
+    padding: 0px;
+}
+.header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 172px;
+    background: #030303;
+}
+.logo {
+    margin: auto;
+    margin-top: auto;
+    margin-top: 37px;
+    display: block;
+    width: 266px;
+    position: relative;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background: #b7ce07;
+    text-decoration: none;
+    color: black;
+}
+.menu{
+    height: 41px;
+    padding: 0;
+    width: 990px;
+    z-index: 50;
+    font-weight: 100;
+    margin: 0 auto;
+    width: 990px;
+    text-align: left;
+}
+.menu ul{
+        display: table;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+}
+ul {
+    list-style-type: disc;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.menu li.niv {
+    background: none;
+    display: table-cell;
+  
+}
+.menu li {
+    
+    list-style: none;
+}
+img{
+    width: 100%;
+}
+.page{
+    padding: 20px 0 40px 0;
+    margin: 0 auto;
+    width: 990px;
+    text-align: left;
+}
+.page .right {
+    width: 740px;
+
+}
+.page div {
+    min-height: 1px;
+
+}
+.right {
+    float: right;
+
+}
+.titre{
+    background: #eae9e5;
+    padding: 15px 0;
+}
+.titre h2{
+    padding: 10px 0 0 50px;
+    background: none;
+    text-transform: none;
+    color: #000000;
+    font-size: 25.5px;
+    line-height: 115%;
+    font-weight: 700;
+}
+.space{
+    clear: both;
+    display: block;
+    line-height: 0;
+    width: 0;
+    font-size: 0;
+    background-color: white;
+}
+p{
+    color: #000000;
+}
