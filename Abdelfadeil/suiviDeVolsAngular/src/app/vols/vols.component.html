@@ -1,0 +1,56 @@
+
+<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+  <div class="form-group">
+    <label>Mot clé :</label>
+    <input type="text" name="motCle" ngModel>
+    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> Vols</button>
+  </div>
+</form>
+<table class="table table-bordered dataTable">
+  <thead>
+    <tr role="row">
+      <th class="sorting_asc">N° de vol</th>
+       <th class="sorting_asc">N° d'avion</th>
+       <th class="sorting">Id</th> 
+       <th class="sorting">Site de départ</th> 
+       <th class="sorting">Site d'arrivée</th> 
+       <th class="sorting">Heure de départ</th>
+       <th class="sorting">Heure de Arrivée</th>
+       <th class="sorting"></th>
+    </tr>
+
+  </thead>
+  <tbody *ngIf="vols">
+      <tr role="row" class="odd" *ngFor="let v of vols._embedded.vols">
+          <td class="sorting_1">{{v.noVol}}</td>
+          <td>{{v.avion}}</td>
+          <td>{{v.id}}</td>
+          <td>{{v.siteDepart}}</td>
+          <td>{{v.siteArrivee}}</td>
+          <td>{{v.heureDepart}}</td>
+          <td>{{v.heureArrivee}}</td>
+          <td><button type="button" (click)="onEdit(v)" class="btn btn-outline-primary">Editer</button>
+          <td><button type="button" (click)="supprimerVol(v)" class="btn btn-outline-danger">Supprimer</button>
+          </td>
+      </tr>
+      
+    </tbody>
+    <tfoot>
+        <tr>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+        </tr>
+    </tfoot>
+
+</table>
+<ul class="nav nav-pills">
+  <li [ngClass]="i==currentPage?'active':''" class="nav-link" *ngFor="let p of pages; let i=index">
+    <a (click)="onPageVols(i)">{{i}}</a>
+  </li>
+</ul>
