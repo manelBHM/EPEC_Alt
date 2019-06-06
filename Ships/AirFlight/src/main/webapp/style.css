@@ -1,0 +1,324 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background: #ebfffc;
+	font-family: sans-serif;
+	height: 100%;
+	width: 100%;
+}
+
+	/**************************************
+					 header
+	**************************************/
+header {
+	background: #0D1172;
+	height: 190px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+	font-family: sans-serif;
+	padding-top: 10px;
+}
+header h1 {
+	flex-grow: 1;
+	text-align: center;
+	font-size: 80px;
+	line-height: 140px;
+	color : white;
+}
+nav {
+	box-shadow: 0px 1px 10px -2px rgba(0,0,0,0.63);
+}
+nav ul {
+	list-style: none;
+	display: flex;
+}
+nav ul li {
+	height: 50px;
+	background: #07a5ff;
+	width: 100%;
+	text-align: center;
+	line-height: 50px;
+	font-size: 20px;
+	transition: .5s;
+}
+nav ul li:nth-child(1){
+	border-right: 10px solid white;
+}
+nav ul li:nth-child(3){
+	border-left: 10px solid white;
+}
+nav ul li a {
+	text-decoration: none;
+	display: block;
+	color: white;
+	font-size: 32px;
+}
+nav ul li:hover {
+	background: #0b8cff;
+}
+
+	/**************************************
+					 table
+	**************************************/
+div.container {
+	width: 90%;
+	margin: 0 auto;
+}
+div.container h3 {
+	text-align: center;
+	font-size: 2rem;
+	background: #07a5ff;
+	color: white;
+	padding: 20px;
+	width: 100%;
+	margin-bottom: 10px;
+	display: block;
+	border: 10px solid #0D1172;
+}
+table {
+	display: inline-block;
+	float: left;
+	width: 70%;
+	height: 550px;
+	overflow-y: scroll;
+	position: relative;
+	border: 10px solid #0D1172;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	padding:10px;
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.filtered {
+	display: table;
+	min-width: 100%;
+	height: 400px;
+}
+
+table thead tr th{
+	background: #0b8cff;
+	color: white;
+	width: 70%;
+}
+table thead tr th:nth-child(odd){
+	background: #0eaaff;
+}
+table th {
+	padding: 15px;
+	border-left: 7px solid #0D1172;
+}
+tr {
+	height: 60px;
+}
+tbody tr td {
+	border-top: 10px solid white;
+	border-bottom: 10px solid white;
+	padding: 2px 0px 0px 5px;
+	height: 50px;
+	margin-left: 5px;
+	border-left: 7px solid #0D1172;
+	font-size: 12px;
+}
+tbody tr td:nth-child(odd){
+	background: #0bcfff;
+}
+tbody tr td:nth-child(even){
+	background: #0eaaff;
+}
+table, tr, td {
+	border-collapse: collapse;
+}
+table button.btn_edit, table button.btn_delete {
+	height: 30px;
+	width: 80px;
+	margin: 5px;
+	outline: none;
+	border-radius: 3px;
+	border: none;
+	outline: none;
+	color: white;
+	font-size: 12px;
+	transition: .5s;
+}
+table button.btn_edit {
+	background: #0D1172;
+}
+table button.btn_delete {
+	background: red;
+}
+table button.btn_edit:hover {
+	background: #1b5faa;
+	cursor: pointer;
+}
+table button.btn_delete:hover {
+	background: #ab0001;
+	cursor: pointer;
+}
+	/**************************************
+					 filter
+	**************************************/
+div.filter {
+	float:right;
+	width: 29%;
+	display: inline-block;
+	border: 10px solid #0D1172;
+	height: 550px;
+}
+div.filter h3 {
+	padding: 15px;
+	border: none;
+	margin-bottom: 0;
+}
+div.filter form {
+	height: 115px;
+	width: 100%;
+	border-bottom: 3px solid white;
+	-webkit-box-shadow: 0px 3px 14px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 3px 14px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 3px 14px -2px rgba(0,0,0,0.75);
+
+}
+div.filter form button {
+	margin-left: 10%;
+	height: 30px;
+	width: 85%;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	background: #3399ff;
+	font-size: 16px;
+	color: white;
+	transition: .5s;
+}
+div.filter form button:hover {
+	background: #2674d7;
+	cursor: pointer;
+}
+div.inputs {
+	margin-left: 10%;
+	padding: 10px 20px 0px 0px;
+}
+.inputs input {
+	width: 100%;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid black;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.inputs label {
+	font-size: 18px;
+}
+
+.radio label {
+	width: 100%;
+	margin-bottom: 10px;
+	float:left;
+}
+.radio input {
+	width: 20px;
+}
+.radio span:nth-child(4){
+	margin-left: 60px;
+}
+.radio input{
+	font-size: 20px;
+}
+	/**************************************
+					 edit
+	**************************************/
+div.edit_details, div.add_details {
+	float:right;
+	width: 100%;
+	display: inline-block;
+	border: 10px solid #0eaaff;
+	height: 325px;
+	margin-bottom: 80px;
+}
+section.left, section.right {
+	width: 50%;
+	float: left;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+section.left {
+	border-right: 2px solid white;
+}
+section.left label, section.left input, section.right label, section.right input {
+	margin-bottom: 10px;
+}
+.radioEdit input:nth-child(1){
+	margin-right: 30px;
+}
+section.left input, section.right input{
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #0eaaff;
+	padding: 5px;
+	font-size: 14px;
+}
+div.edit_details form button, button.addDetails {
+	margin-left: 10%;
+	height: 30px;
+	width: 30%;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	background: #3399ff;
+	font-size: 16px;
+	color: white;
+	transition: .5s;
+}
+
+div.edit_details form button:hover, button.addDetails:hover {
+	background: #2674d7;
+	cursor: pointer;
+}
+	/**************************************
+					 footer
+	**************************************/
+	
+footer {
+	position: fixed;
+	bottom: -5px;
+	width: 100%;
+}
+marquee {
+	height: 40px;
+	color: white;
+	background: black;
+	line-height: 40px;
+	margin-top: 10px;
+	font-family: monospace;
+	font-size: 20px;
+}
+
+	/**************************************
+				 media queries
+	**************************************/
+	
+@media only screen and (min-width: 768px){
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
