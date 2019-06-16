@@ -1,0 +1,49 @@
+<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+  <div class="form-group">
+    <label>Mot clé :</label>
+    <input type="text" name="motCle" ngModel>
+    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> Avions</button>
+  </div>
+</form>
+<table class="table table-bordered dataTable">
+  <thead>
+    <tr role="row">
+      <th class="sorting_asc">Model Avion</th>
+       <th class="sorting">Id</th> 
+       <th class="sorting">capacite</th>
+       <th class="sorting">Site</th> 
+       <th class="sorting"></th>
+       <th class="sorting"></th>
+    </tr>
+
+  </thead>
+  <tbody *ngIf="avions">
+      <tr role="row" class="odd" *ngFor="let a of avions._embedded.avions">
+          <td class="sorting_1">{{a.model}}</td>
+          <td>{{a.id}}</td>
+          <td>{{a.capacite}}</td>
+          <td>{{a.site}}</td>
+          <td><button type="button" (click)="onUpdate(a)" class="btn btn-outline-primary">Editer</button>
+          <td><button type="button" (click)="onDelete(a)" class="btn btn-outline-danger">Supprimer</button>
+          </td>
+      </tr>
+      
+    </tbody>
+    <tfoot>
+        <tr>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+          <th rowspan="1" colspan="1"></th>
+        </tr>
+    </tfoot>
+
+</table>
+<ul class="nav nav-pills">
+  <li [ngClass]="i==currentPage?'active':''" class="nav-link" *ngFor="let p of pages; let i=index">
+    <a (click)="onPageAvions(i)">{{i}}</a>
+  </li>
+</ul>
+

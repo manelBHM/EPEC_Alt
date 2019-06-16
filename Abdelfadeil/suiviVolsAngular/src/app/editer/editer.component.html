@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Editer un Vol</div>
+    <div class="panel-body" *ngIf="currentVol">
+      <form #f="ngForm" (ngSubmit)="onUpdateVol(f.value)">
+         <!-- <div class="form-group">
+          <label  class="control-label">Id</label>
+          <input type="text" class="form-control" name="id" ng-Model [(ngModel)]="currentVol.id">
+        </div>  -->
+
+        <div class="form-group">
+          <label  class="control-label">No de Vol</label>
+          <input type="text" class="form-control" name="noVol" ng-Model [(ngModel)]="currentVol.noVol">
+        </div>
+
+        <div class="form-group">
+          <label  class="control-label">Id Avion</label>
+          <input type="text" class="form-control" name="avion_id" ng-Model [(ngModel)]="currentVol.avion_id">
+        </div>
+
+        <div class="form-group">
+          <label  class="control-label">Heure de Départ</label>
+          <input type="text" class="form-control" name="heureDepart" ng-Model [(ngModel)]="currentVol.heureDepart">
+        </div>
+
+        <div class="form-group">
+          <label  class="control-label">Heure d'Arrivée</label>
+          <input type="text" class="form-control" name="heureArrivee" ng-Model [(ngModel)]="currentVol.heureArrivee">
+        </div>
+        <div class="form-group">
+          <label  class="control-label">Site de Départ</label>
+          <input type="text" class="form-control" name="siteDepart" ng-Model [(ngModel)]="currentVol.siteDepart">
+        </div>
+        <div class="form-group">
+          <label  class="control-label">Site d'Arrivée</label>
+          <input type="text" class="form-control" name="siteArrivee" ng-Model [(ngModel)]="currentVol.siteArrivee">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block"style="background-color: #85c1e9;" >Envoyer</button>
+
+
+      </form>
+    </div>
+  </div>
+</div>
