@@ -1,25 +1,25 @@
-<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
-  <div class="form-group">
-    <label>Mot clé :</label>
-    <input type="text" name="motCle" ngModel>
-    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> Pilotes</button>
-  </div>
-</form>
-<table class="table table-bordered dataTable">
-  <thead>
-    <tr role="row">
-      <th class="sorting_asc">Nom de Pilote</th>
-       <th class="sorting">Id</th> 
-       <th class="sorting">Id Vol</th>
-       <th class="sorting">Site</th> 
-       <th class="sorting"></th>
-       <th class="sorting"></th>
+<div class="spacer">
+
+    <form class="form-inline my-2 my-lg-0" #f="ngForm" (ngSubmit)="onChercher(f.value)">
+        <label style="margin:5px;">Mot clé :</label>
+        <input (keyup)="onChercherInput($event)" class="form-control mr-sm-2" type="text" name="motCle" ngModel>
+        <button type="submit" class="btn btn-outline-info my-2 my-sm-0"> <span class="glyphicon glyphicon-search"></span> Vols</button>
+    </form>
+    <table class="table table-bordered table-hover spacer">
+      <thead class="table-info">
+        <tr role="row">
+      <th>Nom de Pilote</th>
+       <th>Id</th> 
+       <th>Id Vol</th>
+       <th>Site</th> 
+       <th></th>
+       <th></th>
     </tr>
 
   </thead>
-  <tbody *ngIf="pilotes">
+  <tbody style="background: #d7f1f5;" *ngIf="pilotes">
       <tr role="row" class="odd" *ngFor="let p of pilotes._embedded.pilotes">
-          <td class="sorting_1">{{p.nom}}</td>
+          <td>{{p.nom}}</td>
           <td>{{p.id}}</td>
           <td>{{p.vol_id}}</td>
           <td>{{p.site}}</td>
@@ -29,20 +29,9 @@
       </tr>
       
     </tbody>
-    <tfoot>
-        <tr>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-        </tr>
-    </tfoot>
-
 </table>
 <ul class="nav nav-pills">
-  <li [ngClass]="i==currentPage?'active':''" class="nav-link" *ngFor="let p of pages; let i=index">
-    <a (click)="onPagePilotes(i)">{{i}}</a>
+  <li [ngClass]="i==currentPage?'bg-info':''" class="nav-link table-bordered" *ngFor="let p of pages; let i=index" (click)="onPagePilotes(i)">
+    {{i}}
   </li>
 </ul>

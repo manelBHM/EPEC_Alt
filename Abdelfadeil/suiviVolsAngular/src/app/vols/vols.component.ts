@@ -51,9 +51,15 @@ export class VolsComponent implements OnInit {
       console.log(err);
     })
   }
+
   onChercher(form:any){
     console.log(form.motCle)
     this.currentMotCle=form.motCle;
+    this.chercherVols();
+  }
+
+  onChercherInput(event:any){
+    this.currentMotCle+=event.target.value;
     this.chercherVols();
   }
 

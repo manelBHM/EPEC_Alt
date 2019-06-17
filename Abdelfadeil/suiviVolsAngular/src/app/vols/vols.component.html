@@ -1,28 +1,29 @@
+<div class="spacer">
 
-<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
-  <div class="form-group">
-    <label>Mot clé :</label>
-    <input type="text" name="motCle" ngModel>
-    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> Vols</button>
-  </div>
+<form class="form-inline my-2 my-lg-0" #f="ngForm" (ngSubmit)="onChercher(f.value)">
+    <label style="margin:5px;">Mot clé :</label>
+    <input (keyup)="onChercherInput($event)" class="form-control mr-sm-2" type="text" name="motCle" ngModel>
+    <button type="submit" class="btn btn-outline-info my-2 my-sm-0"> <span class="glyphicon glyphicon-search"></span> Vols</button>
 </form>
-<table class="table table-bordered dataTable">
-  <thead>
+<table class="table table-bordered table-hover spacer">
+  <thead class="table-info">
     <tr role="row">
-      <th class="sorting_asc">N° de vol</th>
-       <th class="sorting_asc">N° d'avion</th>
-       <th class="sorting">Id</th> 
-       <th class="sorting">Site de départ</th> 
-       <th class="sorting">Site d'arrivée</th> 
-       <th class="sorting">Heure de départ</th>
-       <th class="sorting">Heure de Arrivée</th>
-       <th class="sorting"></th>
+      <th>N° de vol</th>
+       <th>N° d'avion</th>
+       <th>Id</th> 
+       <th>Site de départ</th> 
+       <th>Site d'arrivée</th> 
+       <th>Heure de départ</th>
+       <th>Heure de Arrivée</th>
+       <th></th>
+       <th></th>
+
     </tr>
 
   </thead>
-  <tbody *ngIf="vols">
+  <tbody style="background: #d7f1f5;" *ngIf="vols">
       <tr role="row" class="odd" *ngFor="let v of vols._embedded.vols">
-          <td class="sorting_1">{{v.noVol}}</td>
+          <td>{{v.noVol}}</td>
           <td>{{v.avion}}</td>
           <td>{{v.id}}</td>
           <td>{{v.siteDepart}}</td>
@@ -35,22 +36,12 @@
       </tr>
       
     </tbody>
-    <tfoot>
-        <tr>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-        </tr>
-    </tfoot>
-
+    
 </table>
-<ul class="nav nav-pills">
-  <li [ngClass]="i==currentPage?'active':''" class="nav-link" *ngFor="let p of pages; let i=index">
-    <a (click)="onPageVols(i)">{{i}}</a>
+<ul class="nav nav-pills table">
+  <li [ngClass]="i==currentPage?'bg-info':''" class="nav-link table-bordered" *ngFor="let p of pages; let i=index" (click)="onPageVols(i)">
+    {{i}}
   </li>
 </ul>
+
+</div>

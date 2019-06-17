@@ -1,7 +1,7 @@
 <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
   <div class="form-group">
     <label>Mot clé :</label>
-    <input type="text" name="motCle" ngModel>
+    <input (keyup)="onChercherInput($event)" type="text" name="motCle" ngModel>
     <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> Avions</button>
   </div>
 </form>
@@ -29,21 +29,11 @@
       </tr>
       
     </tbody>
-    <tfoot>
-        <tr>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-          <th rowspan="1" colspan="1"></th>
-        </tr>
-    </tfoot>
-
+    
 </table>
 <ul class="nav nav-pills">
-  <li [ngClass]="i==currentPage?'active':''" class="nav-link" *ngFor="let p of pages; let i=index">
-    <a (click)="onPageAvions(i)">{{i}}</a>
+  <li [ngClass]="i==currentPage?'bg-info':''" class="nav-link table-bordered" *ngFor="let p of pages; let i=index" (click)="onPageAvions(i)">
+    {{i}}
   </li>
 </ul>
 

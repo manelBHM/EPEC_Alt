@@ -14,6 +14,7 @@ import { AjouterComponent } from './ajouter/ajouter.component';
 import { EditerComponent } from './editer/editer.component';
 import { AjouterPiloteComponent } from './ajouter-pilote/ajouter-pilote.component';
 import { AjouterAvionComponent } from './ajouter-avion/ajouter-avion.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AjouterAvionComponent } from './ajouter-avion/ajouter-avion.component';
     AjouterComponent,
     EditerComponent,
     AjouterPiloteComponent,
-    AjouterAvionComponent
+    AjouterAvionComponent,
+    NotFoundComponent
     
   ],
   imports: [
