@@ -4,12 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.springBoot.entities.Administrateur;
+import com.springBoot.entities.Role;
 
 @CrossOrigin("*")
 @RepositoryRestResource
-public interface AdminRepository extends JpaRepository<Administrateur, Long>{
+public interface RoleRepository extends JpaRepository<Role, Long>{
 	
-	public Administrateur findByNom(String nom);
+	public Role findByRole(String role);
 
 }

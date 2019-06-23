@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PilotesService } from '../services/pilotes.service';
 import { PiloteModel } from 'src/model/Pilote.Model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pilotes',
@@ -19,40 +20,44 @@ export class PilotesComponent implements OnInit {
   pilote:PiloteModel;
   pilotes:PiloteModel;
 
-  constructor(private pilotesService: PilotesService) { }
+  constructor(private pilotesService: PilotesService, private router:Router) { }
 
   ngOnInit() {
 
     this.pilotesService.getPilotes().subscribe(data => {
       this.pilotes= data;
-      console.log(this.pilotes)
     },error => {});
   }
   title = 'Liste des Pilotes';
 
 onChercher(form:any){
-  console.log(form.motCle)
-    this.currentMotCle=form.motCle;
-  this.pilotesService.getPilotes().subscribe(data => {
+  this.currentMotCle=form.motCle;
+  this.pilotesService.getPilotesByKeyNom(this.currentMotCle, this.currentPage, this.size).subscribe(data => {
+    this.totalPages=data["page"].totalPages;
+    this.pages= new Array<number>(this.totalPages);
     this.pilotes= data;
-  },error => {
-    console.log(error);
-  });
+  },error => {});
 }
 
 onPilotesPage(i){
-  
+  this.currentPage=i;
+  this.onChercher(this.currentMotCle);
 }
 
 onDelete(p){
   let conf=confirm("Êtes vous sûr de vouloir supprimer?");
    if(conf){
      this.pilotesService.delete(p._links.self.href).subscribe(data => {
-      console.log(data);
       this.onChercher('');
      }, error => {
        console.log(error);
      });
    }
 }
+
+onUpdate(p){
+  let url = p._links.self.href;
+  this.router.navigateByUrl("/editer-pilote/"+btoa(url));
+}
+
 }

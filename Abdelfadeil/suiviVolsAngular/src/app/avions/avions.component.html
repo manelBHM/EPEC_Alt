@@ -1,12 +1,15 @@
-<form #f="ngForm" (ngSubmit)="onChercher(f.value)">
-  <div class="form-group">
-    <label>Mot clé :</label>
-    <input (keyup)="onChercherInput($event)" type="text" name="motCle" ngModel>
-    <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-search"></span> Avions</button>
-  </div>
-</form>
-<table class="table table-bordered dataTable">
-  <thead>
+
+<div class="spacer">
+
+  <form class="form-inline my-2 my-lg-0" #f="ngForm" (ngSubmit)="onChercher(f.value)">
+      <label style="margin:5px;">Mot clé :</label>
+      <input (keyup)="onChercher(f.value)" class="form-control mr-sm-2" type="text" name="motCle" ngModel>
+      <button type="submit" class="btn btn-outline-info my-2 my-sm-0"> <span class="glyphicon glyphicon-search"></span> Avions</button>
+  </form>
+</div>
+
+<table class="table table-bordered table-hover spacer">
+  <thead class="table-info">
     <tr role="row">
       <th class="sorting_asc">Model Avion</th>
        <th class="sorting">Id</th> 
@@ -17,7 +20,7 @@
     </tr>
 
   </thead>
-  <tbody *ngIf="avions">
+  <tbody *ngIf="avions" style="background: #d7f1f5;">
       <tr role="row" class="odd" *ngFor="let a of avions._embedded.avions">
           <td class="sorting_1">{{a.model}}</td>
           <td>{{a.id}}</td>

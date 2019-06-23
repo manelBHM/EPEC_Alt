@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,15 +31,14 @@ public class Vol implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Getter @Setter 
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String noVol;
 	@OneToOne
 	private Avion avion;
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-mm-yyyy")
 	private Date heureArrivee;
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-mm-yyyy")
 	private Date heureDepart;
 	@OneToOne
 	private Pilote pilote;

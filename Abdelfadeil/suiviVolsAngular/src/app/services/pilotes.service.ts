@@ -6,6 +6,15 @@ import { PiloteModel } from 'src/model/Pilote.Model';
   providedIn: 'root'
 })
 export class PilotesService {
+  
+
+  getPilote(url) {
+    return this.http.get(url);
+  }
+
+  editerPilote(url,pilote:PiloteModel){
+    return this.http.put<PiloteModel>(url, pilote);
+  }
 
   
   public host: String = "http://localhost:8080";
@@ -24,5 +33,10 @@ export class PilotesService {
   }
       delete(url) {
         return this.http.delete<PiloteModel>(url);
+      }
+    
+      getPilotesByKeyNom(mc:String, page:number, size:number){
+        return this.http.get<PiloteModel>(this.host+"/pilotes/search/byNomPage?mc="+mc+"&page="+page+"&size="+size);
+        
       }
 }

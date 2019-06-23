@@ -2,7 +2,7 @@
 
     <form class="form-inline my-2 my-lg-0" #f="ngForm" (ngSubmit)="onChercher(f.value)">
         <label style="margin:5px;">Mot clé :</label>
-        <input (keyup)="onChercherInput($event)" class="form-control mr-sm-2" type="text" name="motCle" ngModel>
+        <input (keyup)="onChercher(f.value)" class="form-control mr-sm-2" type="text" name="motCle" ngModel>
         <button type="submit" class="btn btn-outline-info my-2 my-sm-0"> <span class="glyphicon glyphicon-search"></span> Vols</button>
     </form>
     <table class="table table-bordered table-hover spacer">

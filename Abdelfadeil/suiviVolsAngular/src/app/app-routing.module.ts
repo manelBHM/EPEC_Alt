@@ -9,6 +9,8 @@ import { EditerComponent } from './editer/editer.component';
 import { AjouterPiloteComponent } from './ajouter-pilote/ajouter-pilote.component';
 import { AjouterAvionComponent } from './ajouter-avion/ajouter-avion.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EditerPiloteComponent } from './editer-pilote/editer-pilote.component';
+import { EditerAvionComponent } from './editer-avion/editer-avion.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'ajouterPilote', component: AjouterPiloteComponent},
   { path: 'ajouterAvion', component: AjouterAvionComponent},
   { path: 'editer/:id', component: EditerComponent},
+  { path: 'editer-pilote/:id', component: EditerPiloteComponent},
+  { path: 'editer-avion/:id', component: EditerAvionComponent},
   { path: 'accueil', component: HomeComponent },
   { path: '',  redirectTo: 'accueil',  pathMatch: 'full'},
   { path: '**', component: NotFoundComponent }

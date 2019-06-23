@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AvionsService } from '../services/avions.service';
 import { AvionModel } from 'src/model/avion.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-avions',
@@ -19,10 +20,10 @@ export class AvionsComponent implements OnInit {
   title = "Liste d'Avons";
   avions: AvionModel;
 
-  constructor(private avionsService: AvionsService) { }
+  constructor(private avionsService: AvionsService, private router:Router) { }
 
   ngOnInit() {
-    this.avionsService.getAvions(this.currentMotCle, this.currentPage, this.size).subscribe(data => {
+      this.avionsService.getAvions({ mc: this.currentMotCle, page: this.currentPage, size: this.size }).subscribe(data => {
       console.log(data);
       this.totalPages=data["page"].totalPages;
       this.pages= new Array<number>(this.totalPages);
@@ -34,10 +35,9 @@ export class AvionsComponent implements OnInit {
 
   onChercher(form:any){
     this.currentMotCle=form.motCle;
-    this.avionsService.getAvions(this.currentMotCle, this.currentPage, this.size).subscribe(data => {
-      this.totalPages=data["page"].totalPages;
-      this.pages= new Array<number>(this.totalPages);
-    console.log(data);
+    this.avionsService.getAvions({ mc: this.currentMotCle, page: this.currentPage, size: this.size }).subscribe(data => {
+    this.totalPages=data["page"].totalPages;
+    this.pages= new Array<number>(this.totalPages);
     this.avions= data;
     }, error => {
       console.log(error);
@@ -53,12 +53,16 @@ export class AvionsComponent implements OnInit {
     let conf=confirm("Êtes vous sûr de vouloir supprimer?");
      if(conf){
        this.avionsService.delete(a._links.self.href).subscribe(data => {
-        console.log(data);
         this.onChercher('');
        }, error => {
          console.log(error);
        });
      }
+  }
+
+  onUpdate(a){
+    let url = a._links.self.href;
+    this.router.navigateByUrl("/editer-avion/"+btoa(url));
   }
  
 }
