@@ -31,7 +31,7 @@
     </tbody>
 </table>
 <ul class="nav nav-pills">
-  <li [ngClass]="i==currentPage?'bg-info':''" class="nav-link table-bordered" *ngFor="let p of pages; let i=index" (click)="onPagePilotes(i)">
+  <li [ngClass]="i==currentPage?'bg-info':''" class="nav-link table-bordered" *ngFor="let p of pages; let i=index" (click)="onPilotesPage(i)">
     {{i}}
   </li>
 </ul>

@@ -23,10 +23,11 @@ export class PilotesComponent implements OnInit {
   constructor(private pilotesService: PilotesService, private router:Router) { }
 
   ngOnInit() {
+    this.chercher();
 
-    this.pilotesService.getPilotes().subscribe(data => {
-      this.pilotes= data;
-    },error => {});
+    // this.pilotesService.getPilotes().subscribe(data => {
+    //   this.pilotes= data;
+    // },error => {});
   }
   title = 'Liste des Pilotes';
 
@@ -39,9 +40,17 @@ onChercher(form:any){
   },error => {});
 }
 
+chercher(){
+  this.pilotesService.getPilotesByKeyNom(this.currentMotCle, this.currentPage, this.size).subscribe(data => {
+    this.totalPages=data["page"].totalPages;
+    this.pages= new Array<number>(this.totalPages);
+    this.pilotes= data;
+  },error => {});
+}
+
 onPilotesPage(i){
   this.currentPage=i;
-  this.onChercher(this.currentMotCle);
+  this.chercher();
 }
 
 onDelete(p){
