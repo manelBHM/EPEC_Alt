@@ -1,0 +1,29 @@
+<div class="alert alert-info" role="alert">
+    <h1 class="btn btn-outline-info" class="text-center">Avion</h1>
+  </div>
+
+
+<table class=" table tabe-striped">
+    <thead class=" table bg-info">
+      <tr>
+          <th>Id</th>
+          <th>Constructeur</th>
+          <th>Modele</th>
+          <th>Capacite</th>
+          <th>Site</th>
+           <th>Edit</th>
+          <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor=" let avion of avions$ | async">
+            <td class="table-secondary">{{avion.id}}</td>
+            <td>{{avion.constructeur}}</td>
+            <td>{{avion.modele}}</td>
+            <td>{{avion.capacite}}</td>
+            <td>{{avion.site}}</td>
+            <td> <button type="button" class="btn btn-danger" (click)="editAvion(avion)" style="margin-left: 20px;"> Edit</button></td>
+            <td> <button type="button" class="btn btn-danger"  (click)='deleteAvion(avion.id)'>Delete</button></td> 
+        </tr> 
+    </tbody>
+  </table>

@@ -1,0 +1,40 @@
+<p>
+    create-pilote works!
+  </p>
+  <!-- <h2>Create Pilote</h2>
+  <div [hidden]="submitted">
+   <form (ngSubmit)="onSubmit()">
+     <div class="form-group">
+       <label for="name"> Name: </label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="pilote.name" name="name" >
+    </div>
+  
+      <div class="form-group">
+          <label for="site">Site</label>
+          <input type="text" class="form-control" id="site" required [(ngModel)]="pilote.site" name="site">
+        </div>
+  
+      <button type="submit" class="btn btn-success">Submit</button>
+   </form>
+  </div>
+  
+  <div [hidden]="!submitted" class="form-group">
+    <h2>You submitted successfully!</h2>
+    <button class="btn btn-succes" (click)="newPilote()">Add</button>
+  </div>-->
+  
+  <div class="col-md-6">
+    <h2 class="text-center">Add Pilote</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" placeholder="name" name="name" class="form-control" id="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="site">Site</label>
+        <input formControlName="site" placeholder="site" name="site" class="form-control" id="site">
+      </div>
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div>

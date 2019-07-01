@@ -1,0 +1,33 @@
+<div class="alert alert-info" role="alert">
+    <h1 class="btn btn-outline-info" class="text-center">Vol</h1>
+  </div>
+
+  <table class=" table tabe-striped">
+      <thead class=" table bg-info">
+        <tr>
+            <th>Id</th>
+            <th>Avion</th>
+            <th>Pilote</th>
+            <th>Site Depart</th>
+            <th>Site D'arrivée</th>
+            <th>Heure Depart</th>
+            <th>Heure D'arrivée</th>
+             <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody >
+          <tr *ngFor=" let vol of vols$ | async">
+              <td class="table-secondary">{{vol.id}}</td>
+              <td>{{vol.avion}}</td>
+              <td>{{vol.pilote}}</td>
+              <td>{{vol.depart}}</td>
+              <td>{{vol.arrive}}</td>
+              <td>{{vol.heured}}</td>
+              <td>{{vol.heurea}}</td>
+              <td> <button type="button" class="btn btn-danger" (click)="editVol(vol)" style="margin-left: 20px;"> Edit</button></td>
+            <td> <button type="button" class="btn btn-danger"  (click)='deleteVol(vol.id)'>Delete</button></td> 
+          </tr> 
+      </tbody>
+    </table>
+  

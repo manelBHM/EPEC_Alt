@@ -1,0 +1,27 @@
+
+<div class="col-md-6" class="alert alert-info">
+  <h2 class="text-center">Edit Avion</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="constructeur">Constructeur: </label>
+        <input type="text" formControlName="constructeur" placeholder="constructeur" id="constructeur"  name="constructeur" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="modele">Modele: </label>
+      <input type="text"  formControlName="modele" placeholder="modele"  name="modele" id="modele" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="capacite">Capacité:</label>
+        <input type="text" formControlName="capacite" placeholder="capacite" name="capacite" id="capacite" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="site">Site:</label>
+          <input type="text" formControlName="site" placeholder="site"  name="site" id="site" class="form-control">
+      </div>
+      
+      <button class="btn btn-success"> Update</button>
+  </form>
+</div>
