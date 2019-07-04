@@ -1,0 +1,38 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit Vol</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" >
+   
+    <div class="form-group">
+      <label for="avion" >Avion</label>
+      <input type="text"  formControlName="avion" placeholder="avion" name="avion" class="form-control" id="avion">
+    </div>  
+
+    <div class="form-group">
+        <label for="pilote">Pilote :</label>
+        <input type="text" formControlName="pilote" placeholder="pilote" name="pilote" class="form-control" id="pilote">
+      </div>
+
+      <div class="form-group">
+        <label for="siteDepart">Site depart :</label>
+        <input type="text" formControlName="siteDepart" placeholder="Site Depart" name="siteDepart" class="form-control" id="siteDepart">
+      </div>
+
+      <div class="form-group">
+          <label for="siteArrive">Site D'arrivée :</label>
+          <input type="text" formControlName="siteArrive" placeholder="Site Arrive" name="siteArrive" class="form-control" id="siteArrive">
+        </div>
+
+
+    <div class="form-group">
+      <label for="heureDepart">Heure Départ:</label>
+      <input type="text" formControlName="heureDepart" placeholder="heureDepart" name="heureDepart" class="form-control" id="heureDepart">
+    </div>
+
+    <div class="form-group">
+        <label for="heureArrive">Heure Arrivée</label>
+        <input type="text" formControlName="heureArrive" placeholder="heure Arrive" name="heureArrive" class="form-control" id="heureArrive">
+      </div>
+
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>
