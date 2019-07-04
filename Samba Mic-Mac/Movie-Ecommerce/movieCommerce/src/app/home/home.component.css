@@ -1,0 +1,12 @@
+.jumbotron {
+    width: 77%;
+    margin: 0 auto;
+    background: #1a1f21;
+}
+
+.jumbotron h3 {
+text-align: center;
+color: aliceblue;
+background: #1a1f21;
+}
+
