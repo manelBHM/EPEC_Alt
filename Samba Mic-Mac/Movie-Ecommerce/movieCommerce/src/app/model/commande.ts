@@ -5,7 +5,7 @@ import { Livraison } from './livraison';
 
 export class Commande {
     id : Number;
-    customer :User;
+    id_user : Number;
     article : Article;
     dateCommande : Date;
     address : String;

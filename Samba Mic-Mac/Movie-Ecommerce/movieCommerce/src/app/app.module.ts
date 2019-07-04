@@ -1,28 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+
+//import { RouterModule } from '@angular/router';
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ServicesComponent } from './service/services/services.component';
-import { ArticleComponent } from './services/article/article.component';
-import { ArticlesComponent } from './model/articles/articles.component';
-import { UserComponent } from './model/user/user.component';
-import { PannierComponent } from './model/pannier/pannier.component';
-import { VenteComponent } from './model/vente/vente.component';
+import { ArticleComponent } from './article/article.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { UserComponent } from './user/user.component';
+import { PannierComponent } from './pannier/pannier.component';
+import { VenteComponent } from './vente/vente.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
+import { SlideAreaComponent } from './slide-area/slide-area.component';
+import { EcommerceComponent } from './ecommerce/ecommerce.component';
+import { CommandeComponent } from './commande/commande.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [
+   declarations: [
     AppComponent,
-    ServicesComponent,
     ArticleComponent,
     ArticlesComponent,
     UserComponent,
     PannierComponent,
-    VenteComponent
+    VenteComponent,
+    HomeComponent,
+    HeaderComponent,
+    MenuComponent,
+    SlideAreaComponent,
+    EcommerceComponent,
+    CommandeComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pannier.component.css']
 })
 export class PannierComponent implements OnInit {
+  
+  Look : String;
 
   constructor() { }
 
