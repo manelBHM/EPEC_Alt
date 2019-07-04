@@ -1,21 +1,29 @@
-<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-    <div class="card-header text-center">Votre Pannier</div>
-    <div class="card-body">
-        <h5 class="card-title">Total: € </h5>
-        <hr>
-        <h6 class="card-title">Produit vendu :</h6>
- 
-        <ul>
-            <li *ngFor="">
-                {{ Look }} - {{ Look }} pcs.
-            </li>
-        </ul>
- 
-        <button class="btn btn-light btn-block">Verification 
-        </button>
+<div class="container">
+    <div class="row">
+    <div class="col-6 col-md-9">
 
-       <!--  <button class="btn btn-light btn-block" (click)="finishOrder()"
-        [disabled]="orders.productOrders.length == 0">Verification 
-   </button> -->
-    </div>
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center">Votre Pannier</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Total: € </h5>
+                        <hr>
+                        <h6 class="card-title">Produit vendu :</h6>
+                 
+                        <ul>
+                            <li *ngFor="">
+                                {{ Look }} - {{ Look }} pcs.
+                            </li>
+                        </ul>
+                 
+                        <button class="btn btn-light btn-block">Verification 
+                        </button>
+                
+                       <!--  <button class="btn btn-light btn-block" (click)="finishOrder()"
+                        [disabled]="orders.productOrders.length == 0">Verification 
+                   </button> -->
+                    </div>
+                </div>
+
+       
+</div>
 </div>

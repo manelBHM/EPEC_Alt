@@ -1,17 +1,125 @@
-<!-- 
-<app-header></app-header>
-<app-menu></app-menu>
-<app-slide-area></app-slide-area> 
-<app-articles></app-articles> -->
+<div class="header_top_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="top_header_left">
+          <div class="selector">
+            <select class="language_drop" name="countries" id="countries" style="width:300px;">
+              <option value='yt' data-image="img/icon/flag-1.png" data-imagecss="flag yt" data-title="English">English
+              </option>
+              <option value='yu' data-image="img/icon/flag-1.png" data-imagecss="flag yu" data-title="Bangladesh">
+                Francais</option>
+              <option value='yt' data-image="img/icon/flag-1.png" data-imagecss="flag yt" data-title="English">Espagnol
+              </option>
+            </select>
+          </div>
+          <div class="compte">
+            <ul>
+              <li><a routerLink="/login"> Mon Compte</a></li>
+              <li><a routerLink="/">Mon Pannier</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--================Menu Area =================-->
+<header class="shop_header_area">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"><img src="#" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav categories">
+          <li class="nav-item">
+            <select class="selectpicker">
+              <option>Categories</option>
+              <option>Drame</option>
+              <option>Comedie </option>
+              <option>Thriller </option>
+              <option>Westen</option>
+              <option>Ducumentaire </option>
+              <option>Fiction</option>
+            </select>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown submenu active">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Films <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="#">Drame</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Comedie</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Action</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Western</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Documentaire</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Science-Fiction</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Serie-Tv <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="#">Drame</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Comedie</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Action</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Western</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Documentaire</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Science-Fiction</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Films-Monde <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="#">Cinema Francais</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Cinema Anglo-Saxo</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Cinema Du Monde</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Animation <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="#">Manga</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">DisneyLand</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Tout Genre</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#">Documentaire</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<!-- style="background-image: url('/assets/images/bg-01.jpg') -->
+
+<!-- <app-articles></app-articles> -->
 <router-outlet></router-outlet>
-
-
-           <!--  <app-articles #articleC [hidden]="orderFinished"></app-articles> -->
-     <!--    <div class="col-md-3">
-            <app-pannier (onOrderFinished)=finishOrder($event) #pannierC
-              [hidden]="orderFinished"></app-pannier>
-        </div>
-        <div class="col-md-6 offset-3">
-            <app-commande #commandeC [hidden]="!orderFinished"></app-commande>
-        </div>
- -->
+<div class="container">
+</div>
