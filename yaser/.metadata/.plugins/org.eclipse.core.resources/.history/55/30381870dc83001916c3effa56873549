@@ -1,0 +1,124 @@
+package com.example.ExerciceDataRest;
+
+import static org.mockito.Mockito.verify;
+
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.example.ExerciceDataRest.Controller.testController;
+import com.example.ExerciceDataRest.Repository.CoursRepository;
+import com.example.ExerciceDataRest.Repository.ProfesseurRepository;
+import com.example.ExerciceDataRest.model.Cours;
+import com.example.ExerciceDataRest.model.Professeur;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ExerciceDataRestApplicationTests {
+
+	
+    
+ 
+	
+	
+	@Mock
+	private ProfesseurRepository professeurRepositorymock;
+	 @Captor
+	  private ArgumentCaptor<Professeur> professeurCaptor;
+	
+	@Mock
+	private CoursRepository CoursRepositorymock;
+	  @Captor
+	  private ArgumentCaptor<Cours> coursCaptor;
+	  
+	  @Rule
+	  public ExpectedException expectedException = ExpectedException.none();
+
+	  @InjectMocks
+	  private testController target;
+	  
+	  
+	  @Before
+	  public void setUp() {
+	    MockitoAnnotations.initMocks(this);
+	
+	   
+	  }
+
+	  @Test
+	  public void CreateNewProfesseur() {
+		  Professeur P = new Professeur ();
+
+		  // when
+		  target.creatNewProfesseur(P);
+		  //then
+         verify(professeurRepositorymock).save(P);
+	  }
+	  
+	  @Test
+	  public void CreateNewCours() {
+		  Cours C = new Cours();
+		  // when
+		  target.creatNewCours(C);
+		  //then
+		  verify(CoursRepositorymock).save(C);
+	  }
+	  
+	  @Test
+	  public void UpdateProfesseur() {
+		  Professeur P = new Professeur ();
+		  long id = 0;
+		  //when
+		  target.updateProfesseurById(id , P);
+		  //then
+			verify(professeurRepositorymock).save(P);
+		  
+	  }
+	  
+	  @Test
+	  public void UpdateCours() {
+		  Cours C = new Cours();
+		  long id = 0;
+		  //when
+		  target.updateCoursById(id , C);
+		  //then
+			verify(CoursRepositorymock).save(C);
+		  
+	  }
+	  
+
+	 
+	@Test
+	public void deleteProfesseur() {
+		Professeur P = new Professeur ();
+		long id = 0;
+		// when
+		target.DeleteProfesseurById(id, P);
+		 //then
+		verify(professeurRepositorymock).deleteAll();
+		
+	}
+	
+	@Test
+	public void deleteCours() {
+		Cours C = new Cours();
+		long id = 0;
+		// when
+		target.DeleteCoursById(id, C);
+		 //then
+		//verify(CoursRepositorymock).deleteAll();
+		
+	}
+
+}

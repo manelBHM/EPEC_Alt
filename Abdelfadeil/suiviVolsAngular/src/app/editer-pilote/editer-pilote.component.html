@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Editer un Pilote</div>
+    <div class="panel-body" *ngIf="currentPilote">
+      <form #f="ngForm" (ngSubmit)="onUpdatePilote(f.value)">
+         <!-- <div class="form-group">
+          <label  class="control-label">Id</label>
+          <input type="text" class="form-control" name="id" ng-Model [(ngModel)]="currentVol.id">
+        </div>  -->
+
+        <div class="form-group">
+          <label  class="control-label">Id Vol</label>
+          <input type="text" class="form-control" name="heureDepart" ng-Model [(ngModel)]="currentPilote.id">
+        </div>
+        <div class="form-group">
+          <label  class="control-label">Nom de Pilote</label>
+          <input type="text" class="form-control" name="nom" ng-Model [(ngModel)]="currentPilote.nom">
+        </div>
+
+        <div class="form-group">
+          <label  class="control-label">Id Vol</label>
+          <input type="text" class="form-control" name="vol_id" ng-Model [(ngModel)]="currentPilote.vol_id">
+        </div>
+        <div class="form-group">
+            <label  class="control-label">Site</label>
+            <input type="text" class="form-control" name="site" ng-Model [(ngModel)]="currentPilote.site">
+          </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block"style="background-color: #85c1e9;" >Envoyer</button>
+
+
+      </form>
+    </div>
+  </div>
+</div>

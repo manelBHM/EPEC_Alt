@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/listperson.css}" />
+
+</head>
+<body>
+
+	<main class="main">
+
+	<section class="section">
+
+		<article>
+			<h1 class="titre">Liste Des Stagiaires</h1>
+			<br>
+<a th:href="@{http://localhost:8080/addStagiaire}">Ajouter Stagiaire</a>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Matricule</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="p : ${listeStagiaire}">
+						<td th:text="${p.getNom()}" />
+						<td th:text="${p.getPrenom()}" />
+					<td th:text="${p.getMatricule()}"/>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+
+
+		</article>
+
+
+	</section>
+	</main>
+
+</body>
+</html>

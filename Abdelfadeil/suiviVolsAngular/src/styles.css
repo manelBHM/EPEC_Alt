@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #d6eaf8 !important;
+}
+.spacer {
+    margin-top: 20px;
+}
+
+.clickable, li {
+    cursor: pointer;
+}

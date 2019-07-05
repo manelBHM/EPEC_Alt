@@ -1,0 +1,7 @@
+<a href="/registration">CREATE DVD</a>
+<div class="first_block" *ngFor="let dvd of dvds">
+<a [routerLink]="['/dvdlist', dvd.id]"><span>{{dvd?.title}}</span></a>
+<br>
+</div>
+
+

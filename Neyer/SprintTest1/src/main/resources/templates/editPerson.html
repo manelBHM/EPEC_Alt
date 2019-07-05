@@ -16,7 +16,7 @@
 		<div class="card"> 
 			<h4 class="card-title">Modifier la personne</h4>
 			<div class="card-body">
-				<form th:action="@{UpdatePerson}" method="post" th:object="${person}">
+				<form th:action="@{updatePerson}" method="post" th:object="${person}">
 				
 				<div class="form-group">
 						<label class="control-label">ID</label> <input type="text"
@@ -46,7 +46,7 @@
 							 <span class="text-danger" th:errors="*{photo}"></span>
 					</div>
 					<div>
-						<button type="submit" class="btn btn-info">Creer</button>
+						<button type="submit" class="btn btn-info">Modifier</button>
 					</div>
 				</form>
 			</div>

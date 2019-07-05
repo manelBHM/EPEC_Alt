@@ -1,0 +1,36 @@
+body{
+    font-family: Arial;
+    color: black;
+    padding: 15px;
+ }
+p{
+    margin: 6px;
+}
+h6{
+    margin: 1px;
+}
+h5{
+    font-size: 20px;
+    background-color: silver;
+}
+h4{
+    text-align: center;
+}
+a{
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color: blue;
+}
+img{
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

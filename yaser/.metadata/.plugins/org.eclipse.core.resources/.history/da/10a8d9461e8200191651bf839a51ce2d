@@ -1,0 +1,120 @@
+package com.example.ExerciceDataRest.model;
+
+import java.util.List;
+
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@Entity
+@Table(name="professeur")
+public class Professeur {
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	private String Nom;
+	private String Prenom;
+	private int Numero_Identite;
+	private String Telephone;
+	private String Email;
+	private int Niveau;
+	
+	@OneToMany(mappedBy="professeur",fetch=FetchType.EAGER)
+	@JsonIgnoreProperties("cours")
+	private List<Cours> cours;
+	
+	public Professeur() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Professeur(long id, String nom, String prenom, int numero_Identite, String telephone, String email,
+			int niveau, List<Cours> cours) {
+		super();
+		this.id = id;
+		Nom = nom;
+		Prenom = prenom;
+		Numero_Identite = numero_Identite;
+		Telephone = telephone;
+		Email = email;
+		Niveau = niveau;
+		this.cours = cours;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return Nom;
+	}
+
+	public void setNom(String nom) {
+		Nom = nom;
+	}
+
+	public String getPrenom() {
+		return Prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		Prenom = prenom;
+	}
+
+	public int getNumeroIdentite() {
+		return Numero_Identite;
+	}
+
+	public void setNumeroIdentite(int numero_Identite) {
+		Numero_Identite = numero_Identite;
+	}
+
+	public String getTelephone() {
+		return Telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		Telephone = telephone;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public int getNiveau() {
+		return Niveau;
+	}
+
+	public void setNiveau(int niveau) {
+		Niveau = niveau;
+	}
+
+	public List<Cours> getCours() {
+		return cours;
+	}
+
+	public void setCours(List<Cours> cours) {
+		this.cours = cours;
+	}
+
+	
+
+	
+	
+
+}

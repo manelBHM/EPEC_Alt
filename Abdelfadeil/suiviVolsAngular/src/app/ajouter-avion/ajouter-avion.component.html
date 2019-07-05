@@ -1,0 +1,26 @@
+<form  (ngSubmit)="onSubmit(f)" #f="ngForm"  class="needs-validation" novalidate>
+  <div class="">Ajouter
+    <div class="form-group">
+      <label for="validationTooltip01">Model Avion</label>
+      <input type="text" class="form-control" id="validationTooltip01" placeholder="model" ngModel name="model" required>
+    </div>
+      <div class="form-group">
+          <label for="validationTooltip01">Id Avion</label>
+          <input type="text" class="form-control" id="validationTooltip01" placeholder="Id" ngModel name="id">
+        </div>
+    <div class="form-group">
+      <label for="validationTooltip01">Cpacite</label>
+      <input type="text" class="form-control" id="validationTooltip01" placeholder="capacite" ngModel name="capacite" required>
+    </div>
+
+    <div class="form-group">
+      <label for="validationTooltip01">Site</label>
+      <input type="text" class="form-control" id="validationTooltip01" placeholder="site" ngModel name="site" required>
+    </div>
+   
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block"style="background-color: #85c1e9;" [disabled]="f.invalid">Envoyer</button>
+
+</form>
+

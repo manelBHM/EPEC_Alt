@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
+<booleanAttribute key="de.toem.impulse.launchactivateLaunch" value="false"/>
+<booleanAttribute key="de.toem.impulse.launchactivateTermination" value="false"/>
+<intAttribute key="de.toem.impulse.launchdelayLaunch" value="0"/>
+<intAttribute key="de.toem.impulse.launchlaunch" value="2"/>
+<intAttribute key="de.toem.impulse.launchmode" value="3"/>
+<stringAttribute key="de.toem.impulse.launchport" value=""/>
+<booleanAttribute key="de.toem.impulse.launchrestart" value="true"/>
+<intAttribute key="de.toem.impulse.launchterminate" value="1"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/ExerciceDataRest"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value=""/>
+<booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
+<stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
+<stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.example.ExerciceDataRest.UnitTest"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ExerciceDataRest"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-ea"/>
+</launchConfiguration>

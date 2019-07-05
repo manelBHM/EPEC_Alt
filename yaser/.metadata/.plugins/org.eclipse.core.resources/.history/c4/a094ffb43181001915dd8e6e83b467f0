@@ -1,0 +1,12 @@
+server.port=8080
+
+spring.batch.job.enabled=false  
+
+input=file:user.csv
+
+
+
+# Configurations H2
+spring.jpa.show-sql=true
+spring.h2.console.enabled=true
+

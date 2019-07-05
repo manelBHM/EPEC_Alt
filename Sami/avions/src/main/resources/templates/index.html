@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
+<head>
+<meta charset="ISO-8859-1">
+<title>Oceanic Airlines</title>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+body{
+background-image: url("https://cdn.expatnetwork.com/wp-content/uploads/2015/06/bigstock-Passenger-Jet-Plane-Flying-Ove-66281911.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+</style>
+
+</head>
+<body>
+
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="text-center text-warning">
+				Welcome to Oceanic Airlines
+			</h2>
+			
+			<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<form th:action="@{liste}" role="form" method="POST">
+			
+			<h4 class="text-warning">Entrez votre identifiant</h4>
+			<input type="number" name="id" required/><br>
+		    <input type="submit" value="Envoyer" />
+			
+			
+			</form>
+		</div>
+	</div>
+</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

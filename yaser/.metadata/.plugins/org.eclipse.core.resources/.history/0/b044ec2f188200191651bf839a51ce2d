@@ -1,0 +1,74 @@
+package com.example.ExerciceDataRest.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="cours")
+public class Cours {
+
+	@Id
+	@GeneratedValue
+	private long id;
+	private String Libelle;
+	@ManyToOne(targetEntity = Professeur.class)
+	@JoinColumn(name="professeur_id")
+	private  Professeur professeur;
+	private int heurs;
+	
+	public Cours() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Cours(long id, String libelle, Professeur professeur, int heurs) {
+		super();
+		this.id = id;
+		Libelle = libelle;
+		this.professeur = professeur;
+		this.heurs = heurs;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getLibelle() {
+		return Libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		Libelle = libelle;
+	}
+
+	public Professeur getProfesseur() {
+		return professeur;
+	}
+
+	public void setProfesseur(Professeur professeur) {
+		this.professeur = professeur;
+	}
+
+	public int getHeurs() {
+		return heurs;
+	}
+
+	public void setHeurs(int heurs) {
+		this.heurs = heurs;
+	}
+
+	@Override
+	public String toString() {
+		return "Cours [id=" + id + ", Libelle=" + Libelle + ", professeur=" + professeur + ", heurs=" + heurs + "]";
+	}
+	
+	
+}

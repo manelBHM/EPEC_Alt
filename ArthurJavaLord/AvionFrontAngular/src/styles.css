@@ -1,0 +1,30 @@
+body{
+    background-image: url("https://c.pshere.com/photos/d2/39/air_aircraft_airplane_aviation_blue_sky_contrails_crescent_moon_daylight-1001687.jpg!d")
+    ;
+    background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    font-family: 'Times New Roman', Times, serif;
+    color: azure;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+input[type=text] {
+    width: 28%;
+  }
+
+  input[type=text] {
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 50%;
+    border-color: rgb(0, 255, 34);
+  }

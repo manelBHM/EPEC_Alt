@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste des stagiaires</title>
+</head>
+<body>
+	<h1>Liste des stagiaires</h1>
+    
+    <br/><br/>
+    <a th:href="@{http://localhost:8080/AjouteStagiaire}">Ajouter Stagiaire</a>
+    <div>
+      <table border="1">
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Matricule</th>
+        </tr>
+       <!--  <c:forEach  items="${stagiaires}" var ="stagiaires"> -->
+        <tr th:each="p : ${listStagiaire}">
+          <td th:text="${p.getNom()}"></td>
+          <td th:text="${p.getPrenom()}"></td>
+          <td th:text="${p.getMatricule()}"></td>
+        </tr>
+        </c:forEach>
+      </table>
+      <br>
+      <p><a href="AjouteStagiaire.html">Ajouter Stagiaire</a></p>
+</body>
+</html>

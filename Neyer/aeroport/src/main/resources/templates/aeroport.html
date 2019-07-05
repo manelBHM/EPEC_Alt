@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Airlines</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h1>Neyer Airlines </h1>
+
+	<div class="login">
+		<a id="logtext">log in</a>
+		<div class="photo">
+			<a th:href="@{/Login}"><img
+				src="https://cdn.icon-icons.com/icons2/11/PNG/256/pilot_person_people_woman_1651.png"></a>
+		</div>
+	</div>
+
+
+	<nav class="navbar navbar-dark bg-dark">
+		<h3 class="navbar-brand">Entrez votre identifiant pilote</h3>
+		<form th:action="@{Aeroport}" method="get" class="form-inline">
+			<div class="form-group">
+				<input class="form-control mr-sm-2" type="text" name="motCle"
+					placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</div>
+		</form>
+	</nav>
+
+	<!-- 	<div class="containerspacer"> -->
+	<!-- 		<form th:action="@{Aeroport}" method="get"> -->
+	<!-- 			<div class="form-group"> -->
+	<!-- 				<label>Entrez votre identifiant pilote :</label> <input type="text" -->
+	<!-- 					name="motCle" /> -->
+	<!-- 				<button type="submit">Chercher</button> -->
+	<!-- 			</div> -->
+	<!-- 		</form> -->
+	<!-- 	</div> -->
+	
+		<h2>VOLS</h2>
+		<div class="table">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Pilotes</th>
+						<th>Avions</th>
+						<th>Site Depart</th>
+						<th>Site Arrive</th>
+						<th>Heure Arrive</th>
+						<th>Heure Depart</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="v:${listVol}">
+						<td th:text="${v.id	}"></td>
+						<td th:text="${v.pilote}"></td>
+						<td th:text="${v.avion}"></td>
+						<td th:text="${v.siteDepart}"></td>
+						<td th:text="${v.siteArriv}"></td>
+						<td th:text="${v.heurArriv}"></td>
+						<td th:text="${v.heurDepart}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	
+
+</body>
+</html>

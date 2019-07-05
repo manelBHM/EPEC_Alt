@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<title>Admin page</title>
+<script src="jquery-3.4.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<style >
+body{
+background-image: url("https://cache.emirates247.com/polopoly_fs/1.666013.1519641516!/image/image.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+.bot{
+text-align:center;
+word-spacing: 100px;
+margin-top: 20px;
+}
+.list1 h1{
+text-align: center;
+}
+.list2 h1{
+text-align: center;
+}
+.list3 h1{
+text-align: center;
+}
+.bot{
+display: flex;
+flex-direction: row ;
+justify-content: space-around;
+align-items: center;
+}
+.addd1{
+border: 4px solid black;
+background-color: silver;
+width: 60%;
+}
+.addd2{
+border: 4px solid black;
+background-color: silver;
+width: 60%;
+}
+.addd3{
+border: 4px solid black;
+background-color: silver;
+width: 60%;
+}
+</style>
+<script>
+$(document).ready(function(){
+	
+	$(".list1").hide();
+	$("#b1").click(function(){
+	     $(".list1").toggle();
+	   });
+	
+	
+	$(".list2").hide();
+	$("#b2").click(function(){
+	     $(".list2").toggle();
+	   });
+	
+	
+	
+	$(".list3").hide();
+	$("#b3").click(function(){
+	     $(".list3").toggle();
+	   });	
+	
+	
+	$(".addd1").hide();
+	$(".add1").click(function(){
+	     $(".addd1").toggle();
+	   });	
+	
+	
+	$(".addd2").hide();
+	$(".add2").click(function(){
+	     $(".addd2").toggle();
+	   });	
+	
+	$(".addd3").hide();
+	$(".add3").click(function(){
+	     $(".addd3").toggle();
+	   });	
+	
+	
+});
+
+</script>
+</head>
+
+<body>
+
+<div class="bot">
+<div id="b1"><button type="submit" class="btn btn-success">Pilotes</button></div>
+<div id="b2"><button type="submit" class="btn btn-success">Avions</button></div>
+<div id="b3"><button type="submit" class="btn btn-success">Vols</button></div>
+</div><br><br>
+
+<div class="list1">
+
+<h1>List of pilots</h1>
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">nom</th>
+				<th scope="col">sit</th>
+				<th scope="col">delete</th>
+			</tr>
+
+			<tr th:each="s : ${P}">
+				<td class="bg-primary" th:text="${s.getId()}" />
+				<td class="bg-success" th:text="${s.getNom()}" />
+				<td class="bg-warning" th:text="${s.getSit()}" />
+				<form action="/DL" method="post">
+					<td class="bg-warning">
+						<button type="submit" name="id" required class="btn btn-danger"
+							th:value="${s.id}">delete</button>
+					</td>
+				</form>
+				</tr>
+				</thead>
+				</table>
+				<br>
+				<div class="add1">
+				<button type="submit" class="btn btn-success">Ajouter</button>
+				</div>
+				<div class="addd1">
+				<form action="/AD" method="post">
+		<div class="container">
+			<hr>
+			<h1>Ajouter un nouveau Pilote</h1>
+			<hr>
+			<br /> <br /> <label for="nom"><b>nom</b></label> <input
+				type="text" placeholder="Enter nom" name="nom" id="nom" required>
+			<label for="sit"><b>sit</b></label> <input type="text"
+				placeholder="Enter sit" name="sit" id="sit" required>
+
+			<div>
+
+				<button type="submit" class="btn btn-success">Ajouter</button>
+			</div>
+
+
+		</div>
+	</form>
+				</div>
+	
+</div><br><br>
+
+<div class="list2">
+<h1>List of avions</h1>
+
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">constructeur</th>
+				<th scope="col">modele</th>
+				<th scope="col">capacite</th>
+				<th scope="col">sitee</th>
+				<th scope="col">delete</th>
+			</tr>
+
+			<tr th:each="t : ${A}">
+				<td class="bg-primary" th:text="${t.getId()}" />
+				<td class="bg-success" th:text="${t.getConstructeur()}" />
+				<td class="bg-warning" th:text="${t.getModele()}" />
+				<td class="bg-primary" th:text="${t.getCapacite()}" />
+				<td class="bg-success" th:text="${t.getSitee()}" />
+				<form action="/DT" method="post">
+					<td class="bg-warning">
+						<button type="submit" name="id" required class="btn btn-danger"
+							th:value="${t.id}">delete</button>
+					</td>
+				</form>
+				</tr>
+				</thead>
+				</table>
+				<br>
+				<div class="add2">
+				<button type="submit" class="btn btn-success">Ajouter</button>
+				</div>
+				<div class="addd2">
+				<form action="/DM" method="post">
+		<div class="container">
+			<hr>
+			<h1>Ajouter un nouveau Avion</h1>
+			<hr>
+			<br /> <br /> <label for="constructeur"><b>constructeur</b></label> <input
+				type="text" placeholder="Enter constructeur" name="constructeur" id="constructeur" required>
+				
+			<label for="modele"><b>modele</b></label> <input type="text"
+				placeholder="Enter modele" name="modele" id="modele" required>
+				
+				<label for="capacite"><b>capacite</b></label> <input type="text"
+				placeholder="Enter capacite" name="capacite" id="capacite" required>
+				
+				<label for="sitee"><b>sitee</b></label> <input type="text"
+				placeholder="Enter sitee" name="sitee" id="sitee" required>
+
+			<div>
+
+				<button type="submit" class="btn btn-success">Ajouter</button>
+			</div>
+
+
+		</div>
+	</form>
+				</div>
+
+</div><br><br><br>
+
+<div class="list3">
+<h1>List of vols</h1>
+
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">avion</th>
+				<th scope="col">pilote</th>
+				<th scope="col">siteArrivee</th>
+				<th scope="col">siteDepart</th>
+				<th scope="col">heureArrivee</th>
+				<th scope="col">heureDepart</th>
+				<th scope="col">delete</th>
+			</tr>
+
+			<tr th:each="r : ${V}">
+				<td class="bg-primary" th:text="${r.getId()}" />
+				<td class="bg-success" th:text="${r.getAvion()}" />
+				<td class="bg-warning" th:text="${r.getPilote()}" />
+				<td class="bg-primary" th:text="${r.getSiteArrivee()}" />
+				<td class="bg-success" th:text="${r.getSiteDepart()}" />
+				<td class="bg-primary" th:text="${r.getHeureArrivee()}" />
+				<td class="bg-success" th:text="${r.getHeureDepart()}" />
+				<form action="/LT" method="post">
+					<td class="bg-warning">
+						<button type="submit" name="id" required class="btn btn-danger"
+							th:value="${r.id}">delete</button>
+					</td>
+				</form>
+				</tr>
+				</thead>
+				</table>
+				<br>
+				<div class="add3">
+				<button type="submit" class="btn btn-success">Ajouter</button>
+				</div>
+				<div class="addd3">
+				<form action="/LM" method="post">
+		<div class="container">
+			<hr>
+			<h1>Ajouter un nouveau Vol</h1>
+			<hr>
+			<br /> <br /><label for="id"><b>id</b></label> <input
+				type="text" placeholder="Enter id" name="id" id="id" required>
+			
+			 <label for="avion"><b>avion</b></label> <input
+				type="text" placeholder="Enter avion" name="avion" id="avion" required>
+				
+			<label for="pilote"><b>pilote</b></label> <input type="text"
+				placeholder="Enter pilote" name="pilote" id="pilote" required>
+				
+				<label for="siteArrivee"><b>siteArrivee</b></label> <input type="text"
+				placeholder="Enter siteArrivee" name="siteArrivee" id="siteArrivee" required>
+				
+				<label for="siteDepart"><b>siteDepart</b></label> <input type="text"
+				placeholder="Enter siteDepart" name="siteDepart" id="siteDepart" required>
+				
+				<label for="heureArrivee"><b>heureArrivee</b></label> <input type="text"
+				placeholder="Enter heureArrivee" name="heureArrivee" id="heureArrivee" required>
+				
+				<label for="heureDepart"><b>heureDepart</b></label> <input type="text"
+				placeholder="Enter heureDepart" name="heureDepart" id="heureDepart" required>
+
+			<div>
+
+				<button type="submit" class="btn btn-success">Ajouter</button>
+			</div>
+
+
+		</div>
+	</form>
+				</div>
+				
+
+</div><br><br>
+
+
+
+
+</body>
+</html>

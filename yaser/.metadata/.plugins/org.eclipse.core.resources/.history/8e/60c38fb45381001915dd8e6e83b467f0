@@ -1,0 +1,20 @@
+package Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import Repository.CoursRepository;
+import Repository.ProfesseurRepository;
+
+@RestController
+public class TestController {
+	
+	@Autowired
+	private ProfesseurRepository professeurRepository;
+	
+	@Autowired
+	private CoursRepository coursRepository;
+	
+	
+
+}

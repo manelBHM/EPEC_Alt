@@ -1,0 +1,462 @@
+body{
+    background: #eae9e5 !important;
+}
+#firstNav{
+    border-top: 5px solid #b7ce07;
+}
+#firstNav .navbar{
+    background: #000 !important;
+    padding: 0 140px !important;
+    border-bottom: 1px solid #2e2e2e;
+}
+#firstNav .nav-link{
+color: #6d6d6d;
+font-size: 14px;
+}
+#firstNav .navbar .fa {
+    width: 35px;
+    height: 34px;
+    color: #6d6d6d;;
+    text-decoration: none;
+    border-left: 1px solid #2e2e2e;
+    background-position: -141px 11px;
+    padding: 8px 30px 6px 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+  #firstNav .navbar .fa:hover{
+      color: #ffffff;
+      -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+  }
+  #firstNav .navbar .fa:hover {
+      opacity: 0.7;
+      -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+  }
+  
+  #firstNav .navbar .fa-home {
+    color: white;
+  }
+  #firstNav .navbar .fa-home:hover{
+      background: #ffffff !important;
+      color: #000 !important;
+      -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+  }
+  #secondNav .nav{
+      background: #000 !important;
+  }
+  #secondNav .nav-item img{
+    margin-top: 30px;
+  }
+  #secondNav .active{
+      color: #ffffff;
+  }
+  #secondNav .fa-square{
+    font-size: 11px;
+  }
+  #secondNav .orange{
+    color: orange;
+  }
+  #secondNav .pink{
+    color: #f8a5c2;
+  }
+  #secondNav .green{
+    color: #cbfe00;
+  }
+  #threeNav .justify-content-center {
+    padding-top: 8px;
+  }
+  #ustensiles {	
+	background:url("http://agricultureetpeche.fr/images/agriculture.jpg") 0 0 no-repeat;
+    opacity:0.75;
+    height: 240px;
+}
+#diapo {
+position: absolute;
+right: 0;
+background: rgba(255, 255, 255, 0.6);
+width: 600px;
+height: 73px;
+padding: 10px 0 0 25px;
+margin-top: 150px;
+margin-right: 40px;
+}
+@media screen and (max-width: 600px) {
+    #diapo {
+        margin-top: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 50px !important;
+        text-align: center;
+        width: 300px !important;
+        margin-right: 20px !important;
+    }
+  }
+#diapo h2{
+font-size: 20px;
+font-weight: 700;
+color: #000000;
+line-height: 25px;
+}
+#diapo p{
+margin-left: 20px;
+font-size: 22px;
+margin-top: -10px;
+}
+
+#niv{
+    background: #92b607;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    display: none;
+}
+.sub-menu-parent { 
+    position: relative; 
+    text-transform: uppercase;
+}
+.sub-menu-parent :hover{
+    background: #92b607;
+}
+.sub-menu { 
+  visibility: hidden; /* hides sub-menu */
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-2em);
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+.sub-menu-parent:hover #niv{
+    display: block;
+}
+.sub-menu-parent:focus .sub-menu,
+.sub-menu-parent:focus-within .sub-menu,
+.sub-menu-parent:hover .sub-menu {
+  visibility: visible; /* shows sub-menu */
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+}
+
+nav a { 
+color: #000; 
+display: block; 
+padding: 0.5em 1em; 
+text-decoration: none; 
+font-size: 16px !important;
+font-family: 'Abhaya Libre';
+text-align: center;
+font-weight: 300;
+display: table;
+width: 100%;
+text-transform: uppercase;
+}
+nav a:hover { 
+    color: #ffffff; 
+    text-decoration: none;
+    -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+nav ul,
+nav ul li { 
+    list-style-type: none; 
+    margin: 0; 
+}
+
+nav > ul { 
+    background: #b7ce07; 
+    text-align: center; 
+}
+nav > ul > li { 
+    display: inline-block; 
+    margin: 0 22px;
+}
+nav > ul > li:first-child { 
+    border-left: none; 
+}
+.sub-menu {
+  background: #7ba400;
+}
+.sub-menu-parent .active {
+    background: #7ba400;;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+#tabNav ul span{
+    color: #a89797;
+}
+#navLeft {
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0px 2px #868686;
+}
+#navLeft p{
+    font-weight: bold;
+    font-size: 13px;
+    color: #080808;
+    margin: 20px 0;
+}
+#navLeft h6{
+margin: 12px 10px;
+font-weight: bold;
+font-size: 13px;
+color: #080808;
+}
+#navLeft h6:hover{
+    color: #92b607;
+}
+#navLeft .w3-card-4{
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2),0 0px 0px 0 rgba(0,0,0,0.19);
+    color: #929292;
+    font-size: 10px;
+}
+#navLeft .w3-card-4 li{
+    border-bottom: 1px solid #e1e1e1;
+    padding: 5px 16px;
+    text-transform: uppercase;
+}
+#navLeft .w3-card-4 li:hover{
+    cursor: pointer;
+    color: #92b607;
+    -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+#navLeft .fa-square{
+color: #e1e1e1;
+font-size: 8px;
+text-align: center;
+margin: 5px;
+}
+#produit{
+    background: #030303;
+    padding: 10px;
+    color: #ffffff;
+    margin-top: 16px;
+    border-left: 10px solid #ea9000;
+}
+#produit h4{
+font-size: 16px;
+font-weight: bold;
+}
+#smallOverly{
+    background:url("https://www.cure4life.eu/wp-content/uploads/2017/10/Reguliere-thee-vol-pesticiden.png") 0 0 no-repeat;
+    opacity:0.75;  
+}
+#smallOverly div{
+height: 168px;
+display: flex;
+padding: 40px 20px;
+text-align: center;
+}
+#smallOverly div a{
+background: rgba(3, 3, 3, 0.8);
+padding: 16px 0px 8px 0px;
+text-decoration: none;
+color: #FFF;
+font-size: 13px;
+}
+#smallOverly div #a:hover{
+ background: rgba(188, 213, 0, 0.8);
+ -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+#smallOverly div #b:hover{
+ background: rgba(236, 142, 0, 0.8);
+-webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+#news {
+    box-shadow: 0px 2px #868686;
+    background: #FFF;
+    padding: 20px;
+    margin-top: 16px;
+}
+#news h4{
+font-size: 13px;
+color: #030303;
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+#news h5{
+font-size: 14px;
+font-weight: 700;
+line-height: 1;
+text-decoration: none;
+color: #7ba400;
+display: block;
+margin-bottom: 10px;
+}
+#news p{
+color: #929292;
+font-size: 11px;
+}
+#news a{
+font-size: 12px;
+color: #929292;
+text-decoration: none;
+}
+#news a:hover{
+color: #7ba400;  
+-webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out; 
+}
+#myBody h3{
+background: none;
+text-transform: none;
+color: #000000;
+font-size: 25.5px;
+line-height: 115%;
+font-weight: 700;
+position: relative;
+margin-top: 50px;
+}
+#myMedia {
+background: #FFF;
+padding: 20px;
+margin-top: 20px;
+color: #6c6c6c !important;
+}
+#content{
+background: #FFF;
+padding: 20px;
+color: #6c6c6c !important;  
+border-bottom: 2px solid #7ba400;
+}
+#content h5{
+    font-weight: bold;
+    color: #7ba400;
+}
+#content button {
+padding: 5px 10px;
+background: #FFF;
+border: 2px solid #7ba400;
+color: #6c6c6c;
+}
+#content button:hover{
+ color: #ffffff;
+ background: #7ba400;
+ -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+
+#secondContent{
+    background: #FFF;
+    padding: 20px;
+    color: #6c6c6c !important;  
+    border-bottom: 2px solid #B8B8B5;  
+    text-align: center;
+    color: #7ba400 !important;
+    margin-top: 15px;
+}
+#secondContent .card{
+    margin: 10px !important;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #B8B8B5;
+    padding: 10px;
+}
+#secondContent .card:hover{
+    box-shadow: 0 0 4px rgba(34, 228, 29, 0.15);
+    border-bottom: 2px solid #b7ce07;
+    cursor: pointer; 
+    -webkit-transition: all .4s ease-in-out;
+-moz-transition: all .4s ease-in-out;
+-ms-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+#secondContent .card .card-title{
+    margin-top: 20px;
+}
+#footer{
+    background: #cdc8c2;
+    position: relative;
+    z-index: 2;
+    margin-top: 70px;
+    border-bottom: 8px solid #b7ce07;
+    overflow: hidden;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#footer h3{
+color: #000;
+font-size: 14px;
+border-bottom: 1px solid #a7a6a4;
+padding: 0 0 0 15px;
+position: relative;
+font-weight: 700;
+margin-bottom: 10px;
+text-transform: uppercase;
+}
+#footer .w3-card-4 li{
+ padding: 5px 16px !important;
+font-size: 11px !important;
+border: 0 !important;
+color: #635b57 !important;
+}
+#footer #forHover li:hover{
+    color: #ea9000 !important;
+    cursor: pointer;
+}
+#footer .w3-card-4 {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0),0 0px 0px 0 rgba(0,0,0,0.0);
+}
+#footer .w3-card-4 i{
+    font-size:12px;
+}
+
+#lastFooter {
+    background: #000;
+    text-align: center;
+    padding: 30px;
+    color: gray !important;
+}
+#lastFooter div {
+    font-size: 12px;
+    color: gray !important;
+}
+#lastFooter div a{
+    color: gray !important;
+}
+#lastFooter div a:hover{
+    color: #b7ce07 !important;
+}
+#lastFooter #span{
+    color: #b7ce07;
+    text-align: center; 
+    font-size: 12px;
+}

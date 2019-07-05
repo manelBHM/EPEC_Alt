@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+     
+<title>Us</title>
+<script src="jquery-3.4.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<style >
+body{
+background-image: url("https://cache.emirates247.com/polopoly_fs/1.666013.1519641516!/image/image.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+.bot{
+text-align:center;
+word-spacing: 100px;
+margin-top: 20px;
+}
+.list1 h1{
+text-align: center;
+}
+.list2 h1{
+text-align: center;
+}
+.list3 h1{
+text-align: center;
+}
+.bot{
+display: flex;
+flex-direction: row ;
+justify-content: space-around;
+align-items: center;
+
+
+
+}
+</style>
+<script>
+$(document).ready(function(){
+	
+	$(".list1").hide();
+	$("#b1").click(function(){
+	     $(".list1").toggle();
+	   });
+	
+	
+	$(".list2").hide();
+	$("#b2").click(function(){
+	     $(".list2").toggle();
+	   });
+	
+	
+	
+	$(".list3").hide();
+	$("#b3").click(function(){
+	     $(".list3").toggle();
+	   });	
+});
+
+</script>
+</head>
+
+<body>
+
+<div class="bot">
+<div id="b1"><button type="submit" class="btn btn-success">Pilotes</button></div>
+<div id="b2"><button type="submit" class="btn btn-success">Avions</button></div>
+<div id="b3"><button type="submit" class="btn btn-success">Vols</button></div>
+</div><br><br>
+
+<div class="list1">
+
+<h1>List of pilots</h1>
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">nom</th>
+				<th scope="col">sit</th>
+			</tr>
+
+			<tr th:each="s : ${P}">
+				<td class="bg-primary" th:text="${s.getId()}" />
+				<td class="bg-success" th:text="${s.getNom()}" />
+				<td class="bg-warning" th:text="${s.getSit()}" />
+				</tr>
+				</thead>
+				</table>
+				
+	
+</div><br><br>
+
+<div class="list2">
+<h1>List of avions</h1>
+
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">constructeur</th>
+				<th scope="col">modele</th>
+				<th scope="col">capacite</th>
+				<th scope="col">sitee</th>
+			</tr>
+
+			<tr th:each="t : ${A}">
+				<td class="bg-primary" th:text="${t.getId()}" />
+				<td class="bg-success" th:text="${t.getConstructeur()}" />
+				<td class="bg-warning" th:text="${t.getModele()}" />
+				<td class="bg-primary" th:text="${t.getCapacite()}" />
+				<td class="bg-success" th:text="${t.getSitee()}" />
+				</tr>
+				</thead>
+				</table>
+
+</div><br><br><br>
+
+<div class="list3">
+<h1>List of vols</h1>
+
+<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">avion</th>
+				<th scope="col">pilote</th>
+				<th scope="col">siteArrivee</th>
+				<th scope="col">siteDepart</th>
+				<th scope="col">heureArrivee</th>
+				<th scope="col">heureDepart</th>
+			</tr>
+
+			<tr th:each="r : ${V}">
+				<td class="bg-primary" th:text="${r.getId()}" />
+				<td class="bg-success" th:text="${r.getAvion()}" />
+				<td class="bg-warning" th:text="${r.getPilote()}" />
+				<td class="bg-primary" th:text="${r.getSiteArrivee()}" />
+				<td class="bg-success" th:text="${r.getSiteDepart()}" />
+				<td class="bg-primary" th:text="${r.getHeureArrivee()}" />
+				<td class="bg-success" th:text="${r.getHeureDepart()}" />
+				</tr>
+				</thead>
+				</table>
+
+</div><br><br>
+
+
+
+
+</body>
+</html>

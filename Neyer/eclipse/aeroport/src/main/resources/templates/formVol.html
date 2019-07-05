@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Saisie Vol</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<form th:action="@{SaveVol}" method="post" th:object="${unVol}">
+			<h1>Saisie Vol</h1>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Identifiant du vol</label> <input
+					type="text" class="form-control" id="formGroupExampleInput"
+					placeholder="ex : IT001" th:field="${unVol.id}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput4">Identifiant de l'avion</label> <input type="text"
+					class="form-control" id="formGroupExampleInput4"
+					placeholder="Id:Avion" th:field="${unVol.avion}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput4">Identifiant du pilote</label> <input
+					type="text" class="form-control" id="formGroupExampleInput4"
+					placeholder="Id:Pilote" th:field="${unVol.pilote}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput4">Site de depart</label> <input
+					type="text" class="form-control" id="formGroupExampleInput4"
+					placeholder="Country" th:field="${unVol.siteDepart}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput3">Heure de Depart</label> <input
+					type="text" class="form-control" id="formGroupExampleInput3"
+					 th:field="${unVol.heurDepart}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput4">Site d'arrivé</label> <input
+					type="text" class="form-control" id="formGroupExampleInput4"
+					placeholder="Country" th:field="${unVol.siteArriv}">
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput2">Heure d'arrivée</label> <input
+					type="text" class="form-control" id="formGroupExampleInput2"
+					 th:field="${unVol.heurArriv}">
+			</div>
+			<button type="submit">Valider</button>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

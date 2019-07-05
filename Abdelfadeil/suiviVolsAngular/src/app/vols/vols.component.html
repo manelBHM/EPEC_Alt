@@ -1,0 +1,48 @@
+<div class="spacer">
+  
+
+<form class="form-inline my-2 my-lg-0" #f="ngForm" (ngSubmit)="onChercher(f.value)">
+    <label style="margin:5px;">Mot clé :</label>
+    <input (keyup)="onChercher(f.value)" class="form-control mr-sm-2" type="text" name="motCle" ngModel>
+    <button type="submit" class="btn btn-outline-info my-2 my-sm-0"> <span class="glyphicon glyphicon-search"></span> Vols</button>
+</form>
+<table class="table table-bordered table-hover spacer">
+  <thead class="table-info">
+    <tr role="row">
+      <th>N° de vol</th>
+       <th>N° d'avion</th>
+       <th>Id</th> 
+       <th>Site de départ</th> 
+       <th>Site d'arrivée</th> 
+       <th>Heure de départ</th>
+       <th>Heure de Arrivée</th>
+       <th></th>
+       <th></th>
+
+    </tr>
+
+  </thead>
+  <tbody style="background: #d7f1f5;" *ngIf="vols">
+      <tr role="row" class="odd" *ngFor="let v of vols._embedded.vols">
+          <td>{{v.noVol}}</td>
+          <td>{{v.avion}}</td>
+          <td>{{v.id}}</td>
+          <td>{{v.siteDepart}}</td>
+          <td>{{v.siteArrivee}}</td>
+          <td>{{v.heureDepart}}</td>
+          <td>{{v.heureArrivee}}</td>
+          <td><button type="button" (click)="onEdit(v)" class="btn btn-outline-primary">Editer</button>
+          <td><button type="button" (click)="supprimerVol(v)" class="btn btn-outline-danger">Supprimer</button>
+          </td>
+      </tr>
+      
+    </tbody>
+    
+</table>
+<ul class="nav nav-pills table">
+  <li [ngClass]="i==currentPage?'bg-info':''" class="nav-link table-bordered" *ngFor="let p of pages; let i=index" (click)="onPageVols(i)">
+    {{i}}
+  </li>
+</ul>
+
+</div>

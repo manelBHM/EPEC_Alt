@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">Editer un Avion</div>
+      <div class="panel-body" *ngIf="currentAvion">
+        <form #f="ngForm" (ngSubmit)="onUpdateAvion(f.value)">
+            <div class="form-group">
+            <label  class="control-label">Id</label>
+            <input type="text" class="form-control" name="id" ng-Model [(ngModel)]="currentAvion.id">
+          </div>  
+  
+          <div class="form-group">
+            <label  class="control-label">Model Avion</label>
+            <input type="text" class="form-control" name="model" ng-Model [(ngModel)]="currentAvion.model">
+          </div>
+          <div class="form-group">
+            <label  class="control-label">Capacité</label>
+            <input type="text" class="form-control" name="capacite" ng-Model [(ngModel)]="currentAvion.capacite">
+          </div>
+          <div class="form-group">
+              <label  class="control-label">Site</label>
+              <input type="text" class="form-control" name="site" ng-Model [(ngModel)]="currentAvion.site">
+            </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block"style="background-color: #85c1e9;" >Envoyer</button>
+  
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

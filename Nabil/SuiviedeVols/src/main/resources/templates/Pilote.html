@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scalle=1"/>
+	  <title>Suivie de Vols</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+	
+	</head>
+
+	<body>
+		
+		<div class="forme" style="
+			  background-color: #eceff1;
+			  height: 100px; padding-top: 25px">
+			 <h1 style="padding-left: 5%; color:#455a64 ; letter-spacing:3px; font-family: 'Roboto', sans-serif;font-size: 40px;text-shadow: #eceff1"> Informations Pilote</h1>
+		</div>
+
+	<form th:action="@{/Pilote}" method="Get">
+		
+		<div>
+          <table class="table" align="centre">
+  			<thead class="thead-dark" align="centre">
+            	<tr>
+            	  <th scope="col">ID</th>
+	              <th scope="col">Nom</th>
+	              <th scope="col">Site</th>
+	        
+
+            	</tr>
+             </thead>
+            <tbody>	
+            	<tr th:each="LISTE : ${listeP}" align="centre">
+            	   
+	               <td th:utext="${LISTE.ID} " th:field="*{ID}" >...</td>
+	               <td th:utext="${LISTE.nom}" th:field="*{nom}">...</td>
+	               <td th:utext="${LISTE.site}" th:field="*{site}">...</td>
+ 	               
+<!--             	   <td><a th:href="@{update(id=${LISTE.id})}" type="button">Modifier</a></td> -->
+            	   
+            	               	   
+           		 </tr>
+           	  </tbody>
+           		 
+         	</table>
+         	 	<br></br>
+      	<br></br>
+
+      	
+      	</div>
+      	
+     <div class="forme" style="
+			  background-color: #eceff1;
+			  height: 100px; padding-top: 25px">
+			 <h1 style="padding-left: 5%; color:#455a64 ; letter-spacing:3px; font-family: 'Roboto', sans-serif;font-size: 40px;text-shadow: #eceff1"> Informations Vols</h1>
+		</div>
+      
+      </form>
+      
+      
+      	<form th:action="@{/Vol}" method="Get">
+      
+      <div>
+          <table class="table" align="centre">
+  			<thead class="thead-dark" align="centre">
+            	<tr>
+            	  <th scope="col">ID</th>
+	              <th scope="col">Avion</th>
+	              <th scope="col">Id Pilote</th>
+	              <th scope="col">SiteDepart</th>
+	              <th scope="col">SiteArrivee</th>
+	              	              
+	              <th scope="col">HeureDepart</th>
+	              
+	              <th scope="col">HeureArrivee</th>
+	              
+	        
+
+            	</tr>
+             </thead>
+            <tbody>	
+            	<tr th:each="LISTE : ${listeV}" align="centre">
+            	   
+	               <td th:utext="${LISTE.id} " th:field="*{ID}" >...</td>
+	               <td th:utext="${LISTE.avion}" th:field="*{avion}">...</td>
+	               <td th:utext="${LISTE.heureArrivee}" th:field="*{heureArrivee}">...</td>
+	               <td th:utext="${LISTE.heureDepart}" th:field="*{heureDepart}">...</td>
+	               <td th:utext="${LISTE.pilote}" th:field="*{pilote}">...</td>
+	             	<td th:utext="${LISTE.siteArrivee}" th:field="*{siteArrivee}">...</td>
+	               <td th:utext="${LISTE.siteDepart}" th:field="*{siteDepart}">...</td>
+	               
+ 	               
+<!--             	   <td><a th:href="@{update(id=${LISTE.id})}" type="button">Modifier</a></td> -->
+            	   
+            	               	   
+           		 </tr>
+           	  </tbody>
+           		 
+         	</table>
+         	 	<br></br>
+      	<br></br>
+
+      	
+      	</div>
+      	 
+           </form>
+           
+          
+      
+      
+      
+      
+      
+      
+	  <link rel="stylesheet" th:href="@{css/js/bootstrap.min.js}"/>	
+	</body>
+</html>

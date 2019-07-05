@@ -1,0 +1,1 @@
+insert into professeur(id,Nom,Prenom,NumeroIdentite,Telephone,Email,Niveau) values(1, 'tott' , 'tutu' ,1213232, '029283' , 'yaser@gmail.com' ,4);

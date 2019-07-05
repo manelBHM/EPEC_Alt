@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scalle=1"/>
+	  <title>PHARMACIE</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/css/bootstrap.css}"/>
+	
+	</head>
+
+	<body>
+		
+	
+		<div class="forme">
+		 	<h1 class="display-1">L E S - M E D I C A M E N T S</h1>
+		</div>
+
+	<form th:action="@{/Facture}" method="Get">
+		
+		<div>
+          <table class="table">
+  			<thead class="thead-dark">
+            	<tr>
+            	  <th scope="col">Choix</th>
+            	
+	              <th scope="col">Médicament</th>
+	              <th scope="col">Prix / €</th>
+	              <th scope="col">Quantité</th>
+	              <th scope="col">test</th>
+	              
+	              
+            	</tr>
+             </thead>
+            <tbody>	
+            	<tr th:each="medic : ${listeP}">
+            	   <td><input type="checkbox" name="name1" value="bike" /></td>
+            	   
+	               <td th:utext="${medic.libelle} " th:field="*{libelle}" >...</td>
+	               <td th:utext="${medic.Prix}" th:field="*{Prix}">...</td>
+	               <td th:utext="${medic.Qts}" th:field="*{Qts}">...</td>
+            	   <td th:utext="${medic.Qts}" th:field="*{Qts}"><input type="test" name="name1" value="1" /></td>
+	               
+	               
+           		 </tr>
+           	  </tbody>
+           		 
+         	</table>
+         	 	<br></br>
+      	<br></br>
+
+      	
+      	</div>
+     
+      		
+      	    <input type="submit" value="Commander" />
+ 
+      </form>
+      
+      
+      
+	  <link rel="stylesheet" th:href="@{css/js/bootstrap.min.js}"/>	
+	</body>
+</html>

@@ -1,6 +1,7 @@
 package projet.test.JunitTest2.unit;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Calculation {
 	public int square(int n) {
