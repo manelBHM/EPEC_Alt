@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4a99d1;">
+    <a id="VideoFutur" class="navbar-brand" href="http://localhost:4200/accueil">VideoFutur</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ajouter
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/addDvd">Un film</a>
+            <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/addEmployee">Un emplyé</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Consulter
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/filmsList">Films</a>
+                <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/employeesList">Employés</a>
+                <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/customersList">Clients</a>
+                <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/ordersList">Commandes</a>
+            </div>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+      </form>
+    </div>
+</nav>
+
+<div style="text-align:center">
+    <h1 id="welcome"><b>
+        BIENVENUE SUR LE BACK OFFICE DE <span id="VideoFutur" style="color:#4a99d1!important;">VIDEOFUTUR</span>.
+    </b></h1><br>
+    <h3>
+        Ici les administrateurs peuvent consulter et modifier nos bases de données.
+    </h3>
+</div><br><br>
+<div id="rules">
+    <h3><b><u>
+        Il y a quelques règles à respecter:
+    </u></b></h3>
+    <ul>
+        <li>Toute modification dans nos bases de données doit être, au préalable validée, par un des SuperAdmin (Kevin || Sami).</li>
+        <li>Toute suppression dans nos bases de données doit être, au préalable validée, par un des SuperAdmin (Kevin || Sami).</li>
+        <li>Pour des raisons évidentes de sécurité, une fois votre tâche effectuée <span style="color: red">il est impératif de se déconnecter</span> en fermant la page de votre navigateur web.</li>
+    </ul>
+</div>

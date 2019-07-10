@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4a99d1;">
+        <a id="VideoFutur" class="navbar-brand" href="http://localhost:4200/accueil">VideoFutur</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ajouter
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/adddvd">Un film</a>
+                <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/addEmployee">Un emplyé</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Consulter
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/filmsList">Films</a>
+                    <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/employeesList">Employés</a>
+                    <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/dvdsList">Clients</a>
+                    <a class="dropdown-item" href="http://localhost:4200/SuperAdmin/ordersList">Commandes</a>
+                </div>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+          </form>
+        </div>
+    </nav>
+
+    <h2 class="welcome">BASE DE DONNEES DE NOS CLIENTS</h2>
+
+    <div class="viewprez">
+      <table class="table table-bordered table-inverse">
+        <tr>
+          <th>Pochette</th>
+          <th>#ID</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Name</th>
+          <th>View</th>
+          <th>Stock</th>
+          <th style="color:red;">DELETE</th>
+        </tr>
+        <tr *ngFor="let dvd of dvds">
+          <td><img class="photoprez" src="{{dvd.photo}}"></td>
+          <td><a [routerLink]="['/SuperAdmin/film/view', dvd.dvdId]">{{dvd.dvdId}}</a></td>
+          <td>{{dvd.price}}</td>
+          <td>{{dvd.category}}</td>
+          <td>{{dvd.name}}</td>
+          <td>{{dvd.view}}</td>
+          <td>{{dvd.stock}}</td>
+          <td><button style="color: red" class="btn btn-danger" type="button" (click)='deleteDvd(dvd.dvdId)'>X</button></td>
+        </tr>
+      </table>
+    </div>
