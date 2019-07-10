@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CommandeArticle } from '../model/commandeArticle';
-import { Article } from '../model/article';
-import { Subscription } from 'rxjs';
-import { EcommercesService } from '../ecommerces.service';
-import { Commande } from '../model/commande';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { ArticleService } from '../services/article.service';
+import { Router } from '@angular/router';
 
+@NgModule()
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
@@ -12,19 +10,38 @@ import { Commande } from '../model/commande';
 })
 export class ArticlesComponent implements OnInit {
 
+  boucles:number[]= [1,2,3,4,5,6,7,8,9,10,11,12, 13,14, 15, 16, 17, 18, 19, 20];
+  currentPage:number=0;
+  page:number=0;
+  size:number=20;
+  totalPages: number;
+  pages: number[];
+  currentMotCle: String="";
+  articles:any;
 
-  commandeArticle: CommandeArticle[] = [];
-    articles : Article[] = [];
-    selecteCommandeArticle: CommandeArticle;
-    private pannierCommande: Commande;
-    sub: Subscription;
-    productSelected: boolean = false;
- 
-  constructor() { }
+
+  constructor(private articleService:ArticleService, private router:Router) { }
 
   ngOnInit() {
+    this.chercherArticles();
   }
-/* 
+
+  chercherArticles() {
+    this.articleService.getArticles(this.currentMotCle, this.currentPage, this.size).subscribe(data=> {
+      console.log(data);
+     // this.totalPages=data["page"].totalPages;
+    //  this.pages= new Array<number>(this.totalPages);
+      this.articles=data;
+  
+    }, err=> {
+      console.log(err);
+    })
+  }
+
+
+
+
+/*
   loadProducts() {
     this.ecommerceService.getAllProducts()
         .subscribe(

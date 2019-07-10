@@ -1,14 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule} from '@angular/forms';
-
-//import { RouterModule } from '@angular/router';
-
-
-
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticlesComponent } from './articles/articles.component';
@@ -23,6 +14,11 @@ import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { CommandeComponent } from './commande/commande.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
    declarations: [
@@ -40,12 +36,16 @@ import { RegisterComponent } from './register/register.component';
     CommandeComponent,
     LoginComponent,
     RegisterComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
+    
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

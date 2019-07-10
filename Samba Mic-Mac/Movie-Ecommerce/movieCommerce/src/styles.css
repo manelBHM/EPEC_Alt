@@ -1,4 +1,13 @@
+body {
+  /* background-color: #d6eaf8 !important; */
+}
+.spacer {
+  margin-top: 20px;
+}
 
+.clickable, li {
+  cursor: pointer;
+}
 .compte {
     width: 100%;
     margin-top: -7%;

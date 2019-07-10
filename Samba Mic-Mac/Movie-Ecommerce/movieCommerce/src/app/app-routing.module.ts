@@ -4,16 +4,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PannierComponent } from './pannier/pannier.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { ArticleComponent } from './article/article.component';
 
 
 
 
 
 const routes: Routes = [
- {
-  path: '', component: HomeComponent,
-  //pathMatch: 'full'
-}, 
+
 {
   path: 'home', component: HomeComponent
 }, 
@@ -25,13 +25,21 @@ const routes: Routes = [
   path: 'register', component: RegisterComponent
 },
 {
+  path: 'articles', component: ArticlesComponent
+},
+{
+  path: 'articles/id', component: ArticleComponent
+},
+{
   path: 'pannier', component: PannierComponent
-}
+},
+{ path: '',  redirectTo: 'home',  pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  providers: [],
+  providers: [NgModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

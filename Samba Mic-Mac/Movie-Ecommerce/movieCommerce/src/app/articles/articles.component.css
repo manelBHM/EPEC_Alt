@@ -1,0 +1,16 @@
+.card img {
+    width: 100%;
+    height: 70%;
+}
+.col {
+    display: flex;
+    flex-flow: row wrap;
+}
+.card {
+    width: 270px;
+    height: 400px;
+    bottom: 5px;
+    top: 5px;
+    margin: 2px;
+    left: 0;
+}
