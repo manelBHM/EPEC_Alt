@@ -1,0 +1,29 @@
+<div class="container">
+  
+  <form action="">
+   <div class="block_one">
+     <h3>Log as Admin</h3>
+    <div><label for="">Login<input class="form-control" type="text" name="username" [(ngModel)]="username"></label></div>
+    <div><label for="">Password<input class="form-control" type="password" name="password" [(ngModel)]="password"></label></div>
+    <div><button class="btn btn-primary" type="submit" (click)="LogInUser()">OK</button></div>
+     </div>
+</form>
+<br>
+<br>
+  <div class="block_two">
+      <form action="">
+          <div class="block_one">
+              
+            <h3>Log as a customer</h3>
+            <div *ngIf="validMessage != ''">
+                <p class="has-info">{{validMessage}}</p>
+              </div>
+           <div><label for="">Login<input class="form-control" type="text" name="clogin" [(ngModel)]="clogin"></label></div>
+           <div><label for="">Password<input class="form-control" type="password" name="cpassword" [(ngModel)]="cpassword"></label></div>
+           <div><button class="btn btn-primary" type="submit" (click)="checkLogPw(clogin, cpassword)">OK</button></div>
+             </div>
+       </form>
+       <p>Don't have an account ? <a href="/customercreation">Sign in </a></p>
+
+  </div>
+</div>
