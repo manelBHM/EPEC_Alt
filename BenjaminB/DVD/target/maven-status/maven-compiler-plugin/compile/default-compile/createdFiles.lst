@@ -1,0 +1,4 @@
+com\simplon\DVD\Controller\ControllerDvd.class
+com\simplon\DVD\Repo\Repository.class
+com\simplon\DVD\entity\Dvd.class
+com\simplon\DVD\DvdApplication.class
