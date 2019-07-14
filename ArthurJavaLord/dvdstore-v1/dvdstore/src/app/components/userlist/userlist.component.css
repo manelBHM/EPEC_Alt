@@ -1,0 +1,15 @@
+.first_block{
+    text-align: left;
+    width: 100px;
+    height: 60px;
+}
+
+.second_block{
+    text-align: right;
+    float: right;
+    padding: 5px;
+}
+
+.cart{
+    
+}

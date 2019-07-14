@@ -1,0 +1,22 @@
+
+<div class="cont">
+  <div class="card" >
+          <div class="card-header">
+                  {{dvd?.title}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Définition :</h5>
+            <p class="card-text">{{dvd?.title}}</p>
+            <p class="card-text">Price :{{dvd?.price}}</p>
+            <p class="card-text">{{dvd?.country}}</p>
+            <p class="card-text">{{dvd?.releaseDate}}</p>
+            <p class="card-text">{{dvd?.vo}}</p>
+            <img src="{{dvd?.photo}}" alt="DVD PHOTO">
+            <p class="card-text">Views : {{dvd?.vue}}</p><br>
+            <button (click)="addToCart()">ADD TO CART</button><br>
+            <button (click)="removeFromCart()">REMOVE FROM CART</button><br>
+            <a class="btn btn-primary" routerLink="/admin-view">Back to List</a><br>
+            <a class="btn btn-danger" (click)="deleteDvd(dvd?.id)" >Delete dvd</a>
+            </div>
+        </div>
+  </div>

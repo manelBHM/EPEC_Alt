@@ -1,0 +1,26 @@
+.first_block{
+    text-align: left;
+    width: 100px;
+    height: 60px;
+}
+
+.second_block{
+    text-align: right;
+    float: right;
+    padding: 5px;
+}
+
+h2{
+    text-align: left;
+}
+
+img{
+    width: 100px;
+    height: 60px;
+}
+
+.bo{
+    font-size: 300%;
+    font-weight: bold;
+}
+
