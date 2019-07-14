@@ -14,27 +14,14 @@ import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
 
-{
-  path: 'home', component: HomeComponent
-}, 
-{
-  path: 'login', component: LoginComponent
-},
- 
-{
-  path: 'register', component: RegisterComponent
-},
-{
-  path: 'articles', component: ArticlesComponent
-},
-{
-  path: 'articles/id', component: ArticleComponent
-},
-{
-  path: 'pannier', component: PannierComponent
-},
-{ path: '',  redirectTo: 'home',  pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent }
+  { path: '',  redirectTo: 'home',  pathMatch: 'full'},
+{ path: 'home', component: HomeComponent }, 
+{ path: 'login', component: LoginComponent },
+{ path: 'register', component: RegisterComponent },
+{ path: 'articles', component: ArticlesComponent },
+{ path: 'articles/id', component: ArticleComponent },
+{ path: 'pannier', component: PannierComponent },
+{ path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
