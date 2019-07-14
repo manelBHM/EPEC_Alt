@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<th:block th:each="t : ${D}">
+ 
+      <td class="card-title" th:text="${t.getId()}" />
+      <td class="card-title" th:text="${t.getPhoto()}" />
+     <td class="card-title" th:text="${t.getName()}" />
+    <td class="card-title" th:text="${t.getPrice()}" />
+  </th:block>
+ 
+
+</body>
+</html>

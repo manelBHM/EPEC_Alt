@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.head{
+display:flex;
+flex-direction: row;
+text-align: center;
+align-items: center;
+justify-content: space-around; 
+background-color:buttonface;
+}
+
+.ph img{
+ width: 10%;
+ }
+ 
+ .tabl{
+box-shadow:5px 5px 5px 5px;
+
+margin: 50px;
+
+}
+</style>
+</head>
+<body>
+ <!-- Include _menu.html -->
+ <div class="head">
+      <tr>
+      <th:block th:include="/_menu"></th:block>
+   
+      <h2>User Page</h2>
+      <h5>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h5>
+     </tr>
+       </div>
+       
+  <br><br>
+      <div class="tabl">
+    <table class="table">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+    
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Photo</th>
+      
+    </tr>
+    <tr th:each="t : ${D}">
+ 
+     
+      <td class="card-title" th:text="${t.getName()}" />
+      <td class="card-title" th:text="${t.getPrice()}"/>
+      <td class="ph"><img th:src="${t.getPhoto()}"><td/>
+      
+       <form action="/panier" method="post">
+						<td  class="warning">
+							<button type="submit" name="id" required class="btn btn-primary"
+								th:value="${t.id}">ajuter au panier</button>
+						</td>
+					</form>
+    
+  </tr>
+    
+  </thead>
+ 
+</table>
+       </div>
+       
+</body>
+</html>
