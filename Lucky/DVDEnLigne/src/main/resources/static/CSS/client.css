@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("https://images.unsplash.com/photo-1548109845-58bbd1fbf2fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+background-size: cover;
+height: 200vh;
+}
+
+.avatar {
+    background: #b2bec3;
+    padding: 5px;
+    color: white!important;
+    font-weight: bold;
+}
+
+.navbar-toggler{
+	background: grey!important;
+	color: rgba(0,0,0,.5)!important;
+}
+
+
+.avatar:hover{
+    background: red;
+    transition: 1s
+}
+
+.navbar {
+    background: black !important;
+}
+
+.navbar ul li a {
+    color: azure !important;
+}
+
+
+.navbar ul li a:hover {
+    background-color: #dfe6e9 !important;
+    color: #121212!important;
+    font-weight: bold;
+    transition: 1s
+}
+
+#profession {
+    background: #6c8fee;
+    text-align: center;
+    height: 200px;
+    margin-bottom: 200px 
+}
+
+
+#profession h1{
+    color: #f8f4f4;
+    line-height: 250px;
+}
+
+
+#profession span{
+    color: black;
+}
+
+
+
+#formulaire{
+background: #343a40!important;
+height: auto;
+padding: 10px!important;
+}
+
+#formulaire form label{
+	color:white!important
+}
+
+
+#tableau table a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold
+}

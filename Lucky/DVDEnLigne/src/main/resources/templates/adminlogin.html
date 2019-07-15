@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- LIENS BOOTSTRAP CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/login.css}" />
+</head>
+<body>
+
+<header>
+          
+          <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+          
+            <a class="navbar-brand avatar" href="http://localhost:3030/boutiquedvd/api/admin/login" title="Retourner a l'accueil">ADMINISTRATEUR</a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+         
+
+               
+           
+              </ul>
+            </div>
+          </nav>
+
+        </header>
+
+
+
+
+
+<section id="section-corps">
+
+		<article id="forme-vol">
+
+			<form th:action="@{/boutiquedvd/api/employeAdminpage}" method="get">
+
+				<div>
+					<label for="username">Username : </label> <input type="text" name="username"
+						id="username"/>
+				</div>
+
+				<div>
+					<label for="password">Password : </label> <input type="password"
+						name="password" id="password"/>
+
+				</div>
+				<br>
+
+				<div>
+					<button class="btn btn-outline-primary btn-lg"  id="myBtn" onclick="validate()">Submit</button>
+
+				</div>
+
+
+			</form>
+
+
+		</article>
+
+	</section>
+
+
+<script type="text/javascript">
+
+let username = document.getElementById("username");
+let password = document.getElementById("password");
+
+function validate()
+{
+	if(username.value !== "lucky" && password.value !== "12345")
+	{
+		return alert(" l'username ou le mot de passe saisie est erroner reessayer ");
+	}
+	else
+		{
+		console.log("");
+		}
+}
+
+</script>
+</body>
+</html>
