@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+     
+<title>Insert title here</title>
+<script src="jquery-3.4.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<style type="text/css">
+.head{
+display:flex;
+flex-direction: row;
+text-align: center;
+align-items: center;
+justify-content: space-around; 
+background-color:buttonface;
+}
+
+
+
+.ph img{
+ width: 10%;
+ 
+}
+.tabl{
+box-shadow:5px 5px 5px 5px;
+
+margin: 50px;
+
+}
+.disply{
+display:flex;
+flex-direction: row;
+text-align: center;
+align-items: center;
+justify-content: space-around; 
+}
+
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$("#update1").hide();
+	$(".up1").click(function() {
+		$("#update1").slideToggle("slow");
+	});
+	
+
+	$(".up1").click(function() {
+		$(".add2").slideToggle("slow");
+	});
+	
+	$(".addd2").hide();
+	$(".add2").click(function() {
+		$(".addd2").slideToggle("slow");
+	});
+	
+	$(".add2").click(function() {
+		$(".up1").slideToggle("slow");
+	});
+	
+});
+</script>
+</head>
+<body>
+ <!-- Include _menu.html -->
+ <div class="head">
+        <tr> 
+      <th:block th:include="/_menu"></th:block>
+      <h2>Admin Page</h2>
+      <h5>Welcome :
+         <span th:utext="${#request.userPrincipal.name}"></span>
+      </h5>
+       </tr>
+      </div>
+      
+      <br><br>
+      <div class="tabl">
+    <table class="table">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Photo</th>
+      <th scope="col">delete</th>
+    </tr>
+    <tr th:each="t : ${D}">
+ 
+      <td class="card-title" th:text="${t.getId()}" />
+      <td class="card-title" th:text="${t.getName()}" />
+      <td class="card-title" th:text="${t.getPrice()}" />
+      <td class="ph"><img th:src="${t.getPhoto()}"><td/>
+      <form action="/DL" method="post">
+						<td  class="warning">
+							<button type="submit" name="id" required class="btn btn-danger"
+								th:value="${t.id}">delete</button>
+						</td>
+					</form>
+     
+  </tr>
+    
+  </thead>
+ 
+</table>
+<div class="disply">
+
+
+<div class="up1">
+			<button type="submit" class="btn btn-success">update</button>
+		</div>
+		<br><br>
+		<div id="update1">
+			<form action="/Up1" method="post">
+
+				<label for="id"><b>id</b></label> <input type="text"
+					placeholder="Enter id" name="id" id="id" required> <label
+					for="name"><b>name</b></label> <input type="text"
+					placeholder="Enter name" name="name" id="name" required> <label
+					for="price"><b>price</b></label> <input type="text"
+					placeholder="Enter price" name="price" id="price" required>
+			        
+    
+   	<label for="photo"><b>photo</b></label> <input type="text"
+					placeholder="Enter photo" name="photo" id="photo" required>
+    
+ <br><br>
+
+				<div>
+					<button type="submit" class="btn btn-success">save</button>
+ </div>
+ </form>
+ </div>
+ 
+         <div class="add2">
+			<button type="submit" class="btn btn-success">Ajouter un DVD</button>
+		</div>
+		<br><br>
+		<div class="addd2">
+		<form action="/DM" method="post">
+		
+	<label for="name"><b>name</b></label> <input type="text"
+					placeholder="Enter name" name="name" id="name" required> <label
+					for="price"><b>price</b></label> <input type="text"
+					placeholder="Enter price" name="price" id="price" required>
+			        
+    
+   	<label for="photo"><b>photo</b></label> <input type="text"
+					placeholder="Enter photo" name="photo" id="photo" required>
+    
+ <br><br>
+
+				<div>
+					<button type="submit" class="btn btn-success">save</button>
+					</div>
+					</form>
+					</div>
+					
+					
+					
+		</div>
+		<br><br>
+ </div>
+ <br><br>
+</body>
+</html>

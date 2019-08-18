@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+     
+<title>home</title>
+<script src="jquery-3.4.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<style>
+body {
+ font-family: Arial;
+  margin: 0;
+  
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+.mySlides{
+text-align: center;
+}
+
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$(".cl").hide();
+	$(".nav-link").click(function() {
+		$(".cl").slideToggle("slow");
+	});
+	
+});
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
+        <div class="cl">
+        &nbsp;
+   <a th:href="@{/userInfo}">User</a>
+        <br>
+         &nbsp;
+   <a th:href="@{/admin}">Admin</a>
+        </div>
+       
+      </li>
+      
+    </ul>
+   
+  
+  </div>
+</nav>
+    
+<h2 style="text-align:center">DVD Shop</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="https://images-na.ssl-images-amazon.com/images/I/81di9--9RFL._SY445_.jpg" style="width:30%" height=300px>
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="https://images-na.ssl-images-amazon.com/images/I/81Du-GcxnkL._SY445_.jpg" style="width:30%" height=300px>
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="https://www.educationalternative.fr/wp-content/uploads/2018/10/2dvd_cestquoilebonheur_et_lecoledelavie-copie.jpg" style="width:30%" height=300px>
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="https://www.colibris-laboutique.org/215-large_default/dvd-du-film-demain.jpg" style="width:30%" height=300px>
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="https://www.rightstufanime.com/images/productImages/704400097027_anime-one-piece-film-gold-movie-dvd-primary.jpg" style="width:30%" height=300px>
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="https://www.sortiesdvd.com/affichethumb/7426.jpg" style="width:30%" height=300px>
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="https://images-na.ssl-images-amazon.com/images/I/81di9--9RFL._SY445_.jpg" style="width:50%" onclick="currentSlide(1)" alt="Glass">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://images-na.ssl-images-amazon.com/images/I/81Du-GcxnkL._SY445_.jpg" style="width:50%" onclick="currentSlide(2)" alt="The Divergent">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.educationalternative.fr/wp-content/uploads/2018/10/2dvd_cestquoilebonheur_et_lecoledelavie-copie.jpg" style="width:50%" onclick="currentSlide(3)" alt="La Vie">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.colibris-laboutique.org/215-large_default/dvd-du-film-demain.jpg" style="width:50%" onclick="currentSlide(4)" alt="Demain" >
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.rightstufanime.com/images/productImages/704400097027_anime-one-piece-film-gold-movie-dvd-primary.jpg" style="width:50%" onclick="currentSlide(5)" alt="Gold">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="https://www.sortiesdvd.com/affichethumb/7426.jpg" style="width:50%" onclick="currentSlide(6)"	alt="Alita">
+    </div>
+  </div>
+</div>
+</body>
+</html>
