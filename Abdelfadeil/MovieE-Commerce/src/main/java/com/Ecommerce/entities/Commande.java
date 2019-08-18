@@ -29,26 +29,22 @@ import lombok.Setter;
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 public class Commande implements Serializable{
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idCommande;
 	private String dateCommande;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateLivraison;
-	private String adresse;
-	private float total;
+	@ManyToOne
+	@JoinColumn(name="idUser")
+	private AppUser user;
+	
+	
+	@OneToMany
+	@JoinColumn(name="idCommande")
+	private Collection<LigneCommande> ligneCommandes;
+	 
 	/*
 	 * private Payement payement; private Livraison livraison;
 	 */
-	@OneToMany(mappedBy="commande")
-	private Collection<Article> articles;
-	
-	/* 
-	 *  @ManyToOne
-	 * @JoinColumn(name="commande") 
-	 private Vente vente;
-	 */
-	 
 
 
 

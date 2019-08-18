@@ -32,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 	// http.formLogin();
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	 http.authorizeRequests().antMatchers("/signup/**","/login/**")
+	 http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	 http.authorizeRequests().antMatchers("/signup/**","/login/**", "/**")
 	 .permitAll();
 	 http.authorizeRequests().antMatchers(HttpMethod.POST,"/articles/**").
 	 hasAuthority("ADMIN").anyRequest().authenticated();

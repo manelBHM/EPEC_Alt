@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Ecommerce.entities.Article;
 import com.Ecommerce.dao.ArticleRespository;
 
-@RestController
+//@CrossOrigin("*")
+//@RestController
 public class ArticleController {
-    @Autowired
-	private ArticleRespository articleRespository;
-    
-    @GetMapping("/articles/")
-    public List<Article> getArticles(){
-    	return articleRespository.findAll();
-    }
-    @PostMapping("/articles")
-    public Article save(@RequestBody Article a) {
-    	return articleRespository.save(a);
-    }
+//    @Autowired
+//	private ArticleRespository articleRespository;
+//    
+//    @GetMapping("/articles/")
+//    public List<Article> getArticles(){
+//    	return articleRespository.findAll();
+//    }
+//    @PostMapping("/articles")
+//    public Article save(@RequestBody Article a) {
+//    	return articleRespository.save(a);
+//    }
     
 }

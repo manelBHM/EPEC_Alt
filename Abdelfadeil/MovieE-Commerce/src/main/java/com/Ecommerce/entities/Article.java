@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -23,8 +24,8 @@ import lombok.ToString;
 @ToString
 public class Article implements Serializable{
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idArticle;
 	private String name;
 	private String description;
@@ -32,11 +33,9 @@ public class Article implements Serializable{
 	private int price;
 	private String photo;
 	@ManyToOne
-	private Category category;
-	@ManyToOne
-	private Pannier pannier;
+	@JoinColumn(name="idCategory")
+	private Category category;	
 	@ManyToOne
 	private Commande commande;
-	@OneToOne
-	private AppUser user;
+	
 }

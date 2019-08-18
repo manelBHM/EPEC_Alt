@@ -1,14 +1,11 @@
 package com.Ecommerce.entities;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,13 +13,14 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
-public class AppRole {
+public class LigneCommande {
+	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long idLigneCommande;
+	@ManyToOne
+	@JoinColumn(name="idArticle")
+	private Article article;
+	private int quantite;
+	private double prix;
 
-@Id @GeneratedValue(strategy=GenerationType.AUTO)
-private Long id;
-private String roleName;
-	
-	
-	
-	
 }

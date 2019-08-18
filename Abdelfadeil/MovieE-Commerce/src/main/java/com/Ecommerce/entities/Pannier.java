@@ -3,6 +3,8 @@ package com.Ecommerce.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,15 +28,14 @@ import lombok.Setter;
 @Setter
 public class Pannier implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long idPannier;
-	
-	  @OneToOne 
-	  private AppUser user;
-	 
 
-	@OneToMany(mappedBy = "pannier")
-	private Collection<Article> articles;
+	@Id @GeneratedValue
+	private Long idPannier;
+	@OneToOne 
+	private AppUser user;
+	private HashMap<Long, LigneCommande> items;
+	
+//	@OneToMany(mappedBy = "pannier")
+//	private Collection<Article> articles;
 
 }

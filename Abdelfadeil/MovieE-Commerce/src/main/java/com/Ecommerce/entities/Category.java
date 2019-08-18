@@ -25,12 +25,12 @@ import lombok.ToString;
 public class Category implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idCategory;
 	private String name;
 	private String description;
 	
-	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
-	private Collection<Article> articles = new ArrayList<Article>();
+	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
+	private Collection<Article> articles;
 
 }
