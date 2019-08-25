@@ -35,7 +35,6 @@ public class Article implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idCategory")
 	private Category category;	
-	@ManyToOne
-	private Commande commande;
+	
 	
 }

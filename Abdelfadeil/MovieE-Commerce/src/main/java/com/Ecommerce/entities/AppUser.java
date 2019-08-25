@@ -3,14 +3,21 @@ package com.Ecommerce.entities;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +25,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @AllArgsConstructor //@NoArgsConstructor
 public class AppUser {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -26,11 +33,24 @@ public class AppUser {
 	@Column(unique=true)
 	private String username;
 	private String password;
+	private String firstName;
+	private String lastName;
 	@ManyToMany(fetch=FetchType.EAGER)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<AppRole> roles;
 	private String adresse;
 	private String email;
 	private String tel;
 	@OneToMany(mappedBy="user")
-	private Collection<Commande> commandes;
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Adresse> adresses ;
+	@OneToOne(mappedBy="user")
+	private Panier panier;
+	
+	public AppUser() {
+		this.username=this.email;
+		
+		
+	}
+	
 }

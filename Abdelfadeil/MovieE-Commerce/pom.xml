@@ -12,6 +12,9 @@
 	<artifactId>CommerceEnligne</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MovieE-Commerce</name>
+	<!--  
+	<packaging>war</packaging>
+	-->
 	<description>E commerce en ligne Spring Boot</description>
 
 	<properties>
@@ -47,6 +50,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+	
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -78,8 +83,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				
 			</plugin>
 		</plugins>
+	
 	</build>
 
 </project>

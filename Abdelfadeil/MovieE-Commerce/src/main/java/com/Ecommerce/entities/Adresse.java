@@ -1,50 +1,42 @@
 package com.Ecommerce.entities;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 
 
 @Entity
-@Data
-@NoArgsConstructor @AllArgsConstructor @Getter @Setter
-public class Commande implements Serializable{
-	
+@Data @AllArgsConstructor @NoArgsConstructor
+public class Adresse {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idCommande;
-	private String dateCommande;
-	/*
-	 * @OneToMany( fetch=FetchType.LAZY) private Collection<LigneCommande>
-	 * ligneCommandes;
-	 */
-	 
+	private Long id;
+	@ManyToOne
+	@JoinColumn(name="idUser")
+	private AppUser user;
+	private String Pays;
+	private String Ville;
+	private int codePostal;
+	private String voie;
+	private int NoVoie;
+	private boolean active;
 	
-
-
-
-
-
 	
-
+	
+	
+	
 }

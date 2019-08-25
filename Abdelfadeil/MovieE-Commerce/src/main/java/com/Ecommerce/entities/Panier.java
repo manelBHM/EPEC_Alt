@@ -3,19 +3,22 @@ package com.Ecommerce.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,28 +26,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
 @Entity
 @Data
-@NoArgsConstructor @AllArgsConstructor @Getter @Setter
-public class Commande implements Serializable{
-	
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Panier implements Serializable {
+
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idCommande;
-	private String dateCommande;
-	/*
-	 * @OneToMany( fetch=FetchType.LAZY) private Collection<LigneCommande>
-	 * ligneCommandes;
-	 */
-	 
+	private Long id;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinColumn(name = "idUser")
+    private AppUser user;
+	
+	@OneToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<LigneCommande> items = new ArrayList<LigneCommande>();
 	
 
-
-
-
-
-	
 
 }
