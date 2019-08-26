@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Ecommerce.dao.PanierRepository;
 import com.Ecommerce.dao.RoleRepository;
 import com.Ecommerce.dao.UserRepository;
 import com.Ecommerce.entities.AppRole;
 import com.Ecommerce.entities.AppUser;
 import com.Ecommerce.entities.UserForm;
 import com.Ecommerce.service.AccountService;
+import com.Ecommerce.service.PanierService;
 
 @CrossOrigin("*")
 @RestController
@@ -24,6 +26,10 @@ public class AccountController {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository repository;
+	@Autowired
+	private PanierRepository panierRepository;
+	@Autowired
+	private PanierService panierService;
 	
 	@PostMapping("/signup")
 	public AppUser signup(@RequestBody UserForm userForm) {
@@ -39,6 +45,7 @@ public class AccountController {
 		accountService.saveUser(u);
 	    AppRole role =repository.findByRoleName("USER");
 		accountService.addRoleToUser(username, role.getRoleName());
+		panierService.CreatePanier(u.getId());
 
 		return (u);
 	}

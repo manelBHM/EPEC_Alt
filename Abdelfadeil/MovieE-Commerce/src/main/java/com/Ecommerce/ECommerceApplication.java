@@ -25,9 +25,11 @@ import com.Ecommerce.entities.AppUser;
 import com.Ecommerce.entities.Article;
 import com.Ecommerce.entities.Category;
 import com.Ecommerce.entities.Commande;
+import com.Ecommerce.entities.LigneCommande;
 import com.Ecommerce.entities.Panier;
 import com.Ecommerce.service.AccountService;
 import com.Ecommerce.service.AccountServiceImpl;
+import com.Ecommerce.service.PanierService;
 import com.Ecommerce.dao.AdresseRepository;
 import com.Ecommerce.dao.ArticleRespository;
 import com.Ecommerce.dao.CategoryRepository;
@@ -56,7 +58,8 @@ public class ECommerceApplication extends SpringBootServletInitializer implement
 	private AdresseRepository adresseRepository;
 	@Autowired
 	private PanierRepository panierRepository;
-
+	@Autowired
+    private PanierService panierService;
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
 	}
@@ -69,6 +72,17 @@ public class ECommerceApplication extends SpringBootServletInitializer implement
 	@Override
 	public void run(String... args) throws Exception {
 
+		
+		  LigneCommande lc = panierService.getArticle(1L);
+		  
+		  panierService.DeleteArtcle(lc.getIdLigneCommande());
+		
+		/*
+		 * AppUser u = new AppUser(); u.setUsername("amna"); u.setPassword("1234");
+		 * u.setPassword(bCryptPasswordEncoder.encode(u.getPassword())); AppUser u1 =
+		 * userRepository.save(u); panierService.CreatePanier(u1.getId());
+		 */
+		
 		/*
 		 * AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,
 		 * "ADMIN"); roleRepository.save(r1); roleRepository.save(r2);

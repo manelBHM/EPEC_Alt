@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,7 +36,8 @@ public class Article implements Serializable{
 	private String photo;
 	@ManyToOne
 	@JoinColumn(name="idCategory")
-	private Category category;	
+	private Category category;
+	private boolean disponible;
 	
 	
 }

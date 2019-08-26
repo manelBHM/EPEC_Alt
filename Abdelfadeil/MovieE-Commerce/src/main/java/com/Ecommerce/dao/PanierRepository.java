@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.Ecommerce.entities.Article;
 import com.Ecommerce.entities.Panier;
 
 
@@ -17,5 +18,7 @@ import com.Ecommerce.entities.Panier;
 public interface PanierRepository extends JpaRepository<Panier, Long>{
 	
 	public Panier findByUserId(@Param("id") Long id);
+    //public Page<Article> findByUserId(@Param("id")Long idUser, Pageable pageable);
+
 
 }
