@@ -1,5 +1,6 @@
 package com.Ecommerce.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -21,20 +22,20 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
-public class Adresse {
+public class Adresse implements Serializable{
 
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name="idUser")
-	private AppUser user;
+	private AppUser appUser;
 	private String Pays;
 	private String Ville;
 	private int codePostal;
 	private String voie;
 	private int NoVoie;
 	private boolean active;
-	
 	
 	
 	

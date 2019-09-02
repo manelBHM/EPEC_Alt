@@ -27,6 +27,7 @@ import lombok.ToString;
 public class Article implements Serializable{
 
 
+
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idArticle;
 	private String name;
@@ -37,7 +38,7 @@ public class Article implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idCategory")
 	private Category category;
-	private boolean disponible;
+	private boolean disponible;	
 	
 	
 }

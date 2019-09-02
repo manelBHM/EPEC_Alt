@@ -13,10 +13,9 @@ import com.Ecommerce.entities.Panier;
 
 
 
-@CrossOrigin("*")
-@RepositoryRestResource
+
 public interface AdresseRepository extends JpaRepository<Adresse, Long>{
 	
-	public Adresse findByUser(@Param(value="id") Long id);
+	public Adresse findByAppUser(@Param(value="id") Long id);
 
 }

@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -24,13 +26,14 @@ import lombok.ToString;
 @NoArgsConstructor @AllArgsConstructor @ToString
 public class Category implements Serializable{
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idCategory;
 	private String name;
 	private String description;
-	
 	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
-	private Collection<Article> articles;
+	@JsonIgnore
+	private Collection<Article> articles = new ArrayList<Article>();
 
 }

@@ -11,8 +11,6 @@ import com.Ecommerce.entities.Category;
 
 
 
-@CrossOrigin("*")
-@RepositoryRestResource
 public interface CategoryRepository extends JpaRepository<Category, Long>{
 
 

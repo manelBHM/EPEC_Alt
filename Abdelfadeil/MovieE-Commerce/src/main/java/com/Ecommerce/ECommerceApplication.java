@@ -12,7 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,12 +32,13 @@ import com.Ecommerce.service.PanierService;
 import com.Ecommerce.dao.AdresseRepository;
 import com.Ecommerce.dao.ArticleRespository;
 import com.Ecommerce.dao.CategoryRepository;
+import com.Ecommerce.dao.LigneCommandeRespository;
 import com.Ecommerce.dao.PanierRepository;
 import com.Ecommerce.dao.RoleRepository;
 import com.Ecommerce.dao.UserRepository;
 
 @SpringBootApplication
-public class ECommerceApplication extends SpringBootServletInitializer implements CommandLineRunner {
+public class ECommerceApplication implements CommandLineRunner {
 
 	@Autowired
 	private RepositoryRestConfiguration config;
@@ -59,12 +59,15 @@ public class ECommerceApplication extends SpringBootServletInitializer implement
 	@Autowired
 	private PanierRepository panierRepository;
 	@Autowired
-    private PanierService panierService;
+	private LigneCommandeRespository ligneCommandeRespository;
+	@Autowired
+	private PanierService panierService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
 	}
 
-	@Override
+	// @Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ECommerceApplication.class);
 	}
@@ -72,47 +75,65 @@ public class ECommerceApplication extends SpringBootServletInitializer implement
 	@Override
 	public void run(String... args) throws Exception {
 
-		
-		  LigneCommande lc = panierService.getArticle(1L);
-		  
-		  panierService.DeleteArtcle(lc.getIdLigneCommande());
-		
 		/*
-		 * AppUser u = new AppUser(); u.setUsername("amna"); u.setPassword("1234");
-		 * u.setPassword(bCryptPasswordEncoder.encode(u.getPassword())); AppUser u1 =
-		 * userRepository.save(u); panierService.CreatePanier(u1.getId());
-		 */
-		
-		/*
-		 * AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,
-		 * "ADMIN"); roleRepository.save(r1); roleRepository.save(r2);
+		 * Adresse a1 = new Adresse(); Adresse a2 = new Adresse(); Adresse a3 = new
+		 * Adresse(); Adresse a4 = new Adresse(); Adresse a5 = new Adresse();
 		 * 
-		 * AppUser u1 = new AppUser(null, "user", "1234", null, null, null, null,
-		 * null,null, null, null); AppUser u2 = new AppUser(null, "admin", "1234", null,
-		 * null, null, null, null, null, null, null);
-		 * u1.setPassword(bCryptPasswordEncoder.encode(u1.getPassword()));
-		 * u2.setPassword(bCryptPasswordEncoder.encode(u2.getPassword()));
-		 * userRepository.save(u2); userRepository.save(u1);
+		 * a1.setPays("Italie"); a1.setVille("Rome"); a2.setPays("France");
+		 * a2.setVille("Paris"); a3.setPays("Soudan"); a3.setVille("Khartoum");
+		 * a4.setPays("Espagne"); a4.setVille("Madrid"); a5.setPays("Quatar");
+		 * a5.setVille("Doha");
+		 * 
+		 * adresseRepository.save(a1); adresseRepository.save(a2);
+		 * adresseRepository.save(a3); adresseRepository.save(a4);
+		 * adresseRepository.save(a5);
+		 * 
+		 * 
+		 * Panier p1 = new Panier(); Panier p2 = new Panier(); Panier p3 = new Panier();
+		 * Panier p4 = new Panier(); Panier p5 = new Panier();
+		 * 
+		 * panierRepository.save(p1); panierRepository.save(p2);
+		 * panierRepository.save(p3); panierRepository.save(p4);
+		 * panierRepository.save(p5);
+		 * 
+		 * 
+		 * 
+		 * AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,
+		 * "ADMIN"); accountService.saveRole(r1); accountService.saveRole(r2);
+		 * 
+		 * AppUser u1 = new AppUser(); AppUser u2 = new AppUser();
+		 * 
+		 * u1.setUsername("admin"); u1.setPassword("1234"); u2.setUsername("user");
+		 * u2.setPassword("1234");
+		 * 
+		 * accountService.saveUser(u1); accountService.saveUser(u2);
+		 * 
+		 * 
+		 * 
+		 * u1.getAdresses().add(a1); u1.getAdresses().add(a2); u1.getAdresses().add(a5);
+		 * 
+		 * u2.getAdresses().add(a3); u2.getAdresses().add(a4);
+		 * 
+		 * adresseRepository.save(a1); adresseRepository.save(a2);
+		 * adresseRepository.save(a3); adresseRepository.save(a4);
+		 * adresseRepository.save(a5);
+		 * 
+		 * 
+		 * accountService.saveUser(u1); accountService.saveUser(u2);
 		 * 
 		 * 
 		 * accountService.addRoleToUser(u1.getUsername(), r1.getRoleName());
+		 * accountService.addRoleToUser(u1.getUsername(), r2.getRoleName());
 		 * accountService.addRoleToUser(u2.getUsername(), r2.getRoleName());
-		 * accountService.addRoleToUser(u2.getUsername(), r2.getRoleName());
-		 * userRepository.save(u2); userRepository.save(u1);
+		 * 
+		 * 
+		 * u1.setPanier(p1); u2.setPanier(p2);
 		 * 
 		 * 
 		 * 
-		 * 
-		 * // articleRespository.findAll().forEach(a-> { System.out.println(a); });
-		 * 
-		 * // List<Article> liste= new ArrayList<>();
-		 * 
-		 * 
+		 * accountService.saveUser(u1); accountService.saveUser(u2);
 		 * 
 		 * Random rn = new Random();
-		 * 
-		 * 
-		 * 
 		 * 
 		 * for (int i = 0; i < 3; i++) { Category c1 = new Category();
 		 * c1.setName(rn.toString()); c1.setDescription(rn.toString());
@@ -123,42 +144,53 @@ public class ECommerceApplication extends SpringBootServletInitializer implement
 		 * a.setPrice(rn.nextInt()*100); a.setQuantity(rn.nextInt()); a.setCategory(c1);
 		 * articleRespository.save(a);
 		 * 
-		 * } //liste = articleRespository.findByCategory(c1);
+		 * }
 		 * 
 		 * }
 		 * 
+		 * for (int i = 0; i < 10; i++) {
 		 * 
-		 * 
-		 * 
-		 * 
-		 * Category c1 = categoryRepository.findOne(1L); List<Article> liste1= new
-		 * ArrayList<>(); Category c = categoryRepository.findOne(8L); liste1 =
-		 * articleRespository.findByCategory(c);
-		 * 
-		 * for (Article article : liste1) {
-		 * 
-		 * System.out.println(article.getIdArticle()); }
-		 * 
-		 * 
-		 * 
-		 * 
-		 * Adresse a = new Adresse(); a.setPays("Italie"); a.setVille("Rome"); AppUser
-		 * u3 = userRepository.findOne(1L); a.setUser(u3); adresseRepository.save(a);
-		 * 
-		 * 
-		 * //panierRepository userRepository // Panier p = new Panier(); // AppUser u =
-		 * new AppUser(); // u.setUsername("ahmed"); // userRepository.save(u); //
-		 * panierRepository.save(p); // p.setUser(u); AppUser u =
-		 * userRepository.findByUsername("ahmed"); Panier p =
-		 * panierRepository.findOne(1L); u= userRepository.save(u); p.setUser(u);
-		System.out.println(p);
-		 */
-		
-		/*
-		 * Adresse a = new Adresse(); a.setPays("France"); a.setVille("Paris"); AppUser
-		 * u3 = userRepository.findOne(1L); a.setUser(u3); adresseRepository.save(a);
+		 * // panierService LigneCommande lc1 = new LigneCommande(); lc1.setPrix(100);
+		 * lc1.setQuantite(99); ligneCommandeRespository.save(lc1); Article ar = new
+		 * Article(); articleRespository.save(ar); Article a =
+		 * articleRespository.getOne(i+1L); lc1.setArticle(a); lc1.setPrix(452); //
+		 * lc1.setQuantite(854); LigneCommande lc = panierService.AddArticlePanier(lc1,
+		 * 1L); }
 		 */
 
+		// panierService.AddArticle(lc, 1L);
+		// System.out.println(lc.getIdLigneCommande() +" : "+lc.getPrix() +" : "+
+		// lc.getQuantite());
+		// System.out.println(lc.getArticle().getIdArticle());
+
+		List<LigneCommande> listPanier = (List<LigneCommande>) panierService.getAllArticlesPanier(1L);
+
+		for (int i = 0; i < listPanier.size(); i++) {
+			System.out.println(listPanier.get(i).getIdLigneCommande() + " : " + listPanier.get(i).getPrix() + " : "
+					+ listPanier.get(i).getQuantite());
+			System.out.println(listPanier.get(i).getArticle().getIdArticle());
+		}
+
+		// Collection<LigneCommande> list = panierService.getAllArticlesPanier(1L);
+		// listPanier.removeAll(listPanier);
+
+		// List<LigneCommande> listPanier2 = (List<LigneCommande>)
+		// panierService.getAllArticlesPanier(1L);
+
+		/*
+		 * System.out.println("Start deleting ..."); for (int i = 0; i <
+		 * listPanier.size(); i++) {
+		 * System.out.println(listPanier.get(i).getIdLigneCommande() + " : " +
+		 * listPanier.get(i).getPrix() + " : " + listPanier.get(i).getQuantite());
+		 * System.out.println(listPanier.get(i).getArticle().getIdArticle());
+		 * 
+		 * } System.out.println("fin deleting ...");
+		 */
+		/*
+		 * LigneCommande lc = panierService.getArticle(1L);
+		 * 
+		 * panierService.DeleteArtcle(lc.getIdLigneCommande());
+		 */
 
 		config.exposeIdsFor(Article.class, Category.class, Commande.class, Panier.class, AppUser.class);
 	}

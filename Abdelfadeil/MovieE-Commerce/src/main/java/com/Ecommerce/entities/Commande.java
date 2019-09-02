@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -31,13 +33,16 @@ import lombok.Setter;
 public class Commande implements Serializable{
 	
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idCommande;
-	private String dateCommande;
-	/*
-	 * @OneToMany( fetch=FetchType.LAZY) private Collection<LigneCommande>
-	 * ligneCommandes;
-	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long idCategory;
+	private String name;
+	private String description;
+	
+	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
+	@JsonIgnore
+	private Collection<Article> articles = new ArrayList<>();
+	 
 	 
 	
 

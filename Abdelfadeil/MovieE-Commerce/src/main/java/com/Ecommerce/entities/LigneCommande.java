@@ -1,6 +1,10 @@
 package com.Ecommerce.entities;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,20 +17,14 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
-public class LigneCommande {
+public class LigneCommande implements Serializable{
 	
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idLigneCommande;
 	@ManyToOne
 	@JoinColumn(name="idArticle")
 	private Article article;
 	private int quantite;
 	private double prix;
-	
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name="idPanier") private Panier panier;
-	 */
 
 }

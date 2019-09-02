@@ -2,9 +2,11 @@ package com.Ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ecommerce.dao.PanierRepository;
@@ -14,7 +16,6 @@ import com.Ecommerce.entities.AppRole;
 import com.Ecommerce.entities.AppUser;
 import com.Ecommerce.entities.UserForm;
 import com.Ecommerce.service.AccountService;
-import com.Ecommerce.service.PanierService;
 
 @CrossOrigin("*")
 @RestController
@@ -26,11 +27,8 @@ public class AccountController {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository repository;
-	@Autowired
-	private PanierRepository panierRepository;
-	@Autowired
-	private PanierService panierService;
 	
+
 	@PostMapping("/signup")
 	public AppUser signup(@RequestBody UserForm userForm) {
 		String password=userForm.getPassword();
@@ -40,14 +38,28 @@ public class AccountController {
 		AppUser appUser= userRepository.findByUsername(username);
 		if(appUser!=null) throw new RuntimeException(userForm.getUsername() +" existe déjà");
 		AppUser u = new AppUser();
+		
 		u.setUsername(username);
 		u.setPassword(password);
-		accountService.saveUser(u);
-	    AppRole role =repository.findByRoleName("USER");
-		accountService.addRoleToUser(username, role.getRoleName());
-		panierService.CreatePanier(u.getId());
-
+		try {	
+			accountService.saveUser(u);
+			AppRole role =repository.findByRoleName("USER");
+			accountService.addRoleToUser(username, role.getRoleName());
+		} catch (Exception e) {
+			System.out.println("error de sevgarde ");
+		}
 		return (u);
+	}
+	
+	@PutMapping("/modifier")
+	public AppUser modifierDetail(@RequestBody AppUser user) {
+		return userRepository.save(user);
+	}
+	
+	
+	@DeleteMapping("deleteUser/{id}")
+	public void deleteUser(@PathVariable("id") Long id) {
+		userRepository.deleteById(id);
 	}
 	
 
