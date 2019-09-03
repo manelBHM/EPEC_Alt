@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelper } from 'angular2-jwt';
+import { UserModule } from './user/user.module';
+import "rxjs/Rx"
 // import { Http, Request, RequestOptions, RequestOptionsArgs, Response } from "@angular/http";
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
-
-  private host: string = "http://localhost:8080";
-  private jwtToken: string;
-  private roles: Array<any> = [];
+   host: string = "http://localhost:8080";
+   jwtToken: string;
+   roles: Array<any> = [];
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +35,7 @@ export class AuthentificationService {
   }
 
   register(user) {
-    return this.http.post(this.host + "/users", user);
+    return this.http.post<UserModule>(this.host+ "/signup", user);
   }
 
   logout(){

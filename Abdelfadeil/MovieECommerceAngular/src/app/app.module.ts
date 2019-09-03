@@ -8,20 +8,28 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { OwlModule } from 'ngx-owl-carousel';
+import { from } from 'rxjs';
+import { ArticlesComponent } from './articles/articles.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    NotFoundComponent,
+    ArticlesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

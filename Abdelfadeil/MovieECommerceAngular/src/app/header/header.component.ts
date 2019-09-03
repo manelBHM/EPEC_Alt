@@ -9,11 +9,28 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   mode: number;
+  formSearch: boolean= true;
+  show: boolean =false;
+  logout:boolean = false;
 
   constructor(private authService: AuthentificationService,private router: Router) { }
 
   ngOnInit() {
   }
+  onChercher() {
+    this.router.navigateByUrl('/articles');
+  }
 
- 
+  searchForm() {
+  // this.formSearch=!(this.formSearch);
+  }
+
+  showMenu() {
+    this.show= !this.show;
+  }
+
+  onLogout(){
+    this.logout = true;
+    this.authService.logout();
+  }
 }

@@ -1,37 +1,105 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { AuthentificationService } from './authentification.service';
 import { Router } from '@angular/router';
+import { Jsonp } from '@angular/http';
+import { Subject } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit{
+
+
+
   title = 'MovieECommerceAngular';
   mode: number;
 
+
 constructor(public authService: AuthentificationService, private router:Router){}
 
+   ngOnInit(): void {
+
+
+   }
   onLogout(){
     this.authService.logout();
-    this.router.navigateByUrl("/");
+    this.router.navigateByUrl('/home');
     }
-    
-   public onLogin(formData){
-      this.authService.login(formData)
-      .subscribe(resp=>{
-      let jwtToken=resp.headers.get('authorization');
-      this.authService.saveToken(jwtToken);
-      this.router.navigateByUrl("/");
-      },
-      err=>{
-      this.mode=1;
-      })
-      }
-      
-    public  onRegister(){
-        this.router.navigateByUrl("/register");
-        }
-    
+
+
+
+  // carouselOptions = {
+  //   margin: 25,
+  //   nav: true,
+  //   navText: ["<div class='nav-btn prev-slide'></div>", "<div class='nav-btn next-slide'></div>"],
+  //   responsiveClass: true,
+  //   responsive: {
+  //     0: {
+  //       items: 1,
+  //       nav: true
+  //     },
+  //     600: {
+  //       items: 1,
+  //       nav: true
+  //     },
+  //     1000: {
+  //       items: 2,
+  //       nav: true,
+  //       loop: false
+  //     },
+  //     1500: {
+  //       items: 3,
+  //       nav: true,
+  //       loop: false
+  //     }
+  //   }
+  // }
+
+  // images = [
+  //   {
+  //     text: "Everfresh Flowers",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/1.jpg"
+  //   },
+  //   {
+  //     text: "Festive Deer",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/2.jpg"
+  //   },
+  //   {
+  //     text: "Morning Greens",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/3.jpg"
+  //   },
+  //   {
+  //     text: "Bunch of Love",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/4.jpg"
+  //   },
+  //   {
+  //     text: "Blue Clear",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/5.jpg"
+  //   },
+  //   {
+  //     text: "Evening Clouds",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/7.jpg"
+  //   },
+  //   {
+  //     text: "Fontains in Shadows",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/8.jpg"
+  //   },
+  //   {
+  //     text: "Kites in the Sky",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/9.jpg"
+  //   },
+  //   {
+  //     text: "Sun Streak",
+  //     image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/10.jpg"
+  //   }
+  // ]
+
+
+
+
   }

@@ -24,14 +24,16 @@
             ],
             "styles": [
               "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.css",
-              "src/css/style.green.css"                      ],
+              "src/DataTables/datatables.min.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/css/style.default.css"
+            ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/jquery/dist/jquery.js",
+              "src/DataTables/datatables.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/js/front.js",
-              "src/js/map.js"
+              "src/js/front.js"
             ],
             "es5BrowserSupport": true
           },

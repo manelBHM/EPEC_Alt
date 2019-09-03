@@ -335,6 +335,11 @@ h1 {
   transition: all 0.3s;
   z-index: 1;
 }
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
 
 #advantages .box h3 {
   position: relative;

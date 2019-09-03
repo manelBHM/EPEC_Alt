@@ -1,0 +1,9 @@
+header {
+    /* position: fixed; */
+}
+
+.clear {
+    overflow:hidden;
+    clear: both;
+    margin: 100px;
+}

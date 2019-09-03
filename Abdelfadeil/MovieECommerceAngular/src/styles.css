@@ -1,1 +1,225 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif !important;
+}
+.clickable {
+    cursor: pointer;
+}
+
+.card {
+    margin-bottom: 10px;
+    transition: .5s;
+
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 140px 0;
+}
+section .card {
+    position: relative;
+    max-width: 300px;
+    height: auto;
+    /* background: linear-gradient(-45deg, #404bdfb2, #68f5bf) !important; */
+    border-radius: 15px;
+    padding: 20px 10px;
+    margin: 0 auto;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .5) !important;
+    transition: .5s;
+}
+
+section .col-sm-4 .card:hover , .card:hover{
+    transform: scale(1.2);
+}
+
+.col-sm-4:nth-child(1) .card{
+    background: linear-gradient(-45deg, #f403d1, #64b5f6) !important;
+}
+
+
+  .col-sm-4:nth-child(2) .card {
+    background: linear-gradient(-45deg, #ffec61, #f321d7) !important;
+  }
+
+  .col-sm-4:nth-child(3) .card {
+    background: linear-gradient(-45deg,  #24ff72, #9a4eff) !important;
+  }
+
+
+  .home-slide {
+      position: relative;
+      width: 100%;
+      height: 61vh !important;
+      overflow: hidden;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, .5) !important;
+      border: 1px solid white;
+
+
+  }
+  .home-slide .slider {
+      position: relative;
+      width: 500%;
+      height: 100%;
+      animation: homeAnimat 15s linear infinite !important;
+      -moz-animation: homeAnimat 15 linear infinite;
+      -o-animation: homeAnimat 15s linear infinite;
+
+
+  }
+  .home-slide .slider .slide{
+      position: relative;
+      width: 20%;
+      height: 100% !important;
+      float: left;
+
+    }
+    .home-slide .slider .slide:nth-child(1) {
+        background: url('assets/img/main-slider1.jpg');
+        background-size: 100% 100%;
+
+}
+
+.home-slide .slider .slide:nth-child(2) {
+    background: url('assets/img/main-slider2.jpg');
+    background-size: 100% 100%;
+
+}
+
+.home-slide .slider .slide:nth-child(3) {
+    background: url('assets/img/main-slider3.jpg');
+    background-size: 100% 100%;
+
+}
+
+.home-slide .slider .slide:nth-child(4) {
+    background: url('assets/img/main-slider4.jpg');
+    background-size: 100% 100%;
+
+}
+
+.home-slide .slider .slide:nth-child(5) {
+    background: url('assets/my1.jpg');
+    background-size: 100% 100%;
+
+}
+
+
+
+
+/* .home-slide .slider .slide img{
+    width: 100%;
+    height: 100%;
+    float: left;
+
+} */
+
+
+.home-slide .slide .content {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.70) !important;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* .home-slide ul li .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+} */
+
+/* .home-slide ul li .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform: rotateY(90deg);
+    transform-origin: left;
+
+}
+
+.home-slide ul li input[type="radio"] {
+    position: relative;
+    z-index: 1;
+    height: 10px;
+    width: 20px;
+}
+
+.home-slide ul li input[type="radio"]:checked ~ .slide {
+    transition: transform 0.5s;
+    transform: rotateY(0deg);
+    transform-origin: right;
+
+}
+
+
+.home-slide ul li .slide .content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.70) !important;
+    padding: 10px;
+} */
+
+/* .home-slide ul li .slide .content h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 42px;
+}
+.home-slide ul li .slide .content p {
+  font-size: 18px;
+} */
+
+/* .home-slide ul li .slide img {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+/* .home-slide ul li input[type="radio"]:checked ~ .slide img:first-of-type {
+  animation: leaves 6s linear infinite;
+}
+
+.home-slide ul li .slide img{
+    animation: leaves 6s linear infinite;
+  } */
+
+
+@keyframes homeAnimat {
+    0% { left: 0%; }
+    16% { left: 0%; }
+    20% { left: -100%; }
+    36% { left: -100%; }
+    40% { left: -200%; }
+    56% { left: -200%; }
+    60% { left: -300%; }
+    76% { left: -300%; }
+    80% { left: -400%; }
+    96% { left: -400%; }
+    100% { left: 0%; }
+}
+
+/* @keyframes leaves {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+} */
