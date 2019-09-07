@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleServiceService } from '../service/article-service.service';
-import { AuthentificationService } from '../authentification.service';
+import { AuthentificationService } from '../service/authentification.service';
 
 declare var $;
 
@@ -23,8 +23,9 @@ export class HomeComponent implements OnInit {
   pages: number[];
   currentMotCle: String="";
   articles:any;
-public  slide: boolean= false;
+  public  slide: boolean= false;
   tour:number=4;
+  public mc:any;
 
 
   constructor(private articleService:ArticleServiceService, private router:Router, private autService:AuthentificationService) { }
@@ -55,6 +56,13 @@ public  slide: boolean= false;
       this.router.navigateByUrl('/login');
     })
 
+
+}
+
+
+onChercher(form:any) {
+  this.mc =form;
+  this.router.navigateByUrl('/articles/all');
 
 }
 }

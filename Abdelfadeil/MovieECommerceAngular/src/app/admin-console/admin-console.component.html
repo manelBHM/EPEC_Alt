@@ -1,0 +1,53 @@
+
+      <!--  buttons -->
+        <div class="row spacer add-btn">
+     <button [routerLink]="['/ajouter-article' ]" class='btn-sm float-left add-btn' style="margin-right: 10px !important">Ajouter<i class="fa fa-plus-circle"></i></button>
+    </div>       
+     <!-- fin button -->
+    <div class="col-md-10 spacer">
+      
+
+            <table id="datatable" class="table table-striped table-bordered table-sm row-border hover" datatable 
+            >
+            <!-- 
+              [dtTrigger]="dtTrigger"
+              [dtOptions]="dtOptions"
+             -->
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Quantity</th>
+                <th>Disponible</th>
+                <th>Photo</th>
+                <th></th>
+                <th></th>
+
+              </tr>
+            </thead>
+            <tbody *ngIf="articles">
+              <tr *ngFor="let a of articles.content; let i = index">
+                <td>{{ a.idArticle }}</td>
+                <td>{{ a.name }}</td>
+                <td>{{ a.description }}</td>
+                <td>{{ a.price }}</td>
+                <td>{{ a.quantity }}</td>
+                <td>{{ a.disponible }}</td>
+                <td>{{ a.photo }}</td>
+                <td (click)="editer(a.idArticle)"><button type="submit" class="btn-sm"><i class="fa fa-pencil"></i> 
+                  </button> 
+                </td>
+
+                <td (click)="onDelete(a.idArticle)"><button class='btn-sm'><i class="fa fa-trash-o"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+          
+
+
+
+    </div>
+
+

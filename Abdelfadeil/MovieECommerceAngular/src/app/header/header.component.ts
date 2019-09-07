@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationService } from '../authentification.service';
 import { Router } from '@angular/router';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +9,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   mode: number;
-  formSearch: boolean= true;
-  show: boolean =false;
+  public formSearch: boolean= true;
+  public show: boolean =false;
   logout:boolean = false;
 
   constructor(private authService: AuthentificationService,private router: Router) { }
 
   ngOnInit() {
   }
+  /*
   onChercher() {
     this.router.navigateByUrl('/articles');
   }
@@ -24,8 +25,9 @@ export class HeaderComponent implements OnInit {
   searchForm() {
   // this.formSearch=!(this.formSearch);
   }
+  */
 
-  showMenu() {
+  public showMenu() {
     this.show= !this.show;
   }
 

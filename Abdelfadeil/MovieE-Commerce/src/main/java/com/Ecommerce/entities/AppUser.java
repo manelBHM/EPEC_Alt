@@ -49,7 +49,7 @@ public class AppUser implements Serializable{
 	@OneToMany(mappedBy="appUser")
 	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
-	@OneToOne(mappedBy="appUser")
+	@OneToOne(mappedBy="appUser", cascade= CascadeType.ALL)
 	private Panier panier;
 	
 	

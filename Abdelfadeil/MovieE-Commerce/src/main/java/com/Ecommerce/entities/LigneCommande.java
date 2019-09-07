@@ -21,7 +21,7 @@ public class LigneCommande implements Serializable{
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idLigneCommande;
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="idArticle")
 	private Article article;
 	private int quantite;

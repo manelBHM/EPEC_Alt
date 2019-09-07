@@ -43,7 +43,7 @@ public class Panier implements Serializable {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade=  CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private AppUser appUser;
 	

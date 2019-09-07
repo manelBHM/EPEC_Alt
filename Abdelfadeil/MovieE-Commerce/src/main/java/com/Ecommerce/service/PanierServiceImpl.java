@@ -53,9 +53,17 @@ public class PanierServiceImpl implements PanierService {
 	@Override
 	public LigneCommande AddArticlePanier(LigneCommande article, Long idPanier) {
 		Panier p= panierRepository.getOne(idPanier);
-		LigneCommande ar= ligneCommandeRespository.save(article);
-		p.getItems().add(ar);
-		panierRepository.save(p);
+		LigneCommande ar= ligneCommandeRespository.getOne(article.getIdLigneCommande());
+		if(ar==null){
+			article.setQuantite(1);
+			ar =ligneCommandeRespository.save(article);
+			p.getItems().add(ar);
+			panierRepository.save(p);
+		}else {
+			int q = ar.getQuantite();
+			ar.setQuantite(q+1);
+			panierRepository.save(p);
+		}
 		return ar;
 	}
 

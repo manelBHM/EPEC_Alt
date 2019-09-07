@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,9 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { OwlModule } from 'ngx-owl-carousel';
-import { from } from 'rxjs';
 import { ArticlesComponent } from './articles/articles.component';
+import { AdminConsoleComponent } from './admin-console/admin-console.component';
+import { DataTablesModule } from 'angular-datatables';
+import { FlxUiDatatableModule,FlxUiDataTable } from 'flx-ui-datatable';
+import { AjouterArticleComponent } from './ajouter-article/ajouter-article.component';
+import { EditerArticleComponent } from './editer-article/editer-article.component';
+import { PanierComponent } from './panier/panier.component';
+
+
+declare var require: any;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +30,10 @@ import { ArticlesComponent } from './articles/articles.component';
     HomeComponent,
     NotFoundComponent,
     ArticlesComponent,
+    AdminConsoleComponent,
+    AjouterArticleComponent,
+    EditerArticleComponent,
+    PanierComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +41,21 @@ import { ArticlesComponent } from './articles/articles.component';
     AngularFontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    OwlModule
+    FlxUiDatatableModule,
+    DataTablesModule,
+    DataTablesModule.forRoot()
   ],
-  providers: [],
+  providers: [FlxUiDataTable],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnInit{
+
+
+  ngOnInit(): void {
+   
+  } 
+
+
+
+
+}

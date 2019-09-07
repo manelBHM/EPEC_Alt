@@ -1,114 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.page-100vh {
+  /* min-height: 100vh !important; */
 }
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .card {
-    margin-bottom: 10px;
-    transition: .5s;
-
+  margin-bottom: 10px;
+  transition: 0.5s;
 }
 
 section {
-    width: 100%;
-    min-height: 100vh;
-    padding: 140px 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 140px 0;
 }
 section .card {
-    position: relative;
-    max-width: 300px;
-    height: auto;
-    /* background: linear-gradient(-45deg, #404bdfb2, #68f5bf) !important; */
-    border-radius: 15px;
-    padding: 20px 10px;
-    margin: 0 auto;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, .5) !important;
-    transition: .5s;
+  position: relative;
+  max-width: 300px;
+  height: auto;
+  /* background: linear-gradient(-45deg, #404bdfb2, #68f5bf) !important; */
+  border-radius: 15px;
+  padding: 20px 10px;
+  margin: 0 auto;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5) !important;
+  transition: 0.5s;
 }
 
-section .col-sm-4 .card:hover , .card:hover{
-    transform: scale(1.2);
+section .col-sm-4 .card:hover,
+.card:hover {
+  transform: scale(1.2);
 }
 
-.col-sm-4:nth-child(1) .card{
-    background: linear-gradient(-45deg, #f403d1, #64b5f6) !important;
+.col-sm-4:nth-child(1) .card {
+  background: linear-gradient(-45deg, #f403d1, #64b5f6) !important;
 }
 
+.col-sm-4:nth-child(2) .card {
+  background: linear-gradient(-45deg, #ffec61, #f321d7) !important;
+}
 
-  .col-sm-4:nth-child(2) .card {
-    background: linear-gradient(-45deg, #ffec61, #f321d7) !important;
-  }
+.col-sm-4:nth-child(3) .card {
+  background: linear-gradient(-45deg, #24ff72, #9a4eff) !important;
+}
 
-  .col-sm-4:nth-child(3) .card {
-    background: linear-gradient(-45deg,  #24ff72, #9a4eff) !important;
-  }
-
-
-  .home-slide {
-      position: relative;
-      width: 100%;
-      height: 61vh !important;
-      overflow: hidden;
-      box-shadow: 0 8px 12px rgba(0, 0, 0, .5) !important;
-      border: 1px solid white;
-
-
-  }
-  .home-slide .slider {
-      position: relative;
-      width: 500%;
-      height: 100%;
-      animation: homeAnimat 15s linear infinite !important;
-      -moz-animation: homeAnimat 15 linear infinite;
-      -o-animation: homeAnimat 15s linear infinite;
-
-
-  }
-  .home-slide .slider .slide{
-      position: relative;
-      width: 20%;
-      height: 100% !important;
-      float: left;
-
-    }
-    .home-slide .slider .slide:nth-child(1) {
-        background: url('assets/img/main-slider1.jpg');
-        background-size: 100% 100%;
-
+.home-slide {
+  position: relative;
+  width: 100%;
+  height: 61vh !important;
+  overflow: hidden;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid white;
+}
+.home-slide .slider {
+  position: relative;
+  width: 500%;
+  height: 100%;
+  animation: homeAnimat 15s linear infinite !important;
+  -moz-animation: homeAnimat 15 linear infinite;
+  -o-animation: homeAnimat 15s linear infinite;
+}
+.home-slide .slider .slide {
+  position: relative;
+  width: 20%;
+  height: 100% !important;
+  float: left;
+}
+.home-slide .slider .slide:nth-child(1) {
+  background: url("assets/img/main-slider1.jpg");
+  background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(2) {
-    background: url('assets/img/main-slider2.jpg');
-    background-size: 100% 100%;
-
+  background: url("assets/img/main-slider2.jpg");
+  background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(3) {
-    background: url('assets/img/main-slider3.jpg');
-    background-size: 100% 100%;
-
+  background: url("assets/img/main-slider3.jpg");
+  background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(4) {
-    background: url('assets/img/main-slider4.jpg');
-    background-size: 100% 100%;
-
+  background: url("assets/img/main-slider4.jpg");
+  background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(5) {
-    background: url('assets/my1.jpg');
-    background-size: 100% 100%;
-
+  background: url("assets/my1.jpg");
+  background-size: 100% 100%;
 }
-
-
-
 
 /* .home-slide .slider .slide img{
     width: 100%;
@@ -117,17 +106,16 @@ section .col-sm-4 .card:hover , .card:hover{
 
 } */
 
-
 .home-slide .slide .content {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.70) !important;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7) !important;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 /* .home-slide ul li .slide {
@@ -197,19 +185,40 @@ section .col-sm-4 .card:hover , .card:hover{
     animation: leaves 6s linear infinite;
   } */
 
-
 @keyframes homeAnimat {
-    0% { left: 0%; }
-    16% { left: 0%; }
-    20% { left: -100%; }
-    36% { left: -100%; }
-    40% { left: -200%; }
-    56% { left: -200%; }
-    60% { left: -300%; }
-    76% { left: -300%; }
-    80% { left: -400%; }
-    96% { left: -400%; }
-    100% { left: 0%; }
+  0% {
+    left: 0%;
+  }
+  16% {
+    left: 0%;
+  }
+  20% {
+    left: -100%;
+  }
+  36% {
+    left: -100%;
+  }
+  40% {
+    left: -200%;
+  }
+  56% {
+    left: -200%;
+  }
+  60% {
+    left: -300%;
+  }
+  76% {
+    left: -300%;
+  }
+  80% {
+    left: -400%;
+  }
+  96% {
+    left: -400%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 
 /* @keyframes leaves {
@@ -223,3 +232,231 @@ section .col-sm-4 .card:hover , .card:hover{
         transform: scale(1.0);
     }
 } */
+
+/* cart sryle */
+
+/*	Reset & General
+---------------------------------------------------------------------- */
+/* * { margin: 0px; padding: 0px; } */
+
+/*	Reset & General
+---------------------------------------------------------------------- */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  overflow: scroll;
+}
+
+.product.cart-produit {
+  margin-bottom: 20px !important;
+}
+
+.product {
+  position: relative;
+  perspective: 800px;
+  width: 306px;
+  height: 471px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  margin: auto;
+}
+.product-front img {
+  width: 100%;
+}
+.product-front {
+  width: 315px;
+  height: 480px;
+  background: #fff;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+}
+
+.product.cart-produit:hover {
+  transform-style: preserve-3d;
+}
+
+.product.cart-produit:hover {
+  box-shadow: 0px 5px 31px -1px rgba(0, 0, 0, 0.15);
+}
+
+.stats-container {
+  background: #fff;
+  position: absolute;
+  top: 382px;
+  left: 0;
+  width: 252px;
+  height: 300px;
+  padding: 24px 40px 35px 32px;
+}
+.make3D.animate .stats-container {
+  top: 265px;
+}
+.stats-container .product_name {
+  font-size: 15px;
+  color: #393c45;
+  font-weight: 700;
+}
+.stats-container p {
+  font-size: 15px;
+  color: #b1b1b3;
+  padding: 2px 0 5px 0;
+}
+.stats-container {
+  float: right;
+  color: #5ff7d2;
+  font-size: 22px;
+  font-weight: 600;
+  width: 315px;
+  height: 205px;
+  padding: 5px !important;
+}
+.image_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background:#5ff7d2; */
+  opacity: 0;
+}
+.make3D.animate .image_overlay {
+  opacity: 0.7;
+}
+/* .product-options{
+	padding:0;
+} */
+.product-options strong {
+  font-weight: 700;
+  color: #393c45;
+  font-size: 14px;
+}
+
+.product_price {
+  /* position:absolute;
+	top:168px;
+	left:26%;  */
+  color: #6cf3d2 !important;
+  font-size: 22px;
+  font-weight: 600;
+  width: 60px;
+  height: 60px;
+}
+.product-options span {
+  color: #969699;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.product-options {
+  position: absolute;
+  display: flex;
+  margin: auto;
+  top: 128px;
+  left: 10%;
+}
+
+.product-options div {
+  margin: 5px;
+  justify-content: space-around !important;
+  /* width: 60px;
+        height: 60px;  */
+}
+div.add_to_cart {
+  /* position:absolute;
+	top:168px;
+	left:68%;  */
+  width: 80px !important;
+  font-size: 15px;
+  /* margin-left:-78px; */
+  border: 2px solid #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 15px;
+  opacity: 1;
+  background: #fff;
+  color: #5ff7d2;
+  cursor: pointer;
+  border: 1px solid #5ff7d2;
+  height: 60px;
+}
+.btn.btn-outline-success.add_to_cart:hover {
+  background:  #d6d3d3;
+  color: #52bfa8 !important;
+  cursor: pointer;
+  border: 1 solid #bef8ea;
+  -webkit-box-shadow: -8px 1px 16px -13px rgba(83, 219, 224, 1);
+  -moz-box-shadow: -8px 1px 16px -13px rgba(83, 219, 224, 1);
+  box-shadow: -8px 1px 16px -13px rgba(83, 219, 224, 1);
+}
+.product-options .fa {
+  font-size: 1.5em;
+}
+.product-options .far {
+  color: #6bd48e;
+}
+.product-options .fas {
+  color: greenyellow;
+}
+
+div.view_gallery {
+  /* position:absolute;
+	top:168px;
+	left:96%;  */
+  width: 80px !important;
+  font-size: 12px;
+  /* margin-left:-78px; */
+  border: 2px solid #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 12px;
+  opacity: 1;
+  background: #fff;
+  color: #5ff7d2;
+  cursor: pointer;
+  border: 1px solid #5ff7d2;
+  height: 60px;
+}
+.btn.btn-outline-info.view_gallery:hover {
+    background:  #d6d3d3;
+    color: #52bfa8 !important;
+  cursor: pointer;
+}
+
+.product:hover {
+  transform: scale(1.005);
+}
+
+/* fin cart style */
+
+#search {
+  width: 100%;
+  background-color: #f0f0f0 !important;
+}
+
+.sidebar-menu.mb-4 .active {
+  background: #d6d3d3 !important;
+}
+.row.spacer.add-btn {
+  margin: 10px;
+  width: 80%;
+  display: flex;
+  flex-wrap: row wrap;
+  align-self: flex-end !important;
+  justify-content: flex-end;
+}
+.row.spacer.add-btn button {
+  background: #52bfa8;
+  font-size: 1em;
+}
+
+.row.spacer.add-btn button i {
+  color: rgb(15, 15, 56);
+  font-size: 1.5em;
+}

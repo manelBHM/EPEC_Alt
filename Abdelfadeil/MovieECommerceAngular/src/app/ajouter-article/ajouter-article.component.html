@@ -1,0 +1,50 @@
+<div class="container">
+        
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Nom Article</label>
+                      <input  type="text" class="form-control" name="name" ngModel>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label >Description</label>
+                      <input  type="text" class="form-control" name="description" ngModel>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label >Prix</label>
+                      <input  type="text" class="form-control ngModel" name="prix" ngModel>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label >Quantity</label>
+                      <input type="text" class="form-control" name="quantity" ngModel>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                        <div class="form-group">
+                          <label >Nom Categorie</label>
+                          <input  type="text" class="form-control" name="nomCategory" ngModel>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label >Photo Url</label>
+                          <input  type="text" class="form-control" name="photo" ngModel>
+                        </div>
+                      </div>
+                 
+                   <div class="col-md-12 text-center">
+                    <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
+                  </div>
+                </div>
+                <!-- /.row-->
+              </form>
+
+</div>

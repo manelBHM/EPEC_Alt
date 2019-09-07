@@ -229,3 +229,5 @@ $.fn.alignElementsSameHeight = function () {
 
 
 }
+
+	

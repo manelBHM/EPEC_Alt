@@ -16,6 +16,7 @@ import com.Ecommerce.entities.AppRole;
 import com.Ecommerce.entities.AppUser;
 import com.Ecommerce.entities.UserForm;
 import com.Ecommerce.service.AccountService;
+import com.Ecommerce.service.PanierService;
 
 @CrossOrigin("*")
 @RestController
@@ -27,6 +28,8 @@ public class AccountController {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository repository;
+	@Autowired
+	private PanierService panierService;
 	
 
 	@PostMapping("/signup")
@@ -41,14 +44,17 @@ public class AccountController {
 		
 		u.setUsername(username);
 		u.setPassword(password);
+		AppUser user = null;
 		try {	
-			accountService.saveUser(u);
-			AppRole role =repository.findByRoleName("USER");
-			accountService.addRoleToUser(username, role.getRoleName());
+		    user = accountService.saveUser(u);
+			//AppRole role =repository.findByRoleName("USER");
+			panierService.CreatePanier(user.getId());
+			accountService.saveUser(user);
+			accountService.addRoleToUser(username, "USER");
 		} catch (Exception e) {
 			System.out.println("error de sevgarde ");
 		}
-		return (u);
+		return user;
 	}
 	
 	@PutMapping("/modifier")

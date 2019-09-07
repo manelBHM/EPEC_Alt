@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,14 +21,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@Entity
+@Entity	
 @Data @AllArgsConstructor @NoArgsConstructor
 public class Adresse implements Serializable{
 
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="idUser")
 	private AppUser appUser;
 	private String Pays;

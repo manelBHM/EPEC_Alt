@@ -132,7 +132,9 @@ public class ECommerceApplication implements CommandLineRunner {
 		 * 
 		 * 
 		 * accountService.saveUser(u1); accountService.saveUser(u2);
-		 * 
+		 */
+		
+		/*
 		 * Random rn = new Random();
 		 * 
 		 * for (int i = 0; i < 3; i++) { Category c1 = new Category();
@@ -150,10 +152,10 @@ public class ECommerceApplication implements CommandLineRunner {
 		 * 
 		 * for (int i = 0; i < 10; i++) {
 		 * 
-		 * // panierService LigneCommande lc1 = new LigneCommande(); lc1.setPrix(100);
+		 * LigneCommande lc1 = new LigneCommande(); lc1.setPrix(100);
 		 * lc1.setQuantite(99); ligneCommandeRespository.save(lc1); Article ar = new
 		 * Article(); articleRespository.save(ar); Article a =
-		 * articleRespository.getOne(i+1L); lc1.setArticle(a); lc1.setPrix(452); //
+		 * articleRespository.getOne(i+1L); lc1.setArticle(a); lc1.setPrix(452);
 		 * lc1.setQuantite(854); LigneCommande lc = panierService.AddArticlePanier(lc1,
 		 * 1L); }
 		 */
@@ -163,13 +165,15 @@ public class ECommerceApplication implements CommandLineRunner {
 		// lc.getQuantite());
 		// System.out.println(lc.getArticle().getIdArticle());
 
-		List<LigneCommande> listPanier = (List<LigneCommande>) panierService.getAllArticlesPanier(1L);
-
-		for (int i = 0; i < listPanier.size(); i++) {
-			System.out.println(listPanier.get(i).getIdLigneCommande() + " : " + listPanier.get(i).getPrix() + " : "
-					+ listPanier.get(i).getQuantite());
-			System.out.println(listPanier.get(i).getArticle().getIdArticle());
-		}
+		/*
+		 * List<LigneCommande> listPanier = (List<LigneCommande>)
+		 * panierService.getAllArticlesPanier(1L);
+		 * 
+		 * for (int i = 0; i < listPanier.size(); i++) {
+		 * System.out.println(listPanier.get(i).getIdLigneCommande() + " : " +
+		 * listPanier.get(i).getPrix() + " : " + listPanier.get(i).getQuantite());
+		 * System.out.println(listPanier.get(i).getArticle().getIdArticle()); }
+		 */
 
 		// Collection<LigneCommande> list = panierService.getAllArticlesPanier(1L);
 		// listPanier.removeAll(listPanier);
@@ -192,6 +196,25 @@ public class ECommerceApplication implements CommandLineRunner {
 		 * panierService.DeleteArtcle(lc.getIdLigneCommande());
 		 */
 
+		/*
+		 * Random rn = new Random();
+		 * 
+		 * for (int i = 0; i < 3; i++) { Category c1 = new Category();
+		 * c1.setName("RAB DANCE"); c1.setDescription("AERPUOII :"); Category c2=
+		 * categoryRepository.save(c1);
+		 * 
+		 * for (int x = 0; x < 10; x++) {
+		 * 
+		 * Article a = new Article(); a.setName("HIB HOB ");
+		 * a.setDescription("HIB HOB MUSIQUE"); a.setPrice(rn.nextInt()*100);
+		 * a.setQuantity(rn.nextInt()); articleRespository.save(a); a.setCategory(c2);
+		 * articleRespository.save(a);
+		 * 
+		 * }
+		 * 
+		 * }
+		 */
+		 
 		config.exposeIdsFor(Article.class, Category.class, Commande.class, Panier.class, AppUser.class);
 	}
 

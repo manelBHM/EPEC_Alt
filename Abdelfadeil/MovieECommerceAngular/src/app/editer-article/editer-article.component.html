@@ -1,0 +1,64 @@
+<div class="container">
+        
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Id Article</label>
+                          <input  type="text" class="form-control" name="idArticle" [(ngModel)]="article.idArticle">
+                        </div>
+                      </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Nom Article</label>
+                      <input  type="text" class="form-control" name="name" [(ngModel)]="article.name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label >Description</label>
+                      <input  type="text" class="form-control" name="description" [(ngModel)]="article.description">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label >Prix</label>
+                      <input  type="text" class="form-control ngModel" name="prix" [(ngModel)]="article.price">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label >Quantity</label>
+                      <input type="text" class="form-control" name="quantity" [(ngModel)]="article.quantity">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                        <div class="form-group">
+                          <label >Nom Categorie</label>
+                          <input  type="text" class="form-control" name="nomCategory" [(ngModel)]="article.nomCategory">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label >Photo Url</label>
+                          <input  type="text" class="form-control" name="photo" [(ngModel)]="article.photo">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Diponible</label>
+                            <input  type="text" class="form-control" name="disponible" [(ngModel)]="article.disponible">
+                          </div>
+                        </div>
+                 
+                   <div class="col-md-12 text-center">
+                    <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
+                  </div>
+                </div>
+                <!-- /.row-->
+              </form>
+
+</div>
+
