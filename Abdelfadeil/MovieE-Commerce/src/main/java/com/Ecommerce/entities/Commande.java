@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -35,13 +35,14 @@ public class Commande implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long idCategory;
-	private String name;
-	private String description;
-	
-	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
-	@JsonIgnore
-	private Collection<Article> articles = new ArrayList<>();
+	private Long idCommand;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateCommande;
+	@ManyToOne
+	@JoinColumn(name="id_appUser")
+	private AppUser appUser;
+	@OneToMany(mappedBy="commande")
+	private Collection<LigneCommande> articles = new ArrayList<>();
 	 
 	 
 	

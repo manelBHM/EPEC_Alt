@@ -76,6 +76,24 @@ public class ECommerceApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		/*
+		 * AppUser user=userRepository.getOne((long) 3);
+		 * 
+		 * Panier p= panierRepository.getOne(1l); LigneCommande arCom = null;
+		 * List<LigneCommande> articles =(List<LigneCommande>) p.getItems();
+		 * 
+		 * for (int i = 0; i < articles.size(); i++) {
+		 * System.out.println(articles.get(i).getIdLigneCommande()+
+		 * " "+articles.get(i).getQuantite()+" "+articles.get(i).getArticle().getName())
+		 * ; }
+		 */
+			
+		/*
+		 * System.out.println(user); user.getRoles().clear(); userRepository.save(user);
+		 * System.out.println("user 3 "+user); //userRepository.delete(user);
+		 * 
+		 * System.out.println("user 3 after deleted "+userRepository.getOne((long) 3));
+		 */
+		/*
 		 * Adresse a1 = new Adresse(); Adresse a2 = new Adresse(); Adresse a3 = new
 		 * Adresse(); Adresse a4 = new Adresse(); Adresse a5 = new Adresse();
 		 * 

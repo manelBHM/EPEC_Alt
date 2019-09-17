@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ public class Category implements Serializable{
 	private Long idCategory;
 	private String name;
 	private String description;
-	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
 	@JsonIgnore
 	private Collection<Article> articles = new ArrayList<Article>();
 

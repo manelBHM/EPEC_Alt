@@ -84,8 +84,8 @@ public class ArticleController {
 		a.setIdArticle(article.getIdArticle());
 		a.setName(article.getName());
 		a.setDescription(article.getDescription());
-		a.setPrice(article.getPrice());
-		a.setQuantity(article.getQuantity());
+		a.setPrix(article.getPrix());
+		//a.setQuantity(article.getQuantity());
 		a.setPhoto(article.getPhoto());
 		a.setDisponible(article.isDisponible());
 		//Category c = categoryRepository.findByName(article)

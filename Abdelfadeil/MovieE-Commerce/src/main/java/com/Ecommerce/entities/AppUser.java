@@ -43,15 +43,12 @@ public class AppUser implements Serializable{
 	@ManyToMany
 	@JsonIgnore
 	private Collection<AppRole> roles= new ArrayList<>();
-	private String adresse;
 	private String email;
 	private String tel;
 	@OneToMany(mappedBy="appUser")
 	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
-	@OneToOne(mappedBy="appUser", cascade= CascadeType.ALL)
-	private Panier panier;
-	
+		
 	
 	
 }

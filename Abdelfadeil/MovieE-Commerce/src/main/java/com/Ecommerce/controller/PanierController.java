@@ -1,10 +1,14 @@
 package com.Ecommerce.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,7 +47,8 @@ public class PanierController {
 	private PanierRepository panierRepository;
 	@Autowired
 	private PanierService panierService;
-	
+	@Autowired
+	private HttpSession session;
 	
 	
 	@PostMapping(value = "/new-panier/{id}")
@@ -52,10 +57,11 @@ public class PanierController {
 		return panierService.CreatePanier(id);
 		}
 	
-	@PostMapping(value = "/add/{id}")
-	public LigneCommande AddArticlePanier(@PathVariable("id") Long id, @RequestBody LigneCommande ligneCommande)
+	@PostMapping(value = "/add")
+	public LigneCommande AddArticlePanier(@RequestParam(name="id") Long id, @RequestBody Article a)
 	    {
-		return panierService.AddArticlePanier(ligneCommande, id);
+      //LigneCommande ligneCommande = new LigneCommande();
+		return panierService.AddArticlePanier(id, a);
 		}
 	
 	@PutMapping(value = "/update")
@@ -64,11 +70,16 @@ public class PanierController {
 		return panierService.UpdateArticlePanier(lc);
 	}
 	
-
-	@DeleteMapping(value = "/delete/{id}")
-	public void DeleteArticlePanier(@PathVariable("id") Long id)
+	@DeleteMapping(value = "/update-article/{idArticle}")
+	public void modifierArticlePanier(@PathVariable("idArticle") Long idArticle)
 	    {
-		 panierService.DeleteArticlePanier(id);
+		 panierService.modifierQuantity(idArticle);
+		}
+
+	@DeleteMapping(value = "/delete-article/{idPanier}")
+	public void DeleteArticlePanier(@PathVariable("idPanier") Long idPanier, Long idArticle)
+	    {
+		 panierService.DeleteArticlePanier(idPanier, idArticle);
 		}
 	@GetMapping(value="/get/{id}")
 	public LigneCommande getArticlePanier(@PathVariable("id") Long id) {
@@ -77,25 +88,28 @@ public class PanierController {
 	
 	
 	@GetMapping(value="/getAllArticlesList/{id}")
-	public List<LigneCommande> getAllArticlesPanier(@PathVariable("id") Long id)
+	public Collection<LigneCommande> getAllArticlesPanier(@PathVariable("id") Long id)
 	    {
-		return  (List<LigneCommande>) panierService.getAllArticlesPanier(id);
+		return   panierService.getAllArticlesPanier(id);
 		} 
 	
-	@GetMapping(value="/getAllArticlesListPage/{id}")
+	@GetMapping(value="/getAllArticles-page")
 	public Page<LigneCommande> getAllArticlesPanierPage(
-			@PathVariable Long id,
+			@RequestParam("id") Long id,
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="10") int size
 			)
 	    {
-		return  panierService.getAllPanierPage(id, new PageRequest(page,  size));
+		List<LigneCommande> lcmd=   panierService.getAllArticlesPanier(id);
+	    Page<LigneCommande> pages = new PageImpl<LigneCommande>(lcmd, new PageRequest(page,  size), lcmd.size());
+
+		  return pages;
 		} 
 	
-	@DeleteMapping(value="/deleteAllArticles/{id}")
-	public void deleteAllArticlesPanier(@PathVariable("id") Long id) 
+	@DeleteMapping(value="/deleteAllArticles/{idPanier}")
+	public void deleteAllArticlesPanier(@PathVariable("idPanier") Long idPanier) 
 	        {
-		 panierService.deleteAllArticlesPanier(id);
+		 panierService.deleteAllArticlesPanier(idPanier);
 			}
 	
 	
