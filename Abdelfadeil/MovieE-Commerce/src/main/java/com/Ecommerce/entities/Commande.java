@@ -1,6 +1,7 @@
 package com.Ecommerce.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -17,7 +18,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,12 +40,13 @@ public class Commande implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idCommand;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateCommande;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dateCommande;
 	@ManyToOne
 	@JoinColumn(name="id_appUser")
 	private AppUser appUser;
-	@OneToMany(mappedBy="commande")
+    @JsonManagedReference
+	@OneToMany(mappedBy = "commande")
 	private Collection<LigneCommande> articles = new ArrayList<>();
 	 
 	 

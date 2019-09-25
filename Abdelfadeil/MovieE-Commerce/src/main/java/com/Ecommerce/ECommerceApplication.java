@@ -32,6 +32,7 @@ import com.Ecommerce.service.PanierService;
 import com.Ecommerce.dao.AdresseRepository;
 import com.Ecommerce.dao.ArticleRespository;
 import com.Ecommerce.dao.CategoryRepository;
+import com.Ecommerce.dao.FlickrImpl;
 import com.Ecommerce.dao.LigneCommandeRespository;
 import com.Ecommerce.dao.PanierRepository;
 import com.Ecommerce.dao.RoleRepository;
@@ -62,6 +63,8 @@ public class ECommerceApplication implements CommandLineRunner {
 	private LigneCommandeRespository ligneCommandeRespository;
 	@Autowired
 	private PanierService panierService;
+//	@Autowired
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
@@ -74,7 +77,7 @@ public class ECommerceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		
 		/*
 		 * AppUser user=userRepository.getOne((long) 3);
 		 * 

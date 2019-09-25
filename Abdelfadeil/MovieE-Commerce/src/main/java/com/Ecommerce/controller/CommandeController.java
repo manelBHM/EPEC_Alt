@@ -1,5 +1,6 @@
 package com.Ecommerce.controller;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -8,8 +9,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ecommerce.dao.ArticleRespository;
@@ -47,13 +50,23 @@ public class CommandeController {
 	private CommandeRepository commandeRepository;
 	
 	@PostMapping("/ajouter")
-	public Commande addCommande(Long idPanier) {
+	public Commande addCommande(@RequestParam("idPanier") Long idPanier) {
 		AppUser u = userRepository.findById(idPanier).get();
-		Collection<LigneCommande> articles= panierService.getAllArticlesPanier(idPanier);
+		List<LigneCommande> articles= panierService.getAllArticlesPanier(idPanier);
 		Commande cmd=new Commande();
+		cmd.setDateCommande(LocalDate.now());
+		commandeRepository.save(cmd);
 		cmd.setAppUser(u);
-		cmd.setArticles(articles);
+		cmd.getArticles().addAll(articles);
 		return  commandeRepository.save(cmd);
+		}	
+	
+	@GetMapping("/get-commandes-user")
+	public List<Commande>  getCommandeUser(@RequestParam("idPanier") Long idPanier) {
+		AppUser u = userRepository.findById(idPanier).get();
+		return  commandeRepository.findByAppUserId(idPanier);
+		
+		  
 		}	
 
 }

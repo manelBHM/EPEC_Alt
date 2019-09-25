@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,11 +24,12 @@ public class LigneCommande implements Serializable{
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idLigneCommande;
-	@ManyToOne( cascade= {CascadeType.ALL, CascadeType.PERSIST})
+	@ManyToOne( optional = false, fetch=FetchType.LAZY)
 	@JoinColumn(name="idArticle")
 	private Article article;
 	private int quantite;
-	@ManyToOne
+	 @JsonBackReference
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name="idCommande")
 	private Commande commande;
 	//private double prix;
