@@ -13,7 +13,7 @@ import lombok.ToString;
 
 
 
-@Document
+@Document("Sportifs")
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Sportifs {
 

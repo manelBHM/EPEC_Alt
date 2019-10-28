@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Document
+@Document("Gymnases")
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class Gymnases {
 	
