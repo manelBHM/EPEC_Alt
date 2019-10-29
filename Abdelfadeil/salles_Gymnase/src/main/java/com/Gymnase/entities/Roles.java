@@ -19,5 +19,8 @@ public class Roles {
 	/*
 	 * @DBRef private Utilisateur utilisateur;
 	 */
-
+	public int compareTo(Roles roles){
+		return this.roleName.compareTo(roles.getRoleName());
+ 
+	}
 }
