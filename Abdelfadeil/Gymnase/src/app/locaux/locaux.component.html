@@ -1,0 +1,43 @@
+
+<div class="container-fluid row">
+
+  <div class="col-md-1"></div>
+  <div class="col-md-10 locaux-page" >
+
+
+    <table id="datatable" class="table table-striped table-bordered table-sm row-border hover" datatable
+
+
+    >
+
+      <thead>
+      <tr>
+        <th>id Gymnase</th>
+        <th>Nom Gymnase</th>
+        <th>Adresse</th>
+        <th>Ville</th>
+        <th>Surface</th>
+
+
+
+      </tr>
+      </thead>
+      <tbody *ngIf="gymnases">
+      <tr  *ngFor="let g of gymnases._embedded.gymnaseses; let i = index">
+        <td>{{ g.idGymnase}}</td>
+        <td>{{ g.nomGymnase}} </td>
+        <td>{{ g.adresse}}</td>
+        <td>{{ g.ville}}</td>
+        <td>{{ g.surface}}</td>
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+

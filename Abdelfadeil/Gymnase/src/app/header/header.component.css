@@ -1,0 +1,8 @@
+.nav-link.js-scroll-trigger {
+  /*  background-color: rgba(255, 255, 255, 0); */
+   color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: #980000;
+}

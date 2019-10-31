@@ -1,0 +1,31 @@
+
+
+div.home-options {
+   width: 430px;
+   margin: auto;
+   position: absolute;
+   top: 310px;
+   left: 450px;
+}
+
+div.home-options img {
+  width: 100%;
+  height: 120px;
+}
+div.home-options h4{
+  color: #980000;
+ /* background: #00FFFF; */
+  width: 308px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+div.home-options button {
+  width: 430px;
+  height: 120px;
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+

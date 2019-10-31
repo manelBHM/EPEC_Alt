@@ -1,0 +1,72 @@
+
+/*    début carte style */
+.gray-bg {
+  background-color: #f8f8f8;
+  background: rgba(0, 0, 0, 0.2);
+}
+#portfolio .card {
+  font-family: "Segoe UI";
+  background-color: #fff;
+  border-radius: 0;
+  height: 254px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+#portfolio .card-image {
+  max-width: 40%;
+  overflow: hidden;
+  padding: 0;
+  align: center;
+  vertical-align: middle;
+  float: left;
+}
+
+#portfolio .card-image img {
+  /* max-width: 100%; */
+  max-height: 254px;
+  align: center;
+  vertical-align: middle;
+  float: left;
+}
+
+
+
+
+#portfolio .card-body {
+  display: block;
+  padding: 30px 0px 30px 30px;
+}
+
+#portfolio h4.card-title {
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+}
+
+#portfolio .card-body p {
+  color: #999;
+  padding-top: 1em;
+  letter-spacing: 0.5px;
+  line-height: 1.6em;
+}
+
+#portfolio .card-body .link-btn {
+  display: inline-block;
+  margin: 30px 0px 0px 0px;
+  float: right;
+  color: #777;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: .95em;
+}
+
+/*
+fin carte style
+*/
+
