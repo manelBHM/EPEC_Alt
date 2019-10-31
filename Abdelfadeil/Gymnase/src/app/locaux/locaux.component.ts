@@ -26,8 +26,8 @@ export class LocauxComponent implements OnInit {
   ngOnInit() {
     this.getGymnases();
     var $ = jQuery;
-    require( 'datatables.net-bs4' );
-    require( 'datatables.net-buttons-bs4' );
+    require( 'datatables.net-bs4' )();
+    require( 'datatables.net-buttons-bs4' )();
 
     $(document).ready(function() {
       $(".datatable").DataTable();
