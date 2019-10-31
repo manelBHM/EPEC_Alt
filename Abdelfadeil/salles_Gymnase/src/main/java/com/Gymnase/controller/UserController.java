@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.Gymnase.entities.Roles;
 import com.Gymnase.entities.Utilisateur;
 import com.Gymnase.services.RoleService;
-//import com.Gymnase.service.RoleService;
-//import com.Gymnase.service.UserService;
 import com.Gymnase.services.UserService;
 
 @Controller
