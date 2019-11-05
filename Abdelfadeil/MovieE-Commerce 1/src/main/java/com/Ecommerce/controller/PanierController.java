@@ -101,7 +101,7 @@ public class PanierController {
 			)
 	    {
 		List<LigneCommande> lcmd=   panierService.getAllArticlesPanier(id);
-	    Page<LigneCommande> pages = new PageImpl<LigneCommande>(lcmd, new PageRequest(page,  size), lcmd.size());
+	    Page<LigneCommande> pages = new PageImpl<LigneCommande>(lcmd, PageRequest.of(page, size), lcmd.size());
 
 		  return pages;
 		} 

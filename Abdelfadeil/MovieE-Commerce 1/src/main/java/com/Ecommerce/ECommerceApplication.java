@@ -77,7 +77,10 @@ public class ECommerceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		AppUser user = new AppUser();
+		user.setUsername("admin");
+		user.setPassword("1234");
+		accountService.saveUser(user);
 		/*
 		 * AppUser user=userRepository.getOne((long) 3);
 		 * 

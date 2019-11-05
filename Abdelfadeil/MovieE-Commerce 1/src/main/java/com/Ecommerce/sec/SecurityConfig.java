@@ -1,6 +1,7 @@
 package com.Ecommerce.sec;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,7 +16,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
- 
+
+
 	@Autowired
 	private UserDetailsService userDetailsService;
 	@Autowired
@@ -35,9 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	 http.authorizeRequests().antMatchers("/signup/**","/login/**")
 	 .permitAll();
-	 http.authorizeRequests().antMatchers(HttpMethod.POST, "/articles/**").hasAuthority("ADMIN").anyRequest().authenticated();
-	 http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/**/**").hasAnyAuthority("ADMIN", "USER").anyRequest().authenticated();
-	 http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**/**").hasAnyAuthority("ADMIN").anyRequest().authenticated();
+	 http.authorizeRequests().antMatchers(HttpMethod.POST, "/articles/**").hasAuthority("ADMIN");
+	 http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/**/**").hasAnyAuthority("ADMIN", "USER");
+	 http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**/**").hasAnyAuthority("ADMIN");
 	 http.authorizeRequests().anyRequest().authenticated();
 	 http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
 	 http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

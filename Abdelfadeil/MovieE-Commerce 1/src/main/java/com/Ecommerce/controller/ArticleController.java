@@ -33,7 +33,7 @@ public class ArticleController {
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="15") int size
 			) {
-		return articleRespository.findAll(new PageRequest(page, size));
+		return articleRespository.findAll(PageRequest.of(page, size));
 	}
 	
 	@GetMapping("/get-articles-pages")
@@ -42,7 +42,7 @@ public class ArticleController {
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="15") int size			
 			) {
-		return articleRespository.findByDescriptionContains(mc,new PageRequest(page, size));
+		return articleRespository.findByDescriptionContains(mc,PageRequest.of(page, size));
 	}
 	
 	@GetMapping("/get-articles-category/{id}")
@@ -51,7 +51,7 @@ public class ArticleController {
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="15") int size			
 			) {
-		return articleRespository.findByCategoryIdCategory(id, new PageRequest(page, size));
+		return articleRespository.findByCategoryIdCategory(id, PageRequest.of(page, size));
 	}
 	
 	@GetMapping("/articles-category-mc/{idCategory}")
@@ -61,7 +61,7 @@ public class ArticleController {
 			@RequestParam(name = "size", defaultValue="15") int size,
 			@RequestParam(name = "mc", value="") String mc
 			) {
-		return articleRespository.findByCategoryIdCategoryAndDescriptionContains(idCategory, mc, new PageRequest(page, size));
+		return articleRespository.findByCategoryIdCategoryAndDescriptionContains(idCategory, mc, PageRequest.of(page, size));
 	}	
 	
 	@GetMapping("/get-article/{id}")
