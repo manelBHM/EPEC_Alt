@@ -25,7 +25,7 @@ public class CategoryController {
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="15") int size	
 			){
-		return categoryRepository.findAll(new PageRequest(page, size));
+		return categoryRepository.findAll( PageRequest.of(page, size));
 	}
 
 }

@@ -10,4 +10,5 @@ import com.Ecommerce.entities.AppUser;
 public interface UserRepository extends JpaRepository<AppUser, Long> {
 
 	public AppUser findByUsername(String username);
+	public AppUser findByEmail(String email);
 }

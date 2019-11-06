@@ -48,7 +48,11 @@ public class AppUser implements Serializable{
 	@OneToMany(mappedBy="appUser")
 	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
-		
+
+	private Boolean isActive;
+
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private VerificationToken verificationToken;
 	
 	
 }
