@@ -96,10 +96,12 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.jms/javax.jms-api -->
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
 		</dependency>
+
 
 	</dependencies>
 
