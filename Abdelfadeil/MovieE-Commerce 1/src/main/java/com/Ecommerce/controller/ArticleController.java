@@ -1,9 +1,9 @@
 package com.Ecommerce.controller;
 
-import java.util.List;
-
+import com.Ecommerce.dao.IFlickr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ecommerce.entities.Article;
-import com.Ecommerce.entities.Category;
 import com.Ecommerce.dao.ArticleRespository;
 
-@CrossOrigin("https://localhost:4200/**")
+import java.io.InputStream;
+import java.util.List;
+
+@CrossOrigin("*")
 @RestController
 public class ArticleController {
 	
@@ -28,12 +30,19 @@ public class ArticleController {
 	@Autowired
 	private ArticleRespository articleRespository;
 
+    public IFlickr flickr;
+    void ArticleController(IFlickr flickr) {
+        this.flickr=flickr;
+    }
+
 	@GetMapping("/get-articles")
 	public Page<Article> getArticles(
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="15") int size
 			) {
-		return articleRespository.findAll(PageRequest.of(page, size));
+        List<Article> articles = articleRespository.findAll();
+        Page<Article> pagesArticles = new PageImpl<>(articles);
+		return pagesArticles;
 	}
 	
 	@GetMapping("/get-articles-pages")
@@ -70,8 +79,16 @@ public class ArticleController {
 	}
 
 	@PostMapping("/add-article")
-	public Article save(@RequestBody Article a) {
-		return articleRespository.save(a);
+	public Article save(@RequestBody Article a, @RequestBody InputStream inputStream, @RequestParam(name = "nameFile") String nameFile) {
+        try {
+            String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
+            a.setPhoto(urlPhoto);
+            return articleRespository.save(a);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       return null;
 	}
 	@DeleteMapping("/delete-article/{id}")
 	public void deleteArticle(@PathVariable Long id) {
@@ -79,17 +96,37 @@ public class ArticleController {
 	}
 	
 	@PutMapping("modifier-article")
-	public Article modifierArticle(@RequestBody Article article) {
+	public Article modifierArticle(@RequestBody Article article, @RequestBody InputStream inputStream, @RequestParam(name = "nameFile") String nameFile) {
 		Article a =	articleRespository.getOne(article.getIdArticle());
 		a.setIdArticle(article.getIdArticle());
 		a.setName(article.getName());
 		a.setDescription(article.getDescription());
 		a.setPrix(article.getPrix());
 		//a.setQuantity(article.getQuantity());
-		a.setPhoto(article.getPhoto());
 		a.setDisponible(article.isDisponible());
+        try {
+            String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
+            a.setPhoto(urlPhoto);
+            return articleRespository.save(a);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 		//Category c = categoryRepository.findByName(article)
 		return articleRespository.save(a);
 	}
+	@PostMapping("/save-photo")
+	public String chageAndSavePhoto(@RequestBody InputStream inputStream, @RequestParam(name = "nameFile") String nameFile, @RequestBody Article a) {
+        try {
+            String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
+            a.setPhoto(urlPhoto);
+            articleRespository.save(a);
+            return urlPhoto;
+        } catch (Exception e) {
+           e.printStackTrace();
+        }
+       return "erreur pendant de sacegarde ... ! ";
+    }
 
 }

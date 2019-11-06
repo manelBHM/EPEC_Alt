@@ -109,6 +109,7 @@ public class PanierController {
 	@DeleteMapping(value="/deleteAllArticles/{idPanier}")
 	public void deleteAllArticlesPanier(@PathVariable("idPanier") Long idPanier) 
 	        {
+
 		 panierService.deleteAllArticlesPanier(idPanier);
 			}
 	
