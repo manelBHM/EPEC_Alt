@@ -1,6 +1,7 @@
 package com.Ecommerce.service;
 
 
+import com.Ecommerce.entities.UserForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,17 +23,50 @@ public class AccountServiceImpl implements AccountService{
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
-	public AppUser saveUser(AppUser u) {
-	    u.setPassword(bCryptPasswordEncoder.encode(u.getPassword()));
-	return userRepository.save(u);
+	public AppUser saveUser(UserForm userForm) {
+
+		String password=userForm.getPassword();
+		String repassword=userForm.getRepassword();
+		if(!(repassword.equals(password))) throw new RuntimeException(repassword+ " Mot de passe n'est pas confirmé");
+		String username = userForm.getUsername();
+		AppUser appUser= userRepository.findByUsername(username);
+		if(appUser!=null) throw new RuntimeException(userForm.getUsername() +" existe déjà");
+
+		AppUser u = new AppUser();
+
+		try {
+			u.setEmail(userForm.getEmail());
+			u.setIsActive(true);
+			u.setUsername(username);
+			u.setIsActive(true);
+			// AppUser user = null;
+			// user = userRepository.save(u);
+			u.setPassword(bCryptPasswordEncoder.encode(password));
+			 AppRole role =roleRepository.findByRoleName("USER");
+
+			 userRepository.save(u);
+			//u.getRoles().add(role);
+			//userRepository.CreatePanier(user.getId());
+		} catch (Exception e) {
+			System.out.println("error de sevgarde " + e);
+		}
+	    return userRepository.save(u);
 	}
 	@Override
 	public AppRole saveRole(AppRole r) {
 	return roleRepository.save(r);
 	}
+
 	@Override
 	public AppUser findUserByUsername(String username) {
-	return userRepository.findByUsername(username);
+	AppUser u;
+	u =userRepository.findByUsername(username);
+	if (u ==null){
+		return userRepository.findByEmail(username);
+	} else {
+		return u;
+	}
+
 	}
 	@Override
 	public void addRoleToUser(String username, String roleName) {

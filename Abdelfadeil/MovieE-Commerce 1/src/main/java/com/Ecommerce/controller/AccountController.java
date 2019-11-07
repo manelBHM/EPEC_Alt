@@ -41,27 +41,7 @@ public class AccountController {
 
 	@PostMapping("/signup")
 	public AppUser signup(@RequestBody UserForm userForm) {
-		String password=userForm.getPassword();
-		String repassword=userForm.getRepassword();
-		if(!(repassword.equals(password))) throw new RuntimeException(repassword+ " Mot de passe n'est pas confirmé");
-		String username = userForm.getUsername();
-		AppUser appUser= userRepository.findByUsername(username);
-		if(appUser!=null) throw new RuntimeException(userForm.getUsername() +" existe déjà");
-		AppUser u = new AppUser();
-		
-		u.setUsername(username);
-		u.setPassword(password);
-		AppUser user = null;
-		try {	
-		    user = accountService.saveUser(u);
-			//AppRole role =repository.findByRoleName("USER");
-			panierService.CreatePanier(user.getId());
-			accountService.saveUser(user);
-			accountService.addRoleToUser(username, "USER");
-		} catch (Exception e) {
-			System.out.println("error de sevgarde ");
-		}
-		return user;
+		    return accountService.saveUser(userForm);
 	}
 	
 	@PutMapping("/modifier")

@@ -8,6 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Ecommerce.dao.UserRepository;
+import com.Ecommerce.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,7 +23,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
+  @Autowired
+	private AccountService accountService;
+  @Autowired
+  private UserRepository userRepository;
 	private AuthenticationManager authenticationManager;
 
 	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
@@ -34,14 +40,23 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		AppUser user = null;
 		try {
 			user = new ObjectMapper().readValue(request.getInputStream(), AppUser.class);
-			System.out.println("User app "+ user.getUsername() + " "+ user.getPassword());
+
+            // userRepository
+			System.out.println("User app "+ user.getUsername() + " "+ user.getPassword() + " email "+user.getEmail());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+
 		System.out.println("username " + user.getUsername());
 		System.out.println("password " + user.getPassword());
-		return authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		if (user.getUsername()==null) {
+			return authenticationManager
+					.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+		} else {
+			return authenticationManager
+					.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		}
+
 	}
 
 	@Override

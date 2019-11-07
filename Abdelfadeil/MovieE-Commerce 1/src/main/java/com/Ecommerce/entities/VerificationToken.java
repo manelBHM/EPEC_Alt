@@ -24,7 +24,6 @@ public class VerificationToken implements Serializable {
     private LocalDateTime issuedDateTime;
     private LocalDateTime confirmedDateTime;
     @OneToOne(cascade = CascadeType.ALL)
-    @Column(name = "user_id")
     private AppUser user;
 
     public VerificationToken(){

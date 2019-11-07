@@ -1,38 +1,21 @@
 package com.Ecommerce;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.stream.Stream;
-
-import javax.transaction.Transactional;
-
+import com.Ecommerce.entities.*;
+import com.Ecommerce.service.SendingMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.Ecommerce.entities.Adresse;
-import com.Ecommerce.entities.AppRole;
-import com.Ecommerce.entities.AppUser;
-import com.Ecommerce.entities.Article;
-import com.Ecommerce.entities.Category;
-import com.Ecommerce.entities.Commande;
-import com.Ecommerce.entities.LigneCommande;
-import com.Ecommerce.entities.Panier;
-import com.Ecommerce.service.AccountService;
 import com.Ecommerce.service.AccountServiceImpl;
 import com.Ecommerce.service.PanierService;
 import com.Ecommerce.dao.AdresseRepository;
 import com.Ecommerce.dao.ArticleRespository;
 import com.Ecommerce.dao.CategoryRepository;
-import com.Ecommerce.dao.FlickrImpl;
 import com.Ecommerce.dao.LigneCommandeRespository;
 import com.Ecommerce.dao.PanierRepository;
 import com.Ecommerce.dao.RoleRepository;
@@ -63,6 +46,8 @@ public class ECommerceApplication implements CommandLineRunner {
 	private LigneCommandeRespository ligneCommandeRespository;
 	@Autowired
 	private PanierService panierService;
+    @Autowired
+    public SendingMailService emailService;
 //	@Autowired
 	
 
@@ -77,9 +62,14 @@ public class ECommerceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		AppUser user = new AppUser();
+		AppRole role = new AppRole();
+		role.setRoleName("USER");
+		roleRepository.save(role);
+		UserForm user = new UserForm();
 		user.setUsername("admin");
 		user.setPassword("1234");
+		user.setRepassword("1234");
+		user.setEmail("abdalfadeil@gmail.com");
 		accountService.saveUser(user);
 		/*
 		 * AppUser user=userRepository.getOne((long) 3);
@@ -238,8 +228,9 @@ public class ECommerceApplication implements CommandLineRunner {
 		 * 
 		 * }
 		 */
-		 
-		config.exposeIdsFor(Article.class, Category.class, Commande.class, Panier.class, AppUser.class);
+        // emailService.sendSimpleMessage("dadeil.dev1@gmail.com", "abdalfadeil@gmail.com", "Body de mail test", "le text de l'email ici .....");
+
+        config.exposeIdsFor(Article.class, Category.class, Commande.class, Panier.class, AppUser.class);
 	}
 
 	@Bean

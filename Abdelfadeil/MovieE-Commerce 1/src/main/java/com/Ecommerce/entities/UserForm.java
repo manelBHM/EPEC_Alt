@@ -6,8 +6,9 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor
 public class UserForm {
-	
-	private String username;
+
+    public String email;
+    private String username;
 	private String password;
 	private String repassword;
 
