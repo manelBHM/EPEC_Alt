@@ -2,6 +2,7 @@ package com.Ecommerce;
 
 import com.Ecommerce.entities.*;
 import com.Ecommerce.service.SendingMailService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -49,7 +50,9 @@ public class ECommerceApplication implements CommandLineRunner {
     @Autowired
     public SendingMailService emailService;
 //	@Autowired
-	
+
+	static Logger logger = Logger.getLogger(ECommerceApplication.class);
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
@@ -70,7 +73,15 @@ public class ECommerceApplication implements CommandLineRunner {
 		user.setPassword("1234");
 		user.setRepassword("1234");
 		user.setEmail("abdalfadeil@gmail.com");
+		logger.debug("main class");
 		accountService.saveUser(user);
+
+		logger.debug("msg de debogage");
+		logger.info("msg d'information");
+		logger.warn("msg d'avertissement");
+		logger.error("msg d'erreur");
+		logger.fatal("msg d'erreur fatale");
+
 		/*
 		 * AppUser user=userRepository.getOne((long) 3);
 		 * 
