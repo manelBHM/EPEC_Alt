@@ -1,31 +1,14 @@
 package com.Ecommerce.entities;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 @Entity
@@ -49,7 +32,7 @@ public class AppUser implements Serializable{
 	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
 
-	private Boolean isActive;
+	private Boolean isActive=false;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private VerificationToken verificationToken;
