@@ -20,6 +20,8 @@ public class AccountServiceImpl implements AccountService{
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired
+	private VerificationTokenService verificationTokenService;
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
@@ -36,20 +38,21 @@ public class AccountServiceImpl implements AccountService{
 
 		try {
 			u.setEmail(userForm.getEmail());
-			u.setIsActive(true);
+			// u.setIsActive(true);
 			u.setUsername(username);
-			u.setIsActive(true);
 			// AppUser user = null;
 			// user = userRepository.save(u);
 			u.setPassword(bCryptPasswordEncoder.encode(password));
 			 AppRole role =roleRepository.findByRoleName("USER");
 
 			 userRepository.save(u);
+
 			//u.getRoles().add(role);
 			//userRepository.CreatePanier(user.getId());
 		} catch (Exception e) {
 			System.out.println("error de sevgarde " + e);
 		}
+		verificationTokenService.createVerification(u.getEmail());
 	    return userRepository.save(u);
 	}
 	@Override

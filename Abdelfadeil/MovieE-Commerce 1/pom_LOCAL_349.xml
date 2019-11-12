@@ -110,7 +110,6 @@
 		</dependency>
 
 		<dependency>
-<<<<<<< HEAD
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
         </dependency>
@@ -120,11 +119,6 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.6</version>
-=======
-			<groupId>javax.mail</groupId>
-			<artifactId>javax.mail-api</artifactId>
-			<version>1.6.2</version>
->>>>>>> 7904f52c6417b4517f50682cebbe6e3127b68173
 		</dependency>
 
 
