@@ -9,6 +9,13 @@
 		<version>2.2.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	<scm>
+
+		<connection>scm:git:git@github.com:git@github.com:logstash/log4j-jsonevent-layout.git</connection>
+		<developerConnection>scm:git:git@github.com:logstash/log4j-jsonevent-layout.git</developerConnection>
+		<url>git@github.com:logstash/log4j-jsonevent-layout.git</url>
+	</scm>
+
 	<groupId>com.Ecommerce</groupId>
 	<artifactId>CommerceEnligne</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -49,13 +56,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		<!--
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.17</version>
 		</dependency>
-		-->
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -92,10 +98,11 @@
 			<artifactId>flickr4java</artifactId>
 			<version>2.12</version>
 		</dependency>
-		<dependency>
+	<!--	<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
+		-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -109,14 +116,28 @@
 			<version>2.2.0.RELEASE</version>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>javax.mail-api</artifactId>
 			<version>1.6.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.12.0</version>
+		</dependency>
 
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.3</version>
+		</dependency>
 
 	</dependencies>
 

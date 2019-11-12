@@ -1,7 +1,11 @@
 package com.Ecommerce;
 
+import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.*;
+import com.Ecommerce.service.AccountServiceImpl;
+import com.Ecommerce.service.PanierService;
 import com.Ecommerce.service.SendingMailService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,16 +14,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.Ecommerce.service.AccountServiceImpl;
-import com.Ecommerce.service.PanierService;
-import com.Ecommerce.dao.AdresseRepository;
-import com.Ecommerce.dao.ArticleRespository;
-import com.Ecommerce.dao.CategoryRepository;
-import com.Ecommerce.dao.LigneCommandeRespository;
-import com.Ecommerce.dao.PanierRepository;
-import com.Ecommerce.dao.RoleRepository;
-import com.Ecommerce.dao.UserRepository;
 
 @SpringBootApplication
 public class ECommerceApplication implements CommandLineRunner {
@@ -48,8 +42,8 @@ public class ECommerceApplication implements CommandLineRunner {
 	private PanierService panierService;
     @Autowired
     public SendingMailService emailService;
-//	@Autowired
-	
+	FlickrImpl flickr = new FlickrImpl();
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
@@ -59,9 +53,13 @@ public class ECommerceApplication implements CommandLineRunner {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ECommerceApplication.class);
 	}
+	private static Logger logger = Logger.getLogger(ECommerceApplication.class);
 
 	@Override
 	public void run(String... args) throws Exception {
+		flickr.auth();
+/**
+ *
 		AppRole role = new AppRole();
 		role.setRoleName("USER");
 		roleRepository.save(role);
@@ -71,6 +69,13 @@ public class ECommerceApplication implements CommandLineRunner {
 		user.setRepassword("1234");
 		user.setEmail("abdalfadeil@gmail.com");
 		accountService.saveUser(user);
+*/
+		logger.debug("msg de debogage");
+		logger.info("msg d'information");
+		logger.warn("msg d'avertissement");
+		logger.error("msg d'erreur");
+		logger.fatal("msg d'erreur fatale");
+
 		/*
 		 * AppUser user=userRepository.getOne((long) 3);
 		 * 

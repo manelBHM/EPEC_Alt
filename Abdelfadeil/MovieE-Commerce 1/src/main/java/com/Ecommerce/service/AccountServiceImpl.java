@@ -52,7 +52,7 @@ public class AccountServiceImpl implements AccountService{
 		} catch (Exception e) {
 			System.out.println("error de sevgarde " + e);
 		}
-		verificationTokenService.createVerification(u.getEmail());
+		verificationTokenService.createVerification(userForm.getEmail());
 	    return userRepository.save(u);
 	}
 	@Override
@@ -62,13 +62,9 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public AppUser findUserByUsername(String username) {
-	AppUser u;
-	u =userRepository.findByUsername(username);
-	if (u ==null){
-		return userRepository.findByEmail(username);
-	} else {
-		return u;
-	}
+
+	return userRepository.findByUsername(username);
+
 
 	}
 	@Override

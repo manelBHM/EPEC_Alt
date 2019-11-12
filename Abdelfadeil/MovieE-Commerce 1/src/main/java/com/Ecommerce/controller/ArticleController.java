@@ -1,6 +1,8 @@
 package com.Ecommerce.controller;
 
+import com.Ecommerce.TestLog4j1;
 import com.Ecommerce.dao.IFlickr;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -17,17 +19,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Ecommerce.entities.Article;
 import com.Ecommerce.dao.ArticleRespository;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
 public class ArticleController {
-	
-	
-	
-	@Autowired
+
+    private static Logger logger = Logger.getLogger(TestLog4j1.class);
+
+
+    @Autowired
 	private ArticleRespository articleRespository;
 
     public IFlickr flickr;
@@ -79,16 +84,8 @@ public class ArticleController {
 	}
 
 	@PostMapping("/add-article")
-	public Article save(@RequestBody Article a, @RequestBody InputStream inputStream, @RequestParam(name = "nameFile") String nameFile) {
-        try {
-            String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
-            a.setPhoto(urlPhoto);
+	public Article save(@RequestBody Article a) {
             return articleRespository.save(a);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       return null;
 	}
 	@DeleteMapping("/delete-article/{id}")
 	public void deleteArticle(@PathVariable Long id) {
@@ -96,32 +93,20 @@ public class ArticleController {
 	}
 	
 	@PutMapping("modifier-article")
-	public Article modifierArticle(@RequestBody Article article, @RequestBody InputStream inputStream, @RequestParam(name = "nameFile") String nameFile) {
-		Article a =	articleRespository.getOne(article.getIdArticle());
-		a.setIdArticle(article.getIdArticle());
-		a.setName(article.getName());
-		a.setDescription(article.getDescription());
-		a.setPrix(article.getPrix());
-		//a.setQuantity(article.getQuantity());
-		a.setDisponible(article.isDisponible());
-        try {
-            String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
-            a.setPhoto(urlPhoto);
+	public Article modifierArticle(@RequestBody Article a) {
             return articleRespository.save(a);
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-		//Category c = categoryRepository.findByName(article)
-		return articleRespository.save(a);
-	}
-	@PostMapping("/save-photo")
-	public String chageAndSavePhoto(@RequestBody InputStream inputStream, @RequestParam(name = "nameFile") String nameFile, @RequestBody Article a) {
+	@PostMapping("/save-photo/{idArticle}")
+	public String chageAndSavePhoto(@RequestBody MultipartFile file, @PathVariable("idArticle") Long idArticle) throws IOException {
+        InputStream inputStream = file.getInputStream();
+        String nameFile= file.getName();
         try {
+           Article a = articleRespository.getOne(idArticle);
             String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
             articleRespository.save(a);
+            logger.trace("photo saved successfly "+urlPhoto);
             return urlPhoto;
         } catch (Exception e) {
            e.printStackTrace();

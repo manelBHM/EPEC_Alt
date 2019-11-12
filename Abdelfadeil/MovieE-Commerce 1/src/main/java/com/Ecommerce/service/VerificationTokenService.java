@@ -25,7 +25,7 @@ public class VerificationTokenService {
 
     public void createVerification(String email) {
         AppUser user = userRepository.findByEmail(email);
-        if (user.equals(null)) {
+        if (user ==null) {
           return;
         }
                 VerificationToken token = new VerificationToken();

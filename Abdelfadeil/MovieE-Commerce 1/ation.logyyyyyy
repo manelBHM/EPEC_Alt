@@ -1,0 +1,6 @@
+{"debug_level":"DEBUG","debug_timestamp":"2019-11-09 00:59:09,405","debug_thread":"main","debug_file":"TestLog4j1.java", "debug_line":"20","debug_message":"Log4j appender configuration is successful !!"},
+{"debug_level":"DEBUG","debug_timestamp":"2019-11-09 00:59:09,409","debug_thread":"main","debug_file":"TestLog4j1.java", "debug_line":"21","debug_message":"msg de debogage"},
+{"debug_level":"INFO","debug_timestamp":"2019-11-09 00:59:09,409","debug_thread":"main","debug_file":"TestLog4j1.java", "debug_line":"22","debug_message":"msg d'information"},
+{"debug_level":"WARN","debug_timestamp":"2019-11-09 00:59:09,410","debug_thread":"main","debug_file":"TestLog4j1.java", "debug_line":"23","debug_message":"msg d'avertissement"},
+{"debug_level":"ERROR","debug_timestamp":"2019-11-09 00:59:09,410","debug_thread":"main","debug_file":"TestLog4j1.java", "debug_line":"24","debug_message":"msg d'erreur"},
+{"debug_level":"FATAL","debug_timestamp":"2019-11-09 00:59:09,410","debug_thread":"main","debug_file":"TestLog4j1.java", "debug_line":"25","debug_message":"msg d'erreur fatale"},
