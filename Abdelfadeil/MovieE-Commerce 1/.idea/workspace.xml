@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0f82fdf0-4abd-4359-9d0b-5275788a585c" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="af3ba79e-6378-4b8d-9803-fb6369e86f4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logsApplication.log" beforeDir="false" afterPath="$PROJECT_DIR$/logsApplication.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Ecommerce/ECommerceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Ecommerce/ECommerceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Ecommerce/Log4jPropertiesConfigurationExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Ecommerce/Log4jPropertiesConfigurationExample.java" afterDir="false" />
+    </list>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
@@ -21,6 +32,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
         <option value="Class" />
       </list>
     </option>
@@ -29,6 +46,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MavenImportPreferences">
+<<<<<<< HEAD
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -41,12 +59,34 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+=======
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="1.8 (2)" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8 (2)" />
+  </component>
+  <component name="ProjectId" id="1TCRZypz4ekJmEoTGkKvIPmNlPh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -59,6 +99,24 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/Ecommerce" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src\main\java\com\Ecommerce" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src\main\resources" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src\main\java\com\Ecommerce\service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src\main\resources" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src\main" />
+      <recent name="C:\Users\d02078\IdeaProjects\EPEC_Alt\Abdelfadeil\MovieE-Commerce 1\src\test" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
     </key>
   </component>
   <component name="RunDashboard">
@@ -73,6 +131,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Spring Boot.ECommerceApplication">
     <configuration name="ECommerceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Ecommerce.ECommerceApplication" />
@@ -103,6 +162,12 @@
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Ecommerce.test" />
       <module name="MovieE-Commerce" />
+=======
+  <component name="RunManager" selected="Application.Log4jPropertiesConfigurationExample">
+    <configuration name="Log4jPropertiesConfigurationExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Ecommerce.Log4jPropertiesConfigurationExample" />
+      <module name="CommerceEnligne" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.Ecommerce.*" />
@@ -114,7 +179,11 @@
       </method>
     </configuration>
     <configuration name="ECommerceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+<<<<<<< HEAD
       <module name="MovieE-Commerce" />
+=======
+      <module name="CommerceEnligne" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.Ecommerce.ECommerceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,8 +191,12 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Application.test" />
         <item itemvalue="Application.TestLog4j1" />
+=======
+        <item itemvalue="Application.Log4jPropertiesConfigurationExample" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
       </list>
     </recent_temporary>
   </component>
@@ -132,6 +205,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="0f82fdf0-4abd-4359-9d0b-5275788a585c" name="Default Changelist" comment="" />
       <created>1564000672200</created>
       <option name="number" value="Default" />
@@ -145,6 +219,59 @@
       <workItem from="1573229281562" duration="25193000" />
       <workItem from="1573418606499" duration="25798000" />
     </task>
+=======
+      <changelist id="af3ba79e-6378-4b8d-9803-fb6369e86f4f" name="Default Changelist" comment="" />
+      <created>1572962149495</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572962149495</updated>
+      <workItem from="1572962154394" duration="7933000" />
+      <workItem from="1573039633202" duration="279000" />
+      <workItem from="1573040189560" duration="3722000" />
+      <workItem from="1573050936961" duration="2304000" />
+      <workItem from="1573053836383" duration="5303000" />
+      <workItem from="1573124378730" duration="17372000" />
+      <workItem from="1573204017970" duration="5845000" />
+      <workItem from="1573210691272" duration="5993000" />
+      <workItem from="1573557645049" duration="9232000" />
+    </task>
+    <task id="LOCAL-00001" summary="version spring 2.0.0 release">
+      <created>1572969141852</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572969141852</updated>
+    </task>
+    <task id="LOCAL-00002" summary="version spring 2.0.0 release">
+      <created>1572969234377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572969234377</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gestion des photo avec flickr dans le controleur">
+      <created>1573052718817</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573052718817</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mail verificaton class">
+      <created>1573058935014</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573058935014</updated>
+    </task>
+    <task id="LOCAL-00005" summary="logging (logs)">
+      <created>1573222915323</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573222915323</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,63 +291,112 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+=======
+    <MESSAGE value="version spring 2.0.0 release" />
+    <MESSAGE value="gestion des photo avec flickr dans le controleur" />
+    <MESSAGE value="mail verificaton class" />
+    <MESSAGE value="logging (logs)" />
+    <option name="LAST_COMMIT_MESSAGE" value="logging (logs)" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>30</line>
+=======
+          <line>45</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>33</line>
+=======
+          <line>47</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>36</line>
+=======
+          <line>49</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>39</line>
+=======
+          <line>55</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>43</line>
+=======
+          <line>30</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>45</line>
+=======
+          <line>29</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>47</line>
+=======
+          <line>32</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>48</line>
+=======
+          <line>33</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>55</line>
+=======
+          <line>34</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>52</line>
+=======
+          <line>36</line>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/Ecommerce/service/AccountServiceImpl.java</url>
+<<<<<<< HEAD
           <line>54</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -354,10 +530,16 @@
           <line>101</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
+=======
+          <line>39</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/MovieE_Commerce_1$ECommerceApplication.ic" NAME="ECommerceApplication Coverage Results" MODIFIED="1573175394466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.Ecommerce.*</FILTER>
     </SUITE>
@@ -377,5 +559,8 @@
         </settings>
       </state>
     </states>
+=======
+    <SUITE FILE_PATH="coverage/CommerceEnligne$ECommerceApplication.ic" NAME="ECommerceApplication Coverage Results" MODIFIED="1573211067662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+>>>>>>> 8a3baa6fb22581068cdebcbebcfd7275969f8cad
   </component>
 </project>
