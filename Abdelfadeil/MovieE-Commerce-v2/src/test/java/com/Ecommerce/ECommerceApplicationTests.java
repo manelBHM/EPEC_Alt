@@ -5,8 +5,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.Ecommerce.dao.FlickrImpl;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ECommerceApplicationTests {
@@ -22,7 +20,7 @@ public class ECommerceApplicationTests {
 	}
 	 @Test
 	void test() {
-		FlickrImpl	flickrImpl = new FlickrImpl();
-	     flickrImpl.auth();
+		//FlickrImpl	flickrImpl = new FlickrImpl(flickr);
+	    // flickrImpl.auth();
 	}
 }

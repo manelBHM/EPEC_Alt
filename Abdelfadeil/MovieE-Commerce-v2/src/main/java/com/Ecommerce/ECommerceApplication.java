@@ -42,13 +42,12 @@ public class ECommerceApplication implements CommandLineRunner {
 	private PanierService panierService;
     @Autowired
     public SendingMailService emailService;
-<<<<<<< HEAD
-	FlickrImpl flickr = new FlickrImpl();
-=======
+
+	//FlickrImpl flickr = new FlickrImpl();
+
 //	@Autowired
 
 	static Logger logger = Logger.getLogger(ECommerceApplication.class);
->>>>>>> a4302e8f02e6a64fe05c08628ed095fb487429f0
 
 
 	public static void main(String[] args) {
@@ -59,11 +58,10 @@ public class ECommerceApplication implements CommandLineRunner {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ECommerceApplication.class);
 	}
-	private static Logger logger = Logger.getLogger(ECommerceApplication.class);
 
 	@Override
 	public void run(String... args) throws Exception {
-		flickr.auth();
+		//flickr.auth();
 /**
  *
 		AppRole role = new AppRole();
@@ -78,10 +76,7 @@ public class ECommerceApplication implements CommandLineRunner {
 		accountService.saveUser(user);
 <<<<<<< HEAD
 */
-=======
-
->>>>>>> a4302e8f02e6a64fe05c08628ed095fb487429f0
-		logger.debug("msg de debogage");
+        logger.debug("msg de debogage");
 		logger.info("msg d'information");
 		logger.warn("msg d'avertissement");
 		logger.error("msg d'erreur");

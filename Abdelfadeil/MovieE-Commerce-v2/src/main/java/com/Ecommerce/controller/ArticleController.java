@@ -34,7 +34,7 @@ public class ArticleController {
 
     @Autowired
 	private ArticleRespository articleRespository;
-
+   // @Autowired
     public IFlickr flickr;
     void ArticleController(IFlickr flickr) {
         this.flickr=flickr;
