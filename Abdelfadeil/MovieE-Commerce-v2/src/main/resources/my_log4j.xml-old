@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <appender name="file" class="org.apache.log4j.FileAppender">
+        <param name="file" value="logfile.log" />
+        <layout class="biz.paluch.logging.gelf.log4j.GelfLayout">
+            <param name="Facility" value="java-test" />
+            <param name="ExtractStackTrace" value="true" />
+            <param name="FilterStackTrace" value="true" />
+            <param name="MdcProfiling" value="true" />
+            <param name="IncludeLocation" value="true" />
+            <param name="TimestampPattern" value="yyyy-MM-dd HH:mm:ss,SSS" />
+            <param name="AdditionalFields" value="fieldName1=fieldValue1,fieldName2=fieldValue2" />
+            <param name="AdditionalFieldTypes" value="fieldName1=String,fieldName2=Double,fieldName3=Long" />
+            <param name="MdcFields" value="mdcField1,mdcField2" />
+            <param name="DynamicMdcFields" value="mdc.*,(mdc|MDC)fields" />
+            <param name="IncludeFullMdc" value="true" />
+        </layout>
+    </appender>
+    <Loggers>
+        <Root level="TRACE">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>
