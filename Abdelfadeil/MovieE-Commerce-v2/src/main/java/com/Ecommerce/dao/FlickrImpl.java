@@ -10,12 +10,10 @@ import com.flickr4java.flickr.auth.Permission;
 import com.flickr4java.flickr.uploader.UploadMetaData;
 import com.github.scribejava.core.model.OAuth1RequestToken;
 import com.github.scribejava.core.model.OAuth1Token;
-import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Bean;
 
 import javax.swing.*;
 import java.io.InputStream;
@@ -29,20 +27,18 @@ public class FlickrImpl implements IFlickr {
 
 	// private final String sharedSecret;
      @Autowired
-	private  Flickr flickr;
+	public  Flickr flickr;
 
 
 	private UploadMetaData uploadeMetaData =new UploadMetaData();
 	private String apiKey="2d89f8efd8dab32024ceedd381e29e08";
 	private String sharedSecret="928bc2bcf01e0b08";
 
-	public FlickrImpl(Flickr flickr) {
-		this.flickr = flickr;
-	}
+
 
 	@Override
 	public void connect() {
-		flickr = new Flickr(apiKey, sharedSecret, new REST());
+		 flickr = new Flickr(apiKey, sharedSecret, new REST());
 		Auth auth = new Auth();
 		auth.setPermission(Permission.READ);
 		auth.setToken("72157711759371071-4ccecbb17dc313cf");
@@ -50,6 +46,11 @@ public class FlickrImpl implements IFlickr {
 		RequestContext requestContext = RequestContext.getRequestContext();
 		requestContext.setAuth(auth);
 		flickr.setAuth(auth);
+	}
+
+	@Bean
+	public Flickr flickr(){
+		return new Flickr(apiKey, sharedSecret, new REST());
 	}
 
 	@Override

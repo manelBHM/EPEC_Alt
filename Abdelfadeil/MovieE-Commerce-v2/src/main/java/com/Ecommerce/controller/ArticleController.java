@@ -1,26 +1,15 @@
 package com.Ecommerce.controller;
 
 import com.Ecommerce.TestLog4j1;
-import com.Ecommerce.dao.IFlickr;
+import com.Ecommerce.dao.ArticleRespository;
+import com.Ecommerce.entities.Article;
 import com.Ecommerce.service.IFlickrService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.Ecommerce.entities.Article;
-import com.Ecommerce.dao.ArticleRespository;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -33,8 +22,8 @@ public class ArticleController {
 
     private static Logger logger = Logger.getLogger(TestLog4j1.class);
 
-	@Autowired
-	public IFlickrService iFlickrService;
+    @Autowired
+    public IFlickrService flickrService;
     @Autowired
 	private ArticleRespository articleRespository;
 
@@ -98,12 +87,12 @@ public class ArticleController {
         }
 
 	@PostMapping("/save-photo/{idArticle}")
-	public String chageAndSavePhoto(@RequestBody MultipartFile file, @PathVariable("idArticle") Long idArticle) throws IOException {
+	public String chageAndSavePhoto(@RequestParam MultipartFile file, @PathVariable("idArticle") Long idArticle) throws IOException {
         InputStream inputStream = file.getInputStream();
         String nameFile= file.getName();
         try {
            Article a = articleRespository.getOne(idArticle);
-            String urlPhoto=  iFlickrService.savePhoto(inputStream, nameFile);
+            String urlPhoto=  flickrService.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
             articleRespository.save(a);
             logger.trace("photo saved successfly "+urlPhoto);

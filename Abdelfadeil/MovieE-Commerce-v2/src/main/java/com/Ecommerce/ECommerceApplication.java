@@ -3,6 +3,7 @@ package com.Ecommerce;
 import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.*;
 import com.Ecommerce.service.AccountServiceImpl;
+import com.Ecommerce.service.IFlickrService;
 import com.Ecommerce.service.PanierService;
 import com.Ecommerce.service.SendingMailService;
 import org.apache.log4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 @SpringBootApplication
 public class ECommerceApplication implements CommandLineRunner {
@@ -42,10 +44,12 @@ public class ECommerceApplication implements CommandLineRunner {
 	private PanierService panierService;
     @Autowired
     public SendingMailService emailService;
+    @Autowired
+	public IFlickrService flickrService;
 
-	//FlickrImpl flickr = new FlickrImpl();
 
-//	@Autowired
+
+
 
 	static Logger logger = Logger.getLogger(ECommerceApplication.class);
 
