@@ -14,7 +14,7 @@
 	<artifactId>CommerceEnligne</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MovieE-Commerce</name>
-	<!-- <packaging>war</packaging> -->
+	 <packaging>war</packaging>
 	<description>E commerce en ligne Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
@@ -39,15 +39,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.17</version>
-		</dependency>
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -68,33 +59,20 @@
             <artifactId>jjwt</artifactId>
             <version>0.8.0</version>
         </dependency>
-	<!--	<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
-		-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
             <version>2.2.0.RELEASE</version>
         </dependency>
 
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>javax.mail-api</artifactId>
-			<version>1.6.2</version>
-		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.12.0</version>
-		</dependency>
+
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -114,6 +92,12 @@
             <artifactId>flickr4java</artifactId>
             <version>3.0.2</version>
         </dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
     </dependencies>
 
     <build>

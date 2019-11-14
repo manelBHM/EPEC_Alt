@@ -2,8 +2,10 @@ package com.Ecommerce.controller;
 
 import com.Ecommerce.TestLog4j1;
 import com.Ecommerce.dao.IFlickr;
+import com.Ecommerce.service.IFlickrService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -31,14 +33,12 @@ public class ArticleController {
 
     private static Logger logger = Logger.getLogger(TestLog4j1.class);
 
-
+	@Autowired
+	public IFlickrService iFlickrService;
     @Autowired
 	private ArticleRespository articleRespository;
-   // @Autowired
-    public IFlickr flickr;
-    void ArticleController(IFlickr flickr) {
-        this.flickr=flickr;
-    }
+
+
 
 	@GetMapping("/get-articles")
 	public Page<Article> getArticles(
@@ -103,7 +103,7 @@ public class ArticleController {
         String nameFile= file.getName();
         try {
            Article a = articleRespository.getOne(idArticle);
-            String urlPhoto=  flickr.savePhoto(inputStream, nameFile);
+            String urlPhoto=  iFlickrService.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
             articleRespository.save(a);
             logger.trace("photo saved successfly "+urlPhoto);
