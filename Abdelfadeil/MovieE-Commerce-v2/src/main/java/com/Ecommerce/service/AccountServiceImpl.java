@@ -89,9 +89,11 @@ public class AccountServiceImpl implements AccountService{
 		AppUser u =null;
 		u=userRepository.findByUsername(usernameOrEmail);
 		if(u== null){
-			u=userRepository.findByEmail(usernameOrEmail);
+			return userRepository.findByEmail(usernameOrEmail);
+		} else {
+			return userRepository.findByUsername(usernameOrEmail);
 		}
-		return u;
+
 	}
 
 

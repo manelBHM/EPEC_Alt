@@ -1,10 +1,12 @@
 package com.Ecommerce.sec;
 
 import com.Ecommerce.entities.AppUser;
+import com.Ecommerce.service.AccountService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.xerces.impl.dv.xs.FullDVFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,8 +22,8 @@ import java.io.IOException;
 import java.util.Date;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
-
+	@Autowired
+    private AccountService accountService;
 	private AuthenticationManager authenticationManager;
 
 	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
@@ -41,14 +43,20 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			throw new RuntimeException(e);
 		}
 		System.out.println("username " + user.getUsername());
-		System.out.println("username " + user.getEmail());
+		System.out.println("email " + user.getEmail());
 		System.out.println("password " + user.getPassword());
-		if(user.getUsername() ==null){
-			 return authenticationManager
+
+		if(!user.getUsername().equals("") && user.getUsername() != null){
+			return authenticationManager
+					.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		} else if(!user.getEmail().equals("") && user.getEmail() != null) {
+			return authenticationManager
 					.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
-		} else
-		return authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		} else {
+			return authenticationManager
+					.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+		}
+
 	}
 
 	@Override
