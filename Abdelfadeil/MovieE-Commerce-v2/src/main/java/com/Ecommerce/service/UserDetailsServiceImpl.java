@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		AppUser u =null;
-		u=accountService.findUserByUsername(username);
+		u=accountService.findUserByUsernameOREmail(username);
 		if(u==null) throw new UsernameNotFoundException(username);
 		Collection<GrantedAuthority> authorities=new ArrayList<>();
 		u.getRoles().forEach(r->{
