@@ -66,11 +66,13 @@ public class ECommerceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//flickr.auth();
-/**
- *
-		AppRole role = new AppRole();
-		role.setRoleName("USER");
-		roleRepository.save(role);
+
+		AppRole role2 = new AppRole();
+		AppRole role1 = new AppRole();
+		role1.setRoleName("USER");
+		roleRepository.save(role1);
+		role2.setRoleName("ADMIN");
+		roleRepository.save(role2);
 		UserForm user = new UserForm();
 		user.setUsername("admin");
 		user.setPassword("1234");
@@ -78,8 +80,8 @@ public class ECommerceApplication implements CommandLineRunner {
 		user.setEmail("abdalfadeil@gmail.com");
 		logger.debug("main class");
 		accountService.saveUser(user);
-<<<<<<< HEAD
-*/
+
+
         logger.debug("msg de debogage");
 		logger.info("msg d'information");
 		logger.warn("msg d'avertissement");

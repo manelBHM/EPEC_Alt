@@ -1,15 +1,16 @@
 package com.Ecommerce.service;
 
 
-import com.Ecommerce.entities.UserForm;
+import com.Ecommerce.dao.PanierRepository;
+import com.Ecommerce.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.Ecommerce.dao.RoleRepository;
 import com.Ecommerce.dao.UserRepository;
-import com.Ecommerce.entities.AppRole;
-import com.Ecommerce.entities.AppUser;
+
+import java.util.Map;
 
 @Service
 @Transactional
@@ -19,6 +20,8 @@ public class AccountServiceImpl implements AccountService{
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository roleRepository;
+	@Autowired
+	private PanierRepository panierRepository;
 	@Autowired
 	private VerificationTokenService verificationTokenService;
 	@Autowired
@@ -35,24 +38,28 @@ public class AccountServiceImpl implements AccountService{
 		if(appUser!=null) throw new RuntimeException(userForm.getUsername() +" existe déjà");
 
 		AppUser u = new AppUser();
+		u.setEmail(userForm.getEmail());
+		u.setIsActive(true);
+		u.setAccountNonLocked(true);
+		u.setAccountNonExpired(true);
+		u.setCredentialsNonExpired(true);
+		u.setUsername(username);
+		u.setPassword(bCryptPasswordEncoder.encode(password));
 
 		try {
-			u.setEmail(userForm.getEmail());
-			// u.setIsActive(true);
-			u.setUsername(username);
-			// AppUser user = null;
-			// user = userRepository.save(u);
-			u.setPassword(bCryptPasswordEncoder.encode(password));
-			 AppRole role =roleRepository.findByRoleName("USER");
-
-			 userRepository.save(u);
-
-			//u.getRoles().add(role);
-			//userRepository.CreatePanier(user.getId());
+			 AppRole r1 =roleRepository.findByRoleName("USER");
+			 AppRole r2 =roleRepository.findByRoleName("ADMIN");
+			 u = userRepository.save(u);
+			 u.getRoles().add(r1);
+			 u.getRoles().add(r2);
+		 	 Panier p = new Panier();
+			 p.setAppUser(u);
+			 p =panierRepository.save(p);
+			 System.out.println(p);
 		} catch (Exception e) {
 			System.out.println("error de sevgarde " + e);
 		}
-		verificationTokenService.createVerification(userForm.getEmail());
+		//verificationTokenService.createVerification(userForm.getEmail());
 	    return userRepository.save(u);
 	}
 	@Override
@@ -62,10 +69,7 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	public AppUser findUserByUsername(String username) {
-
 	return userRepository.findByUsername(username);
-
-
 	}
 	@Override
 	public void addRoleToUser(String username, String roleName) {
@@ -78,6 +82,16 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public void deleteUser(Long idUser) {
 	  	userRepository.deleteById(idUser);
+	}
+
+	@Override
+	public AppUser findUserByUsernameOREmail(String usernameOrEmail) {
+		AppUser u =null;
+		u=userRepository.findByUsername(usernameOrEmail);
+		if(u== null){
+			u=userRepository.findByEmail(usernameOrEmail);
+		}
+		return u;
 	}
 
 

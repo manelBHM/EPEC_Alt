@@ -29,8 +29,10 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		u.getRoles().forEach(r->{
 		authorities.add(new SimpleGrantedAuthority(r.getRoleName()));
 		});
-		return new User(u.getUsername(), u.getPassword(),  authorities);
+		return new User(u.getUsername(), u.getPassword(), u.getIsActive(), true, true, true, authorities);
 		}
+
+
 	
 
 }

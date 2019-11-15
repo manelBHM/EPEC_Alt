@@ -6,18 +6,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.LazyCollection;
@@ -41,11 +30,11 @@ import lombok.Setter;
 public class Panier implements Serializable {
 
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@OneToOne
-    @PrimaryKeyJoinColumn
     private AppUser appUser;
 	
 	@OneToMany

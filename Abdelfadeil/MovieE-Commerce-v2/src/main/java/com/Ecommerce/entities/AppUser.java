@@ -32,6 +32,9 @@ public class AppUser implements Serializable{
 	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
 
+    private boolean accountNonExpired = false;
+    private boolean credentialsNonExpired = false;
+    private boolean accountNonLocked= false;
 	private Boolean isActive=false;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
