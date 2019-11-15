@@ -1,4 +1,31 @@
 <div class="articles">
+    <div class="container">
+        <!-- search  -->
+        <div id="search" class="animeForm">
+            <div class="container">
+              <form role="search" class="ml-auto" #f="ngForm" (ngSubmit)="onchercherArticlesCategoryForm(f.value)">
+                <div class="input-group">
+                  <input (keyup)="onchercherArticlesCategoryForm(f.value)" name="mc" type="text" placeholder="Search"
+                    class="form-control" ngModel>
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- end search -->
+
+      <div class="col-lg-12">
+          <!-- breadcrumb-->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li aria-current="page" class="breadcrumb-item active">Categories</li>
+            </ol>
+          </nav>
+        </div>
+       
     <div class="row">
       <div class="col-lg-3" *ngIf="categories">
        
@@ -50,21 +77,7 @@
           </div>
   
         </div>  -->
-        <!-- search  -->
-        <div id="search" class="animeForm">
-          <div class="container">
-            <form role="search" class="ml-auto" #f="ngForm" (ngSubmit)="onchercherArticlesCategoryForm(f.value)">
-              <div class="input-group">
-                <input (keyup)="onchercherArticlesCategoryForm(f.value)" name="mc" type="text" placeholder="Search"
-                  class="form-control" ngModel>
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- end search -->
+      
   
   
   
@@ -73,7 +86,7 @@
   
   
   
-          <div class="product cart-produit" *ngFor="let article of articles.content; let i = index">
+          <div class="col-lg-4 col-md-6 product cart-produit" *ngFor="let article of articles.content; let i = index">
   
             <div class="animate make3D">
               <div class="product-front">
@@ -82,20 +95,18 @@
   
                 <div class="stats">
                   <div class="stats-container">
-                    <span class="product_name">Nom de l'Article</span>
-                    <p>Lorem ipsum commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint oc</p>
-  
-  
+                    <span class="product_name">{{article.name}}</span>
+                    <p>{{article.description}}</p>
                     <div class="product-options">
                       <div class="product_price">
-                        <p>Prix<span class="">$39</span></p>
+                        <p>Prix<span class="">{{article.prix}} $</span></p>
                       </div>
-                      <div (click)="ajouterArticlePanier(article)" class="btn btn-outline-success add_to_cart"><i
-                          class="fa fa-shopping-cart"></i></div>
-                      <div (click)="afficherArticle(article.id)" class="btn btn-outline-info view_gallery"><i
-                          class="fa fa-eye-slash"></i> Afficher</div>
-                    </div>
+                     
+
+                        <div (click)="ajouterArticlePanier(article)" class="btn btn-outline-success add_to_cart"> <i class="fa fa-shopping-cart"></i></div>
+                        <div (click)="afficherArticle(article.idArticle)" class="btn btn-outline-info view_gallery"><i class="fa fa-eye-slash"></i></div>
+                      </div>
+                  
                   </div>
                 </div>
               </div>
@@ -111,3 +122,6 @@
      
   
     </div>
+
+  </div>
+  

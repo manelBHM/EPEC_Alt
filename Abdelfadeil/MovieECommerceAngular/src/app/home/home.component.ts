@@ -2,6 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleServiceService } from '../service/article-service.service';
 import { AuthentificationService } from '../service/authentification.service';
+import { JwtHelper } from 'angular2-jwt';
+import { UserModule } from '../user/user.module';
+import { User } from '../user.model';
+import { templateJitUrl } from '@angular/compiler';
 
 declare var $;
 
@@ -27,17 +31,33 @@ export class HomeComponent implements OnInit {
   tour:number=4;
   public mc:any;
 
+  constructor(private articleService:ArticleServiceService,
+     private router:Router, private autService:AuthentificationService) { }
 
-  constructor(private articleService:ArticleServiceService, private router:Router, private autService:AuthentificationService) { }
 
 
   ngOnInit() {
-      this.chercherArticles();
+     this.chercherArticles();
+     console.log(this.autService.username)
+
+     this.autService.chargerUserInfo().subscribe(data=> {
+       this.autService.user=data;
+       console.log("charger user  "+this.autService.user);
+       console.log("charger user  "+this.autService.user);
+     },error => {
+      console.log("charger user error ");
+
+     })
 
   }
 
   slider(){
-
+    // this.autService.getUserInfo(this.autService.username).subscribe(data => {
+    //   let user =data;
+    //   this.autService.user=data;
+    //   console.log(this.autService.user);
+    //  })
+//
   }
 
 
@@ -45,9 +65,9 @@ export class HomeComponent implements OnInit {
   chercherArticles() {
     this.articleService.getArticles(this.currentMotCle, this.currentPage, this.size).subscribe(data=> {
       console.log(data);
-      console.log(this.totalPages);
-      this.totalPages=data["pageable"].tottotalPages;
+      this.totalPages=data['totalPages'];
       this.pages= new Array<number>(this.totalPages);
+      console.log(this.totalPages);
       this.articles=data;
 
     }, err=> {

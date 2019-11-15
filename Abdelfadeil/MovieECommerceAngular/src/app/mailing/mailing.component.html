@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Envoyer un email</h1>
+
+    <form class="" #f="ngForm" (ngSubmit)="onSubmit(f)">
+       <div class="row">
+        <div class="col-md-7">
+          <div class="form-group row">
+           <p>de :</p> <input  type="email" class="form-control" name="mailSender" ngModel>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group row">
+            <p>à :</p><input  type="email" class="form-control" name="mailReciver" ngModel>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group row">
+           <p>CC:</p> <input  type="text" class="form-control ngModel" name="copieMails" ngModel>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-group row">
+            <p>Sujet</p> <input type="text" class="form-control" name="sujet" ngModel>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-7">
+          <div class="form-group row">
+            <label >Text: </label>
+            <textarea  type="text" class="form-control" name="text" ngModel></textarea>
+          </div>
+        </div>
+         <div class="col-md-7">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Pièce Jointe</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+         </div>
+        <div class="col-md-6 text-center">
+          <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
+        </div>
+       </div>
+      <!-- /.row-->
+    </form>
+
+  </div>
+</div>

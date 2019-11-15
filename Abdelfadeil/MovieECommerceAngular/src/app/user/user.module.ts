@@ -10,13 +10,14 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class UserModule {
- 
+  public username: String;
+  public password: String;
+  public repassword: String;
+  public email:String;
 
- constructor(
-   public username: String,
-    public password: String, 
-    public repassword: String
-   ){
 
- }
+
+    constructor( ){}
+
+
  }

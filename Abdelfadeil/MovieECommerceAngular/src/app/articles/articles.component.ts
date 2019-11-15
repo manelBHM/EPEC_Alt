@@ -4,6 +4,8 @@ import { ArticleModule } from '../article/article.module';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { CategoryService } from '../service/category.service';
 import { CategoryModule } from '../category/category.module';
+import { LigneCommandeModule } from '../ligne-commande/ligne-commande.module';
+import { AuthentificationService } from '../service/authentification.service';
 
 @Component({
   selector: 'app-articles',
@@ -23,7 +25,7 @@ export class ArticlesComponent implements OnInit {
   pages: number[];
   catPages: number[];
   articles;
-  article;
+  article :ArticleModule = new ArticleModule();
   id:any;
   currentId;
   catCurrentId;
@@ -32,10 +34,15 @@ export class ArticlesComponent implements OnInit {
  formSearch: boolean= true;
   show: boolean =false;
   categories;
-  listPanier: Object;
-  ligneCommande: Object;
+  listPanier: ArticleModule[];
+  ligneCommande: LigneCommandeModule;
 
-  constructor(private articleService:ArticleServiceService, private router:Router, private route: ActivatedRoute, private categoryService:CategoryService)
+  constructor(
+    private articleService:ArticleServiceService, 
+    private router:Router, private route: ActivatedRoute, 
+    private categoryService:CategoryService,
+    private autService:AuthentificationService
+    )
    { 
     this.router.events.subscribe( val => {
       if(val instanceof NavigationEnd) {
@@ -50,7 +57,7 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit() {
     this. getAllCategories();
-
+    console.log(this.autService.user);
   }
 
   
@@ -148,14 +155,21 @@ export class ArticlesComponent implements OnInit {
     })
   }
   
-  ajouterArticlePanier(article, id){
-    this.articleService.addToCart(article, id).subscribe(data=> {
+  ajouterArticlePanier(article:ArticleModule){
+    this.articleService.addToCart(article).subscribe(data=> {
       this.ligneCommande=data;
     }, error=> {
       console.log(error);
     })
   }
   
+  getArticle(id){
+    this.articleService.getArticle(id).subscribe(data=> {
+      this.article=data;
+    }, error=> {
+      console.log(error);
+    })
+  }
   afficherArticle(id){
     
       this.router.navigateByUrl('/article/'+id)

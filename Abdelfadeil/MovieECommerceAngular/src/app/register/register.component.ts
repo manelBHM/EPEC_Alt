@@ -4,6 +4,7 @@ import { UserModule } from '../user/user.module';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AuthentificationService } from '../service/authentification.service';
+import {User} from "../user.model";
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { AuthentificationService } from '../service/authentification.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user: UserModule;
+  user: User;
   mode: number;
   errorMessage: any;
 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/login');
     },
       err=>{
-     
+
       });
   }
 

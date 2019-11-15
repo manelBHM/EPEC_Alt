@@ -11,14 +11,15 @@ import { ArticleComponent } from './article.component';
   ]
 })
 export class ArticleModule {
-  
+
   idArticle:number;
   name:String;
   description:String;
-  price:number;
+  prix:number;
   quantity:number;
   photo:String;
   nomCategory:String;
   disponible:boolean;
+  totalPages: number;
 
 }

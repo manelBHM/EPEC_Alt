@@ -11,6 +11,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { AjouterArticleComponent } from './ajouter-article/ajouter-article.component';
 import { PanierComponent } from './panier/panier.component';
 import { EditerArticleComponent } from './editer-article/editer-article.component';
+import {MailingComponent} from "./mailing/mailing.component";
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path: 'editer-article/:id', component: EditerArticleComponent},
     { path: 'article/:id', component: EditerArticleComponent},
     { path: 'panier', component: PanierComponent},
+    { path: "mailing", component: MailingComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: NotFoundComponent }
 

@@ -17,6 +17,8 @@ import { FlxUiDatatableModule,FlxUiDataTable } from 'flx-ui-datatable';
 import { AjouterArticleComponent } from './ajouter-article/ajouter-article.component';
 import { EditerArticleComponent } from './editer-article/editer-article.component';
 import { PanierComponent } from './panier/panier.component';
+import { AuthentificationService } from './service/authentification.service';
+import { MailingComponent } from './mailing/mailing.component';
 
 
 declare var require: any;
@@ -34,6 +36,7 @@ declare var require: any;
     AjouterArticleComponent,
     EditerArticleComponent,
     PanierComponent,
+    MailingComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,11 +52,13 @@ declare var require: any;
   bootstrap: [AppComponent]
 })
 export class AppModule implements OnInit{
+ 
+  constructor(private autService:AuthentificationService){}
 
 
   ngOnInit(): void {
    
-  } 
+  }
 
 
 

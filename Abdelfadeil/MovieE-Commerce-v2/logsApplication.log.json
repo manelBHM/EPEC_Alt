@@ -572,3 +572,8 @@
 {"debug_level":"WARN","debug_timestamp":"2019-11-15 00:29:12,486","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"85","debug_message":"msg d'avertissement"},
 {"debug_level":"ERROR","debug_timestamp":"2019-11-15 00:29:12,486","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"86","debug_message":"msg d'erreur"},
 {"debug_level":"FATAL","debug_timestamp":"2019-11-15 00:29:12,486","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"87","debug_message":"msg d'erreur fatale"},
+{"debug_level":"DEBUG","debug_timestamp":"2019-11-15 00:34:26,861","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"83","debug_message":"msg de debogage"},
+{"debug_level":"INFO","debug_timestamp":"2019-11-15 00:34:26,862","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"84","debug_message":"msg d'information"},
+{"debug_level":"WARN","debug_timestamp":"2019-11-15 00:34:26,863","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"85","debug_message":"msg d'avertissement"},
+{"debug_level":"ERROR","debug_timestamp":"2019-11-15 00:34:26,863","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"86","debug_message":"msg d'erreur"},
+{"debug_level":"FATAL","debug_timestamp":"2019-11-15 00:34:26,863","debug_thread":"restartedMain","debug_file":"ECommerceApplication.java", "debug_line":"87","debug_message":"msg d'erreur fatale"},

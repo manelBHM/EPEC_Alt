@@ -178,3 +178,18 @@ ul li a:hover {
   } */
 
 }
+
+
+
+.col-lg-4.product.cart-produit {
+  padding: 0;
+  width: 235px;
+  height: 370px;
+}
+
+
+.col-lg-4.product.cart-produit:hover {
+  padding: 0;
+  width: 235px;
+  height: 370px;
+}

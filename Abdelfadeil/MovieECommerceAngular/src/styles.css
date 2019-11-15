@@ -257,8 +257,8 @@ body {
 .product {
   position: relative;
   perspective: 800px;
-  width: 306px;
-  height: 471px;
+  width: 235px;
+  height: 370px;
   transform-style: preserve-3d;
   transition: transform 0.8s;
   margin: auto;
@@ -267,8 +267,8 @@ body {
   width: 100%;
 }
 .product-front {
-  width: 315px;
-  height: 480px;
+  width: 235px !important;
+  height: 370px !important;
   background: #fff;
   position: absolute;
   left: -5px;
@@ -280,20 +280,32 @@ body {
 }
 
 .product.cart-produit:hover {
-  box-shadow: 0px 5px 31px -1px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15); */
 }
 
+
+.articles .product.cart-produit {
+  width: 275px !important;
+}
+
+.articles .product.cart-produit:hover {
+  width: 275px !important;
+}
+
+.stats {
+  height: auto !important;
+}
 .stats-container {
-  background: #fff;
+  background: white;
   position: absolute;
   top: 382px;
-  left: 0;
-  width: 252px;
-  height: 300px;
+  top: 200px;
+  width: 235px;
+  height: 180px;
   padding: 24px 40px 35px 32px;
 }
 .make3D.animate .stats-container {
-  top: 265px;
+  top: 200px;
 }
 .stats-container .product_name {
   font-size: 15px;
@@ -310,8 +322,8 @@ body {
   color: #5ff7d2;
   font-size: 22px;
   font-weight: 600;
-  width: 315px;
-  height: 205px;
+  width: 235px;
+  height: 170px;
   padding: 5px !important;
 }
 .image_overlay {
@@ -356,8 +368,8 @@ body {
   position: absolute;
   display: flex;
   margin: auto;
-  top: 128px;
-  left: 10%;
+  top: 100px;
+  right: 0%;
 }
 
 .product-options div {
@@ -384,6 +396,9 @@ div.add_to_cart {
   cursor: pointer;
   border: 1px solid #5ff7d2;
   height: 60px;
+  width: 60px !important;
+  margin: 5px 5px;
+
 }
 .btn.btn-outline-success.add_to_cart:hover {
   background:  #d6d3d3;
@@ -415,13 +430,17 @@ div.view_gallery {
   text-align: center;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 12px;
+  padding: 18px;
   opacity: 1;
   background: #fff;
   color: #5ff7d2;
   cursor: pointer;
   border: 1px solid #5ff7d2;
   height: 60px;
+  width: 60px !important;
+  margin: 5px 5px;
+  
+  /* margin: auto !important;  */
 }
 .btn.btn-outline-info.view_gallery:hover {
     background:  #d6d3d3;
@@ -459,4 +478,14 @@ div.view_gallery {
 .row.spacer.add-btn button i {
   color: rgb(15, 15, 56);
   font-size: 1.5em;
+}
+
+.articles .col-lg-12 {
+  margin: 0;
+  padding: 0;
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0px;
 }
