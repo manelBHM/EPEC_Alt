@@ -27,6 +27,8 @@ public class AccountController {
 	@Autowired
 	private VerificationTokenService verificationTokenService;
 
+
+
 	@PostMapping("/signup")
 	public AppUser signup(@RequestBody UserForm userForm) {
 		    return accountService.saveUser(userForm);
@@ -61,6 +63,11 @@ public class AccountController {
 		  return verificationTokenService.verifyEmail(token, username);
 
 	}
-	
+
+	@PostMapping("/send-password/{id}")
+	public void resendPassword( @PathVariable("id") Long id)  {
+      accountService.resendPassword(id);
+
+	}
 
 }

@@ -2,15 +2,18 @@ package com.Ecommerce.service;
 
 
 import com.Ecommerce.dao.PanierRepository;
-import com.Ecommerce.entities.*;
+import com.Ecommerce.dao.RoleRepository;
+import com.Ecommerce.dao.UserRepository;
+import com.Ecommerce.entities.AppRole;
+import com.Ecommerce.entities.AppUser;
+import com.Ecommerce.entities.Panier;
+import com.Ecommerce.entities.UserForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.Ecommerce.dao.RoleRepository;
-import com.Ecommerce.dao.UserRepository;
 
-import java.util.Map;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -24,6 +27,8 @@ public class AccountServiceImpl implements AccountService{
 	private PanierRepository panierRepository;
 	@Autowired
 	private VerificationTokenService verificationTokenService;
+	@Autowired
+	private SendingMailService mailService;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
@@ -39,10 +44,6 @@ public class AccountServiceImpl implements AccountService{
 
 		AppUser u = new AppUser();
 		u.setEmail(userForm.getEmail());
-		u.setIsActive(true);
-		u.setAccountNonLocked(true);
-		u.setAccountNonExpired(true);
-		u.setCredentialsNonExpired(true);
 		u.setUsername(username);
 		u.setPassword(bCryptPasswordEncoder.encode(password));
 
@@ -59,7 +60,7 @@ public class AccountServiceImpl implements AccountService{
 		} catch (Exception e) {
 			System.out.println("error de sevgarde " + e);
 		}
-		//verificationTokenService.createVerification(userForm.getEmail());
+		verificationTokenService.createVerification(userForm.getEmail());
 	    return userRepository.save(u);
 	}
 	@Override
@@ -95,6 +96,18 @@ public class AccountServiceImpl implements AccountService{
 		}
 
 	}
+
+    @Override
+	public void resendPassword(Long id)  {
+		AppUser u = userRepository.findById(id).get();
+		String uuid = UUID.randomUUID().toString();
+		u.setPassword(bCryptPasswordEncoder.encode(uuid));
+        userRepository.save(u);
+		String msg = "Votre mot de passe : "+ uuid;
+		mailService.sendingMail(u.getEmail(), msg);
+
+	}
+
 
 
 }

@@ -2,6 +2,7 @@
   <!--
   *** TOPBAR ***
   _________________________________________________________
+  [routerLink]="['/articles/all']"
   -->
   <div id="top">
     <div class="container">
@@ -10,9 +11,9 @@
             href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
         <div class="col-lg-6 text-center text-lg-right">
           <ul class="menu list-inline mb-0">
-              <li *ngIf="this.authService .logoutbtn" class="list-inline-item"><a class="clickable" (click)="onLogout()">Logout</a></li>
-            <li *ngIf="this.authService.loginbtn" class="list-inline-item"><a routerLink="/login">Login</a></li>
-            <li *ngIf="this.authService.loginbtn" class="list-inline-item"><a routerLink="/register">sign up</a></li>
+              <li *ngIf="authService.logoutbtn" class="list-inline-item"><a class="clickable" (click)="onLogout()">Logout</a></li>
+            <li *ngIf="authService.loginbtn" class="list-inline-item"><a [routerLink]="['/login']">Login</a></li>
+            <li *ngIf="authService.signupbtn" class="list-inline-item"><a [routerLink]="['/register']">sign up</a></li>
             <li  class="list-inline-item"><a href="/">Contact</a></li>
             <li class="list-inline-item"><a href="#">Recently viewed</a></li>
           </ul>
@@ -25,9 +26,9 @@
   </div>
 
   <nav class="navbar navbar-expand-lg">
-    <div class="container"><a href="index.html" class="navbar-brand home"><img src="img/logo.png" alt="Obaju logo"
-          class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Obaju logo"
-          class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
+    <div class="container"><a href="index.html" class="navbar-brand home"><img src="" alt="asmar logo"
+          class="d-none d-md-inline-block"><img src="" alt="asmar logo"
+          class="d-inline-block d-md-none"><span class="sr-only">Asmar homepage</span></a>
       <div class="navbar-buttons">
         <button (click)="showMenu()" [ngClass]="{'collapsed': show}" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="show"
           class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i

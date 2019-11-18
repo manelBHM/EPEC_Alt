@@ -52,12 +52,19 @@ declare var require: any;
   bootstrap: [AppComponent]
 })
 export class AppModule implements OnInit{
- 
+
   constructor(private autService:AuthentificationService){}
 
 
   ngOnInit(): void {
-   
+    this.autService.chargerUserInfo().subscribe(data=> {
+      this.autService.user=data;
+      console.log("charger user  "+this.autService.user);
+      console.log("charger user  "+this.autService.user);
+    },error => {
+      console.log("charger user error ");
+
+    })
   }
 
 

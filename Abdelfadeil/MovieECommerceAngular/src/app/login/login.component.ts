@@ -12,10 +12,16 @@ import { UserModule } from '../user/user.module';
 export class LoginComponent implements OnInit {
   private mode = 0;
   constructor(private authService: AuthentificationService, private router: Router, private http:HttpClient) { }
+
+
   ngOnInit() {
     let token = this.authService.loadToken();
-    if (token)
-      this.router.navigateByUrl("/home");
+    if (token !=null){
+      this.router.navigateByUrl('/home');
+    }else {
+      this.authService.logout();
+    }
+
   }
   onLogin(formData) {
     this.authService.login(formData)
@@ -23,16 +29,18 @@ export class LoginComponent implements OnInit {
         let jwtToken = resp.headers.get('authorization');
         this.authService.saveToken(jwtToken);
         this.authService.loginbtn=false;
-        this.authService.logoutbtn=true;
+          this.authService.signupbtn =false;
+          this.authService.logoutbtn=true;
+
         this.router.navigateByUrl('/home');
 
       },
       err => {
         // this.mode = 1;
         this.authService.logout();
-        this.router.navigateByUrl('/login');
+       //this.router.navigateByUrl('/login');
       })
-     // this.getUserInfo(this.authService.username);
+
 
   }
 

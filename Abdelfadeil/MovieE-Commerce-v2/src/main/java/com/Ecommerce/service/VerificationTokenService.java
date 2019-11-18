@@ -48,6 +48,9 @@ public class VerificationTokenService {
         verificationToken.setConfirmedDateTime(LocalDateTime.now());
         verificationToken.setStatus(STATUS_VERIFIED);
         user.setIsActive(true);
+        user.setAccountNonLocked(true);
+        user.setAccountNonExpired(true);
+        user.setCredentialsNonExpired(true);
         user.setVerificationToken(verificationToken);
          verificationTokenRepository.save(verificationToken);
         return userRepository.save(user);

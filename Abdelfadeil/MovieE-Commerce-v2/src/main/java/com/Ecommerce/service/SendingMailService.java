@@ -94,4 +94,20 @@ public class SendingMailService {
         emailSender.send(message);
     }
 
+    public void sendingMail( String to, String text) {
+        String subject = "Please verify your email";
+        MimeMessage message = emailSender.createMimeMessage();
+        MimeMessageHelper helper = null;
+        try {
+            helper = new MimeMessageHelper(message, true);
+            helper.setFrom("dadeil.dev1@gmail.com");
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(text);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        emailSender.send(message);
+    }
+
 }

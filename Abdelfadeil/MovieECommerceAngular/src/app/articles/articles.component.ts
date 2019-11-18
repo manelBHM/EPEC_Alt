@@ -24,7 +24,9 @@ export class ArticlesComponent implements OnInit {
   catTotalPages: number;
   pages: number[];
   catPages: number[];
-  articles;
+  public articles:any;
+  public ligneCommandes : Array<LigneCommandeModule> = new Array<LigneCommandeModule>();
+
   article :ArticleModule = new ArticleModule();
   id:any;
   currentId;
@@ -34,20 +36,19 @@ export class ArticlesComponent implements OnInit {
  formSearch: boolean= true;
   show: boolean =false;
   categories;
-  listPanier: ArticleModule[];
   ligneCommande: LigneCommandeModule;
 
   constructor(
-    private articleService:ArticleServiceService, 
-    private router:Router, private route: ActivatedRoute, 
+    private articleService:ArticleServiceService,
+    private router:Router, private route: ActivatedRoute,
     private categoryService:CategoryService,
     private autService:AuthentificationService
     )
-   { 
+   {
     this.router.events.subscribe( val => {
       if(val instanceof NavigationEnd) {
         this.url = val.url;
-        console.log(this.url);
+        //console.log(this.url);
         this.currentId= this.route.snapshot.params.id;
         this.chercherArticlesCategory();
       }
@@ -60,7 +61,7 @@ export class ArticlesComponent implements OnInit {
     console.log(this.autService.user);
   }
 
-  
+
 
   onchercherArticles() {
     this.articleService.getArticles(this.currentMotCle, this.currentPage, this.size).subscribe(data => {
@@ -71,7 +72,7 @@ export class ArticlesComponent implements OnInit {
        this.articles=data;
     }, error => {
       console.log(error);
-      this.router.navigateByUrl('/login')
+      this.router.navigate(['/login']);
     }
     )
   }
@@ -93,7 +94,7 @@ export class ArticlesComponent implements OnInit {
      }
      )
     } else {
-      //this.catCurrentId= 
+      //this.catCurrentId=
       this.articleService.getArticlesCategory(this.currentId, this.currentMotCle, this.currentPage, this.size).subscribe(data => {
         console.log(data);
         this.totalPages=data["pageable"].totalPages;
@@ -110,7 +111,7 @@ export class ArticlesComponent implements OnInit {
     this.currentId= id;
     if(this.currentId =='all'){
       this.router.navigateByUrl('/articles/'+ this.currentId);
-      
+
     }else {
       this.router.navigateByUrl('/articles/'+ this.currentId);
     }
@@ -122,7 +123,7 @@ export class ArticlesComponent implements OnInit {
     if(this.currentId == 'all'){
       this.onchercherArticles();
     }else {
-    
+
       console.log('on chercher by id méthode this.currentId= '+this.currentId);
       this.articleService.getArticlesCategory(this.currentId, this.currentMotCle, this.currentPage, this.size).subscribe(data => {
         console.log(data);
@@ -135,7 +136,7 @@ export class ArticlesComponent implements OnInit {
      }
      )
     }
-   
+
   }
 
   onNavigateCagegory(id){
@@ -154,7 +155,7 @@ export class ArticlesComponent implements OnInit {
       console.log(error);
     })
   }
-  
+
   ajouterArticlePanier(article:ArticleModule){
     this.articleService.addToCart(article).subscribe(data=> {
       this.ligneCommande=data;
@@ -162,7 +163,7 @@ export class ArticlesComponent implements OnInit {
       console.log(error);
     })
   }
-  
+
   getArticle(id){
     this.articleService.getArticle(id).subscribe(data=> {
       this.article=data;
@@ -171,11 +172,11 @@ export class ArticlesComponent implements OnInit {
     })
   }
   afficherArticle(id){
-    
+
       this.router.navigateByUrl('/article/'+id)
-   
+
   }
- 
+
 
 
 

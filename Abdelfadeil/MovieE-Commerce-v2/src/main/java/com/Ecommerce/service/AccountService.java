@@ -12,5 +12,5 @@ public interface AccountService {
 	public void addRoleToUser(String username, String roleName);
 	public void deleteUser(Long idUser);
 	public AppUser findUserByUsernameOREmail(String usernameOrEmail);
-    
+	public void resendPassword(Long id);
 }

@@ -38,17 +38,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
      this.chercherArticles();
-     console.log(this.autService.username)
-
-     this.autService.chargerUserInfo().subscribe(data=> {
-       this.autService.user=data;
-       console.log("charger user  "+this.autService.user);
-       console.log("charger user  "+this.autService.user);
-     },error => {
-      console.log("charger user error ");
-
-     })
-
+     console.log(this.autService.username);
   }
 
   slider(){
@@ -73,7 +63,7 @@ export class HomeComponent implements OnInit {
     }, err=> {
       console.log(err);
       this.autService.logout();
-      this.router.navigateByUrl('/login');
+     // this.router.navigateByUrl('/login');
     })
 
 

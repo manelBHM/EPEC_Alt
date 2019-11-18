@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   mode: number;
   public formSearch: boolean= true;
   public show: boolean =false;
- 
+
   constructor(private authService: AuthentificationService,private router: Router) { }
 
   ngOnInit() {
@@ -34,5 +34,7 @@ this.authService.loginbtn
     this.authService.logout();
   }
 
-  
+  registerPage(){
+    this.router.navigateByUrl("/register");
+  }
 }

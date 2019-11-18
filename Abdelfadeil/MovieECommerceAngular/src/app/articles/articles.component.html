@@ -25,17 +25,17 @@
             </ol>
           </nav>
         </div>
-       
+
     <div class="row">
       <div class="col-lg-3" *ngIf="categories">
-       
+
          <!-- sidbar -->
       <div class="card sidebar-menu mb-4">
           <div class="card-header">
             <h3 class="h4 card-title"> <li (click)="onchercherArticlesCategory('all')" class="clickable " >
                <a>Categories</a> </li></h3>
           </div>
-   
+
           <div class="card-body">
             <ul class="nav nav-pills flex-column category-menu">
                 <li  (click)="onchercherArticlesCategory('all')" [ngClass]="currentId=='all'?'active': ''"> <a class="nav-link">toutes les categories</a> </li>
@@ -46,53 +46,50 @@
           </div>
          </div>
    <!-- end sidbar -->
-  
+
           <!-- <ul>
             <li class="clickable " [ngClass]="currentId=='all'?'active': ''" (click)="onchercherArticlesCategory('all')">
               <a>Toutes les Categories</a> </li>
               <li *ngFor="let c of categories.content; let i = index" class="clickable "
               [ngClass]="currentId==c.idCategory?'active': ''" (click)="onchercherArticlesCategory(c.idCategory)">
               <a>{{c.name}}</a> </li>
-              
+
             </ul> -->
-            
+
           </div>
-  
+
       <div class="contenu col-lg-9">
          <!--
         <div class="row whith-media">
-  
+
           <div class="" *ngIf="categories">
-         
+
             <ul>
-  
+
               <li class="clickable " [ngClass]="currentId=='all'?'active': ''"
                 (click)="onchercherArticlesCategory('all')"> <a>Toutes les Categories</a> </li>
               <li *ngFor="let c of categories.content; let i = index" class="clickable "
                 [ngClass]="currentId==c.idCategory?'active': ''" (click)="onchercherArticlesCategory(c.idCategory)">
                 <a>{{c.name}}</a> </li>
-  
+
             </ul>
-  
+
           </div>
-  
+
         </div>  -->
-      
-  
-  
-  
+
+
+
+
         <div class="row" *ngIf="articles">
-  
-  
-  
-  
+
           <div class="col-lg-4 col-md-6 product cart-produit" *ngFor="let article of articles.content; let i = index">
-  
+
             <div class="animate make3D">
               <div class="product-front">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1.jpg" alt="">
+                <img  src="{{article.photo}}" alt="">
                 <div class="image_overlay"></div>
-  
+
                 <div class="stats">
                   <div class="stats-container">
                     <span class="product_name">{{article.name}}</span>
@@ -101,27 +98,26 @@
                       <div class="product_price">
                         <p>Prix<span class="">{{article.prix}} $</span></p>
                       </div>
-                     
+
 
                         <div (click)="ajouterArticlePanier(article)" class="btn btn-outline-success add_to_cart"> <i class="fa fa-shopping-cart"></i></div>
                         <div (click)="afficherArticle(article.idArticle)" class="btn btn-outline-info view_gallery"><i class="fa fa-eye-slash"></i></div>
                       </div>
-                  
+
                   </div>
                 </div>
               </div>
             </div>
-  
+
             <br>
-  
-  
+
+
           </div>
         </div>
-  
+
       </div>
-     
-  
+
+
     </div>
 
   </div>
-  

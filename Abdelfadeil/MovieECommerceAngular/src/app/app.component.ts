@@ -18,26 +18,19 @@ export class AppComponent implements OnInit{
   mode: number;
 
 
-constructor(public authService: AuthentificationService, private router:Router){}
+constructor(public autService: AuthentificationService, private router:Router){}
 
    ngOnInit(): void {
-    if(this.authService.loadToken==null){
-      this.authService.loginbtn=true;
-      this.authService.logoutbtn = false;
-    } else {
-      this.authService.loginbtn=false;
-      this.authService .logoutbtn = true;
-    }
-    
-   
+
+
    }
   onLogout(){
-    this.authService.jwtToken= null;
+    this.autService.jwtToken= null;
     localStorage.removeItem('token');
-    this.authService.logout();
+    this.autService.logout();
     }
 
-    
+
 
 
 

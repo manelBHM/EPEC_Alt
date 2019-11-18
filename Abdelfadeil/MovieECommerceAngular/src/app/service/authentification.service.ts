@@ -15,11 +15,12 @@ export class AuthentificationService {
    roles: Array<any> = [];
   username: String="";
   loginbtn: boolean =true;
+  signupbtn: boolean =true;
   logoutbtn: boolean=false;
-  id:number;
-  user: User= new User( this.id , '', '', '', '', '', '');
+  public id:number;
+  public user: User= new User( this.id , '', '', '', '', '', '');
 
- 
+
   constructor(private http: HttpClient, private router:Router) { }
 
 
@@ -48,7 +49,7 @@ export class AuthentificationService {
   register(user) {
     return this.http.post<UserModule>(this.host+ "/signup", user);
   }
- 
+
   chargerUserInfo(){
     if(this.jwtToken==null)
     this.jwtToken = this.loadToken();
@@ -59,6 +60,7 @@ export class AuthentificationService {
     this.jwtToken= null;
     localStorage.removeItem('token');
     this.loginbtn =true;
+    this.signupbtn =true;
     this.logoutbtn=false;
     this.router.navigateByUrl('/login');
     }
