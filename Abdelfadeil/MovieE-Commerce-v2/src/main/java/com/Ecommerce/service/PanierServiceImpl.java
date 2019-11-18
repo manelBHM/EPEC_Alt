@@ -58,7 +58,7 @@ public class PanierServiceImpl implements PanierService {
 
 	@Override
 	public LigneCommande AddArticlePanier(Long userId, Article a) {
-		Panier p = panierRepository.getOne(userId);
+		Panier p = panierRepository.findByAppUserId(userId);
 		LigneCommande arCom = null;
 		Map<Long, LigneCommande> items = p.getItems();
 		LigneCommande lc = items.get(a.getIdArticle());
@@ -121,16 +121,10 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public List<LigneCommande> getAllArticlesPanier(Long idPanier) {
+	public Map<Long, LigneCommande> getAllArticlesPanier(Long idPanier) {
 		Panier p = panierRepository.getOne(idPanier);
-		List<LigneCommande> list= new ArrayList<LigneCommande>();
-		Map<Long, LigneCommande> map = p.getItems();
-		map.forEach((key, value) -> {
-		   // System.out.println("Key : " + key + " Value : " + value);
-			list.add(value);
-		});
-		 
-		  return list;
+		return p.getItems();
+
 
 	}
 
@@ -155,9 +149,9 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public Collection<LigneCommande> getAllPanierPage(Long id) {
-		Panier p = panierRepository.findByAppUserId(id);
-		return p.getItems().values();
+	public Map<Long, LigneCommande> getAllPanier(Long idUser) {
+		Panier p = panierRepository.findByAppUserId(idUser);
+		return p.getItems();
 	}
 
 }

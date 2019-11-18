@@ -23,8 +23,8 @@ public interface PanierService {
 	public LigneCommande UpdateArticlePanier(LigneCommande article);
 	public LigneCommande getArticlePanier(Long id);
 	public void deleteAllArticlesPanier(Long idPanier);
-	public List<LigneCommande> getAllArticlesPanier(Long idPanier) ;
-	public Collection<LigneCommande> getAllPanierPage(Long id);
+	public Map<Long, LigneCommande> getAllArticlesPanier(Long idPanier) ;
+	public Map<Long, LigneCommande> getAllPanier(Long id);
 	public void modifierQuantity(Long idArticle);
 
 }

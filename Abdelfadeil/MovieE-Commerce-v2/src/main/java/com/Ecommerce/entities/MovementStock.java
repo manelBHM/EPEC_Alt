@@ -1,5 +1,7 @@
 package com.Ecommerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,8 +23,8 @@ public class MovementStock implements Serializable{
 	@Id
 	@GeneratedValue
 	private Long idMvtStk;
-	
-	@Temporal(TemporalType.TIMESTAMP)
+
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date dateMvt;
 	
 	private BigDecimal quantite;

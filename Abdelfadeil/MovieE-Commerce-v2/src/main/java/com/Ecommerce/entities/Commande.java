@@ -2,9 +2,7 @@ package com.Ecommerce.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -40,14 +38,14 @@ public class Commande implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idCommand;
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDate dateCommande;
 	@ManyToOne
 	@JoinColumn(name="id_appUser")
 	private AppUser appUser;
     @JsonManagedReference
 	@OneToMany(mappedBy = "commande")
-	private Collection<LigneCommande> articles = new ArrayList<>();
+	private Map<Long, LigneCommande> articles = new HashMap<>();
 	 
 	 
 	

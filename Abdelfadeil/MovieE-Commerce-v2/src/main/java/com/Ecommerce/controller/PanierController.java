@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin("*")
@@ -74,23 +75,23 @@ public class PanierController {
 	}
 	
 	
-	@GetMapping(value="/getAllArticlesList/{id}")
-	public Collection<LigneCommande> getAllArticlesPanier(@PathVariable("id") Long id)
+	@GetMapping(value="/ge-articles-id-user/{id}")
+	public Map<Long, LigneCommande> getAllArticlesPanier(@PathVariable("id") Long idUser)
 	    {
-		return   panierService.getAllArticlesPanier(id);
+		return   panierService.getAllPanier(idUser);
 		} 
 	
-	@GetMapping(value="/getAllArticles-page")
-	public Page<LigneCommande> getAllArticlesPanierPage(
+	@GetMapping(value="/get-articles-username")
+	public Map<Long, LigneCommande> getAllArticlesPanierPage(
 			@RequestParam("username") String username,
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="10") int size
 			)
 	    {
 		AppUser u=userRepository.findByUsername(username);
-		List<LigneCommande> lcmd=   panierService.getAllArticlesPanier(u.getId());
-	    Page<LigneCommande> pages = new PageImpl<LigneCommande>(lcmd, PageRequest.of(page, size), lcmd.size());
-		  return pages;
+			return   panierService.getAllArticlesPanier(u.getId());
+	    //Page<LigneCommande> pages = new PageImpl<LigneCommande>(lcmd, PageRequest.of(page, size), lcmd.size());
+
 		} 
 	
 	@DeleteMapping(value="/deleteAllArticles/{idPanier}")

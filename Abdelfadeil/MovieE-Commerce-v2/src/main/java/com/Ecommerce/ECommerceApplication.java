@@ -46,7 +46,8 @@ public class ECommerceApplication implements CommandLineRunner {
     public SendingMailService emailService;
     @Autowired
 	public IFlickrService flickrService;
-
+    @Autowired
+    public CommandeRepository commandeRepository;
 
 
 
@@ -67,21 +68,59 @@ public class ECommerceApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//flickr.auth();
 
-	/*
+		Panier p = new Panier();
+
 		AppRole role2 = new AppRole();
 		AppRole role1 = new AppRole();
 		role1.setRoleName("USER");
 		roleRepository.save(role1);
 		role2.setRoleName("ADMIN");
 		roleRepository.save(role2);
-		UserForm user = new UserForm();
+
+		//UserForm user = new UserForm();
+		AppUser user = new AppUser();
 		user.setUsername("admin");
-		user.setPassword("1234");
-		user.setRepassword("1234");
+		user.setPassword(bCryptPasswordEncoder.encode("1234"));
+		user.setCredentialsNonExpired(true);
+		user.setAccountNonExpired(true);
+		user.setAccountNonLocked(true);
+		user.setIsActive(true);
 		user.setEmail("abdalfadeil@gmail.com");
 		logger.debug("main class");
-		accountService.saveUser(user);
-	*/
+		AppUser u = userRepository.save(user);
+		p.setAppUser(u);
+
+		p=panierRepository.save(p);
+		u=userRepository.save(u);
+		System.out.println(u);
+		System.out.println(p);
+
+		Article a1 = new Article();
+		Article a2 = new Article();
+		a1 = articleRespository.save(a1);
+		a2 = articleRespository.save(a2);
+
+		LigneCommande l1 = new LigneCommande();
+		LigneCommande l2 = new LigneCommande();
+		l1.setQuantite(55);
+		l2.setQuantite(42);
+		l1.setArticle(a1);
+		l1.setArticle(a2);
+
+		l1 = ligneCommandeRespository.save(l1);
+		l2 = ligneCommandeRespository.save(l2);
+		p.getItems().put(l1.getIdLigneCommande(), l1);
+		p.getItems().put(l1.getIdLigneCommande(), l2);
+		p= panierRepository.save(p);
+		Commande c = new Commande();
+
+		c= commandeRepository.save(c);
+        c.setAppUser(u);
+        c.setArticles(p.getItems());
+        c = commandeRepository.save(c);
+		System.out.println(c);
+		//accountService.saveUser(user);
+
 
         logger.debug("msg de debogage");
 		logger.info("msg d'information");

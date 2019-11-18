@@ -3,6 +3,7 @@ package com.Ecommerce.controller;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -52,12 +53,12 @@ public class CommandeController {
 	@PostMapping("/ajouter")
 	public Commande addCommande(@RequestParam("idPanier") Long idPanier) {
 		AppUser u = userRepository.findById(idPanier).get();
-		List<LigneCommande> articles= panierService.getAllArticlesPanier(idPanier);
+		Map<Long, LigneCommande> articles= panierService.getAllArticlesPanier(idPanier);
 		Commande cmd=new Commande();
 		cmd.setDateCommande(LocalDate.now());
 		commandeRepository.save(cmd);
 		cmd.setAppUser(u);
-		cmd.getArticles().addAll(articles);
+		cmd.getArticles().putAll(articles);
 		return  commandeRepository.save(cmd);
 		}	
 	

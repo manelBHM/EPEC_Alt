@@ -31,9 +31,6 @@ public class AppUser implements Serializable{
 	@OneToMany(mappedBy="appUser")
 	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
-	@OneToOne(mappedBy="appUser")
-	private Panier panier;
-
 	private boolean accountNonExpired = false;
     private boolean credentialsNonExpired = false;
     private boolean accountNonLocked= false;
