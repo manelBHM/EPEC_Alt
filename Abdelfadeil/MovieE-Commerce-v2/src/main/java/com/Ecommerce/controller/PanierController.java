@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 import java.util.Map;
 
 @RestController
@@ -59,7 +60,7 @@ public class PanierController {
 		}
 
 	@DeleteMapping(value = "/delete-article/{idPanier}")
-	public void DeleteArticlePanier(@PathVariable("idPanier") Long idPanier, Long idArticle)
+	public void DeleteArticlePanier(@PathVariable("idPanier") Long idPanier, @RequestParam("idArticle") Long idArticle)
 	    {
 		 panierService.DeleteArticlePanier(idPanier, idArticle);
 		}

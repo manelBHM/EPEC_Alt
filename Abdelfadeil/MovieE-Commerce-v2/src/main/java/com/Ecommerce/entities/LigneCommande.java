@@ -22,16 +22,16 @@ import lombok.NoArgsConstructor;
 @Data @AllArgsConstructor @NoArgsConstructor
 public class LigneCommande implements Serializable{
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idLigneCommande;
 	@ManyToOne( optional = false, fetch=FetchType.LAZY)
 	@JoinColumn(name="idArticle")
 	private Article article;
 	private int quantite;
-	 @JsonBackReference
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name="idCommande")
-	private Commande commande;
+	 //@JsonBackReference
+	//@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	//@JoinColumn(name="idCommande")
+	//private Commande commande;
 	//private double prix;
 	/*
 	 * @ManyToOne private Panier panier;

@@ -3,6 +3,7 @@ package com.Ecommerce;
 import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.*;
 import com.Ecommerce.service.AccountServiceImpl;
+import com.Ecommerce.service.ICommande;
 import com.Ecommerce.service.PanierService;
 import com.Ecommerce.service.SendingMailService;
 import org.apache.log4j.Logger;
@@ -43,9 +44,10 @@ public class ECommerceApplication implements CommandLineRunner {
 	private PanierService panierService;
     @Autowired
     public SendingMailService emailService;
-
     @Autowired
     public CommandeRepository commandeRepository;
+    @Autowired
+	private ICommande commande;
 
 
 
@@ -67,15 +69,15 @@ public class ECommerceApplication implements CommandLineRunner {
 
 
 	//flickr.auth();
-  /*
+
 		Panier p = new Panier();
 
 		AppRole role2 = new AppRole();
 		AppRole role1 = new AppRole();
 		role1.setRoleName("USER");
-		roleRepository.save(role1);
+		role2 = roleRepository.save(role1);
 		role2.setRoleName("ADMIN");
-		roleRepository.save(role2);
+		role1 =roleRepository.save(role2);
 
 		//UserForm user = new UserForm();
 		AppUser user = new AppUser();
@@ -87,40 +89,62 @@ public class ECommerceApplication implements CommandLineRunner {
 		user.setIsActive(true);
 		user.setEmail("abdalfadeil@gmail.com");
 		logger.debug("main class");
-		AppUser u = userRepository.save(user);
-		p.setAppUser(u);
+		user.getRoles().add(role1);
+		user.getRoles().add(role2);
+		user = userRepository.save(user);
+		p.setUser(user);
 
 		p=panierRepository.save(p);
-		u=userRepository.save(u);
-		System.out.println(u);
+		user=userRepository.save(user);
+		System.out.println(user);
 		System.out.println(p);
 
 		Article a1 = new Article();
 		Article a2 = new Article();
+        a1.setPrix(4);
+		a2.setPrix(4);
+
+
 		a1 = articleRespository.save(a1);
 		a2 = articleRespository.save(a2);
 
 		LigneCommande l1 = new LigneCommande();
 		LigneCommande l2 = new LigneCommande();
-		l1.setQuantite(55);
-		l2.setQuantite(42);
+		l1.setQuantite(5);
+		l2.setQuantite(5);
+
 		l1.setArticle(a1);
-		l1.setArticle(a2);
+		l2.setArticle(a2);
 
 		l1 = ligneCommandeRespository.save(l1);
 		l2 = ligneCommandeRespository.save(l2);
-		p.getItems().put(l1.getIdLigneCommande(), l1);
-		p.getItems().put(l1.getIdLigneCommande(), l2);
-		p= panierRepository.save(p);
-		Commande c = new Commande();
 
+		p.getItems().put(l1.getIdLigneCommande(), l1);
+		p.getItems().put(l2.getIdLigneCommande(), l2);
+
+		p= panierRepository.save(p);
+    /*
+
+    Commande c = new Commande();
 		c= commandeRepository.save(c);
-        c.setAppUser(u);
+        c.setAppUser(user);
         c.setArticles(p.getItems());
         c = commandeRepository.save(c);
+     */
+		Commande c = commande.passerCommande("admin");
+		System.out.println("///////*******/////////// la commande ");
 		System.out.println(c);
+		System.out.println("///////*******/////////// la total de la commande  ");
+		System.out.println(commande.getTotal(c));
+		//UserForm userForm
+		System.out.println(p);
+		p=panierRepository.findByUserId(user.getId());
+		System.out.println("p.getItems() *****************");
+		System.out.println("Id de panier    "+p.getId() + "  Id de user   "+user.getId());
+		System.out.println(p.getItems());
 		//accountService.saveUser(user);
-*/
+		System.out.println("/////////// comandes ///////////");
+        System.out.println(commande.getAllCommandesClient("admin"));
 
         logger.debug("msg de debogage");
 		logger.info("msg d'information");

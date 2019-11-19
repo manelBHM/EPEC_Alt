@@ -22,21 +22,23 @@ public class Commande implements Serializable{
 	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCommand;
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dateCommande;
-	private String ETAT ="";
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    private final LocalDateTime dateCommande;
+	private String ETAT;
 	@ManyToOne
 	@JoinColumn(name="id_appUser")
 	private AppUser appUser;
+	private double total;
     @JsonManagedReference
-	@OneToMany(mappedBy = "commande")
+	@OneToMany
 	private Map<Long, LigneCommande> articles = new HashMap<>();
 	 
 	 
 	public Commande(){
 		this.dateCommande = LocalDateTime.now();
+		this.ETAT = "NON_PAYEE";
 	}
 
 

@@ -20,11 +20,11 @@ public class AppUser implements Serializable{
 	private Long id;
 	@Column(unique=true)
 	private String username;
+	@JsonIgnore
 	private String password;
 	private String firstName;
 	private String lastName;
 	@ManyToMany
-	@JsonIgnore
 	private Collection<AppRole> roles= new ArrayList<>();
 	private String email;
 	private String tel;

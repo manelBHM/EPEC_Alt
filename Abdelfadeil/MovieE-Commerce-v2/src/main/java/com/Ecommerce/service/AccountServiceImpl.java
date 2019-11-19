@@ -50,17 +50,17 @@ public class AccountServiceImpl implements AccountService{
 		try {
 			 AppRole r1 =roleRepository.findByRoleName("USER");
 			 AppRole r2 =roleRepository.findByRoleName("ADMIN");
-			 u = userRepository.save(u);
+			// u = userRepository.save(u);
 			 u.getRoles().add(r1);
 			 u.getRoles().add(r2);
 		 	 Panier p = new Panier();
 			 p.setUser(u);
 			 p =panierRepository.save(p);
+			 verificationTokenService.createVerification(userForm.getEmail());
 			 System.out.println(p);
 		} catch (Exception e) {
 			System.out.println("error de sevgarde " + e);
 		}
-		verificationTokenService.createVerification(userForm.getEmail());
 	    return userRepository.save(u);
 	}
 	@Override
