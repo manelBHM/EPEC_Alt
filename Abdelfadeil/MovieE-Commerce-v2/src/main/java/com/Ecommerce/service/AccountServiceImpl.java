@@ -54,7 +54,7 @@ public class AccountServiceImpl implements AccountService{
 			 u.getRoles().add(r1);
 			 u.getRoles().add(r2);
 		 	 Panier p = new Panier();
-			 p.setAppUser(u);
+			 p.setUser(u);
 			 p =panierRepository.save(p);
 			 System.out.println(p);
 		} catch (Exception e) {

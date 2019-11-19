@@ -2,7 +2,9 @@ package com.Ecommerce;
 
 import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.*;
-import com.Ecommerce.service.*;
+import com.Ecommerce.service.AccountServiceImpl;
+import com.Ecommerce.service.PanierService;
+import com.Ecommerce.service.SendingMailService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,8 +14,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.Map;
 
 
 @SpringBootApplication
@@ -64,15 +64,6 @@ public class ECommerceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-try {
-	Map<Long, LigneCommande> map = panierService.getAllArticlesPanier("admin");
-	for (Map.Entry<Long,LigneCommande> entry : map.entrySet()){
-		System.out.println("Key = " + entry.getKey() +
-				", Value = " + entry.getValue());
-	}
-}catch (Exception e) {
-
-}
 
 
 	//flickr.auth();

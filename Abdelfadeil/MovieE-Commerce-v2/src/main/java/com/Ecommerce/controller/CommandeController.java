@@ -42,7 +42,7 @@ public class CommandeController {
 	@Autowired
 	private CommandeRepository commandeRepository;
 	
-	@PostMapping("/ajouter")
+	@PostMapping("/create")
 	public Commande addCommande(@RequestParam("username") String username) {
 		AppUser u = userRepository.findByUsername(username);
 		//AppUser u = userRepository.findById(user.getId()).get();
@@ -51,6 +51,7 @@ public class CommandeController {
 		cmd.setDateCommande(LocalDateTime.now());
 		commandeRepository.save(cmd);
 		cmd.setAppUser(u);
+		cmd.setETAT("IMPAYÉ");
 		cmd.getArticles().putAll(articles);
 		return  commandeRepository.save(cmd);
 		}	

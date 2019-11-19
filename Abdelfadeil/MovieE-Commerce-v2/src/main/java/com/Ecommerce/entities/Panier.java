@@ -22,7 +22,7 @@ public class Panier implements Serializable {
 	private Long id;
 
 	@OneToOne
-    private AppUser appUser;
+    private AppUser user;
 	
 	@OneToMany
 	private Map<Long, LigneCommande> items =new HashMap<Long, LigneCommande>();

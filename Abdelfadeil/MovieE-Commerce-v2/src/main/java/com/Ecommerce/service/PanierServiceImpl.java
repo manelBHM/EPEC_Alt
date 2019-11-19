@@ -32,14 +32,14 @@ public class PanierServiceImpl implements PanierService {
 		Panier panier = new Panier();
 		AppUser user = userRepository.getOne(idUser);
 		Panier p = panierRepository.save(panier);
-		p.setAppUser(user);
+		p.setUser(user);
 		return panierRepository.save(p);
 	}
 
 	@Override
 	public LigneCommande AddArticlePanier(String username, Article a) {
 		AppUser u = userRepository.findByUsername(username);
-		Panier p = panierRepository.findByAppUserId(u.getId());
+		Panier p = panierRepository.findByUserId(u.getId());
 		LigneCommande arCom = null;
 		Map<Long, LigneCommande> items = p.getItems();
 		LigneCommande lc = items.get(a.getIdArticle());
@@ -104,7 +104,9 @@ public class PanierServiceImpl implements PanierService {
 	@Override
 	public Map<Long, LigneCommande> getAllArticlesPanier( String username) {
 		AppUser user = userRepository.findByUsername(username);
-		return panierRepository.findByAppUserId(user.getId()).getItems();
+		System.out.println(user);
+		Panier p=panierRepository.findByUserId(user.getId());
+		return p.getItems();
 
 
 
@@ -131,8 +133,9 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public Map<Long, LigneCommande> getAllPanier(Long idUser) {
-		Panier p = panierRepository.findByAppUserId(idUser);
+	public Map<Long, LigneCommande> getAllPanier(Long id) {
+		AppUser user = userRepository.findById(id).get();
+		Panier p = panierRepository.findByUserId(user.getId());
 		return p.getItems();
 	}
 

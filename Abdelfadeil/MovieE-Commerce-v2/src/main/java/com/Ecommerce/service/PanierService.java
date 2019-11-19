@@ -18,7 +18,7 @@ public interface PanierService {
 	public LigneCommande getArticlePanier(Long id);
 	public void deleteAllArticlesPanier(Long idPanier);
 	public Map<Long, LigneCommande> getAllArticlesPanier( String username) ;
-	public Map<Long, LigneCommande> getAllPanier(Long id);
+	public Map<Long, LigneCommande> getAllPanier(Long idUser);
 	public void modifierQuantity(Long idArticle);
 
 }
