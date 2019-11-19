@@ -1,36 +1,16 @@
 package com.Ecommerce.service;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.Ecommerce.dao.AdresseRepository;
-import com.Ecommerce.dao.ArticleRespository;
-import com.Ecommerce.dao.CategoryRepository;
-import com.Ecommerce.dao.LigneCommandeRespository;
-import com.Ecommerce.dao.PanierRepository;
-import com.Ecommerce.dao.RoleRepository;
-import com.Ecommerce.dao.UserRepository;
+import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.AppUser;
 import com.Ecommerce.entities.Article;
 import com.Ecommerce.entities.LigneCommande;
 import com.Ecommerce.entities.Panier;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Map;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -57,8 +37,9 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public LigneCommande AddArticlePanier(Long userId, Article a) {
-		Panier p = panierRepository.findByAppUserId(userId);
+	public LigneCommande AddArticlePanier(String username, Article a) {
+		AppUser u = userRepository.findByUsername(username);
+		Panier p = panierRepository.findByAppUserId(u.getId());
 		LigneCommande arCom = null;
 		Map<Long, LigneCommande> items = p.getItems();
 		LigneCommande lc = items.get(a.getIdArticle());
@@ -121,9 +102,10 @@ public class PanierServiceImpl implements PanierService {
 	}
 
 	@Override
-	public Map<Long, LigneCommande> getAllArticlesPanier(Long idPanier) {
-		Panier p = panierRepository.getOne(idPanier);
-		return p.getItems();
+	public Map<Long, LigneCommande> getAllArticlesPanier( String username) {
+		AppUser user = userRepository.findByUsername(username);
+		return panierRepository.findByAppUserId(user.getId()).getItems();
+
 
 
 	}

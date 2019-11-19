@@ -5,6 +5,7 @@ import { PanierService } from '../service/panier.service';
 import { AuthentificationService } from '../service/authentification.service';
 import { LigneCommandeModule } from '../ligne-commande/ligne-commande.module';
 import {ArticleModule} from "../article/article.module";
+import {JwtHelper} from "angular2-jwt";
 
 @Component({
   selector: 'app-panier',
@@ -17,8 +18,9 @@ export class PanierComponent implements OnInit {
   idUser;
   quantity:number
   url: string;
- public ligneCommandes : Array<LigneCommandeModule> = new Array<LigneCommandeModule>();
-
+  //  public ligneCommandes : Map<number,LigneCommandeModule> = new Map<number, LigneCommandeModule>();
+ public ligneCommandes: Array<LigneCommandeModule>=new Array<LigneCommandeModule>();
+    items;
   constructor(private router:Router, private articleService:ArticleServiceService,
      private activatedRoute:ActivatedRoute, private paierService:PanierService,
      private autService:AuthentificationService
@@ -43,6 +45,9 @@ export class PanierComponent implements OnInit {
   ngOnInit() {
 
     this.getAllArticlePanier();
+    let jwtHelper = new JwtHelper();
+    this.autService.username = jwtHelper.decodeToken(this.autService.jwtToken).sub;
+
     /*
    //
     this.getAllArticlePanier(this.autService.user.id);
@@ -59,18 +64,19 @@ export class PanierComponent implements OnInit {
 
 
   getAllArticlePanier(){
-
     this.paierService.getAllPanier().subscribe(data=> {
-      this.ligneCommandes=data;
-      console.log('data ' +data);
-     console.log('this.ligneComandes '+this.ligneCommandes);
+      this.items=data;
+
+      console.log('data map' +this.items);
+
+    // console.log('this.ligneComandes '+this.ligneCommandes);
     }, error => {
       console.log(error);
     })
   }
 
-  afficherArticle(id){
-    this.articleService.getArticle(id).subscribe(data=> {
+  afficherArticle(){
+    this.articleService.getArticle(this.autService.username).subscribe(data=> {
       this.article=data;
       console.log(this.article);
     }, error=> {

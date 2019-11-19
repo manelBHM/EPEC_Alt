@@ -6,6 +6,8 @@ import { JwtHelper } from 'angular2-jwt';
 import { UserModule } from '../user/user.module';
 import { User } from '../user.model';
 import { templateJitUrl } from '@angular/compiler';
+import {ArticleModule} from "../article/article.module";
+import {LigneCommandeModule} from "../ligne-commande/ligne-commande.module";
 
 declare var $;
 
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit {
   public  slide: boolean= false;
   tour:number=4;
   public mc:any;
+   ligneCommande: LigneCommandeModule;
 
   constructor(private articleService:ArticleServiceService,
      private router:Router, private autService:AuthentificationService) { }
@@ -50,7 +53,13 @@ export class HomeComponent implements OnInit {
 //
   }
 
-
+  ajouterArticlePanier(article:ArticleModule){
+    this.articleService.addToCart(article).subscribe(data=> {
+      this.ligneCommande=data;
+    }, error=> {
+      console.log(error);
+    })
+  }
 
   chercherArticles() {
     this.articleService.getArticles(this.currentMotCle, this.currentPage, this.size).subscribe(data=> {

@@ -22,21 +22,21 @@
                       <tr>
                         <th colspan="2">Produit</th>
                         <th>Nom</th>
-                        <th>Description</th>
                         <th>Quantity</th>
-                        <th colspan="2">Total prix </th>
+                        <th>Prix total</th>
+                        <th colspan="2">supprimer</th>
                       </tr>
                     </thead>
-                    <tbody *ngIf="ligneCommandes">
+                    <tbody *ngIf="items">
 
-                      <tr  *ngFor="let a of ligneCommandes.content; let i = index">
-                        <td><a ><img src="{{a.article.photo}}" alt="White Blouse Armani"></a></td>
-                        <td><a >{{a.article.nom}}</a></td>
-                        <td><a >{{a.article.description}}</a></td>
+                      <tr  *ngFor="let a of items | keyvalue; let i = index">
+                        <td><a ><img src="{{a.value.article.photo}}" alt="White Blouse Armani"></a></td>
+                        <td><a >{{a.value.article.nom}}</a></td>
+                        <td><a >{{a.value.article.description}}</a></td>
                         <td>
-                          <input type="number" value="{{a.quantite}}" class="form-control">
+                          <input type="number" value="{{a.value.quantite}}" class="form-control">
                         </td>
-                        <td>{{a.article.prix}} $</td>
+                        <td>{{a.value.article.prix * a.value.quantite}} $</td>
                         <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
                       </tr>
 

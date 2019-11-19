@@ -4,6 +4,7 @@ import { ArticleModule } from '../article/article.module';
 import { AuthentificationService } from './authentification.service';
 import { LigneCommandeModule } from '../ligne-commande/ligne-commande.module';
 import { Observable } from 'rxjs';
+import {JwtHelper} from "angular2-jwt";
 
 
 @Injectable({
@@ -18,10 +19,10 @@ export class ArticleServiceService {
   }
 
 
-  getArticle(id) {
+  getArticle(username) {
     if(this.autService.jwtToken==null)
     this.autService.jwtToken = this.autService.loadToken();
-    return this.http.get<ArticleModule>(this.host+"/get-article/"+id, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+    return this.http.get<ArticleModule>(this.host+"/get-article/"+username, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
   }
 
   editerArticle(article:ArticleModule){
@@ -65,7 +66,9 @@ export class ArticleServiceService {
     addToCart(article:ArticleModule) {
       if(this.autService.jwtToken==null)
       this.autService.jwtToken = this.autService.loadToken();
-      return this.http.post<LigneCommandeModule>(this.host+"/panier/add?id="+ this.autService.user.id, article, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+      let jwtHelper = new JwtHelper();
+      this.autService.username = jwtHelper.decodeToken(this.autService.jwtToken).sub;
+      return this.http.post<LigneCommandeModule>(this.host+"/panier/add?username="+ this.autService.username , article, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
     }
 
     getAllCartProducts(id){

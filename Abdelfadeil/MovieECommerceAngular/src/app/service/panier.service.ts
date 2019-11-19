@@ -26,7 +26,7 @@ export class PanierService {
     this.autService.jwtToken = this.autService.loadToken();
     let jwtHelper = new JwtHelper();
     this.autService.username = jwtHelper.decodeToken(this.autService.jwtToken).sub;
-    return this.http.get<LigneCommandeModule[]>(this.host+"/panier/getAllArticles-page?username="+ this.autService.username+"&page="+this.page+"&size="+this.size, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+    return this.http.get<LigneCommandeModule[]>(this.host+"/panier/get-articles-username?username="+ this.autService.username+"&page="+this.page+"&size="+this.size, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
   }
 
 

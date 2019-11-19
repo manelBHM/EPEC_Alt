@@ -1,21 +1,5 @@
 package com.Ecommerce.controller;
 
-import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.Ecommerce.dao.ArticleRespository;
 import com.Ecommerce.dao.CommandeRepository;
 import com.Ecommerce.dao.PanierRepository;
@@ -25,6 +9,14 @@ import com.Ecommerce.entities.Commande;
 import com.Ecommerce.entities.LigneCommande;
 import com.Ecommerce.service.AccountService;
 import com.Ecommerce.service.PanierService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -51,11 +43,12 @@ public class CommandeController {
 	private CommandeRepository commandeRepository;
 	
 	@PostMapping("/ajouter")
-	public Commande addCommande(@RequestParam("idPanier") Long idPanier) {
-		AppUser u = userRepository.findById(idPanier).get();
-		Map<Long, LigneCommande> articles= panierService.getAllArticlesPanier(idPanier);
+	public Commande addCommande(@RequestParam("username") String username) {
+		AppUser u = userRepository.findByUsername(username);
+		//AppUser u = userRepository.findById(user.getId()).get();
+		Map<Long, LigneCommande> articles= panierService.getAllArticlesPanier(username);
 		Commande cmd=new Commande();
-		cmd.setDateCommande(LocalDate.now());
+		cmd.setDateCommande(LocalDateTime.now());
 		commandeRepository.save(cmd);
 		cmd.setAppUser(u);
 		cmd.getArticles().putAll(articles);

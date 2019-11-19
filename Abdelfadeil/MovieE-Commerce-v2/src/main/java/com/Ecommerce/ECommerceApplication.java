@@ -2,10 +2,7 @@ package com.Ecommerce;
 
 import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.*;
-import com.Ecommerce.service.AccountServiceImpl;
-import com.Ecommerce.service.IFlickrService;
-import com.Ecommerce.service.PanierService;
-import com.Ecommerce.service.SendingMailService;
+import com.Ecommerce.service.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +12,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Map;
 
 
 @SpringBootApplication
@@ -44,11 +43,9 @@ public class ECommerceApplication implements CommandLineRunner {
 	private PanierService panierService;
     @Autowired
     public SendingMailService emailService;
-    @Autowired
-	public IFlickrService flickrService;
+
     @Autowired
     public CommandeRepository commandeRepository;
-
 
 
 
@@ -66,8 +63,20 @@ public class ECommerceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//flickr.auth();
 
+try {
+	Map<Long, LigneCommande> map = panierService.getAllArticlesPanier("admin");
+	for (Map.Entry<Long,LigneCommande> entry : map.entrySet()){
+		System.out.println("Key = " + entry.getKey() +
+				", Value = " + entry.getValue());
+	}
+}catch (Exception e) {
+
+}
+
+
+	//flickr.auth();
+  /*
 		Panier p = new Panier();
 
 		AppRole role2 = new AppRole();
@@ -120,7 +129,7 @@ public class ECommerceApplication implements CommandLineRunner {
         c = commandeRepository.save(c);
 		System.out.println(c);
 		//accountService.saveUser(user);
-
+*/
 
         logger.debug("msg de debogage");
 		logger.info("msg d'information");
