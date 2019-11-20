@@ -23,7 +23,7 @@ public class Article implements Serializable{
 	private String name;
 	private String description;
 	private int quantity;
-		private double prix;
+	private double prix;
 	private String photo;
 	@ManyToOne
 	@JoinColumn(name="idCategory")
