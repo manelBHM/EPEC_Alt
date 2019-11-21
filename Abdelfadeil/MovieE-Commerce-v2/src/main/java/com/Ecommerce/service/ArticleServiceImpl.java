@@ -33,7 +33,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Article AddArticle(MultipartFile file, Article a) {
-        //a= articleRespository.save(a);
+        a= articleRespository.save(a);
         try {
             InputStream inputStream = file.getInputStream();
             String nameFile= file.getName();
@@ -51,7 +51,7 @@ public class ArticleServiceImpl implements IArticleService {
     }
 
     public Article AddArticle( Article a) {
-       // a= articleRespository.save(a);
+       a= articleRespository.save(a);
         mouvStockService.enteeArticle(a, a.getQuantity());
         return a;
     }
