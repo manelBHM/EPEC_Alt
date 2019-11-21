@@ -23,11 +23,23 @@ public class MouvStockService {
 
     public MouvementStock enteeArticle(Article article, long quantityEntree) {
         MouvementStock mv = new MouvementStock(article, quantityEntree);
-        mv.setTypeMvt(MouvementStock.ENTREE);
-        long q = article.getQuantity() + quantityEntree;
-        article.setQuantity(q);
-        articleRespository.save(article);
-        return stockRepository.save(mv);
+        Article a = articleRespository.findById(article.getIdArticle()).get();
+        if(a==null){
+            mv.setTypeMvt(MouvementStock.ENTREE);
+            article.setQuantity(quantityEntree);
+            articleRespository.save(article);
+            return stockRepository.save(mv);
+
+        }else {
+            mv.setTypeMvt(MouvementStock.ENTREE);
+            long q = article.getQuantity() + quantityEntree;
+            article.setQuantity(q);
+            articleRespository.save(article);
+            return stockRepository.save(mv);
+
+
+        }
+
     }
 
     public MouvementStock sortiArticle(Article article, long quantitySorti) {

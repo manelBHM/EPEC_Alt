@@ -33,19 +33,25 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Article AddArticle(MultipartFile file, Article a) {
-        a= articleRespository.save(a);
+        //a= articleRespository.save(a);
         try {
             InputStream inputStream = file.getInputStream();
             String nameFile= file.getName();
             String urlPhoto=  flickrService.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
-            articleRespository.save(a);
+            //articleRespository.save(a);
             logger.trace("photo saved successfly "+urlPhoto);
         } catch (IOException e) {
             logger.trace("photo not saved  "+e);
         } catch (Exception e) {
             logger.trace("erreur de sevgarde  "+e);
         }
+        mouvStockService.enteeArticle(a, a.getQuantity());
+        return a;
+    }
+
+    public Article AddArticle( Article a) {
+       // a= articleRespository.save(a);
         mouvStockService.enteeArticle(a, a.getQuantity());
         return a;
     }

@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface IArticleService {
 
     public Article AddArticle(MultipartFile file, Article a );
+    public Article AddArticle( Article a );
     public Article UpdateArticle(MultipartFile file, Article a);
     public Article getArticle(Long id);
     public boolean deleteArticle(Long id);

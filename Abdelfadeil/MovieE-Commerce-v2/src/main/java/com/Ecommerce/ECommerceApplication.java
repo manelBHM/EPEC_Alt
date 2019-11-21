@@ -12,7 +12,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -51,6 +56,9 @@ public class ECommerceApplication implements CommandLineRunner {
 	private MouvStockService mouvStockService;
 	@Autowired
 	public MovementStockRepository stockRepository;
+
+    @Autowired
+    public IArticleService articleService;
 
 	static Logger logger = Logger.getLogger(ECommerceApplication.class);
 
@@ -104,29 +112,18 @@ public class ECommerceApplication implements CommandLineRunner {
 		Article a2 = new Article();
         a1.setPrix(40);
 		a2.setPrix(20);
+        a1.setQuantity(15);
+        a2.setQuantity(15);
+
+            a1 = articleService.AddArticle(a1);
+            a2 = articleService.AddArticle(a2);
 
 
-		a1 = articleRespository.save(a1);
-		a2 = articleRespository.save(a2);
+       // mouvStockService.enteeArticle(a1, 15);
+		//mouvStockService.enteeArticle(a2, 15);
 
-		mouvStockService.enteeArticle(a1, 15);
-		mouvStockService.enteeArticle(a2, 15);
-
-		LigneCommande l1 = new LigneCommande();
-		LigneCommande l2 = new LigneCommande();
-		l1.setQuantite(5);
-		l2.setQuantite(5);
-
-		l1.setArticle(a1);
-		l2.setArticle(a2);
-
-		l1 = ligneCommandeRespository.save(l1);
-		l2 = ligneCommandeRespository.save(l2);
-
-		p.getItems().put(l1.getIdLigneCommande(), l1);
-		p.getItems().put(l2.getIdLigneCommande(), l2);
-
-		p= panierRepository.save(p);
+        panierService.AddArticlePanier( user.getUsername(), a1);
+        panierService.AddArticlePanier( user.getUsername(), a2);
     /*
 
     Commande c = new Commande();
