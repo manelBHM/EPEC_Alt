@@ -2,10 +2,7 @@ package com.Ecommerce;
 
 import com.Ecommerce.dao.*;
 import com.Ecommerce.entities.*;
-import com.Ecommerce.service.AccountServiceImpl;
-import com.Ecommerce.service.ICommande;
-import com.Ecommerce.service.PanierService;
-import com.Ecommerce.service.SendingMailService;
+import com.Ecommerce.service.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +12,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.List;
 
 
 @SpringBootApplication
@@ -48,8 +47,10 @@ public class ECommerceApplication implements CommandLineRunner {
     public CommandeRepository commandeRepository;
     @Autowired
 	private ICommande commande;
-
-
+	@Autowired
+	private MouvStockService mouvStockService;
+	@Autowired
+	public MovementStockRepository stockRepository;
 
 	static Logger logger = Logger.getLogger(ECommerceApplication.class);
 
@@ -101,12 +102,15 @@ public class ECommerceApplication implements CommandLineRunner {
 
 		Article a1 = new Article();
 		Article a2 = new Article();
-        a1.setPrix(4);
-		a2.setPrix(4);
+        a1.setPrix(40);
+		a2.setPrix(20);
 
 
 		a1 = articleRespository.save(a1);
 		a2 = articleRespository.save(a2);
+
+		mouvStockService.enteeArticle(a1, 15);
+		mouvStockService.enteeArticle(a2, 15);
 
 		LigneCommande l1 = new LigneCommande();
 		LigneCommande l2 = new LigneCommande();
@@ -145,6 +149,85 @@ public class ECommerceApplication implements CommandLineRunner {
 		//accountService.saveUser(user);
 		System.out.println("/////////// comandes ///////////");
         System.out.println(commande.getAllCommandesClient("admin"));
+
+
+        ///////////////////////////
+		Panier p1 = new Panier();
+
+
+
+
+
+		//UserForm user = new UserForm();
+		AppUser user1 = new AppUser();
+		user1.setUsername("user");
+		user1.setPassword(bCryptPasswordEncoder.encode("1234"));
+		user1.setCredentialsNonExpired(true);
+		user1.setAccountNonExpired(true);
+		user1.setAccountNonLocked(true);
+		user1.setIsActive(true);
+		user1.setEmail("abcd@gmail.com");
+		logger.debug("main class");
+		user1.getRoles().add(role2);
+		user1 = userRepository.save(user1);
+		p1.setUser(user1);
+
+		p1=panierRepository.save(p1);
+		user1=userRepository.save(user1);
+		System.out.println(user1);
+		System.out.println(p1);
+
+
+		LigneCommande l11 = new LigneCommande();
+		LigneCommande l21 = new LigneCommande();
+		l11.setQuantite(2);
+		l21.setQuantite(2);
+
+		l11.setArticle(a1);
+		l21.setArticle(a2);
+
+		l11 = ligneCommandeRespository.save(l11);
+		l21 = ligneCommandeRespository.save(l21);
+
+		p1.getItems().put(l11.getIdLigneCommande(), l11);
+		p1.getItems().put(l21.getIdLigneCommande(), l21);
+
+		p1= panierRepository.save(p1);
+    /*
+
+    Commande c = new Commande();
+		c= commandeRepository.save(c);
+        c.setAppUser(user);
+        c.setArticles(p.getItems());
+        c = commandeRepository.save(c);
+     */
+		Commande c1 = commande.passerCommande("user");
+		System.out.println("///////*******/////////// la commande user");
+		System.out.println(c1);
+		System.out.println("///////*******/////////// la total de la commande user ");
+		System.out.println(commande.getTotal(c1));
+		//UserForm userForm
+		System.out.println(p1);
+		p1=panierRepository.findByUserId(user1.getId());
+		System.out.println("p1.getItems() *****************");
+		System.out.println("Id de panier 1    "+p1.getId() + "  Id de user  user "+user1.getId());
+		System.out.println(p1.getItems());
+		//accountService.saveUser(user);
+		System.out.println("/////////// comandes user ///////////");
+		System.out.println(commande.getAllCommandesClient("user"));
+
+		////////////////////////////////
+		System.out.println("/////////// mouvement de stock ///////////");
+		List<MouvementStock> mvs = stockRepository.findAll();
+		mvs.forEach(m-> {
+			System.out.println(m.toString());
+		});
+
+		System.out.println("/////////// Articles ///////////");
+		List<Article> aticles = articleRespository.findAll();
+		aticles.forEach(a-> {
+			System.out.println(a.toString());
+		});
 
         logger.debug("msg de debogage");
 		logger.info("msg d'information");

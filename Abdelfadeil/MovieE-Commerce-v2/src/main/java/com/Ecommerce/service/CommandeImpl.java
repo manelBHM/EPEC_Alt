@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class CommandeImpl implements ICommande {
 
     @Autowired
@@ -27,6 +29,9 @@ public class CommandeImpl implements ICommande {
     private UserRepository userRepository;
     @Autowired
     private AdresseRepository adresseRepository;
+     @Autowired
+     private MouvStockService mouvStockService;
+
 
     @Override
     public Commande passerCommande(String username){
@@ -34,12 +39,20 @@ public class CommandeImpl implements ICommande {
         AppUser u = userRepository.findByUsername(username);
         Commande cmd=new Commande();
         cmd.setAppUser(u);
-        //cmd.setETAT("A_IMPAYE");
+        cmd.setETAT("EN_COURS");
         //cmd.setDateCommande(LocalDateTime.now());
         commandeRepository.save(cmd);
         cmd.getArticles().putAll(items);
+
         double total= getTotal(cmd);
         cmd.setTotal(total);
+
+        for (Map.Entry<Long,LigneCommande> ligneCommandeEntry : items.entrySet())
+             {
+                 Article a = ligneCommandeEntry.getValue().getArticle();
+                 long q = ligneCommandeEntry.getValue().getQuantite();
+                 mouvStockService.sortiArticle(a, q);
+             }
         return  commandeRepository.save(cmd);
     }
 

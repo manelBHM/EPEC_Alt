@@ -22,7 +22,7 @@ public class Article implements Serializable{
 	private Long idArticle;
 	private String name;
 	private String description;
-	private int quantity;
+	private long quantity=0;
 	private double prix;
 	private String photo;
 	@ManyToOne

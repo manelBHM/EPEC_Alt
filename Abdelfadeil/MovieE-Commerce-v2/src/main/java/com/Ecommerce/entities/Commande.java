@@ -34,8 +34,6 @@ public class Commande implements Serializable{
     @JsonManagedReference
 	@OneToMany
 	private Map<Long, LigneCommande> articles = new HashMap<>();
-	 
-	 
 	public Commande(){
 		this.dateCommande = LocalDateTime.now();
 		this.ETAT = "NON_PAYEE";
