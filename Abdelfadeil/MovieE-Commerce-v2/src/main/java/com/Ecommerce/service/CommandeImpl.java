@@ -35,25 +35,26 @@ public class CommandeImpl implements ICommande {
 
     @Override
     public Commande passerCommande(String username){
-        Map<Long, LigneCommande> items = panierService.getAllArticlesPanier(username);
+        // Map<Long, LigneCommande> items = panierService.getAllArticlesPanier(username);
         AppUser u = userRepository.findByUsername(username);
+        Panier p = panierRepository.findByUserId(u.getId());
+        Map<Long, LigneCommande> items =p.getItems();
         Commande cmd=new Commande();
         cmd.setAppUser(u);
         cmd.setETAT("EN_COURS");
         //cmd.setDateCommande(LocalDateTime.now());
-        commandeRepository.save(cmd);
         cmd.getArticles().putAll(items);
-
+       cmd = commandeRepository.save(cmd);
         double total= getTotal(cmd);
         cmd.setTotal(total);
-
+       cmd= commandeRepository.save(cmd);
         for (Map.Entry<Long,LigneCommande> ligneCommandeEntry : items.entrySet())
              {
                  Article a = ligneCommandeEntry.getValue().getArticle();
                  long q = ligneCommandeEntry.getValue().getQuantite();
                  mouvStockService.sortiArticle(a, q);
              }
-        return  commandeRepository.save(cmd);
+        return  cmd;
     }
 
     @Override

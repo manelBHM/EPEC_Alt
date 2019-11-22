@@ -38,6 +38,9 @@ public class PanierServiceImpl implements PanierService {
     public LigneCommande AddArticlePanier(String username, Article a) {
         AppUser u = userRepository.findByUsername(username);
         Panier p = panierRepository.findByUserId(u.getId());
+        if(a.getQuantity() < 1){
+            return null;
+        }
         LigneCommande item = null;
         Map<Long, LigneCommande> items = p.getItems();
         item = items.get(a.getIdArticle());
@@ -50,6 +53,7 @@ public class PanierServiceImpl implements PanierService {
                 item = ligneCommandeRespository.save(item);
                 p.getItems().put(a.getIdArticle(), item);
                 panierRepository.save(p);
+                item = ligneCommandeRespository.save(item);
                 System.out.println("neuveau article et sortir");
             } //LigneCommande ar = ligneCommandeRespository.save(item); // arCom = ligneCommandeRespository.save(item);
             else {
@@ -58,11 +62,12 @@ public class PanierServiceImpl implements PanierService {
             }
         } else {
                 System.out.println(" Article exist");
-            if (a.getQuantity() > item.getQuantite()) {
+            if (a.getQuantity() > 0) {
                 item.setQuantite(item.getQuantite() + 1);
                 item = ligneCommandeRespository.save(item);
                 p.getItems().put(a.getIdArticle(), item);
                 panierRepository.save(p);
+                ligneCommandeRespository.save(item);
                 System.out.println("Incrumenter de la quantity de l'Article");
             } else {
 				System.out.println("il n'y a plus de cette article << non disponible >>");
@@ -75,6 +80,7 @@ public class PanierServiceImpl implements PanierService {
     @Override
     public void modifierQuantity(Long idArticle) {
         LigneCommande lc = ligneCommandeRespository.getOne(idArticle);
+
         if (lc.getQuantite() == 1) {
             ligneCommandeRespository.deleteById(idArticle);
         } else if (lc.getQuantite() > 1) {
