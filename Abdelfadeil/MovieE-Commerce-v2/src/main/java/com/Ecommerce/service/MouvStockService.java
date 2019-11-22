@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-
 @Service
 @Transactional
 public class MouvStockService {
@@ -21,21 +19,21 @@ public class MouvStockService {
     public ArticleRespository articleRespository;
 
 
-    public MouvementStock enteeArticle(Article article, long quantityEntree) {
-        MouvementStock mv = new MouvementStock(article, quantityEntree);
+    public MouvementStock enteeArticle(Article article) {
+        MouvementStock mv = new MouvementStock(article, article.getQuantity());
         Article a = articleRespository.findById(article.getIdArticle()).get();
             mv.setTypeMvt(MouvementStock.ENTREE);
-            //long q = article.getQuantity() + quantityEntree;
-           // article.setQuantity(q);
+            float q = a.getQuantity() + mv.getQuantity();
+           article.setQuantity(q);
             articleRespository.save(article);
             return stockRepository.save(mv);
 
     }
 
-    public MouvementStock sortiArticle(Article article, long quantitySorti) {
+    public MouvementStock sortiArticle(Article article, float quantitySorti) {
         MouvementStock mv = new MouvementStock(article, quantitySorti);
         mv.setTypeMvt(MouvementStock.SORTIE);
-        long q = article.getQuantity() - quantitySorti;
+        float q = article.getQuantity() - quantitySorti;
         article.setQuantity(q);
         articleRespository.save(article);
         return stockRepository.save(mv);

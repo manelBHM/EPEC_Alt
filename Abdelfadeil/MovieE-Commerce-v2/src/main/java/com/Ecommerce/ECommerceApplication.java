@@ -12,12 +12,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 
@@ -119,8 +114,8 @@ public class ECommerceApplication implements CommandLineRunner {
             a2 = articleService.AddArticle(a2);
 
 
-       // mouvStockService.enteeArticle(a1, 15);
-		//mouvStockService.enteeArticle(a2, 15);
+        mouvStockService.enteeArticle(a1);
+		mouvStockService.enteeArticle(a2);
 
         panierService.AddArticlePanier( user.getUsername(), a1);
         panierService.AddArticlePanier( user.getUsername(), a2);

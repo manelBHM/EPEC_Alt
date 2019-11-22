@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,13 +45,13 @@ public class ArticleServiceImpl implements IArticleService {
         } catch (Exception e) {
             logger.trace("erreur de sevgarde  "+e);
         }
-        mouvStockService.enteeArticle(a, a.getQuantity());
+        mouvStockService.enteeArticle(a);
         return a;
     }
 
     public Article AddArticle( Article a) {
        a= articleRespository.save(a);
-        mouvStockService.enteeArticle(a, a.getQuantity());
+        mouvStockService.enteeArticle(a);
         return a;
     }
 
@@ -71,7 +70,7 @@ public class ArticleServiceImpl implements IArticleService {
         } catch (Exception e) {
             logger.trace("erreur de sevgarde  "+e);
         }
-        mouvStockService.enteeArticle(a, a.getQuantity());
+        mouvStockService.enteeArticle(a);
         return a;
     }
 
