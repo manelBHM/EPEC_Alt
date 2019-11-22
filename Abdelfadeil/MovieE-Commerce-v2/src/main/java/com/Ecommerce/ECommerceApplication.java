@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.List;
-
 
 @SpringBootApplication
 public class ECommerceApplication implements CommandLineRunner {
@@ -73,7 +71,7 @@ public class ECommerceApplication implements CommandLineRunner {
 
 
 	//flickr.auth();
-
+/*
 		Panier p = new Panier();
 
 		AppRole role2 = new AppRole();
@@ -127,15 +125,15 @@ public class ECommerceApplication implements CommandLineRunner {
         c.setArticles(p.getItems());
         c = commandeRepository.save(c);
      */
-		Commande c = commande.passerCommande("admin");
+	/*	Commande c = commande.passerCommande("admin");
 		System.out.println("///////*******/////////// la commande ");
-		System.out.println(c);
+	/*	System.out.println(c);
 		System.out.println("///////*******/////////// la total de la commande  ");
-		System.out.println(commande.getTotal(c));
+		//System.out.println(commande.getTotal(c));
 		//UserForm userForm
-		System.out.println(p);
-		p=panierRepository.findByUserId(user.getId());
-		System.out.println("p.getItems() *****************");
+		//System.out.println(p);
+		//p=panierRepository.findByUserId(user.getId());
+		/*System.out.println("p.getItems() *****************");
 		System.out.println("Id de panier    "+p.getId() + "  Id de user   "+user.getId());
 		System.out.println(p.getItems());
 		//accountService.saveUser(user);
@@ -145,13 +143,13 @@ public class ECommerceApplication implements CommandLineRunner {
 
         ///////////////////////////
 		Panier p1 = new Panier();
-
+*/
 
 
 
 
 		//UserForm user = new UserForm();
-		AppUser user1 = new AppUser();
+	/*	AppUser user1 = new AppUser();
 		user1.setUsername("user");
 		user1.setPassword(bCryptPasswordEncoder.encode("1234"));
 		user1.setCredentialsNonExpired(true);
@@ -185,6 +183,7 @@ public class ECommerceApplication implements CommandLineRunner {
 		p1.getItems().put(l21.getIdLigneCommande(), l21);
 
 		p1= panierRepository.save(p1);
+		*/
     /*
 
     Commande c = new Commande();
@@ -193,11 +192,11 @@ public class ECommerceApplication implements CommandLineRunner {
         c.setArticles(p.getItems());
         c = commandeRepository.save(c);
      */
-		Commande c1 = commande.passerCommande("user");
+	/*	C ommande c1 = commande.passerCommande("user");
 		System.out.println("///////*******/////////// la commande user");
-		System.out.println(c1);
+	/*	System.out.println(c1);
 		System.out.println("///////*******/////////// la total de la commande user ");
-		System.out.println(commande.getTotal(c1));
+	/*	System.out.println(commande.getTotal(c1));
 		//UserForm userForm
 		System.out.println(p1);
 		p1=panierRepository.findByUserId(user1.getId());
@@ -215,6 +214,12 @@ public class ECommerceApplication implements CommandLineRunner {
 			System.out.println(m.toString());
 		});
 
+		a1.setQuantity(15);
+		a2.setQuantity(15);
+
+		 a1 = articleService.AddArticle(a1);
+		a2 = articleService.AddArticle(a2);
+
 		System.out.println("/////////// Articles ///////////");
 		List<Article> aticles = articleRespository.findAll();
 		aticles.forEach(a-> {
@@ -226,7 +231,7 @@ public class ECommerceApplication implements CommandLineRunner {
 		logger.warn("msg d'avertissement");
 		logger.error("msg d'erreur");
 		logger.fatal("msg d'erreur fatale");
-
+****/
 		/*
 		 * AppUser user=userRepository.getOne((long) 3);
 		 * 
