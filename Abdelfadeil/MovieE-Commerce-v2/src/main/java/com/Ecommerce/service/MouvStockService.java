@@ -19,13 +19,9 @@ public class MouvStockService {
     public ArticleRespository articleRespository;
 
 
-    public MouvementStock enteeArticle(Article article) {
-        MouvementStock mv = new MouvementStock(article, article.getQuantity());
-        Article a = articleRespository.findById(article.getIdArticle()).get();
+    public MouvementStock enteeArticle(Article article, float quantity) {
+        MouvementStock mv = new MouvementStock(article, quantity);
             mv.setTypeMvt(MouvementStock.ENTREE);
-            float q = a.getQuantity() + mv.getQuantity();
-           article.setQuantity(q);
-            articleRespository.save(article);
             return stockRepository.save(mv);
 
     }

@@ -107,21 +107,39 @@ public class ECommerceApplication implements CommandLineRunner {
 		Article a2 = new Article();
         a1.setPrix(40);
 		a2.setPrix(20);
-        a1.setQuantity(15);
-        a2.setQuantity(15);
+        a1.setQuantity(2);
+        a2.setQuantity(2);
 
-            a1 = articleService.AddArticle(a1);
-            a2 = articleService.AddArticle(a2);
+        Article    ar = articleService.AddArticle(a1);
+		Article    ar1 = articleService.AddArticle(a2);
 
 
-        mouvStockService.enteeArticle(a1);
-		mouvStockService.enteeArticle(a2);
 
-        panierService.AddArticlePanier( user.getUsername(), a1);
+		System.out.println("/////////// Articles 1 ///////////");
+		List<Article> aticles = articleRespository.findAll();
+		aticles.forEach(a-> {
+			System.out.println(a.toString());
+		});
+
+		ar.setQuantity(25);
+		ar1.setQuantity(25);
+
+		 ar = articleService.AddArticle(ar);
+		 ar1 = articleService.AddArticle(ar1);
+
+
+
+		System.out.println("/////////**************************///////////// Articles 2 **************////////////////******************* ///////////");
+		List<Article> aticles2 = articleRespository.findAll();
+		aticles2.forEach(a-> {
+			System.err.println((a.toString()));
+		});
+
+
+		panierService.AddArticlePanier( user.getUsername(), a1);
         panierService.AddArticlePanier( user.getUsername(), a2);
     /*
-
-    Commande c = new Commande();
+        Commande c = new Commande();
 		c= commandeRepository.save(c);
         c.setAppUser(user);
         c.setArticles(p.getItems());
@@ -140,14 +158,13 @@ public class ECommerceApplication implements CommandLineRunner {
 		System.out.println(p.getItems());
 		//accountService.saveUser(user);
 		System.out.println("/////////// comandes ///////////");
-        System.out.println(commande.getAllCommandesClient("admin"));
+        System.err.println(commande.getAllCommandesClient("admin"));
 
 
         ///////////////////////////
+
+
 		Panier p1 = new Panier();
-
-
-
 
 
 		//UserForm user = new UserForm();
@@ -167,26 +184,15 @@ public class ECommerceApplication implements CommandLineRunner {
 		p1=panierRepository.save(p1);
 		user1=userRepository.save(user1);
 		System.out.println(user1);
+
+
+		panierService.AddArticlePanier("user", a1);
+		panierService.AddArticlePanier("user", a2);
+
 		System.out.println(p1);
 
-
-		LigneCommande l11 = new LigneCommande();
-		LigneCommande l21 = new LigneCommande();
-		l11.setQuantite(2);
-		l21.setQuantite(2);
-
-		l11.setArticle(a1);
-		l21.setArticle(a2);
-
-		l11 = ligneCommandeRespository.save(l11);
-		l21 = ligneCommandeRespository.save(l21);
-
-		p1.getItems().put(l11.getIdLigneCommande(), l11);
-		p1.getItems().put(l21.getIdLigneCommande(), l21);
-
-		p1= panierRepository.save(p1);
+			//p1= panierRepository.save(p1);
     /*
-
     Commande c = new Commande();
 		c= commandeRepository.save(c);
         c.setAppUser(user);
@@ -216,8 +222,8 @@ public class ECommerceApplication implements CommandLineRunner {
 		});
 
 		System.out.println("/////////// Articles ///////////");
-		List<Article> aticles = articleRespository.findAll();
-		aticles.forEach(a-> {
+		List<Article> aticles1 = articleRespository.findAll();
+		aticles1.forEach(a-> {
 			System.out.println(a.toString());
 		});
 

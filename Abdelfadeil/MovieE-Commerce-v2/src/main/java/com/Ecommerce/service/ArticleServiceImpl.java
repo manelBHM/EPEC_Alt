@@ -32,37 +32,60 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Article AddArticle(MultipartFile file, Article a) {
-        a= articleRespository.save(a);
         try {
             InputStream inputStream = file.getInputStream();
             String nameFile= file.getName();
             String urlPhoto=  flickrService.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
             //articleRespository.save(a);
+            if(a.getIdArticle()==null) {
+                a= articleRespository.save(a);
+                mouvStockService.enteeArticle(a, a.getQuantity());
+                return a;
+            } else {
+                Article ar = articleRespository.findById(a.getIdArticle()).get();
+                float q = ar.getQuantity()+a.getQuantity();
+                a.setQuantity(q);
+                a= articleRespository.save(a);
+                mouvStockService.enteeArticle(a, a.getQuantity());
+            }
             logger.trace("photo saved successfly "+urlPhoto);
         } catch (IOException e) {
             logger.trace("photo not saved  "+e);
         } catch (Exception e) {
             logger.trace("erreur de sevgarde  "+e);
         }
-        mouvStockService.enteeArticle(a);
         return a;
     }
 
     public Article AddArticle( Article a) {
-       a= articleRespository.save(a);
-        mouvStockService.enteeArticle(a);
-        return a;
+
+      // Article ar = articleRespository.findById(a.getIdArticle()).get();
+       if(a.getIdArticle()==null) {
+           a= articleRespository.save(a);
+           mouvStockService.enteeArticle(a, a.getQuantity());
+           return a;
+       } else {
+           Article ar = articleRespository.findById(a.getIdArticle()).get();
+           float q = ar.getQuantity()+a.getQuantity();
+           a.setQuantity(q);
+           a= articleRespository.save(a);
+           mouvStockService.enteeArticle(a, a.getQuantity());
+           return a;
+       }
+
     }
 
     @Override
     public Article UpdateArticle(MultipartFile file, Article a) {
-        a= articleRespository.save(a);
+        Article ar = articleRespository.findById(a.getIdArticle()).get();
+        float q = ar.getQuantity()+a.getQuantity();
         try {
             InputStream inputStream = file.getInputStream();
             String nameFile= file.getName();
             String urlPhoto=  flickrService.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
+            a.setQuantity(q);
             articleRespository.save(a);
             logger.trace("photo saved successfly "+urlPhoto);
         } catch (IOException e) {
@@ -70,7 +93,7 @@ public class ArticleServiceImpl implements IArticleService {
         } catch (Exception e) {
             logger.trace("erreur de sevgarde  "+e);
         }
-        mouvStockService.enteeArticle(a);
+        mouvStockService.enteeArticle(a, q);
         return a;
     }
 
