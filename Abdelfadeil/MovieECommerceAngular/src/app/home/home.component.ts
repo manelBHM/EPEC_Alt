@@ -54,11 +54,19 @@ export class HomeComponent implements OnInit {
   }
 
   ajouterArticlePanier(article:ArticleModule){
-    this.articleService.addToCart(article).subscribe(data=> {
-      this.ligneCommande=data;
-    }, error=> {
-      console.log(error);
-    })
+      this.autService.jwtToken = this.autService.loadToken();
+    if(this.autService.jwtToken!=null) {
+      this.articleService.addToCart(article).subscribe(data=> {
+        // this.ligneCommande=data;
+      }, error=> {
+        console.log(error);
+      })
+    }else {
+      this.router.navigateByUrl('/login');
+
+    }
+
+
   }
 
   chercherArticles() {

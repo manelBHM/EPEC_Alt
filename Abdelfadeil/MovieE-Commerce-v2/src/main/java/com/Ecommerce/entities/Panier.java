@@ -10,8 +10,8 @@ import java.util.Map;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Panier implements Serializable {
 
 
@@ -24,6 +24,7 @@ public class Panier implements Serializable {
 	
 	@OneToMany
 	private Map<Long, LigneCommande> items =new HashMap<Long, LigneCommande>();
+
 
 
 }

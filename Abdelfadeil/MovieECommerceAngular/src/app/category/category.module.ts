@@ -9,4 +9,20 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class CategoryModule { }
+export class CategoryModule {
+
+
+
+  constructor(id:number, name:String, description:String){
+    this.id= id;
+    this.name=name;
+    this.description=description;
+  }
+  id:number;
+  name:String;
+  description:String;
+
+
+
+
+}

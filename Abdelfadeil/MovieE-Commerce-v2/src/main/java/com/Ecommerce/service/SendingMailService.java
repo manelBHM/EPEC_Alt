@@ -16,6 +16,8 @@ import java.util.Properties;
 
 @Component
 public class SendingMailService {
+
+
     @Autowired
     public JavaMailSender emailSender;
     @Autowired

@@ -56,6 +56,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 					.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 		}
 
+
 	}
 
 	@Override

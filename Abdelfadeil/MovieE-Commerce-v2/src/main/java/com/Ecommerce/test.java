@@ -2,6 +2,7 @@ package com.Ecommerce;
 
 import com.Ecommerce.service.FlickrImplService;
 import com.Ecommerce.service.IFlickrService;
+import com.Ecommerce.service.SendingMailService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,7 +16,7 @@ public class test {
 	private static Logger logger = Logger.getLogger(test.class);
 
 	public static void main(String[] args) {
-
+		SendingMailService SendingMailService = new SendingMailService();
 		IFlickrService iFlickrService = new FlickrImplService();
 		try {
 			InputStream stream= new FileInputStream(new File("/home/fadeil/Images/404.png"));
@@ -35,6 +36,8 @@ public class test {
 			e.printStackTrace();
 			logger.error("msg d'erreur Exception ");
 		}
+
+		SendingMailService.sendingMail("abdalfadeil@gmail.com", "test mail");
 	}
 
 }

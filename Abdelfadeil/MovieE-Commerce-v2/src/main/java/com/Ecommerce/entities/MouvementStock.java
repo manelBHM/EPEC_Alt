@@ -5,12 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Date;
-
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor @NoArgsConstructor  @Data
@@ -21,7 +18,7 @@ public class MouvementStock implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idMvtStk;
+	private Long id;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime dateMvt;

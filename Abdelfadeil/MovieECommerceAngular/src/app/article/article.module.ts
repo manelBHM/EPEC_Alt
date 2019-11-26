@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './article.component';
+import {CategoryModule} from "../category/category.module";
 
 
 
@@ -12,14 +13,15 @@ import { ArticleComponent } from './article.component';
 })
 export class ArticleModule {
 
-  idArticle:number;
+  id:number;
   name:String;
   description:String;
   prix:number;
   quantity:number;
   photo:String;
-  nomCategory:String;
+  category:CategoryModule;
   disponible:boolean;
   totalPages: number;
+
 
 }

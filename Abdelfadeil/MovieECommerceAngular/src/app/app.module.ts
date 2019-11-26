@@ -57,17 +57,9 @@ export class AppModule implements OnInit{
 
 
   ngOnInit(): void {
-    this.autService.chargerUserInfo().subscribe(data=> {
-      this.autService.user=data;
-      console.log("charger user  "+this.autService.user);
-      console.log("charger user  "+this.autService.user);
-    },error => {
-      console.log("charger user error ");
 
-    })
+
   }
-
-
 
 
 }

@@ -7,3 +7,12 @@ header {
     clear: both;
     margin: 60px;
 }
+
+.dropdown-menu {
+
+}
+
+.justify-content-center .dropdown-menu {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}

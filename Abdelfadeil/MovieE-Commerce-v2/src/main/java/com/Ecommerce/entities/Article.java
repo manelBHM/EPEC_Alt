@@ -19,7 +19,7 @@ public class Article implements Serializable{
 
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long idArticle;
+	private Long id;
 	private String name;
 	private String description;
 	private float quantity=0;

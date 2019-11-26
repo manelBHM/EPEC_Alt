@@ -36,25 +36,26 @@
                         <td>
                           <input type="number" value="{{a.value.quantite}}" class="form-control">
                         </td>
-                        <td>{{a.value.article.prix * a.value.quantite}} $</td>
-                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        <td>{{a.value.article.prix}} $</td>
+                        <td><a (click)="supprimerArticlePanier(a.value.id)" class="clickable"><i class="fa fa-trash-o"></i></a></td>
+
                       </tr>
 
                     </tbody>
                     <tfoot>
                       <tr>
                         <th colspan="5">Total</th>
-                        <th colspan="2">$446.00</th>
+                        <th colspan="2">{{total}} $</th>
                       </tr>
                     </tfoot>
                   </table>
                 </div>
                 <!-- /.table-responsive-->
                 <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
-                  <div class="left"><a href="category.html" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
+                  <div class="left"><a [routerLink]="'/articles'" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> aller vers articles</a></div>
                   <div class="right">
-                    <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Update cart</button>
-                    <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
+                    <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Actualiser </button>
+                    <button type="submit" class="btn btn-primary">Passer la commande <i class="fa fa-chevron-right"></i></button>
                   </div>
                 </div>
               </form>
@@ -67,27 +68,24 @@
           <div class="col-lg-3">
             <div id="order-summary" class="box">
               <div class="box-header">
-                <h3 class="mb-0">Order summary</h3>
+                <h3 class="mb-0">Détail de comande</h3>
               </div>
-              <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+              <p class="text-muted"></p>
               <div class="table-responsive">
                 <table class="table">
                   <tbody>
                     <tr>
-                      <td>Order subtotal</td>
-                      <th>$446.00</th>
+                      <td>Total commande</td>
+                      <th> 00 $</th>
                     </tr>
+
                     <tr>
-                      <td>Shipping and handling</td>
-                      <th>$10.00</th>
-                    </tr>
-                    <tr>
-                      <td>Tax</td>
+                      <td>TVAs</td>
                       <th>$0.00</th>
                     </tr>
                     <tr class="total">
                       <td>Total</td>
-                      <th>$456.00</th>
+                      <th>{{total}} $</th>
                     </tr>
                   </tbody>
                 </table>

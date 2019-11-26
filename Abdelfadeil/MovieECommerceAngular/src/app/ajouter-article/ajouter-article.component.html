@@ -17,7 +17,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Prix</label>
-          <input type="text" class="form-control ngModel" name="prix" ngModel>
+          <input type="text" class="form-control" name="prix" ngModel>
         </div>
       </div>
       <div class="col-md-6">
@@ -27,28 +27,34 @@
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Nom Categorie</label>
-          <input type="text" class="form-control" name="nomCategory" ngModel>
-        </div>
-      </div>
+
       <div class="col-md-6">
         <div class="form-group">
           <label>Photo Url</label>
           <input type="text" class="form-control" name="photo" ngModel>
         </div>
       </div>
-      <div class="col-md-12 text-center">
+      <div class="col-md-6 text-center">
         <div class="form-group">
           <label>Diponible</label>
-          <select name="disponible" class="form-control form-control-sm" ngModel>
-            <option value="">Small select</option>
+          <select name="disponible" class="form-control" ngModel>
+            <option value="">select</option>
             <option value="true">True</option>
             <option value="false">False</option>
           </select>
         </div>
       </div>
+
+      <div class="col-md-6 text-center">
+        <div class="form-group">
+          <label>Categories</label>
+          <select  *ngIf="categories" class="form-control"  name="idCategory" ngModel>
+            <option value="">select</option>
+            <option *ngFor="let c of categories.content;"   value="{{c.id}}">{{c.name}}</option>
+          </select>
+        </div>
+      </div>
+
       <div class="col-md-12 text-center">
         <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
       </div>
@@ -59,60 +65,59 @@
 </div>
 
 
-<div *ngIf="save==2" class="container">
+<div *ngIf="save==2 && article" class="container">
 
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Détail de l'article </h1>
       <div class="form-group">
         <label>Id</label>
-        <p class="lead">{{currentArticle.idArticle}}</p>
+        <p class="lead">{{article.id}}</p>
       </div>
       <div class="form-group">
         <label>Nom</label>
-        <p class="lead" >{{currentArticle.name}}</p>
+        <p class="lead" >{{article.name}}</p>
       </div>
       <div class="form-group">
         <label>Description</label>
-        <p class="lead" >{{currentArticle.description}}</p>
+        <p class="lead" >{{article.description}}</p>
       </div>
       <div class="form-group">
         <label>Prix</label>
-        <p class="lead">{{currentArticle.prix}}</p>
+        <p class="lead">{{article.prix}}</p>
       </div>
       <div class="form-group">
         <label>Quantity</label>
-        <p class="lead">{{currentArticle.quantity}}</p>
+        <p class="lead">{{article.quantity}}</p>
       </div>
       <div class="form-group">
         <label>Url Photo</label>
-        <p class="lead">{{currentArticle.photo}}</p>
+        <p class="lead">{{article.photo}}</p>
       </div>
     </div>
     <div class="form-group">
       <label>Disponible</label>
-      <p class="lead">{{currentArticle.disponible}}</p>
+      <p class="lead">{{article.disponible}}</p>
     </div>
   </div>
-<div>
+  <div>
 
-</div>
+  </div>
 
-
-    <div class="col-md-6 text-center">
-      <div class="form-group">
-        <label for="file">Choisir File</label>
-        <p>
+  <div class="col-md-6 text-center">
+    <div class="form-group">
+      <label for="file">Choisir File</label>
+      <p>
         <input type="file"
                id="file"
                (change)="fileUpload($event)">
-        <button class="btn btn-outline-success" (click)="savPhoto(currentArticle.idArticle)">Upload</button><br>
-          {{progress}}
-        </p>
-      </div>
+        <button class="btn btn-outline-success" (click)="savePhoto(article.id)">Upload</button><br>
+        {{progress}}
+      </p>
     </div>
-    <div class="col-md-12 text-center">
-      <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
-    </div>
+  </div>
+  <div class="col-md-12 text-center">
+    <button type="submit" style="width: 200px;" class="btn btn-l btn-primary" [routerLink]="['/admin-console']" > Admin console </button>
+  </div>
 </div>
 

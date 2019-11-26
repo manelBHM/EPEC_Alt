@@ -30,18 +30,18 @@
             </thead>
             <tbody *ngIf="articles">
               <tr *ngFor="let a of articles.content; let i = index">
-                <td>{{ a.idArticle }}</td>
+                <td>{{ a.id }}</td>
                 <td>{{ a.name }}</td>
                 <td>{{ a.description }}</td>
                 <td>{{ a.prix }}</td>
                 <td>{{ a.quantity }}</td>
                 <td>{{ a.disponible }}</td>
                 <td>{{ a.photo }}</td>
-                <td (click)="editer(a.idArticle)"><button type="submit" class="btn-sm"><i class="fa fa-pencil"></i>
+                <td (click)="editer(a.id)"><button type="submit" class="btn-sm"><i class="fa fa-pencil"></i>
                   </button>
                 </td>
 
-                <td (click)="onDelete(a.idArticle)"><button class='btn-sm'><i class="fa fa-trash-o"></i></button></td>
+                <td (click)="onDelete(a.id)"><button class='btn-sm'><i class="fa fa-trash-o"></i></button></td>
               </tr>
             </tbody>
           </table>

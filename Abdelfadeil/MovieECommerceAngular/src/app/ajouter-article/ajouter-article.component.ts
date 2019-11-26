@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
 import { ArticleModule } from '../article/article.module';
 import {HttpEventType, HttpResponse} from "@angular/common/http";
+import {CategoryModule} from "../category/category.module";
+import {CategoryService} from "../service/category.service";
 
 
 @Component({
@@ -15,27 +17,47 @@ export class AjouterArticleComponent implements OnInit {
   article: ArticleModule;
   fileToUpload: File = null;
   save:number=1;
-  private currentArticle:ArticleModule;
   private progress: number;
+  private idCategory: number;
+  categories:CategoryModule [];
+  private category: CategoryModule = new CategoryModule(this.idCategory, '', '');
 
 
-  constructor(private articleService:ArticleServiceService, private router: Router) { }
+
+  constructor(private articleService:ArticleServiceService, private router: Router, private catService:CategoryService) { }
 
   ngOnInit() {
+    this.chargerCategories();
   }
 
 
-  onSubmit(f: NgForm){
-    this.article = f.value;
-
-    this.articleService.ajouterArticle(this.article).subscribe(data => {
-    console.log(data);
-    this.currentArticle=data;
-    this.save=2;
-   // this.router.navigateByUrl('/admin-console');
+  chargerCategories(){
+    this.catService.getCategories(0, 100).subscribe( data => {
+       this.categories= data;
     }, err => {
       console.log(err);
+    })
+  }
 
+  onSubmit(f: NgForm){
+    this.article=f.value;
+    console.log(f.value);
+    let id =f.value.idCategory;
+    this.catService.getCategorie(id).subscribe( data => {
+      this.category= data;
+    })
+
+    console.log("my cat  "+  this.category);
+    console.log("id cat  "+ this.category.id);
+    this.article.category= this.category;
+    console.log(" encore  cat " +this.article.category);
+
+    this.articleService.editerArticle(this.article).subscribe(data => {
+      this.article=data;
+      this.save=2;
+      // this.router.navigateByUrl('/admin-console');
+    }, error => {
+      console.log(error)
     })
 
   }
@@ -46,7 +68,7 @@ export class AjouterArticleComponent implements OnInit {
 
   }
 
-  savPhoto(id) {
+  savePhoto(id) {
     this.progress=0;
    const formdata = new FormData();
 

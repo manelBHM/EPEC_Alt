@@ -11,7 +11,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -40,10 +39,10 @@ public class CommandeImpl implements ICommande {
         Panier p = panierRepository.findByUserId(u.getId());
         Map<Long, LigneCommande> items =p.getItems();
         Commande cmd=new Commande();
-        cmd.setAppUser(u);
+        cmd.setUser(u);
         cmd.setETAT("EN_COURS");
         //cmd.setDateCommande(LocalDateTime.now());
-        cmd.getArticles().putAll(items);
+        cmd.getItems().putAll(items);
        cmd = commandeRepository.save(cmd);
         double total= getTotal(cmd);
         cmd.setTotal(total);
@@ -60,7 +59,7 @@ public class CommandeImpl implements ICommande {
     @Override
     public double getTotal(Commande commande) {
         double total= 0;
-        for (Map.Entry<Long,LigneCommande> entry : commande.getArticles().entrySet()) {
+        for (Map.Entry<Long,LigneCommande> entry : commande.getItems().entrySet()) {
             int q= entry.getValue().getQuantite();
             double p = entry.getValue().getArticle().getPrix();
            total += q*p;
@@ -72,7 +71,7 @@ public class CommandeImpl implements ICommande {
     @Override
     public List<Commande> getAllCommandesClient(String username) {
         AppUser user = userRepository.findByUsername(username);
-        List<Commande> commandes = commandeRepository.findByAppUserId(user.getId());
+        List<Commande> commandes = commandeRepository.findByUserId(user.getId());
         return commandes;
     }
 

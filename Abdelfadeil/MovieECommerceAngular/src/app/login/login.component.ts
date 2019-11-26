@@ -11,6 +11,7 @@ import { UserModule } from '../user/user.module';
 })
 export class LoginComponent implements OnInit {
   private mode = 0;
+  private user: UserModule = new UserModule();
   constructor(private authService: AuthentificationService, private router: Router, private http:HttpClient) { }
 
 
@@ -24,14 +25,14 @@ export class LoginComponent implements OnInit {
 
   }
   onLogin(formData) {
+    //this.user.password=formData.password;
+   // this.user.username=formData.username;
+   // this.user.email= formData.email;
     this.authService.login(formData)
       .subscribe(resp => {
         let jwtToken = resp.headers.get('authorization');
         this.authService.saveToken(jwtToken);
         this.authService.loginbtn=false;
-          this.authService.signupbtn =false;
-          this.authService.logoutbtn=true;
-
         this.router.navigateByUrl('/home');
 
       },

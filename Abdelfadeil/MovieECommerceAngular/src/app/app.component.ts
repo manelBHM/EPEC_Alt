@@ -22,13 +22,13 @@ constructor(public autService: AuthentificationService, private router:Router){}
 
    ngOnInit(): void {
 
+     this.autService.jwtToken = this.autService.loadToken();
+     if((this.autService.jwtToken==null) || (this.autService.jwtToken=='')){
+       this.autService.loginbtn=true;
 
+     }
    }
-  onLogout(){
-    this.autService.jwtToken= null;
-    localStorage.removeItem('token');
-    this.autService.logout();
-    }
+
 
 
 

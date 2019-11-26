@@ -19,51 +19,54 @@ export class ArticleServiceService {
   }
 
 
-  getArticle(username) {
-    if(this.autService.jwtToken==null)
-    this.autService.jwtToken = this.autService.loadToken();
-    return this.http.get<ArticleModule>(this.host+"/get-article/"+username, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+  getArticle(id): Observable<any> {
+     // if(this.autService.jwtToken==null)
+    // this.autService.jwtToken = this.autService.loadToken();
+    return this.http.get<ArticleModule>(this.host+"/article/get-article?id="+id);
   }
 
   editerArticle(article:ArticleModule){
     if(this.autService.jwtToken==null)
     this.autService.jwtToken = this.autService.loadToken();
-    return this.http.put<ArticleModule>(this.host+"/modifier-article", article, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})})
+    return this.http.put<ArticleModule>(this.host+"/article/modifier-article", article, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})})
   }
 
 
 
   getArticlesList(){
-    if(this.autService.jwtToken==null)
-    this.autService.jwtToken = this.autService.loadToken();
-    return this.http.get<ArticleModule>(this.host+"/get-articles/", {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
-  }
-   getArticles(mc:String, page:number, size:number){
-    if(this.autService.jwtToken==null)
-    this.autService.jwtToken = this.autService.loadToken();
-    return this.http.get<ArticleModule>(this.host+"/get-articles-pages?mc="+mc+"&page="+page+"&size="+size, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
-  }
-
-   getArticlesCategory(idCategory: number, mc: String, page: number, size: number){
      if(this.autService.jwtToken==null)
      this.autService.jwtToken = this.autService.loadToken();
-     return this.http.get<ArticleModule>(this.host+"/articles-category-mc/"+idCategory+"?mc="+mc+"&page="+page+"&size="+size, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+    // {headers:new HttpHeaders({'authorization':this.autService.jwtToken})}
+    return this.http.get<ArticleModule>(this.host+"/article/get-articles/");
+  }
+   getArticles(mc:String, page:number, size:number){
+  //  if(this.autService.jwtToken==null)
+  //  this.autService.jwtToken = this.autService.loadToken();
+     // {headers:new HttpHeaders({'authorization':this.autService.jwtToken})}
+    return this.http.get<ArticleModule>(this.host+"/article/get-articles?mc="+mc+"&page="+page+"&size="+size);
+  }
+
+   getArticlesCategory(id: number, mc: String, page: number, size: number){
+     //  if(this.autService.jwtToken==null)
+     //  this.autService.jwtToken = this.autService.loadToken();
+     // {headers:new HttpHeaders({'authorization':this.autService.jwtToken})}
+     return this.http.get<ArticleModule>(this.host+"/article/get-articles-category?id="+id+"&mc="+mc+"&page="+page+"&size="+size);
     }
 
     ajouterArticle(article:ArticleModule) {
       if(this.autService.jwtToken==null)
       this.autService.jwtToken = this.autService.loadToken();
-      return this.http.post<ArticleModule>(this.host+ "/add-article", article , {headers:new HttpHeaders({'Authorization':this.autService.jwtToken})});
+      return this.http.post<ArticleModule>(this.host+ "/article/add-article", article , {headers:new HttpHeaders({'Authorization':this.autService.jwtToken})});
     }
 
     supprimer(id:number){
       if(this.autService.jwtToken==null)
       this.autService.jwtToken = this.autService.loadToken();
-      return this.http.delete(this.host+"/delete-article/"+id, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+      return this.http.delete(this.host+"/article/delete-article?id="+id, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
     }
 
     // partie cart(panier)
-    addToCart(article:ArticleModule) {
+    addToCart(article) {
       if(this.autService.jwtToken==null)
       this.autService.jwtToken = this.autService.loadToken();
       let jwtHelper = new JwtHelper();
@@ -80,18 +83,27 @@ export class ArticleServiceService {
     deleteCartProduct(id){
       if(this.autService.jwtToken==null)
       this.autService.jwtToken = this.autService.loadToken();
-     this.http.post(this.host+"/panier/delete/"+id, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
+      let jwtHelper = new JwtHelper();
+      this.autService.username = jwtHelper.decodeToken(this.autService.jwtToken).sub;
+     return this.http.delete(this.host+"/panier/delete?idArticle="+id+"&username="+ this.autService.username, {headers:new HttpHeaders({'authorization':this.autService.jwtToken})});
 
     }
 
-  uploadPhoto(file: FormData, idArticle) :Observable<HttpEvent<{}>>{
+  uploadPhoto(file: FormData, id) :Observable<HttpEvent<{}>>{
       if(this.autService.jwtToken==null)
         this.autService.jwtToken = this.autService.loadToken();
-
-    const req = new HttpRequest('POST', this.host+'/save-photo/'+idArticle, file,
+    const req = new HttpRequest('POST', this.host+'/article/save-photo/'+id, file,
       {reportProgress:true, responseType: 'text',
     });
     return this.http.request(req);
     }
+
+  ajouterArticleEtPhoto(file: FormData) {
+
+    const req = new HttpRequest('POST', this.host+'/article/save-photo',file,
+      {reportProgress:true, responseType: 'text',
+      });
+
+    return this.http.request(req);  }
 
 }

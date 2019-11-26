@@ -12,8 +12,8 @@ public interface PanierService {
 	
 	
 	public Panier CreatePanier(Long idUser);
-	public LigneCommande  AddArticlePanier(String username, Article article);
-	public void DeleteArticlePanier(Long idPanier , Long idArticle);
+	public LigneCommande  AddArticlePanier(String username, Article article) throws Exception;
+	public void DeleteArticlePanier(String username , Long idArticle);
 	public LigneCommande UpdateArticlePanier(LigneCommande article);
 	public LigneCommande getArticlePanier(Long id);
 	public void deleteAllArticlesPanier(Long idPanier);

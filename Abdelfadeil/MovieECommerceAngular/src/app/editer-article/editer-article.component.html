@@ -1,12 +1,12 @@
 <div class="container" *ngIf="editer==1">
   <h1 class="display-4">Editer article </h1>
 
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="article">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                           <label>Id Article</label>
-                          <input  type="text" class="form-control" name="idArticle" [(ngModel)]="article.idArticle">
+                          <input  type="text" class="form-control" name="id" [(ngModel)]="article.id">
                         </div>
                       </div>
 
@@ -28,6 +28,7 @@
                       <input  type="text" class="form-control ngModel" name="prix" [(ngModel)]="article.prix">
                     </div>
                   </div>
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label >Quantity</label>
@@ -35,33 +36,33 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6">
-                        <div class="form-group">
-                          <label >Nom Categorie</label>
-                          <input  type="text" class="form-control" name="nomCategory" [(ngModel)]="article.nomCategory">
-                        </div>
-                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label >Photo Url</label>
                           <input  type="text" class="form-control" name="photo" [(ngModel)]="article.photo">
                         </div>
-                        <div class="form-group">
-                          <label>Disponible</label>
-                          <p class="lead" [(ngModel)]="article.disponible"></p>
-                        </div>
-                      </div>
                       </div>
 
-                  <div class="col-md-12 text-center">
+                  <div class="col-md-6 text-center">
                     <div class="form-group">
                       <label>Diponible</label>
-                      <select name="disponible" class="form-control form-control-sm" [(ngModel)]="article.disponible">
+                      <select name="disponible" class="form-control" [(ngModel)]="article.disponible">
                         <option value="">Small select</option>
                         <option value="true">True</option>
                         <option value="false">False</option>
                       </select>
                     </div>
+                  </div>
+                    <div class="col-md-6 text-center">
+                      <div class="form-group">
+                        <label>Categories</label>
+                        <select  *ngIf="categories" class="form-control"  name="idCategory" ngModel>
+                          <option value="">select</option>
+                          <option *ngFor="let c of categories.content;"   value="{{c.id}}">{{c.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+
                    <div class="col-md-12 text-center">
                     <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
                   </div>
@@ -78,7 +79,7 @@
       <h1 class="display-4">Détail de l'article </h1>
       <div class="form-group">
         <label>Id</label>
-        <p class="lead">{{article.idArticle}}</p>
+        <p class="lead">{{article.id}}</p>
       </div>
       <div class="form-group">
         <label>Nom</label>
@@ -117,12 +118,12 @@
           <input type="file"
                  id="file"
                  (change)="fileUpload($event)">
-          <button class="btn btn-outline-success" (click)="savPhoto(article.idArticle)">Upload</button><br>
+          <button class="btn btn-outline-success" (click)="savePhoto(article.id)">Upload</button><br>
           {{progress}}
         </p>
       </div>
     </div>
     <div class="col-md-12 text-center">
-      <button type="submit" style="width: 200px;" class="btn btn-l btn-primary"> Enoyer</button>
+      <button type="submit" style="width: 200px;" class="btn btn-l btn-primary" [routerLink]="['/admin-console']" > Admin console </button>
     </div>
 </div>

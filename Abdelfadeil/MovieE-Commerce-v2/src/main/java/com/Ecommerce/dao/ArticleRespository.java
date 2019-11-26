@@ -5,8 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 public interface ArticleRespository extends JpaRepository<Article, Long> {
@@ -23,8 +21,8 @@ public interface ArticleRespository extends JpaRepository<Article, Long> {
 	//public Page<Article> findByCategoryAndDescriptionContains(Category category, @Param("mc") String mc, Pageable pageable);
 	
 	public Page<Article> findByDescriptionContains(@Param("mc") String mc, Pageable pageable);
-    public Page<Article> findByCategoryIdCategory(@Param("idCategory")Long idCategory, Pageable pageable);
-	public Page<Article> findByCategoryIdCategoryAndDescriptionContains(@Param("idCategory")Long idCategory, @Param("mc") String mc, Pageable pageable);
+    public Page<Article> findByCategoryId(@Param("id")Long idCategory, Pageable pageable);
+	public Page<Article> findByCategoryIdAndDescriptionContains(@Param("id")Long id, @Param("mc") String mc, Pageable pageable);
 
 
 

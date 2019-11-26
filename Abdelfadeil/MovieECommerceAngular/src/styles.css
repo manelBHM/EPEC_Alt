@@ -75,22 +75,22 @@ section .col-sm-4 .card:hover,
   float: left;
 }
 .home-slide .slider .slide:nth-child(1) {
-  background: url("assets/img/main-slider1.jpg");
+  background: url("https://farm66.staticflickr.com/65535/49121283722_d6a5d6aa7c_z.jpg");
   background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(2) {
-  background: url("assets/img/main-slider2.jpg");
+  background: url("https://farm66.staticflickr.com/65535/49124686156_50d93634da_z.jpg	");
   background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(3) {
-  background: url("assets/img/main-slider3.jpg");
+  background: url("https://farm66.staticflickr.com/65535/49120706453_154486706b_z.jpg	");
   background-size: 100% 100%;
 }
 
 .home-slide .slider .slide:nth-child(4) {
-  background: url("assets/img/main-slider4.jpg");
+  background: url("https://farm66.staticflickr.com/65535/49121283722_d6a5d6aa7c_z.jpg");
   background-size: 100% 100%;
 }
 
@@ -439,7 +439,7 @@ div.view_gallery {
   height: 60px;
   width: 60px !important;
   margin: 5px 5px;
-  
+
   /* margin: auto !important;  */
 }
 .btn.btn-outline-info.view_gallery:hover {

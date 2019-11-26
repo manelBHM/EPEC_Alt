@@ -35,52 +35,46 @@ public class PanierServiceImpl implements PanierService {
     }
 
     @Override
-    public LigneCommande AddArticlePanier(String username, Article a) {
+    public LigneCommande AddArticlePanier(String username, Article a) throws Exception {
         AppUser u = userRepository.findByUsername(username);
         Panier p = panierRepository.findByUserId(u.getId());
-        if(a.getQuantity() < 1){
-            return null;
-        }
         LigneCommande item = null;
         Map<Long, LigneCommande> items = p.getItems();
-        item = items.get(a.getIdArticle());
-        if (item == null) {
-            System.out.println("if articles == null");
-            if (a.getQuantity() > 0) {
-                item = new LigneCommande();
-                item.setQuantite(1);
-                item.setArticle(a);
-                item = ligneCommandeRespository.save(item);
-                p.getItems().put(a.getIdArticle(), item);
-                panierRepository.save(p);
-                item = ligneCommandeRespository.save(item);
-                System.out.println("neuveau article et sortir");
-            } //LigneCommande ar = ligneCommandeRespository.save(item); // arCom = ligneCommandeRespository.save(item);
-            else {
-                System.out.println("il n'y a plus de cette article << non disponible >>");
-                return null;
-            }
-        } else {
+        item = items.get(a.getId());
+
+      //  if(a.getQuantity()-item.getQuantite() == 0) throw new Exception("il n'y a plus de cette article << non disponible >>");
+
+            if (item == null) {
+                System.out.println("if articles == null");
+
+                    item = new LigneCommande();
+                    item.setQuantite(1);
+                    item.setArticle(a);
+                    item = ligneCommandeRespository.save(item);
+                    p.getItems().put(a.getId(), item);
+                    panierRepository.save(p);
+                    System.out.println("neuveau article et sortir");
+                return item;
+
+            } else {
                 System.out.println(" Article exist");
-            if (a.getQuantity() > 0) {
                 item.setQuantite(item.getQuantite() + 1);
                 item = ligneCommandeRespository.save(item);
-                p.getItems().put(a.getIdArticle(), item);
+                p.getItems().put(a.getId(), item);
                 panierRepository.save(p);
                 ligneCommandeRespository.save(item);
+
                 System.out.println("Incrumenter de la quantity de l'Article");
-            } else {
 				System.out.println("il n'y a plus de cette article << non disponible >>");
-				return null;
-			        }
+                return item;
                 }
-        return item;
+
     }
+
 
     @Override
     public void modifierQuantity(Long idArticle) {
         LigneCommande lc = ligneCommandeRespository.getOne(idArticle);
-
         if (lc.getQuantite() == 1) {
             ligneCommandeRespository.deleteById(idArticle);
         } else if (lc.getQuantite() > 1) {
@@ -91,13 +85,17 @@ public class PanierServiceImpl implements PanierService {
 
         }
 
+
     }
 
     @Override
-    public void DeleteArticlePanier(Long idPanier, Long idArticle) {
-        Panier p = panierRepository.getOne(idPanier);
+    public void DeleteArticlePanier(String username, Long idArticle) {
+        AppUser u = userRepository.findByUsername(username);
+        LigneCommande l = ligneCommandeRespository.findById(idArticle).get();
+        Panier p = panierRepository.findByUserId(u.getId());
         Map<Long, LigneCommande> items = p.getItems();
         items.remove(idArticle);
+        ligneCommandeRespository.delete(l);
         panierRepository.save(p);
 
     }
@@ -118,13 +116,16 @@ public class PanierServiceImpl implements PanierService {
         AppUser user = userRepository.findByUsername(username);
         System.out.println(user);
         Panier p = panierRepository.findByUserId(user.getId());
+        p.setItems(p.getItems());
+        p= panierRepository.save(p);
         return p.getItems();
 
 
     }
 
-    public double getTotal(Long idPanier) {
-        Panier p = panierRepository.getOne(idPanier);
+    public double getTotal(String username) {
+        AppUser user = userRepository.findByUsername(username);
+        Panier p = panierRepository.findByUserId(user.getId());
         Map<Long, LigneCommande> items = p.getItems();
         double total = 0;
         for (LigneCommande lc : items.values()) {

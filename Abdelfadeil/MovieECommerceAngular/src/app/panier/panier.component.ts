@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, IterableDiffers, OnInit} from '@angular/core';
 import { Route, ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ArticleServiceService } from '../service/article-service.service';
 import { PanierService } from '../service/panier.service';
@@ -6,6 +6,7 @@ import { AuthentificationService } from '../service/authentification.service';
 import { LigneCommandeModule } from '../ligne-commande/ligne-commande.module';
 import {ArticleModule} from "../article/article.module";
 import {JwtHelper} from "angular2-jwt";
+import {iterator} from "rxjs/internal-compatibility";
 
 @Component({
   selector: 'app-panier',
@@ -20,7 +21,8 @@ export class PanierComponent implements OnInit {
   url: string;
   //  public ligneCommandes : Map<number,LigneCommandeModule> = new Map<number, LigneCommandeModule>();
  public ligneCommandes: Array<LigneCommandeModule>=new Array<LigneCommandeModule>();
-    items;
+    items= new Map<number, LigneCommandeModule>();
+  private total: number;
   constructor(private router:Router, private articleService:ArticleServiceService,
      private activatedRoute:ActivatedRoute, private paierService:PanierService,
      private autService:AuthentificationService
@@ -43,10 +45,10 @@ export class PanierComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.getAllArticlePanier();
     let jwtHelper = new JwtHelper();
     this.autService.username = jwtHelper.decodeToken(this.autService.jwtToken).sub;
+    this.getTotal();
 
     /*
    //
@@ -62,17 +64,24 @@ export class PanierComponent implements OnInit {
      */
   }
 
-
+   getTotal() {
+     this.paierService.getTotal().subscribe(data => {
+       this.total=data;
+     }, error => {
+       console.log(error)
+     })
+     }
   getAllArticlePanier(){
+
     this.paierService.getAllPanier().subscribe(data=> {
       this.items=data;
-
       console.log('data map' +this.items);
 
     // console.log('this.ligneComandes '+this.ligneCommandes);
     }, error => {
       console.log(error);
     })
+    this.getTotal();
   }
 
   afficherArticle(){
@@ -85,6 +94,15 @@ export class PanierComponent implements OnInit {
   }
 
   supprimerArticlePanier(id){
-    this.articleService.deleteCartProduct(id);
+    this.paierService.supprimerArticle(id).subscribe(data => {
+      console.log(id +"      *****  "+ data);
+      this.getAllArticlePanier();
+    }, error => {
+      console.log(error);
+    })
+
+    this.getTotal();
+
+
   }
 }

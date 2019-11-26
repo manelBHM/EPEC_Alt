@@ -15,6 +15,14 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthentificationService,private router: Router) { }
 
   ngOnInit() {
+      this.authService.jwtToken = this.authService.loadToken();
+    if((this.authService.jwtToken==null) || (this.authService.jwtToken==''))
+    {
+      this.authService.loginbtn=true;
+    }else  {
+      this.authService.loginbtn=false;
+    }
+
   }
   /*
   onChercher() {
@@ -36,5 +44,9 @@ this.authService.loginbtn
 
   registerPage(){
     this.router.navigateByUrl("/register");
+  }
+
+  searchForm() {
+
   }
 }

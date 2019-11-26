@@ -39,7 +39,7 @@
           <div class="card-body">
             <ul class="nav nav-pills flex-column category-menu">
                 <li  (click)="onchercherArticlesCategory('all')" [ngClass]="currentId=='all'?'active': ''"> <a class="nav-link">toutes les categories</a> </li>
-               <li  *ngFor="let c of categories.content; let i = index"  class="" [ngClass]="currentId==c.idCategory?'active': ''" (click)="onchercherArticlesCategory(c.idCategory)">
+               <li  *ngFor="let c of categories.content; let i = index"  class="" [ngClass]="currentId==c.id?'active': ''" (click)="onchercherArticlesCategory(c.id)">
                  <a  class="nav-link">{{c.name}}</a>
                </li>
             </ul>
@@ -101,7 +101,7 @@
 
 
                         <div (click)="ajouterArticlePanier(article)" class="btn btn-outline-success add_to_cart"> <i class="fa fa-shopping-cart"></i></div>
-                        <div (click)="afficherArticle(article.idArticle)" class="btn btn-outline-info view_gallery"><i class="fa fa-eye-slash"></i></div>
+                        <div (click)="afficherArticle(article.id)" class="btn btn-outline-info view_gallery"><i class="fa fa-eye-slash"></i></div>
                       </div>
 
                   </div>

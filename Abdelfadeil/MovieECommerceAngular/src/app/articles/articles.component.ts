@@ -72,7 +72,7 @@ export class ArticlesComponent implements OnInit {
        this.articles=data;
     }, error => {
       console.log(error);
-      this.router.navigate(['/login']);
+      // this.router.navigate(['/login']);
     }
     )
   }
@@ -90,7 +90,7 @@ export class ArticlesComponent implements OnInit {
         this.articles=data;
      }, error => {
        console.log(error);
-       this.router.navigateByUrl('/login')
+      // this.router.navigateByUrl('/login')
      }
      )
     } else {
@@ -102,7 +102,7 @@ export class ArticlesComponent implements OnInit {
         this.articles=data;
       }, error => {
         console.log(error);
-        this.router.navigateByUrl('/login')
+        // this.router.navigateByUrl('/login')
       }
       )
     }
@@ -132,7 +132,7 @@ export class ArticlesComponent implements OnInit {
         this.articles=data;
      }, error => {
        console.log(error);
-       this.router.navigateByUrl('/login');
+      // this.router.navigateByUrl('/login');
      }
      )
     }
@@ -152,7 +152,7 @@ export class ArticlesComponent implements OnInit {
     this.categories= data;
     console.log('toutes les categories '+this.categories);
     }, error=> {
-      console.log(error);
+    //  console.log(error);
     })
   }
 
@@ -161,6 +161,7 @@ export class ArticlesComponent implements OnInit {
       this.ligneCommande=data;
     }, error=> {
       console.log(error);
+       this.router.navigateByUrl('/login');
     })
   }
 

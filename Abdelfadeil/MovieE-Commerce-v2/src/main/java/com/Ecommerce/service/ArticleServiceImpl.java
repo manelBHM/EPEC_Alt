@@ -1,7 +1,10 @@
 package com.Ecommerce.service;
 
 import com.Ecommerce.dao.ArticleRespository;
+import com.Ecommerce.dao.CategoryRepository;
+import com.Ecommerce.dao.MovementStockRepository;
 import com.Ecommerce.entities.Article;
+import com.Ecommerce.entities.Category;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,8 +27,11 @@ public class ArticleServiceImpl implements IArticleService {
     @Autowired
     private ArticleRespository articleRespository;
     @Autowired
+    private CategoryRepository categoryRespository;
+    @Autowired
     private MouvStockService mouvStockService;
-
+    @Autowired
+    private MovementStockRepository movementStockRepository;
   Logger logger = Logger.getLogger(ArticleServiceImpl.class);
 
 
@@ -38,12 +44,12 @@ public class ArticleServiceImpl implements IArticleService {
             String urlPhoto=  flickrService.savePhoto(inputStream, nameFile);
             a.setPhoto(urlPhoto);
             //articleRespository.save(a);
-            if(a.getIdArticle()==null) {
+            if(a.getId()==null) {
                 a= articleRespository.save(a);
                 mouvStockService.enteeArticle(a, a.getQuantity());
                 return a;
             } else {
-                Article ar = articleRespository.findById(a.getIdArticle()).get();
+                Article ar = articleRespository.findById(a.getId()).get();
                 float q = ar.getQuantity()+a.getQuantity();
                 a.setQuantity(q);
                 a= articleRespository.save(a);
@@ -59,15 +65,25 @@ public class ArticleServiceImpl implements IArticleService {
     }
 
     public Article AddArticle( Article a) {
+        Long idc;
+        Category c=null;
+        try {
+             idc = a.getCategory().getId();
+             c= categoryRespository.findById(idc).get();
+        }catch (Exception e){
 
-      // Article ar = articleRespository.findById(a.getIdArticle()).get();
-       if(a.getIdArticle()==null) {
+        }
+
+       if(a.getId()==null) {
            a= articleRespository.save(a);
+           a.setCategory(c);
            mouvStockService.enteeArticle(a, a.getQuantity());
-           return a;
+           return articleRespository.save(a);
        } else {
-           Article ar = articleRespository.findById(a.getIdArticle()).get();
-           float q = ar.getQuantity()+a.getQuantity();
+
+           a = articleRespository.findById(a.getId()).get();
+           a.setCategory(c);
+           float q = a.getQuantity()+a.getQuantity();
            a.setQuantity(q);
            a= articleRespository.save(a);
            mouvStockService.enteeArticle(a, a.getQuantity());
@@ -78,7 +94,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Article UpdateArticle(MultipartFile file, Article a) {
-        Article ar = articleRespository.findById(a.getIdArticle()).get();
+        Article ar = articleRespository.findById(a.getId()).get();
         float q = ar.getQuantity()+a.getQuantity();
         try {
             InputStream inputStream = file.getInputStream();
@@ -99,7 +115,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Article getArticle(Long id) {
-        return articleRespository.getOne(id);
+        return articleRespository.findById(id).get();
     }
 
     @Override
@@ -107,7 +123,9 @@ public class ArticleServiceImpl implements IArticleService {
         try {
             Article a= articleRespository.findById(id).get();
             mouvStockService.sortiArticle(a, a.getQuantity());
-            articleRespository.deleteById(id);
+            a.setCategory(null);
+            a=articleRespository.save(a);
+            articleRespository.delete(a);
 
         }catch (Exception e){
             e.getStackTrace();
@@ -122,12 +140,12 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Page<Article> getArticlesParCtegory(Long id, String mc, int page, int size) {
-        return articleRespository.findByCategoryIdCategory(id, PageRequest.of(page, size));
+        return articleRespository.findByCategoryId(id, PageRequest.of(page, size));
     }
 
     @Override
     public Page<Article> getArticlesParCategoryAndKeyWord(Long id, String mc, int page, int size) {
-        return articleRespository.findByCategoryIdCategory(id, PageRequest.of(page, size));
+        return articleRespository.findByCategoryId(id, PageRequest.of(page, size));
     }
 
     @Override

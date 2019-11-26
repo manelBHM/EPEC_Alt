@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelper } from 'angular2-jwt';
 import "rxjs/Rx"
@@ -9,19 +9,18 @@ import { User } from '../user.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationService {
+export class AuthentificationService   {
    host: string = "http://localhost:8080";
    jwtToken: string;
    roles: Array<any> = [];
   username: String="";
   loginbtn: boolean =true;
-  signupbtn: boolean =true;
-  logoutbtn: boolean=false;
+
   public id:number;
   public user: User= new User( this.id , '', '', '', '', '', '');
 
 
-  constructor(private http: HttpClient, private router:Router) { }
+  constructor(private http: HttpClient, private router:Router)  { }
 
 
 
@@ -60,8 +59,6 @@ export class AuthentificationService {
     this.jwtToken= null;
     localStorage.removeItem('token');
     this.loginbtn =true;
-    this.signupbtn =true;
-    this.logoutbtn=false;
     this.router.navigateByUrl('/login');
     }
 

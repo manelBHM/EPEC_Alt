@@ -1,29 +1,18 @@
 package com.Ecommerce.entities;
 
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
 public class LigneCommande implements Serializable{
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idLigneCommande;
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	@ManyToOne( optional = false, fetch=FetchType.LAZY)
 	@JoinColumn(name="idArticle")
 	private Article article;

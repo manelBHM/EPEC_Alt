@@ -1,6 +1,5 @@
 package com.Ecommerce.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,16 +19,15 @@ public class AppUser implements Serializable{
 	private Long id;
 	@Column(unique=true)
 	private String username;
-	@JsonIgnore
 	private String password;
 	private String firstName;
 	private String lastName;
 	@ManyToMany
 	private Collection<AppRole> roles= new ArrayList<>();
+    @Column(unique=true)
 	private String email;
 	private String tel;
 	@OneToMany(mappedBy="appUser")
-	@JsonIgnore
 	private Collection<Adresse> adresses = new ArrayList<>();
 	private boolean accountNonExpired = false;
     private boolean credentialsNonExpired = false;
