@@ -48,7 +48,7 @@
     </tr>
     <tr *ngFor="let dvd of dvds">
       <td><img class="photoprez" src="{{dvd.photo}}"></td>
-      <td>{{dvd.name}}</td>
+      <td><a [routerLink]="['/admin/dvds/view', dvd.name]">{{dvd.name}}</a></td>
       <td>{{dvd.price}}€</td>
       <td><button class="btn btn-outline-success my-2 my-sm-0" type="submit">+</button></td>
     </tr>

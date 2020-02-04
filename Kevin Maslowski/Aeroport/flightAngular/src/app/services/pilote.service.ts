@@ -18,16 +18,16 @@ export class PiloteService {
   }
 
   getPilote(id: number) {
-    return this.http.get('/server/pilotes/' + id)
+    return this.http.get('/server/pilotes/' + id);
   }
 
   createPiloteRegistration(pilote) {
     let body = JSON.stringify(pilote);
     return this.http.post('/server/pilotes', body, httpOptions);
   }
-  
+
   deletePilote(id: number) {
-    return this.http.delete('/server/pilotes/' + id)
+    return this.http.delete('/server/pilotes/' + id);
   }
 
   savePilote(pilote) {
