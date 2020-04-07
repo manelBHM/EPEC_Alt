@@ -12,7 +12,10 @@ export class ProduitService {
   public produit: Produit;
   public produits: Produit [];
   public host: string = "http://localhost:8080";
-
+  public mc: string = '';
+  public page: number = 0;
+  public size: number = 40;
+  public dataSource: Promise<any[]>;
   constructor(private http: HttpClient) { }
 
   form: FormGroup = new FormGroup({
@@ -54,6 +57,13 @@ export class ProduitService {
   }
 
   consulterProduits(mc: string, page: number, size: number)  {
+    return this.http.get<any[]>(this.host + "/produits/get-produits?mc=" + mc + "&page=" + page + "&size=" + size).subscribe(data => {
+      this.dataSource  = data['content'];
+    }, error => {
+    });
+  }
+
+  consulterProduitsMisAjour(mc: string, page: number, size: number)  {
     return this.http.get<any[]>(this.host + "/produits/get-produits?mc=" + mc + "&page=" + page + "&size=" + size);
   }
 

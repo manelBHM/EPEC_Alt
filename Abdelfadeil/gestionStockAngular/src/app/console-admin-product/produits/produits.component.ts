@@ -8,6 +8,7 @@ import {FormGroup} from '@angular/forms';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable, of as ObservableOf } from 'rxjs';
 import {map} from 'rxjs/operators';
+import {ActivatedRoute, NavigationEnd, Route, Router} from '@angular/router';
 
 
 
@@ -20,7 +21,7 @@ import {map} from 'rxjs/operators';
   templateUrl: './produits.component.html',
   styleUrls: ['./produits.component.css']
 })
-export class ProduitsComponent extends DataSource<Produit> implements OnInit {
+export class ProduitsComponent implements OnInit {
 
   id: number;
   name: string;
@@ -29,32 +30,25 @@ export class ProduitsComponent extends DataSource<Produit> implements OnInit {
   disponible: boolean;
   photo: string;
 
-  mc: string = '';
-  page: number = 0;
-  size: number = 40;
+
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   produits: any[];
-  dataSource: Promise<any[]>;
   data;
-  public produits$ = new BehaviorSubject(this.produits);
-
-
-  constructor(public produitService: ProduitService, public changeDetectorRefs: ChangeDetectorRef) {
-    super();
-    setInterval(() => {
-      this.consulterProduits();
-    }, 1000);
-  }
-
-  trackById(index, produit) {
-    return produit.id;
+  constructor(public produitService: ProduitService, private router: Router) {
+    this.router.events.subscribe( val => {
+      if ( val instanceof NavigationEnd) {
+        this.produitService.consulterProduitsMisAjour('', 0, 40).subscribe( data => {
+          this.produitService.dataSource = data['content'];
+        }, error => {
+          console.log(error);
+        });
+      }
+    });
   }
 
   ngOnInit(): void {
-   // this.produits$ = this.produits$.pipe(map(v => Object.values(v)));
      this.consulterProduits();
-    //  this.dataSource.sort = this.sort;
   }
       displayedColumns : string[] = ['id', 'name', 'description', 'prix', 'disponible', 'photo', 'delete'];
       pageEvent: PageEvent;
@@ -62,10 +56,7 @@ export class ProduitsComponent extends DataSource<Produit> implements OnInit {
 
   consulterProduits() {
    // this.dataSource = this.asyncConsulterProduits();
-    this.produitService.consulterProduits(this.mc, this.page, this.size).subscribe(data => {
-      this.dataSource  = data['content'];
-    }, error => {
-    });
+    this.produitService.consulterProduits(this.produitService.mc, this.produitService.page, this.produitService.size);
   }
 
   onDelete(event, id) {
@@ -87,21 +78,14 @@ export class ProduitsComponent extends DataSource<Produit> implements OnInit {
       console.log(event.toElement.className );
       console.log(event);
       console.log(row);
-      console.log(this.produitService.form)
+      console.log(this.produitService.form);
       this.produitService.setFormGroup(row);
     }
      }
   }
 
   async asyncConsulterProduits() {
-    const result = await this.produitService.consulterProduits(this.mc, this.page, this.size).toPromise();
+    const result = await this.produitService.consulterProduitsMisAjour(this.produitService.mc, this.produitService.page, this.produitService.size);
     return  result;
-  }
-
-  connect(collectionViewer: CollectionViewer): Observable<Produit[] | readonly Produit[]> {
-    throw ObservableOf(this.dataSource);
-  }
-  disconnect(collectionViewer: CollectionViewer): void {
-    throw new Error("Method not implemented.");
   }
 }

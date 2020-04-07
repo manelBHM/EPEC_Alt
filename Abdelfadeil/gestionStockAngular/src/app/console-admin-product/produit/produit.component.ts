@@ -5,7 +5,7 @@ import {MatGridList} from '@angular/material/grid-list';
 import {Subject} from 'rxjs';
 import {MediaChange, MediaObserver} from '@angular/flex-layout';
 import {Produit} from '../partage/produit.module';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 
@@ -15,8 +15,15 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./produit.component.css']
 })
 export class ProduitComponent implements OnInit {
+  private url: string;
 
-  constructor(public produitService: ProduitService, public observableMedia: MediaObserver, private router: Router) { }
+  constructor(public produitService: ProduitService, public observableMedia: MediaObserver, private router: Router) {
+    this.router.events.subscribe( val => {
+      if ( val instanceof NavigationEnd) {
+        this.produitService.consulterProduits('', 0, 40);
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.produitService.initializeFormGroup();
@@ -32,10 +39,10 @@ export class ProduitComponent implements OnInit {
 
     if( this.produitService.form.value.id == 0) {
       this.produitService.ajouterProduit(form);
-      this.router.navigateByUrl('/console-admin-produit');
+      this.router.navigateByUrl('/');
     } else {
       this.produitService.modifierProduit(form);
-      this.router.navigateByUrl('/console-admin-produit');
+      this.router.navigateByUrl('/');
     }
 
 

@@ -27,6 +27,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {CdkTableModule} from '@angular/cdk/table';
     ConsoleAdminProductComponent,
     ProduitsComponent,
     ProduitComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
