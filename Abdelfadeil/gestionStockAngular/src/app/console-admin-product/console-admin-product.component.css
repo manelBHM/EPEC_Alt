@@ -1,0 +1,42 @@
+
+.admin-produit mat-grid-list {
+  margin: 10px;
+
+}
+mat-grid-tile.myTable {
+  min-height: 70vh;
+}
+
+.admin-produit app-produits {
+  width: 100% !important;
+}
+
+.admin-produit app-produit , .myCol {
+  width: 100%;
+  height: auto;
+}
+
+.admin-produit app-produits {
+  height: auto;
+
+}
+
+
+@media screen and (max-width: 1200px) {
+  .admin-produit app-produits {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+
+}
+

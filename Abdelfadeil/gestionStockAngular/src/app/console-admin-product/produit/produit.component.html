@@ -1,0 +1,45 @@
+
+<div class="app-produit">
+<form [formGroup]="produitService.form" (ngSubmit)="onSubmitForm()" class="normal-form">
+  <mat-grid-list cols="1"  rowHeight = "100px">
+   <mat-grid-tile>
+    <input type="hidden" formControlName="id">
+    <mat-form-field>
+      <input formControlName="name" matInput placeholder="Produit nom*">
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="description" matInput placeholder="Description*">
+    </mat-form-field>
+
+</mat-grid-tile>
+    <mat-grid-tile>
+
+        <mat-form-field>
+          <input formControlName="prix" matInput placeholder="Prix">
+        </mat-form-field>
+      <mat-form-field>
+        <input formControlName="disponible" matInput placeholder="Disponible*">
+      </mat-form-field>
+
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+      <mat-form-field>
+        <input formControlName="photo" matInput placeholder="Url Photo">
+      </mat-form-field>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="button-row row d-flex justify-content-end">
+        <button mat-raised-button style="margin-right: 10px; width: 100px" color="primary" type="submit" [disabled]="produitService.form.invalid">Submit</button>
+        <button mat-raised-button style="margin-right: 60px;" color="warn" (click)="onClear()">Clear</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</form>
+</div>
+
