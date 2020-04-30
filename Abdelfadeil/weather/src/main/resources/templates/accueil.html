@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/fontawesome.min.css"
+          th:href="@{css/fontawesome.min.css}"/>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<div class="ecrant">
+    <header>
+        <div class="navbar navbar-default">
+            <div class="">
+                <ul class="nav navbar-nav">
+                    <li><a class="clickable" th:href="@{/meteo/accueil(city=${city})}">Accueil</a></li>
+                    <li><a class="clickable" th:href="@{/meteo/search(city=${city})}">Chercher</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="red">Météo </h2></div>
+            <br/>
+            <div class="row">
+                <nav class="navbar navbar-light bg-light " style="text-align: center;">
+                    <form class="form-inline" th:action="@{/meteo/search(city=${city})}" method="get">
+                        <input style="width:50%" class="form-control mr-sm-3" th:value="${city}"   name="city" type="search"
+                               placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </nav>
+            </div>
+            <div class="panel-body">
+                <div class="body">
+                    <div class='container'>
+                        <div  class='panel-title'>
+                            <h1 style="text-transform: capitalize;" class='' th:text="${weatherItem.city}"></h1>
+                            <p th:text="${weatherItem.date}"></p>
+                        </div>
+                        <hr>
+                        <div class='text-left'>
+                            <div class="weather-icon wi">
+                                <img th:src="@{/imgages/weather/cloudy.png}" style="">
+                            </div>
+                            <h1 class='temperature title' style="font-size: 40px;" th:text="${#numbers.formatDecimal(weatherItem.temberature, 0, 'COMMA', 0, 'POINT') +'° C'}">
+                            </h1>
+                        </div>
+                        <div >
+                            <div class='desc-text' th:text="${ 'Tem max  '+  #numbers.formatDecimal(weatherItem.temMax, 0, 'COMMA', 0, 'POINT') +'° C'}">
+                            </div>
+                            <div  class='desc-text' th:text="${ 'Tem min  '+ #numbers.formatDecimal(weatherItem.temMin, 0, 'COMMA', 0, 'POINT') +'° C'}">
+                            </div>
+                            <div class='desc-text' th:text="${'Humidity '+ weatherItem.humidite + '%'}">
+                            </div>
+                            <br>
+                            <div class='desc-text' th:text="${'Pression  '  + weatherItem.pression}">
+                            </div>
+                            <div class='desc-text' th:text="${'Nuages  '+  weatherItem.nuages}">
+                            </div>
+                            <div class='desc-text' th:text="${'Weather   '+   weatherItem.weather}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+</div>
+
+<footer id="footer" style="margin-bottom: 0">
+    <div>
+        <div class="row">
+            <div>
+                <small>All Copyright Reserve 2020</small>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
