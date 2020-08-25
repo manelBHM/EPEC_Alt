@@ -1,0 +1,192 @@
+.red{
+    color:#e84118;
+}
+.green{
+    color:#44bd32;
+}
+.navbar-default{
+    background: #40739e !important;
+    padding: 0px 30px !important;
+}
+.navbar-default .navbar-nav > li > a{
+    color:#FFF;
+}
+.navbar-default .navbar-nav > li > a:hover{
+    color:#e1b12c;
+}
+.panel-heading{
+    background: aliceblue !important;
+    padding-left: 36px !important;
+}
+* {
+    box-sizing: border-box;
+}
+
+#my-table table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+#my-table th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+#footer{
+    background:#40739e;
+    color: #FFF;
+    text-align:center;
+    padding: 10px 0;
+}
+#footer .icon-bar {
+    background-color: #40739e;
+
+}
+#footer .icon-bar a {
+    float: left;
+    width: 10%;
+    text-align: center;
+    padding: 0px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#footer .icon-bar img{
+    width: 34px;
+}
+#footer small{
+    font-weight: bold;
+    font-family: initial;
+    font-size: 16px;
+}
+#footer .responsive {
+    width: 100%;
+    height: 40px;
+}
+@charset "UTF-8";
+* {
+    font-family: Amiri;
+}
+.slide{
+    height: 600px;
+
+}
+body, container-fluid {
+    width: 100%;
+}
+.mybtn{
+    margin: 20px 400px ! important;
+    background: green;
+
+}
+.ecrant {
+    min-height: 92.9vh;
+
+}
+.navbar-nav>li>a {
+    color: #FFF !important}
+
+
+/*
+card weather
+*/
+
+.body {
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*Override Google MDL*/
+    min-height: 0%;
+}
+
+.card-weather {
+    min-height: 360px;
+    position: relative;
+}
+
+.icon-temp {
+    width: 100%;
+    height: 72%;
+    position: relative;
+    min-width: 300px;
+    text-align: center;
+}
+
+.temperature {
+    position: relative;
+    display: inline-block;
+    top: 24px;
+    padding: 0px 36px 0px 36px;
+}
+
+.weather-icon {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    top: 24px;
+    left: 24px;
+}
+
+.scale-btn {
+    top: 6px;
+    left: -8px;
+    height: 36px;
+    min-width: 36px;
+    line-height: 80px;
+    border-radius: 50%;
+}
+
+.mdl-button:active {
+    background-color: #FFF;
+}
+
+.scale-btn > h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+.mdl-card__title {
+    min-height: 48px;
+}
+
+.mdl-card {
+    position: relative;
+    top: 100px;
+    width: 70%;
+    min-width: 300px;
+}
+
+.weather-icon {
+    font-size: 64px;
+    width: 200px;
+    height: 200px;
+}
+.weather-icon img {
+    width: 100%;
+}
+
+.desc-text {
+    display: inline-block;
+    padding: 2% 6% 2% 6%;
+    color: #AAAAAA;
+}
+
+#description {
+    text-align: center;
+}
+
+.clickable {
+    cursor: pointer;
+}
